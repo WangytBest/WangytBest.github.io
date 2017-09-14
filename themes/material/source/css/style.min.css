@@ -538,7 +538,7 @@ a {
 }
 
 #scheme-Paradox .post_entry-module {
-    margin-bottom: 47.59px;
+    margin-bottom: 30px;
     margin-top: 0
 }
 
@@ -549,7 +549,8 @@ a {
     padding: 0;
     width: 100%;
     max-width: 900px;
-    flex-shrink: 0
+    flex-shrink: 0;
+    margin-bottom: 70px;
 }
 
 #scheme-Paradox .material-layout .material-layout__content {
@@ -953,9 +954,13 @@ a {
     box-sizing: border-box;
     margin-top: 4pc;
     padding: 40px;
-    height: 70pt;
+    height: 70px;
     background-color: #fff;
-    align-items: center
+    align-items: center;
+    /* position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 10; */
 }
 
 @media screen and (max-width:840px) {
@@ -2692,7 +2697,7 @@ a {
 
 #back-to-top.btt-docked {
     position: absolute;
-    bottom: 75pt
+    bottom: 70pt
 }
 
 @media screen and (max-width:840px) {
