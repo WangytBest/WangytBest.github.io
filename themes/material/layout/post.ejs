@@ -8,9 +8,17 @@
     <!-- Tags Cloud -->
     <%- partial('_widget/page-tagcloud') %>
 
+<% } else if(page.layout === 'music') { %>
+    <!-- Single Links Page -->
+    <%- partial('_widget/page-music') %>
+
 <% } else if(page.layout === 'links') { %>
     <!-- Single Links Page -->
     <%- partial('_widget/page-links') %>
+
+<% } else if(page.layout === 'ours') { %>
+    <!-- Single Links Page -->
+    <%- partial('_widget/page-ours') %>
 
 <% } else if(page.layout === 'timeline') { %>
     <!-- Single Timeline Page -->

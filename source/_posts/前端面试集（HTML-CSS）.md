@@ -3,6 +3,7 @@ title: 前端面试集（HTML+CSS）
 date: 2017-09-15 16:46:10
 tags: [HTML, CSS, 面试]
 categories: CSS
+comments: true
 thumbnail: http://ow9cw9x3t.bkt.clouddn.com/resume.gif
 ---
 
