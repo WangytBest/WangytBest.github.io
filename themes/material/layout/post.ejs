@@ -9,15 +9,19 @@
     <%- partial('_widget/page-tagcloud') %>
 
 <% } else if(page.layout === 'music') { %>
-    <!-- Single Links Page -->
+    <!-- Single music Page -->
     <%- partial('_widget/page-music') %>
 
 <% } else if(page.layout === 'links') { %>
     <!-- Single Links Page -->
     <%- partial('_widget/page-links') %>
 
-<% } else if(page.layout === 'ours') { %>
+<% } else if(page.layout === 'matrix') { %>
     <!-- Single Links Page -->
+    <%- partial('_widget/page-matrix') %>
+
+<% } else if(page.layout === 'ours') { %>
+    <!-- Single ours Page -->
     <%- partial('_widget/page-ours') %>
 
 <% } else if(page.layout === 'timeline') { %>

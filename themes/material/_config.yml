@@ -226,6 +226,8 @@ sidebar:
             link: https://wangytbest.github.io/resume/
             icon: person
             divider: true            
+        黑客帝国:
+            link: '/matrix'
         友情链接:
             link: '/links'
     article_num:
@@ -255,7 +257,7 @@ comment:
     changyan_conf:
     changyan_thread_key_type: path
     livere_data_uid:
-    gitment_repo: git@github.com:WangytBest/wangytbest.github.io.git # git repo of the hexo
+    gitment_repo: wangytbest.github.io # git repo of the hexo
     gitment_owner: WangytBest # git repo's owner
     gitment_client_id:  85e326c0d624202af0e5 # github app client id 
     gitment_client_secret :  6323329d79fd55b2566b067c4ae839541dd6f354 # github app client secret 
