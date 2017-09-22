@@ -81,7 +81,7 @@ theme: material
 deploy: 
   type: git
   repo: git@github.com:WangytBest/wangytbest.github.io.git
-branch: master
+branch: hexo
 
 prism_plugin:
   mode: 'preprocess'    # realtime/preprocess
