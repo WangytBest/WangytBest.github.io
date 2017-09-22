@@ -3,7 +3,7 @@
     <% } else { %>
         <link rel="stylesheet" href="/css/gallery.min.css" type="text/css">
         <% } %>
-            <body>
+            <body onload="init()">
                 <!-- Wrapper -->
                 <div id="wrapper">
 
@@ -42,6 +42,9 @@
                                 </article>
                                 <% } %>
                                     <% } %>
+                    </div>
+                    <div id="hideGallery" style="display: hidden;margin:20% auto;">
+                        <p style="width: 20px;margin: 0 auto;text-align: center;">没有权限查看哦</p>
                     </div>
                     <!-- Footer -->
                     <!--
@@ -120,5 +123,22 @@
                                                             queue.execNext();
                                                         }, 200);
                                                     });
-                                                </script>
+</script>
+<script>
+    function init() {
+        var hideElement = document.getElementById('hideGallery');
+        var showElement = document.getElementById('main');
+        var params = location.search.substring(1);
+        if(!params) {
+            showElement.style.display = 'none';
+            hideElement.style.display = 'inherit';
+        } else {
+
+        }
+        // var showGallery = params.split('&');
+        // showGallery.forEach(function(param) {
+            
+        // }, this);
+    }
+</script>
             </body>

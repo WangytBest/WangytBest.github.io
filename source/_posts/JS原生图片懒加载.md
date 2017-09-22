@@ -3,7 +3,7 @@ title: JS原生图片懒加载
 date: 2017-09-20 14:43:41
 tags: [Javascript, 图片, 懒加载， 原生JS]
 categories: Javascript
-thumbnail: http://ow9cw9x3t.bkt.clouddn.com/spider-man.jpg
+thumbnail: http://ow9cw9x3t.bkt.clouddn.com/banner.png
 ---
 
 ### 图片懒加载
@@ -30,9 +30,9 @@ let TopPos = (typeof window.screenTop == 'Number') ? window.screenTop : window.s
 
 若window对象是最外层对象，而且浏览器窗口贴紧屏幕上方，则 ```screenTop/screenY``` 为 0
 
+> * ```clientWidth/clientHeight``` : 页面视口大小信息（ALL，注意获取方式）
 > * ```innerWidth/innerHeight``` : 获取页面视口大小（页面尺寸）,页面视图容器大小
 > * ```outerWidth/outerHeight``` : 获取浏览器窗口本身的大小（IE9+、Safari、FF）
-> * ```clientWidth/clientHeight``` : 页面视口大小信息（ALL，注意获取方式）
 
 ```javascript
 let pageWidth = window.innerWidth;
@@ -50,5 +50,34 @@ if( typeof pageWidth != 'Number'){
     }
 }
 ```
+
+> *   
+
+
+```javascript
+let imgCurrent = 4;//初始化页面加载图片个数
+let imgCount = 40;//总图片数
+let height = Math.min(document.body.clientHeight, document.documentElement.clientHeight);
+let img = document.getElementsByTagName('img');
+
+window.onscroll = null;
+window.onscroll = () => {
+
+    let scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+    let clientHeight = document.body.clientHeight;
+    let screenHeight = window.screenHeight;
+
+    //图片懒加载
+    for (let i = this.imgCurrent; i < this.imgCount; i++) {
+        if (img[i].offsetParent.offsetTop < clientHeight + scrollTop) {
+            img[i].src = img[i].getAttribute('data-src');
+            img[i].style.opacity = 1;
+            this.imgCurrent = i + 1;
+            console.log('图片加载[' + i + ']:' + img[i].src);
+        }
+    }
+};  
+```
+
 
 

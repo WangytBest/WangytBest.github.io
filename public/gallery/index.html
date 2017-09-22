@@ -39,7 +39,7 @@
         
             映像 | 
         
-        王小贱♥CY @SH
+        王小贱
     </title>
 
     <!-- Meta & Info -->
@@ -75,7 +75,7 @@
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="王小贱♥CY @SH">
+    <meta name="apple-mobile-web-app-title" content="王小贱">
 
     <!-- Site Verification -->
     
@@ -226,7 +226,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://wangytbest.github.io">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="映像 | 王小贱♥CY @SH">
+    <meta property="og:title" content="映像 | 王小贱">
     <meta property="og:image" content="http://wangytbest.github.iohttp://ow9cw9x3t.bkt.clouddn.com/lloveyou.jpg" />
     <meta property="og:description" content="狗厂 商城研发 前端工程湿太">
     
@@ -234,7 +234,7 @@
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="映像 | 王小贱♥CY @SH">
+    <meta name="twitter:title" content="映像 | 王小贱">
     <meta name="twitter:description" content="狗厂 商城研发 前端工程湿太">
     <meta name="twitter:image" content="http://wangytbest.github.iohttp://ow9cw9x3t.bkt.clouddn.com/lloveyou.jpg">
     <meta name="twitter:card" content="summary_large_image" />
@@ -276,14 +276,14 @@ gtag('config', 'UA-106635475-1'); </script>
         
         <link rel="stylesheet" href="/css/gallery.min.css" type="text/css">
         
-            <body>
+            <body onload="init()">
                 <!-- Wrapper -->
                 <div id="wrapper">
 
                     <!-- Header -->
                     <header id="header">
                         <h1>
-                            <a href="/"><strong>王小贱♥CY @SH</strong></a> -
+                            <a href="/"><strong>王小贱</strong></a> -
                             映像
                         </h1>
                         <audio style="vertical-align: middle;" src="http://ow9cw9x3t.bkt.clouddn.com/music.mp3" reload="true" autoplay loop>
@@ -396,6 +396,9 @@ gtag('config', 'UA-106635475-1'); </script>
                                 
                                     
                     </div>
+                    <div id="hideGallery" style="display: hidden;margin:20% auto;">
+                        <p style="width: 20px;margin: 0 auto;text-align: center;">没有权限查看哦</p>
+                    </div>
                     <!-- Footer -->
                     <!--
         <footer id="footer" class="panel">
@@ -469,7 +472,24 @@ gtag('config', 'UA-106635475-1'); </script>
                                                             queue.execNext();
                                                         }, 200);
                                                     });
-                                                </script>
+</script>
+<script>
+    function init() {
+        var hideElement = document.getElementById('hideGallery');
+        var showElement = document.getElementById('main');
+        var params = location.search.substring(1);
+        if(!params) {
+            showElement.style.display = 'none';
+            hideElement.style.display = 'inherit';
+        } else {
+
+        }
+        // var showGallery = params.split('&');
+        // showGallery.forEach(function(param) {
+            
+        // }, this);
+    }
+</script>
             </body>
     
 </html>
