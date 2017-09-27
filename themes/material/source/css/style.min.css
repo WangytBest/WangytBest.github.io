@@ -405,7 +405,8 @@ a {
     margin: 0 2px;
     padding: 0 5px;
     background-color: rgba(0, 0, 0, .04);
-    border-radius: 3px
+    border-radius: 3px;
+    color: red;
 }
 
 #post-content pre>code {

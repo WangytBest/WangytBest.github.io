@@ -228,6 +228,8 @@ sidebar:
             divider: true            
         黑客帝国:
             link: '/matrix'
+        免费VIP:
+            link: '/vip'
         友情链接:
             link: '/links'
     article_num:

@@ -53,3 +53,31 @@ top: true
 ```css
   margin: 0 auto;
 ```
+
+### vertical-align 垂直对齐
+
+> 1. 元素默认垂直对齐方式为基准对齐（baseline）
+> 2. 继承性： 不继承
+> 3. **<font color="#DC143C">适用于行内元素和单元格（table-cell）元素</font>**
+
+#### 语法
+
+> * ```baseline``` : 基准线
+> * ```middle``` : 中部对齐
+> * ```top``` : 顶端对齐
+> * ```bottom``` : 底端对齐
+> * ```text-top``` : 与文本顶部对齐
+> * ```text-bottom``` : 与文本底部对齐
+> * ```sub``` : 下标
+> * ```super``` : 上标
+> * ```<百分比>```，```<长度>``` : 可为负数
+> * ```inherit```
+
+![垂直对齐属性](http://ow9cw9x3t.bkt.clouddn.com/vertial-align.gif)
+
+图片本身没有基线，则将其底部与父元素的基线对齐。
+
+[参考：垂直对齐：vertical-align属性](http://www.ddcat.net/blog/?p=233#)
+
+
+
