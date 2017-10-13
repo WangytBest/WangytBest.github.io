@@ -29,8 +29,9 @@ Material Design设计按钮点击效果比较酷炫，每次点击按钮都会�
 #### 设置元素
 
 > button元素在没有点击或者鼠标滑过时设置按钮样式,同时设置hover和active的样式效果
+
 ```css
-button {
+.button {
     text-decoration:none;
     user-select:none;
     position: relative;
@@ -50,12 +51,12 @@ button {
     overflow: hidden;
 }
 
-button:hover {
+.button:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 13px 0 rgba(255, 131, 0, 0.59);
 }
 
-button:active {
+.button:active {
     box-shadow: 0 3px 9px 0 rgba(255, 131, 0, 0.35);
     color: #ffca8c;
     background-color: #f07b00;

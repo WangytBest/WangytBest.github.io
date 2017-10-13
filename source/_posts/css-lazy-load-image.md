@@ -75,7 +75,7 @@ window.onscroll = () => {
 };
 ```
 
-<script async src="//jsfiddle.net/wangyutao/wd70mk9q/16/embed/"></script>
+<!-- <script async src="//jsfiddle.net/wangyutao/wd70mk9q/16/embed/"></script> -->
 
 ### 补充
 
