@@ -2,6 +2,7 @@
 title: SVG基础入门
 date: 2017-09-27 11:37:17
 tags: [css, SVG]
+thumbnail: http://ow9cw9x3t.bkt.clouddn.com/nianshaodeni.png
 ---
 
 ```html

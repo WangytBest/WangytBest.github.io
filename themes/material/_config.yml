@@ -206,18 +206,18 @@ sidebar:
             link: '/tags'
             icon: filter
             divider: true
-        映像:
-            link: '/gallery'
-            icon: photo
-            driver: false
-        音乐:
-            link: '/music'
-            icon: 'headset'
-            driver: false
-        我们:
-            link: '/ours'
-            icon: 'people'
-            driver: false
+        # 映像:
+        #     link: '/gallery'
+        #     icon: photo
+        #     driver: false
+        # 音乐:
+        #     link: '/music'
+        #     icon: 'headset'
+        #     driver: false
+        # 我们:
+        #     link: '/ours'
+        #     icon: 'people'
+        #     driver: false
         时间轴:
             link: '/timeline'
             icon: timeline
@@ -226,8 +226,8 @@ sidebar:
             link: https://wangytbest.github.io/resume/
             icon: person
             divider: true            
-        黑客帝国:
-            link: '/matrix'
+        # 黑客帝国:
+        #     link: '/matrix'
         视频免费看:
             link: '/vip'
         友情链接:

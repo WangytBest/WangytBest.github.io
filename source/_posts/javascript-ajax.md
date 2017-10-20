@@ -2,6 +2,7 @@
 title: AJAX异步请求
 date: 2017-09-26 16:33:26
 tags: [javascript, ajax]
+thumbnail: http://ow9cw9x3t.bkt.clouddn.com/nianshaodeni.png
 ---
 
 AJAX： Asyncchronous Javascript + XMLL

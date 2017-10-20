@@ -4,6 +4,7 @@ date: 2017-09-15 16:37:47
 tags: CSS
 categories: 
 top: true
+thumbnail: http://ow9cw9x3t.bkt.clouddn.com/nianshaodeni.png
 ---
 
 content和attr表达式，它们能在你的页面下面悄悄的使用CSS来生成内容，下面让我们看看attr和content如何相互配合产生神奇效果的。

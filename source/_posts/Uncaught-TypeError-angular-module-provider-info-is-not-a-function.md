@@ -3,6 +3,7 @@ title: 'Uncaught TypeError: angular.module(...).provider(...).info is not a func
 date: 2017-09-14 15:27:19
 tags: [ Angular, ngSanitize]
 categories: Angular
+thumbnail: http://ow9cw9x3t.bkt.clouddn.com/nianshaodeni.png
 ---
 
 > package.json中angular版本与ngSanitize版本不一致导致错误：

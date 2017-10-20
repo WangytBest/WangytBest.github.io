@@ -2,6 +2,7 @@
 title: 新建github项目关联本地项目
 date: 2017-10-13 16:07:26
 tags: [git, github]
+thumbnail: http://ow9cw9x3t.bkt.clouddn.com/nianshaodeni.png
 ---
 
 github上创建新的项目后，在本地拉取项目或者将本地的项目关联到建立的仓库。
