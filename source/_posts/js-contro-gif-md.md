@@ -4,6 +4,10 @@ date: 2018-02-02 10:14:25
 tags:
 ---
 
+> JS控制Gif动画
+
+思想： 使用canvas获取Gif第一帧图片，静止的时候使用图片，播放的时候使用Gif。
+
 ```javascript
 if ('getContext' in document.createElement('canvas')) {
     HTMLImageElement.prototype.play = function() {
