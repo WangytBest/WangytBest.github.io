@@ -1,5 +1,5 @@
 ---
-title: 新建github项目关联本地项目
+title: git基础
 date: 2017-10-13 16:07:26
 tags: [git, github]
 thumbnail: http://ow9cw9x3t.bkt.clouddn.com/nianshaodeni.png
@@ -24,7 +24,7 @@ github上创建新的项目后，在本地拉取项目或者将本地的项目�
 # git push origin master
 ```
 
-## 本地项目
+## 本地项目关联远程git仓库
 
 ```shell
 # cd myProject
@@ -32,3 +32,38 @@ github上创建新的项目后，在本地拉取项目或者将本地的项目�
 # git push origin master
 ```
 
+# 本地分支关联远程分支
+
+```shell
+# git checkout test
+# git remote add origin git@github.com:xxxx/test.git
+```
+
+## fatal
+首次拉取代码失败
+
+> git pull错误信息 : 
+```shell
+ * branch       master     -> FETCH_HEAD
+ fatal: refusing to merge unrelated histories
+ ```
+
+解决：
+```shell
+# git pull origin master --allow-unrelated-histories
+```  
+
+
+## 首次安装git设置
+```shell
+# git config -global user.nme "xxxxxx"
+# git config -global user.email "xxxxxx@jd.com"
+```
+
+# 公钥密钥配置
+
+```shell
+# ssh-keygen -t rsa
+```
+会生成两个文件：`id_rsa`（密钥）和`id_rsa.pub`（公钥）
+在github中设置公钥。
