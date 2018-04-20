@@ -54,13 +54,7 @@ if ('getContext' in document.createElement('canvas')) {
             canvas.style.height = height;
             // 重置当前图片
             try {
-                // 前三个问题
-                if (this.getAttribute('data-img')) {
-                    this.src = this.getAttribute('data-img');
-                    // 小火箭
-                } else {
-                    this.src = canvas.toDataURL('image/gif');
-                }
+                this.src = canvas.toDataURL('image/gif');
             } catch (e) {
                 console.log(e);
                 // 跨域
