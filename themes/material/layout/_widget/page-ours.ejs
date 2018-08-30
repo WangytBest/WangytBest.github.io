@@ -1,0 +1,37 @@
+<%- css('../css/timeline.css') %>
+
+<section id="md-timeline" class="md-container">
+	<% if (site.data.ours) { %>
+		<% for (var i in site.data.ours) { %>
+			<div class="md-timeline-block">
+				<div class="md-timeline-date blue">
+					<div class="md-date"><%= date(site.data.ours[i].date, 'MMM DD YYYY') %></div>
+				</div>
+
+				<div class="md-timeline-content">
+					<div class="md-timeline-title"><a href=""><%= site.data.ours[i].title %></a></div>
+					<div class="md-timeline-info">
+						<span class="md-timeline-info-span">Categories:</span>
+						<span class="md-timeline-info-span">Tags:</span>
+					</div>
+					<p class="md-timeline-excerpt">
+						<%= site.data.ours[i].desc %>
+						<img src="http://ow9cw9x3t.bkt.clouddn.com/chengy1.jpg" alt="" style="display: block;width: 90%;">
+					</p>
+				</div>
+			</div>	
+   		<% } %>	   	  		
+   	<% } -%>
+</section>
+
+<script type="text/ls-javascript" id="page-timeline-script">
+    var adjustFooter = function() {
+        if( ($('#bottom').offset().top + $('#bottom').outerHeight() )<$(window).height() ) {
+            var footerBottom = $(window).height() - $('#bottom').outerHeight() - $('#bottom').offset().top;
+            $('#bottom').css('bottom', '-' + footerBottom + 'px');
+        }
+    };
+    $(document).ready(function() {
+        adjustFooter();
+    });
+</script>

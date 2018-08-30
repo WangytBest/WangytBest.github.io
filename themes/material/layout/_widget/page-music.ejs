@@ -1,0 +1,656 @@
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        -moz-user-select: none;
+    }
+
+    body {
+        background: #EDEEF0;
+        overflow: hidden;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", "sans-serif";
+    }
+
+    table,
+    tr,
+    th,
+    td {
+        border-collapse: collapse
+    }
+
+    .music {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    canvas {
+        margin: 0 auto;
+    }
+
+    .header {
+        height: 60px;
+        line-height: 60px;
+        background: #fff;
+    }
+
+    .header .wrapper {
+        width: 800px;
+        margin: auto;
+        vertical-align: middle;
+        height: 60px;
+        overflow: hidden;
+    }
+
+    .header .wrapper .btn {
+        margin: 13px;
+        background: #E83C3C;
+        border-radius: 50%;
+        color: #fff;
+        font-size: 16px;
+        text-align: center;
+        line-height: 34px;
+        padding: 0;
+        border: none;
+        outline: none;
+        transition: all .5s ease-in-out;
+        vertical-align: middle;
+        width: 34px;
+        height: 34px;
+    }
+
+    .header .wrapper .btn:hover {
+        background: #D33030;
+        cursor: pointer;
+    }
+
+    .header .wrapper .play {
+        line-height: 40px;
+        font-size: 18px;
+        margin: 0;
+        width: 40px;
+        height: 40px;
+    }
+
+    .header .wrapper .name-bar {
+        display: inline-block;
+        line-height: 40px;
+        vertical-align: top;
+    }
+
+    .header .wrapper .name-bar .song-name {
+        font-size: 15px;
+    }
+
+    .header .wrapper .name-bar .bar {
+        background: #C2C2C4;
+        border-radius: 2px;
+        width: 400px;
+        height: 4px;
+        position: relative;
+    }
+
+
+
+    .header .wrapper .name-bar .bar .bar-play {
+        background: #E83C3C;
+        border-radius: 2px;
+        height: 4px;
+    }
+
+    .header .wrapper .name-bar .bar .bar-control {
+        background: #E83C3C;
+        border: solid #fff 4px;
+        border-radius: 50%;
+        position: absolute;
+        box-sizing: border-box;
+        box-shadow: rgba(150, 150, 150, .4) 0 0 1px 1px;
+        transition: boxShadow .3s ease-in-out;
+        width: 12px;
+        height: 12px;
+        top: -4px;
+    }
+
+    .header .wrapper .name-bar .bar .bar-control:hover {
+        cursor: pointer;
+        box-shadow: rgba(150, 150, 150, .4) 0 0 3px 2px;
+    }
+
+    .header .wrapper .time {
+        line-height: normal;
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 33px;
+        font-size: 14px;
+    }
+
+    .header .wrapper .upload {
+        font-size: 25px;
+        font-weight: 900;
+        color: #E83C3C;
+        vertical-align: middle;
+        margin-left: 20px;
+    }
+
+    .header .wrapper .upload:hover {
+        cursor: pointer
+    }
+
+    .list {
+        background: #fff;
+        border: 1px solid #E1E1E2;
+        position: absolute;
+        right: -402px;
+        width: 400px;
+        height: 400px;
+        font-size: 12px;
+        line-height: 30px;
+        margin-top: 50px;
+        box-shadow: #e4e4e4 0 0 1px 1px;
+        transition: all .2s ease-out;
+    }
+
+    .list-active {
+        right: 0;
+    }
+
+    .list .caption {
+        border-bottom: 1px solid #E1E1E2;
+        box-sizing: border-box;
+        background: #F4F4F6;
+        text-align: center;
+        line-height: 40px;
+        height: 40px;
+        font-size: 15px;
+    }
+
+    .list .count-remove {
+        box-sizing: border-box;
+        background: #fff;
+        overflow: hidden;
+        border-bottom: 1px solid #E1E1E2;
+        color: #818181;
+    }
+
+    .list .count-remove .count {
+        float: left;
+        margin-left: 30px;
+    }
+
+    .list .count-remove .remove {
+        float: right;
+        margin-right: 30px;
+    }
+
+    .list .count-remove .remove:hover {
+        float: right;
+        cursor: pointer;
+        color: #000;
+    }
+
+    .list .table-wrapper {
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 400px;
+        height: 330px;
+    }
+
+    .list table {
+        width: 400px;
+    }
+
+    .list table .list-item-group tr:hover {
+        cursor: default
+    }
+
+    .list table .list-item-group tr:nth-child(odd) {
+        background: #F4F4F6;
+    }
+
+    .list table .list-item-group tr:nth-child(even) {
+        background: #fff;
+    }
+
+    .list table .list-item-group tr:hover {
+        background: #ECECED
+    }
+
+    .list table .list-item-group tr td:first-child {
+        text-align: center;
+        width: 30px;
+    }
+
+    .list table .list-item-group tr td:nth-child(2) {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        padding-right: 10px;
+        max-width: 200px;
+        box-sizing: border-box
+    }
+
+    .list table .list-item-group tr td:nth-child(3) {
+        width: 100px;
+    }
+
+    .list table .list-item-group tr td:nth-child(4) {
+        width: 40px;
+    }
+
+    .list table .list-item-group tr td:nth-child(5) {
+        width: 30px
+    }
+
+    .list .control {
+        position: absolute;
+        left: -30px;
+        top: 171px;
+        box-sizing: border-box;
+        line-height: 60px;
+        text-align: center;
+        width: 30px;
+        height: 60px;
+        border-radius: 30px 0 0 30px;
+        border: 1px solid #E1E1E2;
+        border-right: 1px #fff solid;
+        border-collapse: collapse;
+        background: #fff;
+        font-weight: 900;
+        color: rgba(0, 0, 0, .5);
+    }
+
+
+
+    .list .control:hover {
+        cursor: pointer;
+        color: rgba(0, 0, 0, 1);
+    }
+
+    canvas {
+        overflow: hidden
+    }
+
+    audio,
+    input {
+        display: none;
+    }
+</style>
+<div class="music">
+    <div class='header'>
+        <div class='wrapper'>
+            <button class='btn prev' title='上一首'><i class='fa fa-step-backward'></i></button>
+            <button class='btn play' title='播放/暂停'><i class='fa fa-play'></i></button>
+            <button class='btn next' title='下一首'><i class='fa fa-step-forward'></i></button>
+            <div class='name-bar'>
+                <div class='song-name'>无</div>
+                <div class='bar'>
+                    <div class='bar-play' style='width:0px'></div>
+                    <div class='bar-control' style='left:-6px'></div>
+                </div>
+            </div>
+            <div class='time'>
+                <span class='time-play'>00:00</span>/
+                <span class='time-duration'>00:00</span>
+            </div>
+            <label for="music" class='upload' title='支持wmv.mp3,ogg格式的多文件传输'><i class='fa fa-upload'></i></label>
+        </div>
+    </div>
+    <div class='list'>
+        <div class='caption'>歌曲列表</div>
+        <div class='count-remove'>
+            <div class='count'>总0首</div>
+            <div class='remove'><i class='fa fa-remove'></i>清空</div>
+        </div>
+        <div class='table-wrapper'>
+            <table>
+                <tbody class='list-item-group'>
+                    <tr style='display:none'>
+                        <td><span style='color:#E83C3C'></span></td>
+                        <td></td>
+                        <td></td>
+                        <td>删除</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class='control'>
+            <<</div>
+        </div>
+        <canvas></canvas>
+        <audio></audio>
+    </div>
+
+    <input type="file" id='music' multiple>
+
+    <script type="text/javascript">
+        window.onload = function () {
+
+            var prev = document.querySelector('.header .wrapper .prev'),
+                play = document.querySelector('.header .wrapper .play'),
+                next = document.querySelector('.header .wrapper .next'), //三个按钮
+
+                bar = document.querySelector('.header .wrapper .name-bar .bar'),
+                barPlay = document.querySelector('.header .wrapper .name-bar .bar .bar-play'),
+                barControl = document.querySelector('.header .wrapper .name-bar .bar .bar-control'), //进度条控制
+
+                songName = document.querySelector('.header .wrapper .name-bar .song-name'),
+                playTime = document.querySelector('.header .wrapper .time .time-play');
+            duration = document.querySelector('.header .wrapper .time .time-duration'), //音乐名称及时间
+
+                list = document.querySelector('.list'),
+                songNum = document.querySelector('.list .count-remove .count'),
+                listItemGroup = document.querySelector('.list table .list-item-group'),
+                removeAll = document.querySelector('.list .count-remove .remove'),
+                listControl = document.querySelector('.list .control'), //歌曲列表控制
+
+                fileInput = document.querySelector('input'),
+                Media = document.querySelector('audio'),
+                URLReader = new FileReader(),
+                Music = [],
+                index = 0, //音乐文件上传及存储
+
+                AudioContext = window.AudioContext || window.webkitAudioContext, //IE不支持
+                audioCtx = new AudioContext(), //得到音乐解析上下文
+                analyser = audioCtx.createAnalyser(),
+                sourceNode = audioCtx.createMediaElementSource(Media), //创建源节点
+
+
+                canvas = document.querySelector('canvas'),
+                ctx = canvas.getContext('2d'), //得到画笔
+
+                requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+                window.webkitRequestAnimationFrame || window.msRequestAnimationFrame,
+                cancelAnimationFrame = window.cancelAnimationFrame || window.mozcancelAnimationFrame ||
+                window.webkitcancelAnimationFrame || window.mscancelAnimationFrame;
+
+            ID = null;
+            barWidth = bar.offsetWidth; //作为一个常量计算，便于修改
+
+
+            canvas.width = window.innerWidth * 0.8;
+            canvas.height = (window.innerHeight - 60) * 0.6;
+
+            ctx.translate(canvas.width / 2, canvas.height / 2);
+
+            Media.crossOrigin = "anonymous"; //跨域资源访问
+            sourceNode.connect(analyser); //创建分析节点
+            analyser.connect(audioCtx.destination); //连接扬声器
+
+
+            // 视频数据处理
+            fileInput.onchange = function (e) {
+                var arrayFromFileList = [].slice.call(e.target.files, 0),
+                    format = ['wmv', 'mp3', 'ogg'];
+
+                if (!arrayFromFileList[0]) {
+                    alert('上传失败');
+                    return;
+                } else if (arrayFromFileList.some(function (item, index, array) {
+                        return format.indexOf(item.name.slice(item.name.length - 3)) == -1;
+                    })) {
+                    alert('请输入mp3,ogg,wmv格式文件');
+                    return;
+                } else alert('上传成功');
+
+
+                index = Music.length; //修改当前音乐索引
+                Music.push.apply(Music, arrayFromFileList);
+                arrayFromFileList.forEach(function (item, index, array) { //添加音乐至列表
+                    var node = listItemGroup.children[0].cloneNode(true);
+                    node.children[1].innerText = item.name;
+                    node.children[2].innerText = (item.size / 1024).toFixed(2) + 'KB';
+                    node.style.display = 'table-row';
+                    listItemGroup.appendChild(node);
+                });
+                songNum.innerText = '总' + Music.length + '首';
+
+                reload();
+            };
+
+            URLReader.onload = function (e) {
+                Media.src = e.target.result; //读取完毕后修改src
+                play.firstElementChild.className = 'fa fa-pause';
+                changeBar(0, -6);
+                adjustList();
+                cancelAnimationFrame(ID);
+                drawSpectrum();
+            };
+
+            // 按钮事件绑定
+            // 在点击按钮的时候修改index
+
+            prev.onclick = function (e) {
+                if (Music.length === 0) return;
+                else if (index === 0) index = Music.length - 1;
+                else index--;
+                reload();
+            }
+
+            play.onclick = function (e) {
+                if (Media.readyState < 3) return;
+
+                var icon = this.firstElementChild; //得到图标元素
+                if (icon.className === 'fa fa-play') {
+                    icon.className = 'fa fa-pause';
+                    Media.play();
+                } else {
+                    icon.className = 'fa fa-play';
+                    Media.pause();
+                }
+                listItemGroup.children[index + 1].children[0].children[0].className = icon.className; //列表元素图标跟随播放器图标
+            };
+
+            next.onclick = function (e) {
+                if (Music.length === 0) return;
+                else if (index === Music.length - 1) index = 0;
+                else index++;
+                reload();
+            }
+
+            //audio事件处理
+
+            Media.onloadedmetadata = function (e) { //元数据加载
+                songName.innerText = Music[index].name;
+                playTime.innerText = '00:00';
+                duration.innerText = convertSexagesimal(e.target.duration);
+            };
+
+            Media.onloadeddata = function (e) {
+                e.target.play();
+            }
+
+            Media.ontimeupdate = function (e) {
+                var width = e.target.currentTime / e.target.duration * barWidth;
+                changeBar(width, width - 6);
+                playTime.innerText = convertSexagesimal(e.target.currentTime);
+            }
+
+            Media.onended = function (e) {
+                changeBar(0, -6);
+                next.click();
+            }
+
+            //进度条处理
+            barControl.onmousedown = function (e) { //拖拽控制杆
+                if (Media.readyState < 3) return;
+
+                window.onmousemove = function (e) {
+                    var length = e.clientX - bar.getBoundingClientRect().left;
+                    if (length <= 0) {
+                        changeBar(0, -6);
+                        Media.currentTime = 0;
+                    } else if (length >= barWidth) {
+                        changeBar(barWidth, barWidth - 6);
+                        Media.currentTime = Media.duration;
+                    } else {
+                        changeBar(length, length - 6);
+                        Media.currentTime = length / barWidth * Media.duration;
+                    }
+                }
+
+                window.onmouseup = function (e) {
+                    window.onmouseup = null;
+                    window.onmousemove = null;
+                };
+            }
+
+            bar.onclick = function (e) { //点击导轨
+                if (Media.readyState < 3) return;
+
+                var length = e.clientX - bar.getBoundingClientRect().left;
+                changeBar(length, length - 6);
+                Media.currentTime = length / barWidth * Media.duration;
+                playTime.innerText = convertSexagesimal(Media.currentTime);
+            }
+
+            // 列表事件处理
+            removeAll.onclick = function (e) { //清空音乐
+                if (Music.length === 0) return;
+
+                if (confirm('您确认要移除所有音乐吗?')) {
+                    reset();
+                    for (var i = listItemGroup.children.length - 1; i > 0; i--)
+                        listItemGroup.removeChild(listItemGroup.children[i]);
+                }
+            }
+
+            listItemGroup.onclick = function (e) { //删除音乐
+                if (e.target.innerText !== '删除' || Media.readyState < 3) return;
+
+                var removeIndex = findChildIndex(e.target.parentNode, this.children) - 1;
+                if (index === removeIndex) {
+                    if (Music.length === 1) reset();
+                    else if (index === Music.length - 1) next.click();
+                    else URLReader.readAsDataURL(Music[index + 1]);
+                }
+                if (index > removeIndex) index--;
+                Music.splice(removeIndex, 1);
+                listItemGroup.removeChild(e.target.parentNode);
+                songNum.innerText = '总' + Music.length + '首';
+            }
+
+            listItemGroup.ondblclick = function (e) { //双击播放
+                if (e.target == listItemGroup) return;
+
+                var node = e.target.nodeName === 'TD' ? e.target.parentNode : e.target.parentNode.parentNode; //有可能是在span元素上双击的
+                index = findChildIndex(node, this.children) - 1;
+                reload();
+            }
+
+            listControl.onclick = function (e) {
+                e.target.innerText = e.target.innerText === '<<' ? '>>' : '<<';
+                list.classList.toggle('list-active');
+            }
+
+
+            // 频谱绘制
+            function drawSpectrum() {
+                ctx.strokeStyle = '#E83C3C';
+                ctx.lineWidth = 3;
+                ctx.lineCap = 'round';
+
+                //频域长度1024为fftSize一半，但是只留三分之一的数据
+                var freqency = analyser.frequencyBinCount, //频域长度
+                    outRadius = canvas.height / 2.5,
+                    outSpaceLength = 2 * outRadius * Math.PI / freqency, //外圆柱体宽度
+                    inRadius = canvas.height / 3.5,
+                    inSpaceLength = 2 * inRadius * Math.PI / freqency,
+                    angleStep = Math.PI * 2 / freqency * 3, //旋转角度
+                    count = 0;
+
+
+                (function (timestamp) {
+                    ctx.save();
+                    ctx.clearRect(-canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
+
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.arc(0, 0, canvas.height / 3, 0, Math.PI * 2, false);
+                    ctx.stroke();
+
+                    var array = new Uint8Array(freqency);
+                    analyser.getByteFrequencyData(array);
+                    array = array.filter(function (item, index, array) {
+                        return index % 3 === 0;
+                    }); //频域抽取三分之一
+
+                    ctx.save();
+                    ctx.rotate(angleStep * count); //外圆整体旋转
+                    ctx.lineWidth = outSpaceLength;
+                    for (var i = 0; i < array.length; i++) {
+
+                        ctx.beginPath();
+                        ctx.moveTo(0, -outRadius);
+                        ctx.lineTo(0, -outRadius - array[i] / 1.5);
+                        ctx.stroke();
+
+                        ctx.rotate(angleStep);
+                    }
+
+                    ctx.restore();
+                    ctx.rotate(-angleStep * count);
+                    ctx.lineWidth = inSpaceLength;
+                    for (i = 0; i < array.length; i++) {
+                        ctx.beginPath();
+                        ctx.moveTo(0, inRadius);
+                        ctx.lineTo(0, inRadius - array[i] / 3);
+                        ctx.stroke();
+
+                        ctx.rotate(-angleStep);
+                    }
+
+                    ctx.restore();
+                    count++;
+                    ID = requestAnimationFrame(arguments.callee);
+                })(null);
+            }
+
+            //辅助函数
+
+            function reload() { //切换音乐时的资源释放
+                URLReader.abort();
+                URLReader.readAsDataURL(Music[index]);
+            }
+
+            function reset() { //重置播放器
+                Media.src = '';
+                play.children[0].className = 'fa fa-play';
+                songName.innerText = '无';
+                playTime.innerText = '00:00';
+                duration.innerText = '00:00';
+                changeBar(0, -6);
+                songNum.innerText = '总0首';
+                index = 0;
+                cancelAnimationFrame(ID);
+                ctx.clearRect(-canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
+            }
+
+            function adjustList() { //切换歌曲列表前的图标
+                var node = listItemGroup.querySelector('.fa-pause') || listItemGroup.querySelector('.fa-play');
+                node && (node.className = '');
+                listItemGroup.children[index + 1].children[0].children[0].className = play.children[0].className;
+            }
+
+            function changeBar(width, left) { //修改滑块的位置
+                barPlay.style.width = width + 'px';
+                barControl.style.left = left + 'px';
+            }
+
+            function convertSexagesimal(num) { //数字转时间显示
+                var time = Math.floor(num),
+                    minute = Math.floor(time / 60),
+                    second = time % 60;
+                return (minute >= 10 ? minute : '0' + minute) + ':' + (second >= 10 ? second : '0' + second);
+            }
+
+            function findChildIndex(node, nodes) { //确认节点在父节点中的位置
+                for (var i = 0; i < nodes.length; i++)
+                    if (nodes[i] == node) return i;
+            }
+
+
+        }
+    </script>

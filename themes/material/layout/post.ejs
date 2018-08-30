@@ -1,0 +1,68 @@
+<!-- Post TOC -->
+<% if( (page.toc === true) || (is_post() && page.toc !== false) ) { %>
+    <%- partial('_partial/toc_button') %>
+<% } %>
+
+<!-- Layouts -->
+<% if(page.layout === 'tags') { %>
+    <!-- Tags Cloud -->
+    <%- partial('_widget/page-tagcloud') %>
+
+<% } else if(page.layout === 'music') { %>
+    <!-- Single music Page -->
+    <%- partial('_widget/page-music') %>
+
+<% } else if(page.layout === 'links') { %>
+    <!-- Single Links Page -->
+    <%- partial('_widget/page-links') %>
+
+<% } else if(page.layout === 'matrix') { %>
+    <!-- Single matrix Page -->
+    <%- partial('_widget/page-matrix') %>
+
+<% } else if(page.layout === 'ours') { %>
+    <!-- Single ours Page -->
+    <%- partial('_widget/page-ours') %>
+
+<% } else if(page.layout === 'vip') { %>
+    <!-- Single vip Page -->
+    <%- partial('_widget/page-vip') %>
+
+<% } else if(page.layout === 'timeline') { %>
+    <!-- Single Timeline Page -->
+    <%- partial('_widget/page-timeline') %>
+
+<% } else { %>
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                <%- partial('_partial/post-header') %>
+
+                <% if(theme.scheme === 'Paradox') { %>
+                    <!-- Paradox Post Info -->
+                    <%- partial('_partial/Paradox-post-info') %>
+                <% } %>
+
+                <!-- Post Content -->
+                <%- partial('_partial/post-content') %>
+
+                <% if(theme.scheme === 'Isolation') { %>
+                    <!-- Paradox Post Info -->
+                    <%- partial('_partial/Isolation-post-info') %>
+                <% } %>
+
+                <!-- Post Comments -->
+                <% if(page.comment !== false) { %>
+                    <%- partial('_partial/comment') %>
+                <% } %>
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <%- partial('_partial/post-nav') %>
+        </div>
+    </div>
+<% } %>
