@@ -4,6 +4,7 @@ date: 2018-08-27 11:15:54
 tags:
 ---
 
+### 1. 实际遇到的问题
 项目中经常会遇到css的一些奇怪问题，有些css属性的设置在在本地编译运行的时候是好的，但是打包上线之后这个属性就平白无故的没有了？
 
 具体场景
@@ -21,6 +22,7 @@ tags:
 }
 ```
 
+### 2. 为什么啊？
 1. [why remove -webkit-box-orient property? #357](https://github.com/cssnano/cssnano/issues/357)
 
 2. [Autoprefixer setting should be false by default #252](https://github.com/cssnano/cssnano/issues/252)
