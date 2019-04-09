@@ -207,20 +207,22 @@ var _hmt = _hmt || [];
         </h1>
         <div class="content">
             <h3 id="图片懒加载"><a href="#图片懒加载" class="headerlink" title="图片懒加载"></a>图片懒加载</h3><p>懒加载是前端优化的一种技术，旨在用户进入页面后，当滚动页面将要到达图片位置时才加载图片。<br>加快页面加载速度，极大的提升了用户体验，也避免了用户进入页面之后就发送n多个图片请求，服务器吃不消啊！</p>
-<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p>先将图片的<code>src</code>设置为空或者小的图片，将真实的图片地址存在<code>img</code>的自定义属性中，比如<code>data-src</code>中，等到页面滚动至图片位置时将真实图片位置复制给src属性。</p>
-<ol>
-<li>页面中的img元素，如果没有src属性，浏览器就不会发出请求去下载图片</li>
-<li>用户滚动页面至图片位置时，img元素获取到真正的路径后，开始发送请求加载图片</li></ol>
+<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p>先将图片的<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. 页面中的img元素，如果没有src属性，浏览器就不会发出请求去下载图片</span><br><span class="line">2. 用户滚动页面至图片位置时，img元素获取到真正的路径后，开始发送请求加载图片</span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line">### JS中位置相关</span><br><span class="line">&gt; * ```screenLeft/screenX```: 窗口相对于屏幕左边的位置 </span><br><span class="line">&gt; * ```screenTop/screenY```: 窗口相对于屏幕上边的位置</span><br><span class="line"></span><br><span class="line">**表示的是从屏幕左边和上边到window对象表示的可见区域的距离**。</span><br><span class="line"></span><br><span class="line">```javascript</span><br><span class="line">//FF中支持 screenX 和 screenY</span><br><span class="line">let leftPos = (typeof window.screenLeft == &apos;Number&apos;) ? window.screenLeft : window.screenX;</span><br><span class="line">let TopPos = (typeof window.screenTop == &apos;Number&apos;) ? window.screenTop : window.screenY;</span><br></pre></td></tr></table></figure></p>
+<p>若window对象是最外层对象，而且浏览器窗口贴紧屏幕上方，则 <figure class="highlight plain hljs"><figcaption><span>为 0</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; * ```clientWidth/clientHeight``` : 页面视口大小信息（ALL，注意获取方式）</span><br><span class="line">&gt; * ```innerWidth/innerHeight``` : 获取页面视口大小（页面尺寸）,页面视图容器大小</span><br><span class="line">&gt; * ```outerWidth/outerHeight``` : 获取浏览器窗口本身的大小（IE9+、Safari、FF）</span><br><span class="line"></span><br><span class="line">```javascript</span><br><span class="line">let pageWidth = window.innerWidth;</span><br><span class="line">let pageHeight = window.innerHeight;</span><br><span class="line"></span><br><span class="line">if( typeof pageWidth != &apos;Number&apos;)&#123;</span><br><span class="line">    if(document.compatMode == &apos;CSS!Compat&apos;)&#123;</span><br><span class="line">        //标准模式</span><br><span class="line">        pageWidth = document.documentElement.clientWidth;</span><br><span class="line">        pageHeight = document.documentElement.clientHeight;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        //怪异模式（混杂模式）</span><br><span class="line">        pageWidth = document.body.clientWidth;</span><br><span class="line">        pageHeight = document.body.clientHeight;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="懒加载实现"><a href="#懒加载实现" class="headerlink" title="懒加载实现"></a>懒加载实现</h3><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> imgCurrent = <span class="hljs-number">4</span>;<span class="hljs-comment">//初始化页面加载图片个数</span></span><br><span class="line"><span class="hljs-keyword">var</span> imgCount = <span class="hljs-number">40</span>;<span class="hljs-comment">//总图片数</span></span><br><span class="line"><span class="hljs-keyword">var</span> height = <span class="hljs-built_in">document</span>.body.clientHeight || <span class="hljs-built_in">document</span>.documentElement.clientHeight;</span><br><span class="line"><span class="hljs-keyword">var</span> scrollTop = <span class="hljs-built_in">document</span>.body.scrollTop || <span class="hljs-built_in">document</span>.documentElement.scrollTop;</span><br><span class="line"><span class="hljs-keyword">var</span> clientHeight = <span class="hljs-built_in">Math</span>.min(<span class="hljs-built_in">document</span>.documentElement.scrollHeight, <span class="hljs-built_in">document</span>.documentElement.clientHeight);</span><br><span class="line"><span class="hljs-keyword">var</span> img = <span class="hljs-built_in">document</span>.getElementsByTagName(<span class="hljs-string">'img'</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">window</span>.onscroll = <span class="hljs-literal">null</span>;</span><br><span class="line"><span class="hljs-built_in">window</span>.onscroll = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="hljs-comment">//图片懒加载</span></span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = imgCurrent; i &lt; imgCount; i++) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (img[i].offsetTop &lt; clientHeight + scrollTop) &#123;</span><br><span class="line">            img[i].src = img[i].getAttribute(<span class="hljs-string">'data-src'</span>);</span><br><span class="line">            img[i].style.opacity = <span class="hljs-number">1</span>;</span><br><span class="line">            imgCurrent = i + <span class="hljs-number">1</span>;</span><br><span class="line">            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'图片加载['</span> + i + <span class="hljs-string">']:'</span> + img[i].src);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<!-- <script async src="//jsfiddle.net/wangyutao/wd70mk9q/16/embed/"></script> -->
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p><img src="http://cloud.xuww.wang/js-position.jpg" alt="位置"></p>
+<h4 id="偏移量"><a href="#偏移量" class="headerlink" title="偏移量("></a>偏移量(<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt; * ```offsetWidht``` : 元素在水平方向上占用的空间大小。包括元素的宽度、水平滚动条的宽度、左右边框的宽度。</span><br><span class="line">&gt; * ```offsetHeight``` : 元素在垂直方向上占用的空间大小。包括元素的高度、垂直滚动条的高度、上下边框的高度。</span><br><span class="line">&gt; * ```offsetLeft``` : 元素的左边框至包含元素的左内边距的距离。（offsetParent） </span><br><span class="line">&gt; * ```offsetTop``` : 元素的上边框至包含元素的上内边距的距离。（offsetParent）</span><br><span class="line"></span><br><span class="line">```offsetParent```为相对于元素定位的父级元素</span><br><span class="line">```offsetTop``` 和 ```offsetLeft``` 与其包含元素```offsetParent```有关。```offsetParent```的值不一定与```parentNode```相同。</span><br><span class="line">这些偏移量属性均为**只读**。</span><br><span class="line">![偏移量 offset](http://cloud.xuww.wang/offset.jpg)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### 客户区大小（```client dismension```）</span><br><span class="line"></span><br><span class="line">&gt; * clientWidth : 元素内容区宽度加上左右内边距。```content + padding-left + padding-right</span><br></pre></td></tr></table></figure></h4><blockquote>
+<ul>
+<li>clientHeight : 元素内容区高度加上上下内边距。<figure class="highlight plain hljs"><figcaption><span>+ padding-top + padding-bottom```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">client dismension 值也是**只读**的。</span><br><span class="line"></span><br><span class="line">```javascript</span><br><span class="line">let clientWidth = document.documentElement.clientWidht;</span><br><span class="line">let clientHeight = document.documentElement.clientHeight;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</blockquote>
+<h4 id="滚动大小（"><a href="#滚动大小（" class="headerlink" title="滚动大小（"></a>滚动大小（<figure class="highlight plain hljs"><figcaption><span>dismension```）</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; * ```scrollTop``` : 被隐藏在内容区域上方的高度。（上方被隐藏了多少）</span><br><span class="line">&gt; * ```scrollLeft``` : 被隐藏在内容区域左侧的宽度。（左侧被隐藏了多少）</span><br><span class="line">&gt; * ```scrollWidth``` : 在没有滚动的情况下，元素内容的总宽度。</span><br><span class="line">&gt; * ```scrollHeight``` : 在没有滚动的情况下，元素内容的总高度。</span><br><span class="line"></span><br><span class="line">* 带有垂直滚动条的页面总高度：```document.documentElement.scrollHeight</span><br></pre></td></tr></table></figure></h4><ul>
+<li>带有水平滚动条的页面总宽度：<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">* 通过scrollLeft和scrollTop既可以确定元素当前滚动的状态，也可以设置元素的滚动位置。</span><br><span class="line"></span><br><span class="line">```javascript</span><br><span class="line">// 确定文档的总高度</span><br><span class="line">//scrollHeight和clientHeight中的最大值</span><br><span class="line">let docHeight = Math.max(documnt.documentElement.scrollHeight, document.documntElement.clientHeight);</span><br><span class="line"></span><br><span class="line">// 确定文档的总宽度</span><br><span class="line">//scrollWidth和clientWidth中的最大值</span><br><span class="line">let docWidth = Max.max(document.documentElement.scrollWidth, document.documentElement.clientWidth);</span><br></pre></td></tr></table></figure></li>
+</ul>
+
         </div>
         
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2017/09/20/css-lazy-load-image/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
         
         
     </div>
@@ -276,7 +278,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        29
+                        30
                     </p>
                 </div>
             </div>
@@ -296,7 +298,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        24
+                        25
                     </p>
                 </div>
             </div>
@@ -549,7 +551,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
 </div>
 
@@ -566,9 +568,28 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -640,25 +661,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -670,6 +672,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -897,6 +910,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -954,9 +974,28 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -1028,25 +1067,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1058,6 +1078,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -1285,6 +1316,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

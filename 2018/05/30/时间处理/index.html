@@ -197,110 +197,7 @@ var _hmt = _hmt || [];
         <div class="content">
             <p>时间处理方法</p>
  <a id="more"></a>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">"date"</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span>require<span class="token punctuation">,</span>exports<span class="token punctuation">,</span>module<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">var</span> _cacheThisModule_<span class="token punctuation">;</span>
-    exports<span class="token punctuation">.</span>format <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>date<span class="token punctuation">,</span>formatStr<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">//格式化时间</span>
-        <span class="token keyword">var</span>    arrWeek<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'日'</span><span class="token punctuation">,</span><span class="token string">'一'</span><span class="token punctuation">,</span><span class="token string">'二'</span><span class="token punctuation">,</span><span class="token string">'三'</span><span class="token punctuation">,</span><span class="token string">'四'</span><span class="token punctuation">,</span><span class="token string">'五'</span><span class="token punctuation">,</span><span class="token string">'六'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-        str<span class="token operator">=</span>formatStr
-            <span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/yyyy|YYYY/</span><span class="token punctuation">,</span>date<span class="token punctuation">.</span><span class="token function">getFullYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/yy|YY/</span><span class="token punctuation">,</span><span class="token function">$addZero</span><span class="token punctuation">(</span>date<span class="token punctuation">.</span><span class="token function">getFullYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">100</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>    <span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/mm|MM/</span><span class="token punctuation">,</span><span class="token function">$addZero</span><span class="token punctuation">(</span>date<span class="token punctuation">.</span><span class="token function">getMonth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/m|M/g</span><span class="token punctuation">,</span>date<span class="token punctuation">.</span><span class="token function">getMonth</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/dd|DD/</span><span class="token punctuation">,</span><span class="token function">$addZero</span><span class="token punctuation">(</span>date<span class="token punctuation">.</span><span class="token function">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>    <span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/d|D/g</span><span class="token punctuation">,</span>date<span class="token punctuation">.</span><span class="token function">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/hh|HH/</span><span class="token punctuation">,</span><span class="token function">$addZero</span><span class="token punctuation">(</span>date<span class="token punctuation">.</span><span class="token function">getHours</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/h|H/g</span><span class="token punctuation">,</span>date<span class="token punctuation">.</span><span class="token function">getHours</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/ii|II/</span><span class="token punctuation">,</span><span class="token function">$addZero</span><span class="token punctuation">(</span>date<span class="token punctuation">.</span><span class="token function">getMinutes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/i|I/g</span><span class="token punctuation">,</span>date<span class="token punctuation">.</span><span class="token function">getMinutes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/ss|SS/</span><span class="token punctuation">,</span><span class="token function">$addZero</span><span class="token punctuation">(</span>date<span class="token punctuation">.</span><span class="token function">getSeconds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/s|S/g</span><span class="token punctuation">,</span>date<span class="token punctuation">.</span><span class="token function">getSeconds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/w/g</span><span class="token punctuation">,</span>date<span class="token punctuation">.</span><span class="token function">getDay</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/W/g</span><span class="token punctuation">,</span>arrWeek<span class="token punctuation">[</span>date<span class="token punctuation">.</span><span class="token function">getDay</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
-        <span class="token keyword">return</span> str<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    exports<span class="token punctuation">.</span>getTimeDistance <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>ts<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">//根据时间差计算剩余的时间，返回[天，小时，分，秒]</span>
-        <span class="token keyword">var</span> timeLeft<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//结构：天、小时、分、秒</span>
-        timeLeft<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">(</span>ts<span class="token operator">></span><span class="token number">86400</span><span class="token punctuation">)</span><span class="token operator">?</span><span class="token function">parseInt</span><span class="token punctuation">(</span>ts<span class="token operator">/</span><span class="token number">86400</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span>
-        ts<span class="token operator">=</span>ts <span class="token operator">-</span> timeLeft<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">86400</span><span class="token punctuation">;</span>
-        timeLeft<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">(</span>ts<span class="token operator">></span><span class="token number">3600</span><span class="token punctuation">)</span><span class="token operator">?</span><span class="token function">parseInt</span><span class="token punctuation">(</span>ts<span class="token operator">/</span><span class="token number">3600</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span>
-        ts<span class="token operator">=</span>ts <span class="token operator">-</span> timeLeft<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">3600</span><span class="token punctuation">;</span>
-        timeLeft<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">(</span>ts<span class="token operator">></span><span class="token number">60</span><span class="token punctuation">)</span><span class="token operator">?</span><span class="token function">parseInt</span><span class="token punctuation">(</span>ts<span class="token operator">/</span><span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span>
-        timeLeft<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token operator">=</span>ts <span class="token operator">-</span> timeLeft<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">60</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> timeLeft<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-
-    exports<span class="token punctuation">.</span>getTimeInterval <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>st<span class="token punctuation">,</span>et<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">//返回两个时间之间的间隔的描述字符串</span>
-        <span class="token keyword">var</span> dateLeft <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">var</span> hourLeft <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">var</span> minuteLeft <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">var</span> secondLeft <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">var</span> timeLeft<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//结构：天、小时、分、秒</span>
-        <span class="token keyword">var</span> timeStr<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">;</span>
-        <span class="token keyword">var</span> ts<span class="token operator">=</span><span class="token punctuation">(</span>et<span class="token operator">></span>st<span class="token punctuation">)</span><span class="token operator">?</span><span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token punctuation">(</span>et<span class="token operator">-</span>st<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span>
-        timeLeft<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">(</span>ts<span class="token operator">></span><span class="token number">86400</span><span class="token punctuation">)</span><span class="token operator">?</span><span class="token function">parseInt</span><span class="token punctuation">(</span>ts<span class="token operator">/</span><span class="token number">86400</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span>
-        ts<span class="token operator">=</span>ts <span class="token operator">-</span> timeLeft<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">86400</span><span class="token punctuation">;</span>
-        timeLeft<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">(</span>ts<span class="token operator">></span><span class="token number">3600</span><span class="token punctuation">)</span><span class="token operator">?</span><span class="token function">parseInt</span><span class="token punctuation">(</span>ts<span class="token operator">/</span><span class="token number">3600</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span>
-        ts<span class="token operator">=</span>ts <span class="token operator">-</span> timeLeft<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">3600</span><span class="token punctuation">;</span>
-        timeLeft<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">(</span>ts<span class="token operator">></span><span class="token number">60</span><span class="token punctuation">)</span><span class="token operator">?</span><span class="token function">parseInt</span><span class="token punctuation">(</span>ts<span class="token operator">/</span><span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">:</span><span class="token number">0</span><span class="token punctuation">;</span>
-        timeLeft<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token operator">=</span>ts <span class="token operator">-</span> timeLeft<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">60</span><span class="token punctuation">;</span>
-        timeStr<span class="token operator">=</span><span class="token punctuation">(</span>timeLeft<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">?</span>timeLeft<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">"天"</span><span class="token punctuation">:</span><span class="token string">""</span><span class="token punctuation">;</span>
-        timeStr<span class="token operator">+</span><span class="token operator">=</span><span class="token punctuation">(</span>timeLeft<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">&lt;=</span><span class="token number">0</span> <span class="token operator">&amp;&amp;</span> timeLeft<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">&lt;=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">?</span><span class="token string">""</span><span class="token punctuation">:</span><span class="token punctuation">(</span>timeLeft<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">"小时"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        timeStr<span class="token operator">+</span><span class="token operator">=</span><span class="token punctuation">(</span>timeLeft<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">&lt;=</span><span class="token number">0</span> <span class="token operator">&amp;&amp;</span> timeLeft<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">&lt;=</span><span class="token number">0</span> <span class="token operator">&amp;&amp;</span> timeLeft<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">&lt;=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">?</span><span class="token string">""</span><span class="token punctuation">:</span><span class="token punctuation">(</span>timeLeft<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">"分钟"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        timeStr<span class="token operator">+</span><span class="token operator">=</span><span class="token punctuation">(</span>timeLeft<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">&lt;=</span><span class="token number">0</span> <span class="token operator">&amp;&amp;</span> timeLeft<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">&lt;=</span><span class="token number">0</span> <span class="token operator">&amp;&amp;</span> timeLeft<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">&lt;=</span><span class="token number">0</span> <span class="token operator">&amp;&amp;</span> timeLeft<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token operator">&lt;=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">?</span><span class="token string">""</span><span class="token punctuation">:</span>timeLeft<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">"秒"</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> timeStr<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">function</span> <span class="token function">$addZero</span><span class="token punctuation">(</span>v<span class="token punctuation">,</span>size<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>len<span class="token operator">=</span>size<span class="token operator">-</span><span class="token punctuation">(</span>v<span class="token operator">+</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">&lt;</span>len<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            v<span class="token operator">=</span><span class="token string">"0"</span><span class="token operator">+</span>v<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> v<span class="token operator">+</span><span class="token string">""</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    exports<span class="token punctuation">.</span>getServerTime <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">var</span> sysTime <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'SYSTIME'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>sysTime<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">var</span> ts <span class="token operator">=</span> sysTime<span class="token punctuation">.</span>value<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">19</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'-'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                dObj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span>ts<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>ts<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> ts<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> ts<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> ts<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> ts<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> dObj<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">var</span> xhr <span class="token operator">=</span> <span class="token function">$xhrMaker</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        url <span class="token operator">=</span> url <span class="token operator">||</span> <span class="token string">"http://"</span> <span class="token operator">+</span> window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>hostname<span class="token operator">+</span><span class="token string">"/favicon.ico"</span><span class="token punctuation">;</span>
-        <span class="token keyword">try</span><span class="token punctuation">{</span>
-            xhr<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">"HEAD"</span><span class="token punctuation">,</span> url<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            xhr<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span>xhr<span class="token punctuation">.</span><span class="token function">getResponseHeader</span><span class="token punctuation">(</span><span class="token string">"Date"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">function</span> <span class="token function">$xhrMaker</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">var</span> xhr<span class="token punctuation">;</span>
-        <span class="token keyword">try</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">// Firefox, Opera 8.0+, Safari</span>
-            xhr<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">XMLHttpRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//Internet Explorer</span>
-            <span class="token keyword">try</span><span class="token punctuation">{</span>
-                xhr<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">ActiveXObject</span><span class="token punctuation">(</span><span class="token string">"Msxml2.XMLHTTP"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                <span class="token keyword">try</span> <span class="token punctuation">{</span>
-                    xhr<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">ActiveXObject</span><span class="token punctuation">(</span><span class="token string">"Microsoft.XMLHTTP"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span><span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                    xhr<span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> xhr<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="hljs-string">"date"</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">require,exports,module</span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">var</span> _cacheThisModule_;</span><br><span class="line">    exports.format = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">date,formatStr</span>)</span>&#123;</span><br><span class="line">		<span class="hljs-comment">//格式化时间</span></span><br><span class="line">		<span class="hljs-keyword">var</span>	arrWeek=[<span class="hljs-string">'日'</span>,<span class="hljs-string">'一'</span>,<span class="hljs-string">'二'</span>,<span class="hljs-string">'三'</span>,<span class="hljs-string">'四'</span>,<span class="hljs-string">'五'</span>,<span class="hljs-string">'六'</span>],</span><br><span class="line">		str=formatStr</span><br><span class="line">			.replace(<span class="hljs-regexp">/yyyy|YYYY/</span>,date.getFullYear())</span><br><span class="line">			.replace(<span class="hljs-regexp">/yy|YY/</span>,$addZero(date.getFullYear() % <span class="hljs-number">100</span>,<span class="hljs-number">2</span>)	)</span><br><span class="line">			.replace(<span class="hljs-regexp">/mm|MM/</span>,$addZero(date.getMonth()+<span class="hljs-number">1</span>,<span class="hljs-number">2</span>))</span><br><span class="line">			.replace(<span class="hljs-regexp">/m|M/g</span>,date.getMonth()+<span class="hljs-number">1</span>)</span><br><span class="line">			.replace(<span class="hljs-regexp">/dd|DD/</span>,$addZero(date.getDate(),<span class="hljs-number">2</span>)	)</span><br><span class="line">			.replace(<span class="hljs-regexp">/d|D/g</span>,date.getDate())</span><br><span class="line">			.replace(<span class="hljs-regexp">/hh|HH/</span>,$addZero(date.getHours(),<span class="hljs-number">2</span>))</span><br><span class="line">			.replace(<span class="hljs-regexp">/h|H/g</span>,date.getHours())</span><br><span class="line">			.replace(<span class="hljs-regexp">/ii|II/</span>,$addZero(date.getMinutes(),<span class="hljs-number">2</span>))</span><br><span class="line">			.replace(<span class="hljs-regexp">/i|I/g</span>,date.getMinutes())</span><br><span class="line">			.replace(<span class="hljs-regexp">/ss|SS/</span>,$addZero(date.getSeconds(),<span class="hljs-number">2</span>))</span><br><span class="line">			.replace(<span class="hljs-regexp">/s|S/g</span>,date.getSeconds())</span><br><span class="line">			.replace(<span class="hljs-regexp">/w/g</span>,date.getDay())</span><br><span class="line">			.replace(<span class="hljs-regexp">/W/g</span>,arrWeek[date.getDay()]); </span><br><span class="line">		<span class="hljs-keyword">return</span> str;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	exports.getTimeDistance = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">ts</span>)</span>&#123;</span><br><span class="line">		<span class="hljs-comment">//根据时间差计算剩余的时间，返回[天，小时，分，秒]</span></span><br><span class="line">		<span class="hljs-keyword">var</span> timeLeft=[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>];<span class="hljs-comment">//结构：天、小时、分、秒</span></span><br><span class="line">		timeLeft[<span class="hljs-number">0</span>]=(ts&gt;<span class="hljs-number">86400</span>)?<span class="hljs-built_in">parseInt</span>(ts/<span class="hljs-number">86400</span>):<span class="hljs-number">0</span>;</span><br><span class="line">		ts=ts - timeLeft[<span class="hljs-number">0</span>] * <span class="hljs-number">86400</span>;</span><br><span class="line">		timeLeft[<span class="hljs-number">1</span>]=(ts&gt;<span class="hljs-number">3600</span>)?<span class="hljs-built_in">parseInt</span>(ts/<span class="hljs-number">3600</span>):<span class="hljs-number">0</span>;</span><br><span class="line">		ts=ts - timeLeft[<span class="hljs-number">1</span>] * <span class="hljs-number">3600</span>;</span><br><span class="line">		timeLeft[<span class="hljs-number">2</span>]=(ts&gt;<span class="hljs-number">60</span>)?<span class="hljs-built_in">parseInt</span>(ts/<span class="hljs-number">60</span>):<span class="hljs-number">0</span>;</span><br><span class="line">		timeLeft[<span class="hljs-number">3</span>]=ts - timeLeft[<span class="hljs-number">2</span>] * <span class="hljs-number">60</span>;</span><br><span class="line">		<span class="hljs-keyword">return</span> timeLeft;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	exports.getTimeInterval = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">st,et</span>)</span>&#123;</span><br><span class="line">		<span class="hljs-comment">//返回两个时间之间的间隔的描述字符串</span></span><br><span class="line">		<span class="hljs-keyword">var</span> dateLeft = <span class="hljs-number">0</span>;</span><br><span class="line">		<span class="hljs-keyword">var</span> hourLeft = <span class="hljs-number">0</span>;</span><br><span class="line">		<span class="hljs-keyword">var</span> minuteLeft = <span class="hljs-number">0</span>;</span><br><span class="line">		<span class="hljs-keyword">var</span> secondLeft = <span class="hljs-number">0</span>;</span><br><span class="line">		<span class="hljs-keyword">var</span> timeLeft=[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>];<span class="hljs-comment">//结构：天、小时、分、秒</span></span><br><span class="line">		<span class="hljs-keyword">var</span> timeStr=<span class="hljs-string">""</span>;</span><br><span class="line">		<span class="hljs-keyword">var</span> ts=(et&gt;st)?<span class="hljs-built_in">parseInt</span>((et-st)/<span class="hljs-number">1000</span>):<span class="hljs-number">0</span>;</span><br><span class="line">		timeLeft[<span class="hljs-number">0</span>]=(ts&gt;<span class="hljs-number">86400</span>)?<span class="hljs-built_in">parseInt</span>(ts/<span class="hljs-number">86400</span>):<span class="hljs-number">0</span>;</span><br><span class="line">		ts=ts - timeLeft[<span class="hljs-number">0</span>] * <span class="hljs-number">86400</span>;</span><br><span class="line">		timeLeft[<span class="hljs-number">1</span>]=(ts&gt;<span class="hljs-number">3600</span>)?<span class="hljs-built_in">parseInt</span>(ts/<span class="hljs-number">3600</span>):<span class="hljs-number">0</span>;</span><br><span class="line">		ts=ts - timeLeft[<span class="hljs-number">1</span>] * <span class="hljs-number">3600</span>;</span><br><span class="line">		timeLeft[<span class="hljs-number">2</span>]=(ts&gt;<span class="hljs-number">60</span>)?<span class="hljs-built_in">parseInt</span>(ts/<span class="hljs-number">60</span>):<span class="hljs-number">0</span>;</span><br><span class="line">		timeLeft[<span class="hljs-number">3</span>]=ts - timeLeft[<span class="hljs-number">2</span>] * <span class="hljs-number">60</span>;</span><br><span class="line">		timeStr=(timeLeft[<span class="hljs-number">0</span>]&gt;<span class="hljs-number">0</span>)?timeLeft[<span class="hljs-number">0</span>]+<span class="hljs-string">"天"</span>:<span class="hljs-string">""</span>;</span><br><span class="line">		timeStr+=(timeLeft[<span class="hljs-number">0</span>]&lt;=<span class="hljs-number">0</span> &amp;&amp; timeLeft[<span class="hljs-number">1</span>]&lt;=<span class="hljs-number">0</span>)?<span class="hljs-string">""</span>:(timeLeft[<span class="hljs-number">1</span>]+<span class="hljs-string">"小时"</span>);</span><br><span class="line">		timeStr+=(timeLeft[<span class="hljs-number">0</span>]&lt;=<span class="hljs-number">0</span> &amp;&amp; timeLeft[<span class="hljs-number">1</span>]&lt;=<span class="hljs-number">0</span> &amp;&amp; timeLeft[<span class="hljs-number">2</span>]&lt;=<span class="hljs-number">0</span>)?<span class="hljs-string">""</span>:(timeLeft[<span class="hljs-number">2</span>]+<span class="hljs-string">"分钟"</span>);</span><br><span class="line">		timeStr+=(timeLeft[<span class="hljs-number">0</span>]&lt;=<span class="hljs-number">0</span> &amp;&amp; timeLeft[<span class="hljs-number">1</span>]&lt;=<span class="hljs-number">0</span> &amp;&amp; timeLeft[<span class="hljs-number">2</span>]&lt;=<span class="hljs-number">0</span> &amp;&amp; timeLeft[<span class="hljs-number">3</span>]&lt;=<span class="hljs-number">0</span>)?<span class="hljs-string">""</span>:timeLeft[<span class="hljs-number">3</span>]+<span class="hljs-string">"秒"</span>;</span><br><span class="line">		<span class="hljs-keyword">return</span> timeStr;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">$addZero</span>(<span class="hljs-params">v,size</span>)</span>&#123;</span><br><span class="line">		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>,len=size-(v+<span class="hljs-string">""</span>).length;i&lt;len;i++)&#123;</span><br><span class="line">			v=<span class="hljs-string">"0"</span>+v;</span><br><span class="line">		&#125;;</span><br><span class="line">		<span class="hljs-keyword">return</span> v+<span class="hljs-string">""</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	exports.getServerTime = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">url</span>) </span>&#123;</span><br><span class="line">		<span class="hljs-keyword">var</span> sysTime = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'SYSTIME'</span>);</span><br><span class="line">		<span class="hljs-keyword">if</span>(sysTime)&#123;</span><br><span class="line">			<span class="hljs-keyword">var</span> ts = sysTime.value.substring(<span class="hljs-number">0</span>, <span class="hljs-number">19</span>).split(<span class="hljs-string">'-'</span>),</span><br><span class="line">				dObj = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(ts[<span class="hljs-number">0</span>], <span class="hljs-built_in">parseInt</span>(ts[<span class="hljs-number">1</span>], <span class="hljs-number">10</span>) - <span class="hljs-number">1</span>, ts[<span class="hljs-number">2</span>], ts[<span class="hljs-number">3</span>], ts[<span class="hljs-number">4</span>], ts[<span class="hljs-number">5</span>]);</span><br><span class="line">			<span class="hljs-keyword">return</span> dObj;</span><br><span class="line">		&#125;</span><br><span class="line">	    <span class="hljs-keyword">var</span> xhr = $xhrMaker(),</span><br><span class="line">	    url = url || <span class="hljs-string">"http://"</span> + <span class="hljs-built_in">window</span>.location.hostname+<span class="hljs-string">"/favicon.ico"</span>;</span><br><span class="line">		<span class="hljs-keyword">try</span>&#123;</span><br><span class="line">			xhr.open(<span class="hljs-string">"HEAD"</span>, url, <span class="hljs-literal">false</span>);</span><br><span class="line">			xhr.send();</span><br><span class="line">		&#125;<span class="hljs-keyword">catch</span>(e)&#123;</span><br><span class="line">			<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();</span><br><span class="line">		&#125;</span><br><span class="line">	    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(xhr.getResponseHeader(<span class="hljs-string">"Date"</span>));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">$xhrMaker</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">		<span class="hljs-keyword">var</span> xhr;</span><br><span class="line">		<span class="hljs-keyword">try</span>&#123;<span class="hljs-comment">// Firefox, Opera 8.0+, Safari</span></span><br><span class="line">			xhr=<span class="hljs-keyword">new</span> XMLHttpRequest();</span><br><span class="line">		&#125;<span class="hljs-keyword">catch</span>(e)&#123;<span class="hljs-comment">//Internet Explorer</span></span><br><span class="line">			<span class="hljs-keyword">try</span>&#123;</span><br><span class="line">				xhr=<span class="hljs-keyword">new</span> ActiveXObject(<span class="hljs-string">"Msxml2.XMLHTTP"</span>);</span><br><span class="line">			&#125;<span class="hljs-keyword">catch</span>(e)&#123;</span><br><span class="line">				<span class="hljs-keyword">try</span> &#123;</span><br><span class="line">					xhr=<span class="hljs-keyword">new</span> ActiveXObject(<span class="hljs-string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">				&#125;<span class="hljs-keyword">catch</span> (e)&#123;</span><br><span class="line">					xhr=<span class="hljs-literal">null</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">		<span class="hljs-keyword">return</span> xhr;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
         </div>
         
         
@@ -429,7 +326,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        29
+                        30
                     </p>
                 </div>
             </div>
@@ -449,7 +346,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        24
+                        25
                     </p>
                 </div>
             </div>
@@ -702,7 +599,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
 </div>
 
@@ -719,9 +616,28 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -793,25 +709,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -823,6 +720,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -1050,6 +958,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1107,9 +1022,28 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -1181,25 +1115,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1211,6 +1126,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -1438,6 +1364,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

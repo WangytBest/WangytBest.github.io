@@ -195,128 +195,7 @@ var _hmt = _hmt || [];
             
         </h1>
         <div class="content">
-            <p>localStorage设置过期时间<br><a id="more"></a></p>
-<pre class=" language-js"><code class="language-js"><span class="token function">define</span><span class="token punctuation">(</span><span class="token string">"localStorage"</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>require<span class="token punctuation">,</span> exports<span class="token punctuation">,</span> module<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">var</span> cache <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"cachev1"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>local<span class="token punctuation">;</span>
-    <span class="token keyword">var</span> Promise <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"promise.min"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token comment" spellcheck="true">/**
-     * 将过期时间字符串转换成时间戳
-     *  convertExpire("7d")
-     *  convertExpire(3600)  1小时
-     * @param  {String} val  过期时间，格式为`\d+[smhd]`，其中s 表示秒、m 分钟、h 小时、d 天，如 30d   默认是秒
-     * @return {Number}      时间戳（单位s）
-     */</span>
-    <span class="token keyword">function</span> <span class="token function">convertExpire</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>val<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">var</span> matches <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">''</span> <span class="token operator">+</span> val<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex">/(\d+)([smhd])/</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">var</span> ms <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>matches<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">switch</span> <span class="token punctuation">(</span>matches<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">case</span> <span class="token string">'s'</span><span class="token punctuation">:</span>
-                    ms <span class="token operator">=</span> matches<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-                    <span class="token keyword">break</span><span class="token punctuation">;</span>
-                <span class="token keyword">case</span> <span class="token string">'m'</span><span class="token punctuation">:</span>
-                    ms <span class="token operator">=</span> matches<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">60</span><span class="token punctuation">;</span>
-                    <span class="token keyword">break</span><span class="token punctuation">;</span>
-                <span class="token keyword">case</span> <span class="token string">'h'</span><span class="token punctuation">:</span>
-                    ms <span class="token operator">=</span> matches<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">60</span> <span class="token operator">*</span> <span class="token number">60</span><span class="token punctuation">;</span>
-                    <span class="token keyword">break</span><span class="token punctuation">;</span>
-                <span class="token keyword">case</span> <span class="token string">'d'</span><span class="token punctuation">:</span>
-                    ms <span class="token operator">=</span> matches<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">24</span> <span class="token operator">*</span> <span class="token number">60</span> <span class="token operator">*</span> <span class="token number">60</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span> <span class="token keyword">else</span><span class="token punctuation">{</span>
-            ms <span class="token operator">=</span> val<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> ms<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">var</span> timeout <span class="token operator">=</span> setTimeout<span class="token punctuation">;</span>
-    <span class="token keyword">var</span> storage <span class="token operator">=</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">/**
-         * 将数据写入本地缓存
-         *
-         * @param  {String}          key      键名
-         * @param  {Object | String} value    数据
-         * @param  {Object}          options  可选项，可传expire 设定数据过期时间，格式参见convertExpire
-         *
-         * @return {Promise}         Promise实例
-         */</span>
-        <span class="token keyword">set</span><span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">,</span> options<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                <span class="token keyword">var</span> expire <span class="token operator">=</span> <span class="token function">convertExpire</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> options <span class="token operator">==</span> <span class="token string">'object'</span> <span class="token operator">&amp;&amp;</span> options<span class="token punctuation">.</span>expire <span class="token operator">?</span> options<span class="token punctuation">.</span>expire <span class="token punctuation">:</span> <span class="token string">'7d'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token function">timeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    cache<span class="token punctuation">.</span><span class="token function">setItem</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span>value<span class="token punctuation">,</span>expire<span class="token punctuation">,</span><span class="token keyword">function</span> <span class="token punctuation">(</span>ret<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                        <span class="token keyword">if</span><span class="token punctuation">(</span>ret<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                        <span class="token keyword">else</span> <span class="token function">reject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-
-        <span class="token comment" spellcheck="true">/**
-         * 获取本地缓存数据，当数据已过期时会被清理掉
-         *
-         * @param  {String}  key         键名
-         * @param  {Mix}     defaultVal  如设置了默认值，则保证不会被reject
-         *
-         * @return {Promise}      Promise实例
-         */</span>
-        <span class="token keyword">get</span><span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> defaultVal<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                <span class="token function">timeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    <span class="token keyword">var</span> value <span class="token operator">=</span> cache<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token keyword">if</span><span class="token punctuation">(</span>value<span class="token operator">===</span><span class="token string">""</span><span class="token operator">||</span>value<span class="token operator">===</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> defaultVal<span class="token operator">!=</span><span class="token string">"undefined"</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                            <span class="token function">resolve</span><span class="token punctuation">(</span>defaultVal<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-                            <span class="token function">reject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                        <span class="token punctuation">}</span>
-                        <span class="token keyword">return</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span>
-                    <span class="token function">resolve</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-
-        <span class="token comment" spellcheck="true">/**
-         * 移除本地缓存数据
-         */</span>
-        remove<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span><span class="token punctuation">{</span>
-                <span class="token function">timeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    cache<span class="token punctuation">.</span><span class="token function">removeItem</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-
-        <span class="token comment" spellcheck="true">/**
-         * 同步地设置本地缓存数据
-         *
-         * @deprecated 此方法只为了暂时兼容旧接口，会极大的影响性，能请勿使用！
-         */</span>
-        setSync<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">,</span> options<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">var</span> expire <span class="token operator">=</span> <span class="token function">convertExpire</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> options <span class="token operator">==</span> <span class="token string">'object'</span> <span class="token operator">&amp;&amp;</span> options<span class="token punctuation">.</span>expire <span class="token operator">?</span> options<span class="token punctuation">.</span>expire <span class="token punctuation">:</span> <span class="token string">'7d'</span><span class="token punctuation">)</span>
-            cache<span class="token punctuation">.</span><span class="token function">setItem</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span>value<span class="token punctuation">,</span>expire<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-
-        <span class="token comment" spellcheck="true">/**
-         * 同步地获取本地缓存数据，当数据已过期时会被清理掉
-         *
-         * @deprecated 此方法只为了暂时兼容旧接口，会极大的影响性，能请勿使用！
-         */</span>
-        getSync<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> cache<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-
-
-    module<span class="token punctuation">.</span>exports <span class="token operator">=</span> storage<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-</code></pre>
+            <p>localStorage设置过期时间<br><a id="more"></a><br><figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="hljs-string">"localStorage"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">require, exports, module</span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">var</span> cache = <span class="hljs-built_in">require</span>(<span class="hljs-string">"cachev1"</span>).local;</span><br><span class="line">    <span class="hljs-keyword">var</span> <span class="hljs-built_in">Promise</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">"promise.min"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">     * 将过期时间字符串转换成时间戳</span></span><br><span class="line"><span class="hljs-comment">     *  convertExpire("7d")</span></span><br><span class="line"><span class="hljs-comment">     *  convertExpire(3600)  1小时</span></span><br><span class="line"><span class="hljs-comment">     * @param  &#123;String&#125; val  过期时间，格式为`\d+[smhd]`，其中s 表示秒、m 分钟、h 小时、d 天，如 30d   默认是秒</span></span><br><span class="line"><span class="hljs-comment">     * @return &#123;Number&#125;      时间戳（单位s）</span></span><br><span class="line"><span class="hljs-comment">     */</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">convertExpire</span>(<span class="hljs-params">val</span>) </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (!val) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">var</span> matches = (<span class="hljs-string">''</span> + val).match(<span class="hljs-regexp">/(\d+)([smhd])/</span>);</span><br><span class="line">        <span class="hljs-keyword">var</span> ms = <span class="hljs-number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="hljs-keyword">if</span> (matches) &#123;</span><br><span class="line">            <span class="hljs-keyword">switch</span> (matches[<span class="hljs-number">2</span>]) &#123;</span><br><span class="line">                <span class="hljs-keyword">case</span> <span class="hljs-string">'s'</span>:</span><br><span class="line">                    ms = matches[<span class="hljs-number">1</span>];</span><br><span class="line">                    <span class="hljs-keyword">break</span>;</span><br><span class="line">                <span class="hljs-keyword">case</span> <span class="hljs-string">'m'</span>:</span><br><span class="line">                    ms = matches[<span class="hljs-number">1</span>] * <span class="hljs-number">60</span>;</span><br><span class="line">                    <span class="hljs-keyword">break</span>;</span><br><span class="line">                <span class="hljs-keyword">case</span> <span class="hljs-string">'h'</span>:</span><br><span class="line">                    ms = matches[<span class="hljs-number">1</span>] * <span class="hljs-number">60</span> * <span class="hljs-number">60</span>;</span><br><span class="line">                    <span class="hljs-keyword">break</span>;</span><br><span class="line">                <span class="hljs-keyword">case</span> <span class="hljs-string">'d'</span>:</span><br><span class="line">                    ms = matches[<span class="hljs-number">1</span>] * <span class="hljs-number">24</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="hljs-keyword">else</span>&#123;</span><br><span class="line">            ms = val;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">return</span> ms;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">var</span> timeout = setTimeout;</span><br><span class="line">    <span class="hljs-keyword">var</span> storage = &#123;</span><br><span class="line">        <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">         * 将数据写入本地缓存</span></span><br><span class="line"><span class="hljs-comment">         *</span></span><br><span class="line"><span class="hljs-comment">         * @param  &#123;String&#125;          key      键名</span></span><br><span class="line"><span class="hljs-comment">         * @param  &#123;Object | String&#125; value    数据</span></span><br><span class="line"><span class="hljs-comment">         * @param  &#123;Object&#125;          options  可选项，可传expire 设定数据过期时间，格式参见convertExpire</span></span><br><span class="line"><span class="hljs-comment">         *</span></span><br><span class="line"><span class="hljs-comment">         * @return &#123;Promise&#125;         Promise实例</span></span><br><span class="line"><span class="hljs-comment">         */</span></span><br><span class="line">        <span class="hljs-keyword">set</span>:function(key, value, options) &#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve, reject</span>)</span>&#123;</span><br><span class="line">                <span class="hljs-keyword">var</span> expire = convertExpire(<span class="hljs-keyword">typeof</span> options == <span class="hljs-string">'object'</span> &amp;&amp; options.expire ? options.expire : <span class="hljs-string">'7d'</span>);</span><br><span class="line">                timeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">                    cache.setItem(key,value,expire,<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">ret</span>) </span>&#123;</span><br><span class="line">                        <span class="hljs-keyword">if</span>(ret==<span class="hljs-number">0</span>) resolve();</span><br><span class="line">                        <span class="hljs-keyword">else</span> reject();</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">         * 获取本地缓存数据，当数据已过期时会被清理掉</span></span><br><span class="line"><span class="hljs-comment">         *</span></span><br><span class="line"><span class="hljs-comment">         * @param  &#123;String&#125;  key         键名</span></span><br><span class="line"><span class="hljs-comment">         * @param  &#123;Mix&#125;     defaultVal  如设置了默认值，则保证不会被reject</span></span><br><span class="line"><span class="hljs-comment">         *</span></span><br><span class="line"><span class="hljs-comment">         * @return &#123;Promise&#125;      Promise实例</span></span><br><span class="line"><span class="hljs-comment">         */</span></span><br><span class="line">        <span class="hljs-keyword">get</span>:function(key, defaultVal) &#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve, reject</span>)</span>&#123;</span><br><span class="line">                timeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">                    <span class="hljs-keyword">var</span> value = cache.getItem(key);</span><br><span class="line">                    <span class="hljs-keyword">if</span>(value===<span class="hljs-string">""</span>||value===<span class="hljs-literal">null</span>)&#123;</span><br><span class="line">                        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">typeof</span> defaultVal!=<span class="hljs-string">"undefined"</span>)&#123;</span><br><span class="line">                            resolve(defaultVal);</span><br><span class="line">                        &#125;<span class="hljs-keyword">else</span>&#123;</span><br><span class="line">                            reject();</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="hljs-keyword">return</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    resolve(value);</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">         * 移除本地缓存数据</span></span><br><span class="line"><span class="hljs-comment">         */</span></span><br><span class="line">        remove:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">key</span>) </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve, reject</span>)</span>&#123;</span><br><span class="line">                timeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">                    cache.removeItem(key);</span><br><span class="line">                    resolve();</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">         * 同步地设置本地缓存数据</span></span><br><span class="line"><span class="hljs-comment">         *</span></span><br><span class="line"><span class="hljs-comment">         * @deprecated 此方法只为了暂时兼容旧接口，会极大的影响性，能请勿使用！</span></span><br><span class="line"><span class="hljs-comment">         */</span></span><br><span class="line">        setSync:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">key, value, options</span>) </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">var</span> expire = convertExpire(<span class="hljs-keyword">typeof</span> options == <span class="hljs-string">'object'</span> &amp;&amp; options.expire ? options.expire : <span class="hljs-string">'7d'</span>)</span><br><span class="line">            cache.setItem(key,value,expire);</span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">         * 同步地获取本地缓存数据，当数据已过期时会被清理掉</span></span><br><span class="line"><span class="hljs-comment">         *</span></span><br><span class="line"><span class="hljs-comment">         * @deprecated 此方法只为了暂时兼容旧接口，会极大的影响性，能请勿使用！</span></span><br><span class="line"><span class="hljs-comment">         */</span></span><br><span class="line">        getSync:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">key</span>) </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">return</span> cache.getItem(key);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="hljs-built_in">module</span>.exports = storage;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 
         </div>
         
@@ -446,7 +325,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        29
+                        30
                     </p>
                 </div>
             </div>
@@ -466,7 +345,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        24
+                        25
                     </p>
                 </div>
             </div>
@@ -719,7 +598,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
 </div>
 
@@ -736,9 +615,28 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -810,25 +708,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -840,6 +719,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -1067,6 +957,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1124,9 +1021,28 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -1198,25 +1114,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1228,6 +1125,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -1455,6 +1363,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

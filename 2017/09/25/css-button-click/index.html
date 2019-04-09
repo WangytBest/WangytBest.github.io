@@ -201,59 +201,16 @@ var _hmt = _hmt || [];
 <h3 id="css实现"><a href="#css实现" class="headerlink" title="css实现"></a>css实现</h3><p>伪类（pseudo-class）和伪元素(peseudo-element)</p>
 <h4 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h4><blockquote>
 <ul>
-<li><code>:before</code></li>
-<li><code>:after</code></li>
+<li><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; * ```:after</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </blockquote>
 <h4 id="链接定义样式"><a href="#链接定义样式" class="headerlink" title="链接定义样式"></a>链接定义样式</h4><blockquote>
 <ul>
-<li><code>:hover</code> : 鼠标滑过元素上方时的展现效果</li>
-<li><code>:active</code> : 鼠标单击元素时展现效果</li>
-<li><code>:visited</code> : 已经单击过的链接</li>
-<li><code>:link</code> : 未访问、未滑过、未点击过的链接标签的样式</li>
+<li><figure class="highlight plain hljs"><figcaption><span>: 鼠标滑过元素上方时的展现效果</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&gt; * ```:active``` : 鼠标单击元素时展现效果</span><br><span class="line">&gt; * ```:visited``` : 已经单击过的链接</span><br><span class="line">&gt; * ```:link``` : 未访问、未滑过、未点击过的链接标签的样式</span><br><span class="line"></span><br><span class="line">#### 段落样式</span><br><span class="line">&gt; * ```:first-letter``` : 首字母</span><br><span class="line">&gt; * ```:first-line``` : 首行</span><br><span class="line"></span><br><span class="line">#### 设置元素</span><br><span class="line"></span><br><span class="line">&gt; button元素在没有点击或者鼠标滑过时设置按钮样式,同时设置hover和active的样式效果</span><br><span class="line"></span><br><span class="line">```css</span><br><span class="line">.button &#123;</span><br><span class="line">    text-decoration:none;</span><br><span class="line">    user-select:none;</span><br><span class="line">    position: relative;</span><br><span class="line">    display: block;</span><br><span class="line">    margin: 100px auto;</span><br><span class="line">    width:120px;</span><br><span class="line">    height:50px;</span><br><span class="line">    line-height:50px;</span><br><span class="line">    text-align:center;</span><br><span class="line">    border-radius:25px;</span><br><span class="line">    border: none;</span><br><span class="line">    color:#fff;</span><br><span class="line">    font-size:16px;</span><br><span class="line">    cursor:pointer;</span><br><span class="line">    background-color: #ff8300;</span><br><span class="line">    box-shadow: 0 3px 9px 0 rgba(255, 131, 0, 0.35);</span><br><span class="line">    overflow: hidden;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.button:hover &#123;</span><br><span class="line">    transform: translateY(-2px);</span><br><span class="line">    box-shadow: 0 5px 13px 0 rgba(255, 131, 0, 0.59);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.button:active &#123;</span><br><span class="line">    box-shadow: 0 3px 9px 0 rgba(255, 131, 0, 0.35);</span><br><span class="line">    color: #ffca8c;</span><br><span class="line">    background-color: #f07b00;</span><br><span class="line">    transform: translateY(0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </blockquote>
-<h4 id="段落样式"><a href="#段落样式" class="headerlink" title="段落样式"></a>段落样式</h4><blockquote>
-<ul>
-<li><code>:first-letter</code> : 首字母</li>
-<li><code>:first-line</code> : 首行</li>
-</ul>
-</blockquote>
-<h4 id="设置元素"><a href="#设置元素" class="headerlink" title="设置元素"></a>设置元素</h4><blockquote>
-<p>button元素在没有点击或者鼠标滑过时设置按钮样式,同时设置hover和active的样式效果</p>
-</blockquote>
-<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.button</span> </span><span class="token punctuation">{</span>
-    <span class="token property">text-decoration</span><span class="token punctuation">:</span>none<span class="token punctuation">;</span>
-    <span class="token property">user-select</span><span class="token punctuation">:</span>none<span class="token punctuation">;</span>
-    <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
-    <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
-    <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">100</span>px auto<span class="token punctuation">;</span>
-    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">120</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">50</span>px<span class="token punctuation">;</span>
-    <span class="token property">line-height</span><span class="token punctuation">:</span><span class="token number">50</span>px<span class="token punctuation">;</span>
-    <span class="token property">text-align</span><span class="token punctuation">:</span>center<span class="token punctuation">;</span>
-    <span class="token property">border-radius</span><span class="token punctuation">:</span><span class="token number">25</span>px<span class="token punctuation">;</span>
-    <span class="token property">border</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
-    <span class="token property">color</span><span class="token punctuation">:</span><span class="token hexcode">#fff</span><span class="token punctuation">;</span>
-    <span class="token property">font-size</span><span class="token punctuation">:</span><span class="token number">16</span>px<span class="token punctuation">;</span>
-    <span class="token property">cursor</span><span class="token punctuation">:</span>pointer<span class="token punctuation">;</span>
-    <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token hexcode">#ff8300</span><span class="token punctuation">;</span>
-    <span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token number">3</span>px <span class="token number">9</span>px <span class="token number">0</span> <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">255</span>, <span class="token number">131</span>, <span class="token number">0</span>, <span class="token number">0.35</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token selector"><span class="token class">.button</span><span class="token pseudo-class">:hover</span> </span><span class="token punctuation">{</span>
-    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translateY</span><span class="token punctuation">(</span>-<span class="token number">2</span>px<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token number">5</span>px <span class="token number">13</span>px <span class="token number">0</span> <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">255</span>, <span class="token number">131</span>, <span class="token number">0</span>, <span class="token number">0.59</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token selector"><span class="token class">.button</span><span class="token pseudo-class">:active</span> </span><span class="token punctuation">{</span>
-    <span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token number">3</span>px <span class="token number">9</span>px <span class="token number">0</span> <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">255</span>, <span class="token number">131</span>, <span class="token number">0</span>, <span class="token number">0.35</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#ffca8c</span><span class="token punctuation">;</span>
-    <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token hexcode">#f07b00</span><span class="token punctuation">;</span>
-    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translateY</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
 <script async src="//jsfiddle.net/wangyutao/3vseL19b/2/embed/html,css,result/"></script>
 
 <blockquote>
@@ -398,7 +355,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        29
+                        30
                     </p>
                 </div>
             </div>
@@ -418,7 +375,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        24
+                        25
                     </p>
                 </div>
             </div>
@@ -671,7 +628,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
 </div>
 
@@ -688,9 +645,28 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -762,25 +738,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -792,6 +749,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -1019,6 +987,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1076,9 +1051,28 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -1150,25 +1144,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1180,6 +1155,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -1407,6 +1393,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

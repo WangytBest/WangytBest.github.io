@@ -204,82 +204,23 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>　　我们发现解压后的目录并没有<code>my.ini</code>文件，没关系可以自行创建。在安装根目录下添加 my.ini，比如我这里是：C:\Program Files\MySQL\my.ini，写入基本配置：</p>
 </blockquote>
-<pre><code>[mysqld]
-# 设置3306端口
-port=3306
-# 设置mysql的安装目录
-basedir=C:\Program Files\MySQL
-# 设置mysql数据库的数据的存放目录
-datadir=E:\database\MySQL\Data
-# 允许最大连接数
-max_connections=200
-# 允许连接失败的次数。这是为了防止有人从该主机试图攻击数据库系统
-max_connect_errors=10
-# 服务端使用的字符集默认为UTF8
-character-set-server=utf8
-# 创建新表时将使用的默认存储引擎
-default-storage-engine=INNODB
-# 默认使用“mysql_native_password”插件认证
-default_authentication_plugin=mysql_native_password
-[mysql]
-# 设置mysql客户端默认字符集
-default-character-set=utf8
-[client]
-# 设置mysql客户端连接服务端时默认使用的端口
-port=3306
-default-character-set=utf8
-</code></pre><p>注意，里面的 basedir 是本地的安装目录，datadir 是我数据库数据文件要存放的位置，各项配置需要根据自己的环境进行配置。<br>查看所有的配置项，可参考：<a href="https://dev.mysql.com/doc/refman/8.0/en/mysqld-option-tables.html" target="_blank" rel="noopener">https://dev.mysql.com/doc/refman/8.0/en/mysqld-option-tables.html</a></p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line"># 设置3306端口</span><br><span class="line">port=3306</span><br><span class="line"># 设置mysql的安装目录</span><br><span class="line">basedir=C:\Program Files\MySQL</span><br><span class="line"># 设置mysql数据库的数据的存放目录</span><br><span class="line">datadir=E:\database\MySQL\Data</span><br><span class="line"># 允许最大连接数</span><br><span class="line">max_connections=200</span><br><span class="line"># 允许连接失败的次数。这是为了防止有人从该主机试图攻击数据库系统</span><br><span class="line">max_connect_errors=10</span><br><span class="line"># 服务端使用的字符集默认为UTF8</span><br><span class="line">character-set-server=utf8</span><br><span class="line"># 创建新表时将使用的默认存储引擎</span><br><span class="line">default-storage-engine=INNODB</span><br><span class="line"># 默认使用“mysql_native_password”插件认证</span><br><span class="line">default_authentication_plugin=mysql_native_password</span><br><span class="line">[mysql]</span><br><span class="line"># 设置mysql客户端默认字符集</span><br><span class="line">default-character-set=utf8</span><br><span class="line">[client]</span><br><span class="line"># 设置mysql客户端连接服务端时默认使用的端口</span><br><span class="line">port=3306</span><br><span class="line">default-character-set=utf8</span><br></pre></td></tr></table></figure>
+<p>注意，里面的 basedir 是本地的安装目录，datadir 是我数据库数据文件要存放的位置，各项配置需要根据自己的环境进行配置。<br>查看所有的配置项，可参考：<a href="https://dev.mysql.com/doc/refman/8.0/en/mysqld-option-tables.html" target="_blank" rel="noopener">https://dev.mysql.com/doc/refman/8.0/en/mysqld-option-tables.html</a></p>
 <h1 id="2-初始化数据库"><a href="#2-初始化数据库" class="headerlink" title="2 初始化数据库"></a>2 初始化数据库</h1><p>在MySQL安装目录的 bin 目录下执行命令：</p>
 <blockquote>
 <p><code>mysqld --initialize --console</code></p>
 </blockquote>
 <p>执行完成后，会打印 root 用户的初始默认密码，比如：</p>
-<pre class=" language-cmd"><code class="language-cmd">C:\Users\Administrator>cd C:\Program Files\MySQL\bin
-C:\Program Files\MySQL\bin>mysqld --initialize --console
-2018-04-28T15:57:17.087519Z 0 [System] [MY-013169] [Server] C:\Program Files\MySQL\bin\mysqld.exe (mysqld 8.0.11) initializing of server in progress as process 4984
-2018-04-28T15:57:24.859249Z 5 [Note] [MY-010454] [Server] A temporary password is generated for root@localhost: rI5rvf5x5G,E
-2018-04-28T15:57:27.106660Z 0 [System] [MY-013170] [Server] C:\Program Files\MySQL\bin\mysqld.exe (mysqld 8.0.11) initializing of server has completed
-C:\Program Files\MySQL\bin>
-</code></pre>
-<p>注意！执行输出结果里面有一段： <code>[Note] [MY-010454] [Server] A temporary password is generated for root@localhost: rI5rvf5x5G,E</code> 其中<code>root@localhost:</code>后面的<code>rI5rvf5x5G,E</code>就是初始密码（不含首位空格）。在没有更改密码前，需要记住这个密码，后续登录需要用到。</p>
-<h1 id="3-安装数据库"><a href="#3-安装数据库" class="headerlink" title="3 安装数据库"></a>3 安装数据库</h1><p>在MySQL安装目录的 bin 目录下执行命令（以管理员身份打开cmd命令行，或者在安装目录Shift+右键“在此处打开命令行窗口”）：</p>
-<blockquote>
-<p><code>mysqld --install [服务名]</code></p>
-</blockquote>
+<figure class="highlight cmd hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function">C:\<span class="hljs-title">Users</span>\<span class="hljs-title">Administrator</span>&gt;<span class="hljs-title">cd</span> <span class="hljs-title">C</span>:\<span class="hljs-title">Program</span> <span class="hljs-title">Files</span>\<span class="hljs-title">MySQL</span>\<span class="hljs-title">bin</span></span></span><br><span class="line"><span class="hljs-function"><span class="hljs-title">C</span>:\<span class="hljs-title">Program</span> <span class="hljs-title">Files</span>\<span class="hljs-title">MySQL</span>\<span class="hljs-title">bin</span>&gt;<span class="hljs-title">mysqld</span> --<span class="hljs-title">initialize</span> --<span class="hljs-title">console</span></span></span><br><span class="line"><span class="hljs-function">2018-04-28<span class="hljs-title">T15</span>:57:17.087519<span class="hljs-title">Z</span> 0 [<span class="hljs-title">System</span>] [<span class="hljs-title">MY</span>-013169] [<span class="hljs-title">Server</span>] <span class="hljs-title">C</span>:\<span class="hljs-title">Program</span> <span class="hljs-title">Files</span>\<span class="hljs-title">MySQL</span>\<span class="hljs-title">bin</span>\<span class="hljs-title">mysqld.exe</span> (<span class="hljs-title">mysqld</span> 8.0.11) <span class="hljs-title">initializing</span> <span class="hljs-title">of</span> <span class="hljs-title">server</span> <span class="hljs-title">in</span> <span class="hljs-title">progress</span> <span class="hljs-title">as</span> <span class="hljs-title">process</span> 4984</span></span><br><span class="line"><span class="hljs-function">2018-04-28<span class="hljs-title">T15</span>:57:24.859249<span class="hljs-title">Z</span> 5 [<span class="hljs-title">Note</span>] [<span class="hljs-title">MY</span>-010454] [<span class="hljs-title">Server</span>] <span class="hljs-title">A</span> <span class="hljs-title">temporary</span> <span class="hljs-title">password</span> <span class="hljs-title">is</span> <span class="hljs-title">generated</span> <span class="hljs-title">for</span> <span class="hljs-title">root</span>@<span class="hljs-title">localhost</span>: <span class="hljs-title">rI5rvf5x5G</span>,<span class="hljs-title">E</span></span></span><br><span class="line"><span class="hljs-function">2018-04-28<span class="hljs-title">T15</span>:57:27.106660<span class="hljs-title">Z</span> 0 [<span class="hljs-title">System</span>] [<span class="hljs-title">MY</span>-013170] [<span class="hljs-title">Server</span>] <span class="hljs-title">C</span>:\<span class="hljs-title">Program</span> <span class="hljs-title">Files</span>\<span class="hljs-title">MySQL</span>\<span class="hljs-title">bin</span>\<span class="hljs-title">mysqld.exe</span> (<span class="hljs-title">mysqld</span> 8.0.11) <span class="hljs-title">initializing</span> <span class="hljs-title">of</span> <span class="hljs-title">server</span> <span class="hljs-title">has</span> <span class="hljs-title">completed</span></span></span><br><span class="line"><span class="hljs-function"><span class="hljs-title">C</span>:\<span class="hljs-title">Program</span> <span class="hljs-title">Files</span>\<span class="hljs-title">MySQL</span>\<span class="hljs-title">bin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>注意！执行输出结果里面有一段： <figure class="highlight plain hljs"><figcaption><span>[MY-010454] [Server] A temporary password is generated for root@localhost: rI5rvf5x5G,E``` 其中```root@localhost:```后面的```rI5rvf5x5G,E```就是初始密码（不含首位空格）。在没有更改密码前，需要记住这个密码，后续登录需要用到。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># 3 安装数据库</span><br><span class="line"></span><br><span class="line">在MySQL安装目录的 bin 目录下执行命令（以管理员身份打开cmd命令行，或者在安装目录Shift+右键“在此处打开命令行窗口”）：</span><br><span class="line">&gt; ```mysqld --install [服务名]</span><br></pre></td></tr></table></figure></p>
 <p>后面的服务名可以不写，默认的名字为 mysql。</p>
-<p>安装完成之后，就可以通过命令<code>net start mysql</code>启动MySQL的服务了。<br>示例：</p>
-<pre class=" language-cmd"><code class="language-cmd">C:\Program Files\MySQL\bin>mysqld --install
-Service successfully installed.
-C:\Program Files\MySQL\bin>net start mysql
-MySQL 服务正在启动 ..
-MySQL 服务已经启动成功。
-</code></pre>
+<p>安装完成之后，就可以通过命令<figure class="highlight plain hljs"><figcaption><span>start mysql```启动MySQL的服务了。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">示例：</span><br><span class="line">```cmd</span><br><span class="line">C:\Program Files\MySQL\bin&gt;mysqld --install</span><br><span class="line">Service successfully installed.</span><br><span class="line">C:\Program Files\MySQL\bin&gt;net start mysql</span><br><span class="line">MySQL 服务正在启动 ..</span><br><span class="line">MySQL 服务已经启动成功。</span><br></pre></td></tr></table></figure></p>
 <h1 id="4-修改密码"><a href="#4-修改密码" class="headerlink" title="4 修改密码"></a>4 修改密码</h1><p>在MySQL安装目录的 bin 目录下执行命令：</p>
 <blockquote>
-<p><code>mysql -u root -p</code></p>
+<figure class="highlight plain hljs"><figcaption><span>-u root -p```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">这时候会提示输入密码，记住了上面第1.3步安装时的密码，填入即可登录成功，进入MySQL命令模式。</span><br><span class="line"></span><br><span class="line">修改密码:</span><br><span class="line">&gt; ```ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED WITH mysql_native_password BY &apos;新密码&apos;;</span><br></pre></td></tr></table></figure>
 </blockquote>
-<p>这时候会提示输入密码，记住了上面第1.3步安装时的密码，填入即可登录成功，进入MySQL命令模式。</p>
-<p>修改密码:</p>
-<blockquote>
-<p><code>ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;新密码&#39;;</code></p>
-</blockquote>
-<pre class=" language-cmd"><code class="language-cmd">[mysqld]
-default_authentication_plugin=mysql_native_password
-</code></pre>
-<pre class=" language-cmd"><code class="language-cmd">C:\Program Files\MySQL\bin>mysql -u root -p
-Enter password: ************
-Welcome to the MySQL monitor. Commands end with ; or \g.
-Your MySQL connection id is 8
-Server version: 8.0.11
-Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-mysql> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '新密码';
-Query OK, 0 rows affected (0.06 sec)
-mysql>
-</code></pre>
+<figure class="highlight cmd hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">default_authentication_plugin=mysql_native_password</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function">C:\<span class="hljs-title">Program</span> <span class="hljs-title">Files</span>\<span class="hljs-title">MySQL</span>\<span class="hljs-title">bin</span>&gt;<span class="hljs-title">mysql</span> -<span class="hljs-title">u</span> <span class="hljs-title">root</span> -<span class="hljs-title">p</span></span></span><br><span class="line"><span class="hljs-function"><span class="hljs-title">Enter</span> <span class="hljs-title">password</span>: ************</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-title">Welcome</span> <span class="hljs-title">to</span> <span class="hljs-title">the</span> <span class="hljs-title">MySQL</span> <span class="hljs-title">monitor</span>. <span class="hljs-title">Commands</span> <span class="hljs-title">end</span> <span class="hljs-title">with</span> ; <span class="hljs-title">or</span> \<span class="hljs-title">g</span>.</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-title">Your</span> <span class="hljs-title">MySQL</span> <span class="hljs-title">connection</span> <span class="hljs-title">id</span> <span class="hljs-title">is</span> 8</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-title">Server</span> <span class="hljs-title">version</span>: 8.0.11</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-title">Copyright</span> (<span class="hljs-title">c</span>) 2000, 2018, <span class="hljs-title">Oracle</span> <span class="hljs-title">and</span>/<span class="hljs-title">or</span> <span class="hljs-title">its</span> <span class="hljs-title">affiliates</span>. <span class="hljs-title">All</span> <span class="hljs-title">rights</span> <span class="hljs-title">reserved</span>.</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-title">Oracle</span> <span class="hljs-title">is</span> <span class="hljs-title">a</span> <span class="hljs-title">registered</span> <span class="hljs-title">trademark</span> <span class="hljs-title">of</span> <span class="hljs-title">Oracle</span> <span class="hljs-title">Corporation</span> <span class="hljs-title">and</span>/<span class="hljs-title">or</span> <span class="hljs-title">its</span></span></span><br><span class="line"><span class="hljs-function"><span class="hljs-title">affiliates</span>. <span class="hljs-title">Other</span> <span class="hljs-title">names</span> <span class="hljs-title">may</span> <span class="hljs-title">be</span> <span class="hljs-title">trademarks</span> <span class="hljs-title">of</span> <span class="hljs-title">their</span> <span class="hljs-title">respective</span></span></span><br><span class="line"><span class="hljs-function"><span class="hljs-title">owners</span>.</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-title">Type</span> '<span class="hljs-title">help</span>;' <span class="hljs-title">or</span> '\<span class="hljs-title">h</span>' <span class="hljs-title">for</span> <span class="hljs-title">help</span>. <span class="hljs-title">Type</span> '\<span class="hljs-title">c</span>' <span class="hljs-title">to</span> <span class="hljs-title">clear</span> <span class="hljs-title">the</span> <span class="hljs-title">current</span> <span class="hljs-title">input</span> <span class="hljs-title">statement</span>.</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-title">mysql</span>&gt; <span class="hljs-title">ALTER</span> <span class="hljs-title">USER</span> '<span class="hljs-title">root</span>'@'<span class="hljs-title">localhost</span>' <span class="hljs-title">IDENTIFIED</span> <span class="hljs-title">WITH</span> <span class="hljs-title">mysql_native_password</span> <span class="hljs-title">BY</span> '新密码';</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-title">Query</span> <span class="hljs-title">OK</span>, 0 <span class="hljs-title">rows</span> <span class="hljs-title">affected</span> (0.06 <span class="hljs-title">sec</span>)</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-title">mysql</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
         </div>
         
@@ -418,7 +359,7 @@ mysql>
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        29
+                        30
                     </p>
                 </div>
             </div>
@@ -438,7 +379,7 @@ mysql>
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        24
+                        25
                     </p>
                 </div>
             </div>
@@ -691,7 +632,7 @@ mysql>
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
 </div>
 
@@ -708,9 +649,28 @@ mysql>
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -782,25 +742,6 @@ mysql>
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -812,6 +753,17 @@ mysql>
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -1039,6 +991,13 @@ mysql>
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1096,9 +1055,28 @@ mysql>
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -1170,25 +1148,6 @@ mysql>
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1200,6 +1159,17 @@ mysql>
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -1427,6 +1397,13 @@ mysql>
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

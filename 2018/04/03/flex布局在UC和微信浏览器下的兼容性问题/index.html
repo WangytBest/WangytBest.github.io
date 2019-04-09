@@ -197,21 +197,15 @@ var _hmt = _hmt || [];
         </h1>
         <div class="content">
             <h2 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h2><h2 id="UC和微信浏览器下的兼容性问题"><a href="#UC和微信浏览器下的兼容性问题" class="headerlink" title="UC和微信浏览器下的兼容性问题"></a>UC和微信浏览器下的兼容性问题</h2><p>所有<code>webkit</code>内核的浏览器（包括移动端）都支持 flex 布局，只不过一些浏览器只支持旧语法，如：<code>display: -webkit-box</code> 。<br>旧语法和标准的 <code>flex</code> 语法有较大区别，需要做好兼容。不过可以来使用 <code>autoprefixer</code> 来自动处理这些兼容性问题，而开发时只需要写标准的语法就好了。</p>
-<p>假如没有使用<code>autoprefixer</code>，在UC浏览器和微信内置浏览器中，使用<code>display:flex;</code>时会不起作用，要加上兼容性写法。<br><a id="more"></a></p>
-<pre class=" language-css"><code class="language-css"><span class="token property">display</span><span class="token punctuation">:</span> -webkit-box<span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">/* OLD - iOS 6-, Safari 3.1-6 */</span>
-<span class="token property">display</span><span class="token punctuation">:</span> -moz-box<span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">/* OLD - Firefox 19- (buggy but mostly works) */</span>
-<span class="token property">display</span><span class="token punctuation">:</span> -ms-flexbox<span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">/* TWEENER - IE 10 */</span>
-<span class="token property">display</span><span class="token punctuation">:</span> -webkit-flex<span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">/* NEW - Chrome */</span>
-<span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
-</code></pre>
+<p>假如没有使用<code>autoprefixer</code>，在UC浏览器和微信内置浏览器中，使用<code>display:flex;</code>时会不起作用，要加上兼容性写法。<br><a id="more"></a><br><figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-tag">display</span>: <span class="hljs-selector-tag">-webkit-box</span>;      <span class="hljs-comment">/* OLD - iOS 6-, Safari 3.1-6 */</span></span><br><span class="line"><span class="hljs-selector-tag">display</span>: <span class="hljs-selector-tag">-moz-box</span>;         <span class="hljs-comment">/* OLD - Firefox 19- (buggy but mostly works) */</span></span><br><span class="line"><span class="hljs-selector-tag">display</span>: <span class="hljs-selector-tag">-ms-flexbox</span>;      <span class="hljs-comment">/* TWEENER - IE 10 */</span></span><br><span class="line"><span class="hljs-selector-tag">display</span>: <span class="hljs-selector-tag">-webkit-flex</span>;     <span class="hljs-comment">/* NEW - Chrome */</span></span><br><span class="line"><span class="hljs-selector-tag">display</span>: <span class="hljs-selector-tag">flex</span>;</span><br></pre></td></tr></table></figure></p>
 <p>使用<code>flex:1;</code>时也要添加兼容性写法</p>
-<pre class=" language-css"><code class="language-css">           <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">20%</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">/* For old syntax, otherwise collapses. */</span>
-<span class="token property">-webkit-box-flex</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">/* OLD - iOS 6-, Safari 3.1-6 */</span>
-   <span class="token property">-moz-box-flex</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">/* OLD - Firefox 19- */</span>
-    <span class="token property">-webkit-flex</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">/* Chrome */</span>
-        <span class="token property">-ms-flex</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">/* IE 10 */</span>
-            <span class="token property">flex</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>  
-</code></pre>
+<pre class=" language-css">           <span class="selector-tag">width</span>: 20%;       <span class="comment"><code class="language-css">           <span class="selector-tag">width</span>: 20%;       <span class="comment">/* For old syntax, otherwise collapses. */</span>
+<span class="selector-tag">-webkit-box-flex</span>: 1;         <span class="comment">/* OLD - iOS 6-, Safari 3.1-6 */</span>
+   <span class="selector-tag">-moz-box-flex</span>: 1;         <span class="comment">/* OLD - Firefox 19- */</span>
+    <span class="selector-tag">-webkit-flex</span>: 1;         <span class="comment">/* Chrome */</span>
+        <span class="selector-tag">-ms-flex</span>: 1;         <span class="comment">/* IE 10 */</span>
+            <span class="selector-tag">flex</span>: 1;  
+</code></span></pre>
 <p><a href="https://github.com/lzxb/flex.css" target="_blank" rel="noopener">flex.css</a></p>
 
         </div>
@@ -351,7 +345,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        29
+                        30
                     </p>
                 </div>
             </div>
@@ -371,7 +365,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        24
+                        25
                     </p>
                 </div>
             </div>
@@ -624,7 +618,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
 </div>
 
@@ -641,9 +635,28 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -715,25 +728,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -745,6 +739,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -972,6 +977,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1029,9 +1041,28 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -1103,25 +1134,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1133,6 +1145,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -1360,6 +1383,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

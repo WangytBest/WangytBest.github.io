@@ -7,19 +7,19 @@
 
 
 
-    <meta name="description" content="github上创建新的项目后，在本地拉取项目或者将本地的项目关联到建立的仓库。 # git clone git@github.com:xxxxxxxxx.git">
+    <meta name="description" content="github上创建新的项目后，在本地拉取项目或者将本地的项目关联到建立的仓库。 1# git clone git@github.com:xxxxxxxxx.git">
 <meta name="keywords" content="git,github">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git基础">
 <meta property="og:url" content="http://wangytbest.github.io/2017/10/13/github-project-init/index.html">
 <meta property="og:site_name" content="王小贱">
-<meta property="og:description" content="github上创建新的项目后，在本地拉取项目或者将本地的项目关联到建立的仓库。 # git clone git@github.com:xxxxxxxxx.git">
+<meta property="og:description" content="github上创建新的项目后，在本地拉取项目或者将本地的项目关联到建立的仓库。 1# git clone git@github.com:xxxxxxxxx.git">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://cloud.xuww.wang/nianshaodeni.png">
 <meta property="og:updated_time" content="2019-04-09T07:04:41.246Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git基础">
-<meta name="twitter:description" content="github上创建新的项目后，在本地拉取项目或者将本地的项目关联到建立的仓库。 # git clone git@github.com:xxxxxxxxx.git">
+<meta name="twitter:description" content="github上创建新的项目后，在本地拉取项目或者将本地的项目关联到建立的仓库。 1# git clone git@github.com:xxxxxxxxx.git">
 <meta name="twitter:image" content="http://cloud.xuww.wang/nianshaodeni.png">
 
 
@@ -207,40 +207,17 @@ var _hmt = _hmt || [];
         </h1>
         <div class="content">
             <p>github上创建新的项目后，在本地拉取项目或者将本地的项目关联到建立的仓库。</p>
-<pre class=" language-shell"><code class="language-shell"># git clone git@github.com:xxxxxxxxx.git  
-</code></pre>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span> git clone git@github.com:xxxxxxxxx.git</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="命令行新建一个新的仓库"><a href="#命令行新建一个新的仓库" class="headerlink" title="命令行新建一个新的仓库"></a>命令行新建一个新的仓库</h2><pre class=" language-shell"><code class="language-shell"># mkdir myProject
-# cd myProject 
-# echo '# my new project' >> README.md
-# git init
-# git add .
-# git commit -m "first commit"
-# git remote add origin git@github.com:xxxxxxxxx.git
-# git push origin master
-</code></pre>
-<h2 id="本地项目关联远程git仓库"><a href="#本地项目关联远程git仓库" class="headerlink" title="本地项目关联远程git仓库"></a>本地项目关联远程git仓库</h2><pre class=" language-shell"><code class="language-shell"># cd myProject
-# git remote add origin git@github.com:xxxxx/xxxx/git
-# git push origin master
-</code></pre>
-<h1 id="本地分支关联远程分支"><a href="#本地分支关联远程分支" class="headerlink" title="本地分支关联远程分支"></a>本地分支关联远程分支</h1><pre class=" language-shell"><code class="language-shell"># git checkout test
-# git remote add origin git@github.com:xxxx/test.git
-</code></pre>
+<h2 id="命令行新建一个新的仓库"><a href="#命令行新建一个新的仓库" class="headerlink" title="命令行新建一个新的仓库"></a>命令行新建一个新的仓库</h2><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span> mkdir myProject</span><br><span class="line"><span class="hljs-meta">#</span> cd myProject </span><br><span class="line"><span class="hljs-meta">#</span> echo '# my new project' &gt;&gt; README.md</span><br><span class="line"><span class="hljs-meta">#</span> git init</span><br><span class="line"><span class="hljs-meta">#</span> git add .</span><br><span class="line"><span class="hljs-meta">#</span> git commit -m "first commit"</span><br><span class="line"><span class="hljs-meta">#</span> git remote add origin git@github.com:xxxxxxxxx.git</span><br><span class="line"><span class="hljs-meta">#</span> git push origin master</span><br></pre></td></tr></table></figure>
+<h2 id="本地项目关联远程git仓库"><a href="#本地项目关联远程git仓库" class="headerlink" title="本地项目关联远程git仓库"></a>本地项目关联远程git仓库</h2><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span> cd myProject</span><br><span class="line"><span class="hljs-meta">#</span> git remote add origin git@github.com:xxxxx/xxxx/git</span><br><span class="line"><span class="hljs-meta">#</span> git push origin master</span><br></pre></td></tr></table></figure>
+<h1 id="本地分支关联远程分支"><a href="#本地分支关联远程分支" class="headerlink" title="本地分支关联远程分支"></a>本地分支关联远程分支</h1><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span> git checkout test</span><br><span class="line"><span class="hljs-meta">#</span> git remote add origin git@github.com:xxxx/test.git</span><br></pre></td></tr></table></figure>
 <h2 id="fatal"><a href="#fatal" class="headerlink" title="fatal"></a>fatal</h2><p>首次拉取代码失败</p>
 <blockquote>
-<p>git pull错误信息 : </p>
-<pre class=" language-shell"><code class="language-shell"> * branch       master     -> FETCH_HEAD
- fatal: refusing to merge unrelated histories
-</code></pre>
+<p>git pull错误信息 :<br><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">* branch       master     -&gt; FETCH_HEAD</span><br><span class="line">fatal: refusing to merge unrelated histories</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<p>解决：</p>
-<pre class=" language-shell"><code class="language-shell"># git pull origin master --allow-unrelated-histories
-</code></pre>
-<h2 id="首次安装git设置"><a href="#首次安装git设置" class="headerlink" title="首次安装git设置"></a>首次安装git设置</h2><pre class=" language-shell"><code class="language-shell"># git config -global user.nme "xxxxxx"
-# git config -global user.email "xxxxxx@jd.com"
-</code></pre>
-<h1 id="公钥密钥配置"><a href="#公钥密钥配置" class="headerlink" title="公钥密钥配置"></a>公钥密钥配置</h1><pre class=" language-shell"><code class="language-shell"># ssh-keygen -t rsa
-</code></pre>
+<p>解决：<br><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span> git pull origin master --allow-unrelated-histories</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span># 首次安装git设置</span><br><span class="line">```shell</span><br><span class="line"><span class="hljs-meta">#</span> git config -global user.nme "xxxxxx"</span><br><span class="line"><span class="hljs-meta">#</span> git config -global user.email "xxxxxx@jd.com"</span><br></pre></td></tr></table></figure></p>
+<h1 id="公钥密钥配置"><a href="#公钥密钥配置" class="headerlink" title="公钥密钥配置"></a>公钥密钥配置</h1><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span> ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
 <p>会生成两个文件：<code>id_rsa</code>（密钥）和<code>id_rsa.pub</code>（公钥）<br>在github中设置公钥。</p>
 
         </div>
@@ -380,7 +357,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        29
+                        30
                     </p>
                 </div>
             </div>
@@ -400,7 +377,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        24
+                        25
                     </p>
                 </div>
             </div>
@@ -471,10 +448,6 @@ var _hmt = _hmt || [];
         <a class="is-flex" href="#fatal">
         <span class="has-mr-6">2.1</span>
         <span>fatal</span>
-        </a></li><li>
-        <a class="is-flex" href="#首次安装git设置">
-        <span class="has-mr-6">2.2</span>
-        <span>首次安装git设置</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#公钥密钥配置">
         <span class="has-mr-6">3</span>
@@ -688,7 +661,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
 </div>
 
@@ -705,9 +678,28 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -779,25 +771,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -809,6 +782,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -1036,6 +1020,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1093,9 +1084,28 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -1167,25 +1177,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1197,6 +1188,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -1424,6 +1426,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

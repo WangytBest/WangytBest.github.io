@@ -163,6 +163,69 @@ var _hmt = _hmt || [];
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
     <div class="card">
     
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2017-09-27T03:37:17.000Z">2017-09-27</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/CSS/SVG/">SVG</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 分钟 读完 (大约 350 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2017/09/27/css-svg-basic/">SVG基础入门</a>
+            
+        </h1>
+        <div class="content">
+            <blockquote>
+<p>可缩放矢量图形，即SVG，是W3C XML的分枝语言之一，用于标记可缩放的矢量图形。（摘自MDN）</p>
+</blockquote>
+<ul>
+<li><code>version</code>： 表示<code>&lt;svg&gt;</code>的版本</li>
+<li><code>xmlns</code>：<a href="http://www.w3.org/2000/svg" target="_blank" rel="noopener">http://www.w3.org/2000/svg</a> 固定值</li>
+<li><code>xmlns:xlink</code>：<a href="http://www.w3.org/1999/xlink" target="_blank" rel="noopener">http://www.w3.org/1999/xlink</a> 固定值</li>
+<li><code>xml:space</code>：preserve 固定值，上述三个值固定，表示命名空间，当数据单独存在svg文件内时，这3个值不能省略</li>
+<li><code>class</code>: class类名</li>
+<li><code>width | height</code>： 定义 <code>svg</code> 画布的大小</li>
+<li><code>viewbox</code>： 定义了画布上可以显示的区域，当 <code>viewBox</code> 的大小和 <code>svg</code> <code>不同时，viewBox</code> 在屏幕上的显示会缩放至 <code>svg</code> 同等大小。</li>
+</ul>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2017/09/27/css-svg-basic/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
     <div class="card-image">
         <a href="/2017/09/26/javascript-ajax/" class="image is-7by1">
             <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="AJAX异步请求">
@@ -197,18 +260,20 @@ var _hmt = _hmt || [];
         </h1>
         <div class="content">
             <p>AJAX： Asyncchronous Javascript + XMLL<br>Ajax的技术核心是XMLHttpRequest对象，简称XHR。</p>
-<p><code>XMLHttpRequest</code>对象（XHR）</p>
-<p>以异步的方式从服务器获取数据，获取新数据后，通过DOM的方式将新数据插入到页面中。<br></p>
+<figure class="highlight plain hljs"><figcaption><span>```对象（XHR）</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">以异步的方式从服务器获取数据，获取新数据后，通过DOM的方式将新数据插入到页面中。</span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line">### 1. 新建XHR对象</span><br><span class="line">* IE7+、现代浏览器都支持原生的XHR对象</span><br><span class="line"></span><br><span class="line">```JavaScript</span><br><span class="line">var xhr = new XMLHttpRequest();</span><br></pre></td></tr></table></figure>
+<h3 id="2-open-method-url-boolean"><a href="#2-open-method-url-boolean" class="headerlink" title="2. open(method, url, boolean)"></a>2. open(method, url, boolean)</h3><blockquote>
+<p>open() 方法并不会真正发送请求，而是启动一个请求以备发送。<br>同域、同端口、同协议</p>
+</blockquote>
+<ul>
+<li><figure class="highlight plain hljs"><figcaption><span>发送请求的类型（get、post、delete、put等）</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">* ```url```： 请求URL（相对路径是相对于当前页面或者绝对路径）</span><br><span class="line">* ```boolean```： 是否异步发送请求</span><br><span class="line"></span><br><span class="line">### 3. send()</span><br><span class="line"></span><br><span class="line">&gt; 一个参数，作为请求主体发送的数据，或者为null（body中的数据）</span><br><span class="line">&gt; 默认情况下，服务器对POST请求和表单提交的请求不会一视同仁。因此服务器端必须有程序来读取发送过来的原始数据，并从中解析出有用的部分。</span><br><span class="line">&gt; 可以使用XHR来模仿表单提交：</span><br><span class="line">        1、将content-Type头部信息设置成application/x-www-form-urlencoded</span><br><span class="line">        2、serialize()函数序列化表单内容。</span><br><span class="line"></span><br><span class="line">收到相应请求后，响应数据会自动填充XHR对象的属性。</span><br><span class="line">* ```responseText``` 作为响应主体被返回的文本。</span><br><span class="line">* ```responseXML``` 如果响应类型是```text/xml```或者```application/xml```，这个属性中保存着包含响应数据的```XML DOM```文档。</span><br><span class="line">* ```status``` HTTP响应状态</span><br><span class="line">* ```statusText``` HTTP响应状态说明</span><br><span class="line"></span><br><span class="line">&gt; 异步请求，检测XHR对象的&lt;code&gt;readyState&lt;/code&gt;属性，该属性表示请求/响应过程中的当前活动阶段。</span><br><span class="line"></span><br><span class="line">* *0* ： 未初始化。尚未调用```open()```方法。</span><br><span class="line">* *1* ： 启动。已经调用```open()```方法， 但未调用```send()```方法。</span><br><span class="line">* *2* ： 发送。已经调用```send()```方法， 但未接收到响应。</span><br><span class="line">* *3* ： 接收。已经接收到部分响应数据。</span><br><span class="line">* *4* ： 完成。已经接收到全部响应数据，已经可以在客户端使用。</span><br><span class="line"></span><br><span class="line">&gt;```readyState```值变化都会触发```readystatechange```事件。</span><br><span class="line"></span><br><span class="line">#### 同步方式请求</span><br><span class="line">``` javascript</span><br><span class="line">var xhr = new XMLHttpRequest();</span><br><span class="line">xhr.open(&apos;get&apos;, &apos;example.json&apos;, false);</span><br><span class="line">xhr.send(null);</span><br><span class="line"></span><br><span class="line">if((xhr.status &gt; 200 &amp;&amp; xhr.status &lt; 300) || xhr.status == 304)&#123;</span><br><span class="line">        //xhr.responseText;</span><br><span class="line">        //通过检测xhr.status来检测请求返回状态，不要依赖statusText，因为跨浏览器时statusText不可靠</span><br><span class="line">&#125;else&#123;</span><br><span class="line">        //请求错误, 输出错误log：xhr.status</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="异步方式请求"><a href="#异步方式请求" class="headerlink" title="异步方式请求"></a>异步方式请求</h4><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.onreadystatechange = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">if</span>(xhr.readyState == <span class="hljs-number">4</span>)&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span>(xhr.status &gt; <span class="hljs-number">200</span> &amp;&amp; xhr.status &lt; <span class="hljs-number">300</span> || xhr.status == <span class="hljs-number">304</span>)&#123;</span><br><span class="line">      alert(xhr.reponseText);</span><br><span class="line">    &#125;<span class="hljs-keyword">else</span>&#123;</span><br><span class="line">      alert(<span class="hljs-string">"Request was unsuccessful: "</span> + xhr.status);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">xhr.open(<span class="hljs-string">'get'</span>, <span class="hljs-string">'example.json'</span>, <span class="hljs-literal">true</span>);</span><br><span class="line">xhr.send(<span class="hljs-literal">null</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="4-取消异步请求"><a href="#4-取消异步请求" class="headerlink" title="4. 取消异步请求"></a>4. 取消异步请求</h3><figure class="highlight plain hljs"><figcaption><span>```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 5.HTTP头部信息</span><br><span class="line"></span><br><span class="line">* ```Accept``` 浏览器处理的内容类型</span><br><span class="line">* ```Accept-Charset``` 显示的字符集</span><br><span class="line">* ``` Accept-Econding``` 处理的压缩编码</span><br><span class="line">* ```Connection``` 与服务器之间的连接类型  </span><br><span class="line">* ```Cookie``` Cookie设置</span><br><span class="line">* ```Host``` 发出请求所在的域</span><br><span class="line">* ```Referer``` 发出请求坐在的URI</span><br><span class="line"></span><br><span class="line">``` xhr.setRequestHeader(&apos;HeaderName&apos;, &apos;HeaderVal&apos;);``` 使用自定义的头部字段名称，有些浏览器禁止修改默认的头部字段 。</span><br><span class="line">``` xhr.getResponseHeader(&apos;HeaderName&apos;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><figcaption><span>```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">---</span><br><span class="line">```javascript</span><br><span class="line">function create_connect_obj()&#123;</span><br><span class="line">	if(window.ActiveXObject!=&apos;undefined&apos; &amp;&amp; window.ActiveXObject!=undefined)&#123;</span><br><span class="line">        // 兼容IE7以下，可以忽略</span><br><span class="line">		return new ActiveXObject(&apos;Microsoft.XMLHTTP&apos;);</span><br><span class="line">	&#125;else if(window.XMLHttpRequest!=&apos;undefined&apos; &amp;&amp; window.XMLHttpRequest!=undefined)&#123;</span><br><span class="line">		return new XMLHttpRequest();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var doget=function(url,data,success,fail)&#123;</span><br><span class="line">	var conn=create_connect_obj();</span><br><span class="line">	if(typeof(data)==&apos;object&apos;)&#123;</span><br><span class="line">		var str=&apos;&apos;;</span><br><span class="line">		for(var i in data)&#123;</span><br><span class="line">			str+=&apos;&amp;&apos;+i+&apos;=&apos;+data[i];</span><br><span class="line">		&#125;</span><br><span class="line">		str=str.substr(1);</span><br><span class="line">		if(url.indexOf(&apos;?&apos;)!=-1)&#123;</span><br><span class="line">			url+=str;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			url+=&apos;?&apos;+str;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;else if(typeof(data)==&apos;string&apos;)&#123;</span><br><span class="line">		if(url.indexOf(&apos;?&apos;)!=-1)&#123;</span><br><span class="line">			url+=data;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			url+=&apos;?&apos;+data;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	conn.open(&apos;GET&apos;,url);</span><br><span class="line">	conn.send(null);</span><br><span class="line">	conn.onreadystatechange=function()&#123;</span><br><span class="line">		if(conn.readyState==4 &amp;&amp; conn.status==200)&#123;</span><br><span class="line">			if(typeof(data)==&apos;function&apos;)&#123;</span><br><span class="line">				data(conn.response);</span><br><span class="line">			&#125;else if(typeof(success)==&apos;function&apos;)&#123;</span><br><span class="line">				success(conn.response);	//success</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			if(typeof(fail)==&apos;function&apos;)&#123;	//fail</span><br><span class="line">				fail();	</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var dopost=function(url,data,success,fail)&#123;</span><br><span class="line">	var conn=create_connect_obj();</span><br><span class="line">	conn.open(&apos;POST&apos;,url);</span><br><span class="line">	conn.setRequestHeader(&apos;Content-type&apos;,&apos;application/x-www-form-urlencoded&apos;);</span><br><span class="line"></span><br><span class="line">	if(typeof(data)==&apos;object&apos;)&#123;</span><br><span class="line">		var str=&apos;&apos;;</span><br><span class="line">		for(var i in data)&#123;</span><br><span class="line">			str+=&apos;&amp;&apos;+i+&apos;=&apos;+data[i];</span><br><span class="line">		&#125;</span><br><span class="line">		str=str.substr(1);</span><br><span class="line">		conn.send(data);</span><br><span class="line">	&#125;else if(typeof(data)==&apos;string&apos;)&#123;</span><br><span class="line">		conn.send(data);</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		conn.send(null);</span><br><span class="line">	&#125;</span><br><span class="line">	conn.onreadystatechange=function()&#123;</span><br><span class="line">		if(conn.readyState==4 &amp;&amp; conn.status==200)&#123;</span><br><span class="line">			if(typeof(data)==&apos;function&apos;)&#123;</span><br><span class="line">				data(conn.response);</span><br><span class="line">			&#125;else if(typeof(success)==&apos;function&apos;)&#123;</span><br><span class="line">				success(conn.response);	//success</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			if(typeof(fail)==&apos;function&apos;)&#123;	//fail</span><br><span class="line">				fail();	</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
         </div>
         
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2017/09/26/javascript-ajax/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
         
         
     </div>
@@ -310,10 +375,7 @@ var _hmt = _hmt || [];
         </h1>
         <div class="content">
             <p>清空git缓存</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">rm</span> -r --cached <span class="token keyword">.</span>
-<span class="token function">git</span> add <span class="token keyword">.</span>
-<span class="token function">git</span> commit -m <span class="token string">'update .gitignore'</span>
-</code></pre>
+<figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git rm -r --cached .</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="hljs-string">'update .gitignore'</span></span><br></pre></td></tr></table></figure>
 
         </div>
         
@@ -365,20 +427,22 @@ var _hmt = _hmt || [];
         </h1>
         <div class="content">
             <h3 id="图片懒加载"><a href="#图片懒加载" class="headerlink" title="图片懒加载"></a>图片懒加载</h3><p>懒加载是前端优化的一种技术，旨在用户进入页面后，当滚动页面将要到达图片位置时才加载图片。<br>加快页面加载速度，极大的提升了用户体验，也避免了用户进入页面之后就发送n多个图片请求，服务器吃不消啊！</p>
-<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p>先将图片的<code>src</code>设置为空或者小的图片，将真实的图片地址存在<code>img</code>的自定义属性中，比如<code>data-src</code>中，等到页面滚动至图片位置时将真实图片位置复制给src属性。</p>
-<ol>
-<li>页面中的img元素，如果没有src属性，浏览器就不会发出请求去下载图片</li>
-<li>用户滚动页面至图片位置时，img元素获取到真正的路径后，开始发送请求加载图片</li></ol>
+<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p>先将图片的<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. 页面中的img元素，如果没有src属性，浏览器就不会发出请求去下载图片</span><br><span class="line">2. 用户滚动页面至图片位置时，img元素获取到真正的路径后，开始发送请求加载图片</span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line">### JS中位置相关</span><br><span class="line">&gt; * ```screenLeft/screenX```: 窗口相对于屏幕左边的位置 </span><br><span class="line">&gt; * ```screenTop/screenY```: 窗口相对于屏幕上边的位置</span><br><span class="line"></span><br><span class="line">**表示的是从屏幕左边和上边到window对象表示的可见区域的距离**。</span><br><span class="line"></span><br><span class="line">```javascript</span><br><span class="line">//FF中支持 screenX 和 screenY</span><br><span class="line">let leftPos = (typeof window.screenLeft == &apos;Number&apos;) ? window.screenLeft : window.screenX;</span><br><span class="line">let TopPos = (typeof window.screenTop == &apos;Number&apos;) ? window.screenTop : window.screenY;</span><br></pre></td></tr></table></figure></p>
+<p>若window对象是最外层对象，而且浏览器窗口贴紧屏幕上方，则 <figure class="highlight plain hljs"><figcaption><span>为 0</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; * ```clientWidth/clientHeight``` : 页面视口大小信息（ALL，注意获取方式）</span><br><span class="line">&gt; * ```innerWidth/innerHeight``` : 获取页面视口大小（页面尺寸）,页面视图容器大小</span><br><span class="line">&gt; * ```outerWidth/outerHeight``` : 获取浏览器窗口本身的大小（IE9+、Safari、FF）</span><br><span class="line"></span><br><span class="line">```javascript</span><br><span class="line">let pageWidth = window.innerWidth;</span><br><span class="line">let pageHeight = window.innerHeight;</span><br><span class="line"></span><br><span class="line">if( typeof pageWidth != &apos;Number&apos;)&#123;</span><br><span class="line">    if(document.compatMode == &apos;CSS!Compat&apos;)&#123;</span><br><span class="line">        //标准模式</span><br><span class="line">        pageWidth = document.documentElement.clientWidth;</span><br><span class="line">        pageHeight = document.documentElement.clientHeight;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        //怪异模式（混杂模式）</span><br><span class="line">        pageWidth = document.body.clientWidth;</span><br><span class="line">        pageHeight = document.body.clientHeight;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="懒加载实现"><a href="#懒加载实现" class="headerlink" title="懒加载实现"></a>懒加载实现</h3><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> imgCurrent = <span class="hljs-number">4</span>;<span class="hljs-comment">//初始化页面加载图片个数</span></span><br><span class="line"><span class="hljs-keyword">var</span> imgCount = <span class="hljs-number">40</span>;<span class="hljs-comment">//总图片数</span></span><br><span class="line"><span class="hljs-keyword">var</span> height = <span class="hljs-built_in">document</span>.body.clientHeight || <span class="hljs-built_in">document</span>.documentElement.clientHeight;</span><br><span class="line"><span class="hljs-keyword">var</span> scrollTop = <span class="hljs-built_in">document</span>.body.scrollTop || <span class="hljs-built_in">document</span>.documentElement.scrollTop;</span><br><span class="line"><span class="hljs-keyword">var</span> clientHeight = <span class="hljs-built_in">Math</span>.min(<span class="hljs-built_in">document</span>.documentElement.scrollHeight, <span class="hljs-built_in">document</span>.documentElement.clientHeight);</span><br><span class="line"><span class="hljs-keyword">var</span> img = <span class="hljs-built_in">document</span>.getElementsByTagName(<span class="hljs-string">'img'</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">window</span>.onscroll = <span class="hljs-literal">null</span>;</span><br><span class="line"><span class="hljs-built_in">window</span>.onscroll = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="hljs-comment">//图片懒加载</span></span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = imgCurrent; i &lt; imgCount; i++) &#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (img[i].offsetTop &lt; clientHeight + scrollTop) &#123;</span><br><span class="line">            img[i].src = img[i].getAttribute(<span class="hljs-string">'data-src'</span>);</span><br><span class="line">            img[i].style.opacity = <span class="hljs-number">1</span>;</span><br><span class="line">            imgCurrent = i + <span class="hljs-number">1</span>;</span><br><span class="line">            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'图片加载['</span> + i + <span class="hljs-string">']:'</span> + img[i].src);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<!-- <script async src="//jsfiddle.net/wangyutao/wd70mk9q/16/embed/"></script> -->
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p><img src="http://cloud.xuww.wang/js-position.jpg" alt="位置"></p>
+<h4 id="偏移量"><a href="#偏移量" class="headerlink" title="偏移量("></a>偏移量(<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt; * ```offsetWidht``` : 元素在水平方向上占用的空间大小。包括元素的宽度、水平滚动条的宽度、左右边框的宽度。</span><br><span class="line">&gt; * ```offsetHeight``` : 元素在垂直方向上占用的空间大小。包括元素的高度、垂直滚动条的高度、上下边框的高度。</span><br><span class="line">&gt; * ```offsetLeft``` : 元素的左边框至包含元素的左内边距的距离。（offsetParent） </span><br><span class="line">&gt; * ```offsetTop``` : 元素的上边框至包含元素的上内边距的距离。（offsetParent）</span><br><span class="line"></span><br><span class="line">```offsetParent```为相对于元素定位的父级元素</span><br><span class="line">```offsetTop``` 和 ```offsetLeft``` 与其包含元素```offsetParent```有关。```offsetParent```的值不一定与```parentNode```相同。</span><br><span class="line">这些偏移量属性均为**只读**。</span><br><span class="line">![偏移量 offset](http://cloud.xuww.wang/offset.jpg)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### 客户区大小（```client dismension```）</span><br><span class="line"></span><br><span class="line">&gt; * clientWidth : 元素内容区宽度加上左右内边距。```content + padding-left + padding-right</span><br></pre></td></tr></table></figure></h4><blockquote>
+<ul>
+<li>clientHeight : 元素内容区高度加上上下内边距。<figure class="highlight plain hljs"><figcaption><span>+ padding-top + padding-bottom```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">client dismension 值也是**只读**的。</span><br><span class="line"></span><br><span class="line">```javascript</span><br><span class="line">let clientWidth = document.documentElement.clientWidht;</span><br><span class="line">let clientHeight = document.documentElement.clientHeight;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</blockquote>
+<h4 id="滚动大小（"><a href="#滚动大小（" class="headerlink" title="滚动大小（"></a>滚动大小（<figure class="highlight plain hljs"><figcaption><span>dismension```）</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; * ```scrollTop``` : 被隐藏在内容区域上方的高度。（上方被隐藏了多少）</span><br><span class="line">&gt; * ```scrollLeft``` : 被隐藏在内容区域左侧的宽度。（左侧被隐藏了多少）</span><br><span class="line">&gt; * ```scrollWidth``` : 在没有滚动的情况下，元素内容的总宽度。</span><br><span class="line">&gt; * ```scrollHeight``` : 在没有滚动的情况下，元素内容的总高度。</span><br><span class="line"></span><br><span class="line">* 带有垂直滚动条的页面总高度：```document.documentElement.scrollHeight</span><br></pre></td></tr></table></figure></h4><ul>
+<li>带有水平滚动条的页面总宽度：<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">* 通过scrollLeft和scrollTop既可以确定元素当前滚动的状态，也可以设置元素的滚动位置。</span><br><span class="line"></span><br><span class="line">```javascript</span><br><span class="line">// 确定文档的总高度</span><br><span class="line">//scrollHeight和clientHeight中的最大值</span><br><span class="line">let docHeight = Math.max(documnt.documentElement.scrollHeight, document.documntElement.clientHeight);</span><br><span class="line"></span><br><span class="line">// 确定文档的总宽度</span><br><span class="line">//scrollWidth和clientWidth中的最大值</span><br><span class="line">let docWidth = Max.max(document.documentElement.scrollWidth, document.documentElement.clientWidth);</span><br></pre></td></tr></table></figure></li>
+</ul>
+
         </div>
         
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2017/09/20/css-lazy-load-image/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
         
         
     </div>
@@ -427,17 +491,35 @@ var _hmt = _hmt || [];
         </h1>
         <div class="content">
             <h3 id="JSX语法"><a href="#JSX语法" class="headerlink" title="JSX语法"></a>JSX语法</h3><blockquote>
-<p>JSX 既不是字符串也不是HTML，是JavaScript的语法扩展，将被解析成JavaScript的一个对象。JSX用于生成React的“元素”。JSX中可以嵌入js表达式，用<code>｛｝</code>包裹。<br></p></blockquote>
+<p>JSX 既不是字符串也不是HTML，是JavaScript的语法扩展，将被解析成JavaScript的一个对象。JSX用于生成React的“元素”。JSX中可以嵌入js表达式，用<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- more --&gt;</span><br><span class="line">```javascript</span><br><span class="line">function formatName(user) &#123;</span><br><span class="line">    return user.firstName + &apos; &apos; + user.lastName; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const user = &#123;</span><br><span class="line">    firstName: &apos;Harper&apos;,</span><br><span class="line">    lastName: &apos;Perez&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const element = (</span><br><span class="line">    &lt;h1&gt;Hello, &#123;formatName(user)&#125; !&lt;/h1&gt;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">    element,</span><br><span class="line">    document.getElementById(&apos;root&apos;)</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<iframe width="100%" height="300" src="//jsfiddle.net/wangyutao/z2pzn6xh/22/embedded/js,html,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+
+<h3 id="JSX指定属性"><a href="#JSX指定属性" class="headerlink" title="JSX指定属性"></a>JSX指定属性</h3><ul>
+<li><p>使用引号将字符串文字指定为属性值</p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> element = &lt;div tabIndex="0"&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用花括号<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">```javascript</span><br><span class="line">const element = &lt;img src=&#123;user.avtarurl&#125; /&gt;</span><br></pre></td></tr></table></figure></p>
+</li>
+</ul>
+<h3 id="JXS包含子标签"><a href="#JXS包含子标签" class="headerlink" title="JXS包含子标签"></a>JXS包含子标签</h3><blockquote>
+<p>JSX可以包含子标签</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>JSX最外层只能包含一个标签，父标签内可以嵌套任意的子标签</li>
+<li>JSX 标签内的属性命名约定使用 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```javascript</span><br><span class="line">const element = (</span><br><span class="line">    &lt;div className=&quot;demo&quot;&gt;</span><br><span class="line">        &lt;h1&gt;Hello!&lt;/h1&gt;</span><br><span class="line">        &lt;h2&gt;Good to see you!&lt;/h2&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">const elemtent = (</span><br><span class="line">    &lt;div tabIndex=&quot;0&quot;&gt;&lt;/div&gt;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</blockquote>
+<h3 id="JSX转换"><a href="#JSX转换" class="headerlink" title="JSX转换"></a>JSX转换</h3><p>Bebel将JSX转换编译成<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```javascript</span><br><span class="line">const element = (</span><br><span class="line">    &lt;h1 className=&quot;greeting&quot;&gt;</span><br><span class="line">        Hello, World!</span><br><span class="line">    &lt;/h1&gt;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> element = React.createElement(</span><br><span class="line">    <span class="hljs-string">'h1'</span>,</span><br><span class="line">    &#123;<span class="hljs-attr">className</span>: <span class="hljs-string">'greeting'</span>&#125;,</span><br><span class="line">    <span class="hljs-string">'Hello, World!'</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>以上两种方式是等价的，最后都会转换成React Elements，这些对象组成页面的DOM并且保持更新。</p>
+<p>解析为react Elements</p>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> element = &#123;</span><br><span class="line">    type: <span class="hljs-string">'h1'</span>,</span><br><span class="line">    props: &#123;</span><br><span class="line">        className: <span class="hljs-string">'greeting'</span>,</span><br><span class="line">        children: <span class="hljs-string">'Hello, World!'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
         </div>
         
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2017/09/15/React-JSX/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
         
         
     </div>
@@ -545,10 +627,7 @@ var _hmt = _hmt || [];
 <h3 id="基本content用法"><a href="#基本content用法" class="headerlink" title="基本content用法"></a>基本content用法</h3><blockquote>
 <p>content属性能让程序员使用CSS往页面元素里填写内容：</p>
 </blockquote>
-<pre><code class="css">.myDiv:after {
-    content: &quot;我是一个使用*content*属性生产的静态文字&quot;; 
-}
-</code></pre>
+<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.myDiv</span><span class="hljs-selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="hljs-attribute">content</span>: <span class="hljs-string">"我是一个使用*content*属性生产的静态文字"</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div>
         
         
@@ -655,17 +734,33 @@ var _hmt = _hmt || [];
             
         </h1>
         <div class="content">
-            <p>在前端开发过程中，盒子居中是常常用到的。其中 ，居中又可以分为水平居中和垂直居中。块级元素的水平居中比较容易，直接设置元素的<code>margin: 0 auto</code>就可以实现，垂直居中相对来说是比较复杂一些的。</p>
+            <p>在前端开发过程中，盒子居中是常常用到的。其中 ，居中又可以分为水平居中和垂直居中。块级元素的水平居中比较容易，直接设置元素的<figure class="highlight plain hljs"><figcaption><span>0 auto```就可以实现，垂直居中相对来说是比较复杂一些的。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line">## 高度位置，使用绝对定位</span><br><span class="line"></span><br><span class="line">```css</span><br><span class="line">.parentElem &#123;</span><br><span class="line">  position: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.childElem &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 50%;</span><br><span class="line">  transform: translateY(-50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="父容器高度已知"><a href="#父容器高度已知" class="headerlink" title="父容器高度已知"></a>父容器高度已知</h3><blockquote>
+<p>且只有一个元素，只要使用相对定位即可</p>
+</blockquote>
+<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.parentElem</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-class">.childElem</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">position</span>: relative;</span><br><span class="line">  <span class="hljs-attribute">top</span>: <span class="hljs-number">50%</span>;</span><br><span class="line">  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">translateY</span>(-50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="水平居中方案"><a href="#水平居中方案" class="headerlink" title="水平居中方案"></a>水平居中方案</h2><h3 id="行内元素"><a href="#行内元素" class="headerlink" title="行内元素"></a>行内元素</h3><figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-tag">text-aligin</span>: <span class="hljs-selector-tag">center</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="块级元素，宽度固定"><a href="#块级元素，宽度固定" class="headerlink" title="块级元素，宽度固定"></a>块级元素，宽度固定</h3><figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-tag">margin</span>: 0 <span class="hljs-selector-tag">auto</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="块级元素，宽度不定"><a href="#块级元素，宽度不定" class="headerlink" title="块级元素，宽度不定"></a>块级元素，宽度不定</h3><figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-tag">margin</span>: 0 <span class="hljs-selector-tag">auto</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="vertical-align-垂直对齐"><a href="#vertical-align-垂直对齐" class="headerlink" title="vertical-align 垂直对齐"></a>vertical-align 垂直对齐</h3><blockquote>
+<ol>
+<li>元素默认垂直对齐方式为基准对齐（baseline）</li>
+<li>继承性： 不继承</li>
+<li><strong><font color="#DC143C">适用于行内元素和单元格（table-cell）元素</font></strong></li>
+</ol>
+</blockquote>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><blockquote>
+<ul>
+<li><figure class="highlight plain hljs"><figcaption><span>: 基准线</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; * ```middle``` : 中部对齐</span><br><span class="line">&gt; * ```top``` : 顶端对齐</span><br><span class="line">&gt; * ```bottom``` : 底端对齐</span><br><span class="line">&gt; * ```text-top``` : 与文本顶部对齐</span><br><span class="line">&gt; * ```text-bottom``` : 与文本底部对齐</span><br><span class="line">&gt; * ```sub``` : 下标</span><br><span class="line">&gt; * ```super``` : 上标</span><br><span class="line">&gt; * ```&lt;百分比&gt;```，```&lt;长度&gt;``` : 可为负数</span><br><span class="line">&gt; * ```inherit</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p><img src="http://cloud.xuww.wang/vertial-align.gif" alt="垂直对齐属性"></p>
+<p>图片本身没有基线，则将其底部与父元素的基线对齐。</p>
+<p><a href="http://www.ddcat.net/blog/?p=233#" target="_blank" rel="noopener">参考：垂直对齐：vertical-align属性</a></p>
+
         </div>
         
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2017/09/13/css-layout/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
         
         
     </div>
@@ -742,7 +837,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        29
+                        30
                     </p>
                 </div>
             </div>
@@ -762,7 +857,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        24
+                        25
                     </p>
                 </div>
             </div>
@@ -1015,7 +1110,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
 </div>
 
@@ -1032,9 +1127,28 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -1106,25 +1220,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1136,6 +1231,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -1363,6 +1469,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1420,9 +1533,28 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -1494,25 +1626,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1524,6 +1637,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -1751,6 +1875,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

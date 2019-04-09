@@ -7,18 +7,18 @@
 
 
 
-    <meta name="description" content="css功能拓展嵌套（Nested Rules）sass允许将css样式嵌套进另一套样式中，内层的样式将他的外层的选择器作为父选择器。 父选择器 &amp;amp; (Referencing Parent Selectors: &amp;amp;)属性嵌套 (Nested Properties).funky {   font: {     family: fantasy;     size: 30em;     w">
+    <meta name="description" content="css功能拓展嵌套（Nested Rules）sass允许将css样式嵌套进另一套样式中，内层的样式将他的外层的选择器作为父选择器。 父选择器 &amp;amp; (Referencing Parent Selectors: &amp;amp;)属性嵌套 (Nested Properties)1234567.funky &amp;#123;  font: &amp;#123;    family: fantasy;    siz">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sass基础入门">
 <meta property="og:url" content="http://wangytbest.github.io/2018/04/03/sass基础入门/index.html">
 <meta property="og:site_name" content="王小贱">
-<meta property="og:description" content="css功能拓展嵌套（Nested Rules）sass允许将css样式嵌套进另一套样式中，内层的样式将他的外层的选择器作为父选择器。 父选择器 &amp;amp; (Referencing Parent Selectors: &amp;amp;)属性嵌套 (Nested Properties).funky {   font: {     family: fantasy;     size: 30em;     w">
+<meta property="og:description" content="css功能拓展嵌套（Nested Rules）sass允许将css样式嵌套进另一套样式中，内层的样式将他的外层的选择器作为父选择器。 父选择器 &amp;amp; (Referencing Parent Selectors: &amp;amp;)属性嵌套 (Nested Properties)1234567.funky &amp;#123;  font: &amp;#123;    family: fantasy;    siz">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wangytbest.github.io/images/og_image.png">
 <meta property="og:updated_time" content="2019-04-09T07:00:51.928Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sass基础入门">
-<meta name="twitter:description" content="css功能拓展嵌套（Nested Rules）sass允许将css样式嵌套进另一套样式中，内层的样式将他的外层的选择器作为父选择器。 父选择器 &amp;amp; (Referencing Parent Selectors: &amp;amp;)属性嵌套 (Nested Properties).funky {   font: {     family: fantasy;     size: 30em;     w">
+<meta name="twitter:description" content="css功能拓展嵌套（Nested Rules）sass允许将css样式嵌套进另一套样式中，内层的样式将他的外层的选择器作为父选择器。 父选择器 &amp;amp; (Referencing Parent Selectors: &amp;amp;)属性嵌套 (Nested Properties)1234567.funky &amp;#123;  font: &amp;#123;    family: fantasy;    siz">
 <meta name="twitter:image" content="http://wangytbest.github.io/images/og_image.png">
 
 
@@ -200,31 +200,10 @@ var _hmt = _hmt || [];
         </h1>
         <div class="content">
             <h2 id="css功能拓展"><a href="#css功能拓展" class="headerlink" title="css功能拓展"></a>css功能拓展</h2><h3 id="嵌套（Nested-Rules）"><a href="#嵌套（Nested-Rules）" class="headerlink" title="嵌套（Nested Rules）"></a>嵌套（Nested Rules）</h3><p>sass允许将css样式嵌套进另一套样式中，内层的样式将他的外层的选择器作为父选择器。</p>
-<h3 id="父选择器-amp-Referencing-Parent-Selectors-amp"><a href="#父选择器-amp-Referencing-Parent-Selectors-amp" class="headerlink" title="父选择器 &amp; (Referencing Parent Selectors: &amp;)"></a>父选择器 &amp; (Referencing Parent Selectors: &amp;)</h3><h3 id="属性嵌套-Nested-Properties"><a href="#属性嵌套-Nested-Properties" class="headerlink" title="属性嵌套 (Nested Properties)"></a>属性嵌套 (Nested Properties)</h3><pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.funky</span> </span><span class="token punctuation">{</span>
-  <span class="token selector">font: </span><span class="token punctuation">{</span>
-    <span class="token property">family</span><span class="token punctuation">:</span> fantasy<span class="token punctuation">;</span>
-    <span class="token property">size</span><span class="token punctuation">:</span> <span class="token number">30</span>em<span class="token punctuation">;</span>
-    <span class="token property">weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
+<h3 id="父选择器-amp-Referencing-Parent-Selectors-amp"><a href="#父选择器-amp-Referencing-Parent-Selectors-amp" class="headerlink" title="父选择器 &amp; (Referencing Parent Selectors: &amp;)"></a>父选择器 &amp; (Referencing Parent Selectors: &amp;)</h3><h3 id="属性嵌套-Nested-Properties"><a href="#属性嵌套-Nested-Properties" class="headerlink" title="属性嵌套 (Nested Properties)"></a>属性嵌套 (Nested Properties)</h3><figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.funky</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">font</span>: &#123;</span><br><span class="line">    family: fantasy;</span><br><span class="line">    <span class="hljs-attribute">size</span>: <span class="hljs-number">30em</span>;</span><br><span class="line">    <span class="hljs-attribute">weight</span>: bold;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="占位符选择器-foo-Placeholder-Selectors-foo"><a href="#占位符选择器-foo-Placeholder-Selectors-foo" class="headerlink" title="占位符选择器 %foo (Placeholder Selectors: %foo)"></a>占位符选择器 %foo (Placeholder Selectors: %foo)</h3><a id="more"></a>
-<h2 id="SassScript"><a href="#SassScript" class="headerlink" title="SassScript"></a>SassScript</h2><h3 id="变量-Variables"><a href="#变量-Variables" class="headerlink" title="变量 $ (Variables: $)"></a>变量 $ (Variables: $)</h3><pre class=" language-css"><code class="language-css"><span class="token selector">$width: 5em;
-
-<span class="token id">#main</span> </span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span> $width<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>变量支持块级作用域，嵌套规则内定义的变量只能在嵌套规则内使用（局部变量），不在嵌套规则内定义的变量则可在任何地方使用（全局变量）。将局部变量转换为全局变量可以添加 <code>!global</code> 声明</p>
-<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token id">#main</span> </span><span class="token punctuation">{</span>
-    $<span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">5</span>em !global<span class="token punctuation">;</span>
-    <span class="token property">width</span><span class="token punctuation">:</span> $width<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token selector"><span class="token id">#sidebar</span> </span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span> $width<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
+<h2 id="SassScript"><a href="#SassScript" class="headerlink" title="SassScript"></a>SassScript</h2><h3 id="变量-Variables"><a href="#变量-Variables" class="headerlink" title="变量 $ (Variables: $)"></a>变量 $ (Variables: $)</h3><figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$width: 5em;</span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-id">#main</span> &#123;</span><br><span class="line">    <span class="hljs-attribute">width</span>: $width;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>变量支持块级作用域，嵌套规则内定义的变量只能在嵌套规则内使用（局部变量），不在嵌套规则内定义的变量则可在任何地方使用（全局变量）。将局部变量转换为全局变量可以添加 <code>!global</code> 声明<br><figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-id">#main</span> &#123;</span><br><span class="line">    $width: 5em !global;</span><br><span class="line">    width: $width;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-selector-id">#sidebar</span> &#123;</span><br><span class="line">    <span class="hljs-attribute">width</span>: $width;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
         </div>
         
@@ -354,7 +333,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        29
+                        30
                     </p>
                 </div>
             </div>
@@ -374,7 +353,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        24
+                        25
                     </p>
                 </div>
             </div>
@@ -666,7 +645,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
 </div>
 
@@ -683,9 +662,28 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -757,25 +755,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -787,6 +766,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -1014,6 +1004,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1071,9 +1068,28 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -1145,25 +1161,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1175,6 +1172,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -1402,6 +1410,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

@@ -431,12 +431,9 @@ var _hmt = _hmt || [];
 <li><code>&lt;datalist&gt;&lt;/datalist&gt;</code>SM:选项列表，与 input 元素配合使用，来定义 input 可能的值</li>
 <li><code>&lt;details&gt;&lt;/details&gt;</code>SM:用于描述文档或者文档某个部分的细节 ~ 默认属性为 open~<br>ps:配合 summary 一起使用</li>
 </ul>
-<h3 id="13-link和-import的区别"><a href="#13-link和-import的区别" class="headerlink" title="13.link和@import的区别?"></a>13.link和@import的区别?</h3><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>stylesheet<span class="token punctuation">'</span></span> <span class="token attr-name">rev</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>stylesheet<span class="token punctuation">'</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>CSS文件 <span class="token punctuation">'</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>text/css<span class="token punctuation">'</span></span> <span class="token attr-name">media</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>all<span class="token punctuation">'</span></span> <span class="token punctuation">/></span></span>
-</code></pre>
-<pre><code>&lt;style type=&#39;text/css&#39; media=&#39;screen&#39;&gt;
-    @import url(&#39;CSS文件 &#39;);
-&lt;/style&gt;
-</code></pre><p>两者都是外部引用CSS的方式，但是存在一定的区别：</p>
+<h3 id="13-link和-import的区别"><a href="#13-link和-import的区别" class="headerlink" title="13.link和@import的区别?"></a>13.link和@import的区别?</h3><figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">'stylesheet'</span> <span class="hljs-attr">rev</span>=<span class="hljs-string">'stylesheet'</span> <span class="hljs-attr">href</span>=<span class="hljs-string">'CSS文件 '</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'text/css'</span> <span class="hljs-attr">media</span>=<span class="hljs-string">'all'</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;style type=&apos;text/css&apos; media=&apos;screen&apos;&gt;</span><br><span class="line">    @import url(&apos;CSS文件 &apos;);</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>两者都是外部引用CSS的方式，但是存在一定的区别：</p>
 <ul>
 <li><code>link</code> 是 XHTML 标签，除了加载 <code>CSS</code> 外，还可以定义<code>RSS</code> 等其他事务； <code>@import</code>属于 CSS 范畴，只能加载 CSS 。</li>
 <li><code>link</code> 引用 CSS 时，在页面载入时同时加载；<code>@import</code>需要页面网页完全载入以后加载。</li>
@@ -484,10 +481,7 @@ var _hmt = _hmt || [];
 <p>使用<code>iframe</code>之前需要考虑这两个缺点。如果需要使用 <code>iframe</code>，最好是<strong>通过 javascript动态给iframe添加 src 属性值</strong>，这样可以绕开以上两个问题。</p>
 </blockquote>
 <h3 id="21-Label的作用是什么，是怎么用的？"><a href="#21-Label的作用是什么，是怎么用的？" class="headerlink" title="21.Label的作用是什么，是怎么用的？"></a>21.Label的作用是什么，是怎么用的？</h3><p><code>label</code>标签来<em>定义表单控制间的关系</em> , 当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上。</p>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>Name<span class="token punctuation">'</span></span><span class="token punctuation">></span></span>Number:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span>“</span> <span class="token attr-name">text</span> <span class="token attr-name">“</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>Name<span class="token punctuation">'</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>Name<span class="token punctuation">'</span></span><span class="token punctuation">/></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span><span class="token punctuation">></span></span>Date:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>text<span class="token punctuation">'</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>B<span class="token punctuation">'</span></span><span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span>
-</code></pre>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">'Name'</span>&gt;</span>Number:<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">“</span> <span class="hljs-attr">text</span> “ <span class="hljs-attr">name</span>=<span class="hljs-string">'Name'</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'Name'</span>/&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>Date:<span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'text'</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'B'</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="22-如何实现浏览器内多个标签页之间的通信"><a href="#22-如何实现浏览器内多个标签页之间的通信" class="headerlink" title="22.如何实现浏览器内多个标签页之间的通信?"></a>22.如何实现浏览器内多个标签页之间的通信?</h3><p><code>WebSocket</code>、 <code>SharedWorker</code>，也可以调用<code>localstorge</code>、 <code>cookies</code> 等本地存储方式；<br><code>localstorge</code> 另一个浏览上下文里被添加、修改或删除时，它都会触发一个事件，我们通过监听事件，控制它的值来进行页面信息通信；</p>
 <p>注意quirks： <code>Safari</code> 在无痕模式下设置 <code>localstorge</code> 值时会抛出 <code>QuotaExceededError</code> 的异常；</p>
 <h3 id="23-如何在页面上实现一个圆形的可点击区域？"><a href="#23-如何在页面上实现一个圆形的可点击区域？" class="headerlink" title="23.如何在页面上实现一个圆形的可点击区域？"></a>23.如何在页面上实现一个圆形的可点击区域？</h3><ol>
@@ -504,8 +498,7 @@ var _hmt = _hmt || [];
 </li>
 <li>Semantic Style Elements – 语义样式标签<br>strong, em, ins, del, code<br><em>应该准确使用语义样式标签, 但不能滥用 , 如果不能确定时首选使用自然样式标签。</em></li>
 </ul>
-<h3 id="25-实现不使用-border-画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果？"><a href="#25-实现不使用-border-画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果？" class="headerlink" title="25.实现不使用 border 画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果？"></a>25.实现不使用 border 画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果？</h3><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">='</span><span class="token attr-value"><span class="token property">height</span><span class="token punctuation">:</span><span class="token number">1</span>px<span class="token punctuation">;</span><span class="token property">overflow</span><span class="token punctuation">:</span>hidden<span class="token punctuation">;</span><span class="token property">background</span><span class="token punctuation">:</span>red</span><span class="token punctuation">'</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-</code></pre>
+<h3 id="25-实现不使用-border-画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果？"><a href="#25-实现不使用-border-画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果？" class="headerlink" title="25.实现不使用 border 画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果？"></a>25.实现不使用 border 画出1px高的线，在不同浏览器的标准模式与怪异模式下都能保持一致的效果？</h3><figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">'height:1px;overflow:hidden;background:red'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="26-HTML5标签的作用-用途"><a href="#26-HTML5标签的作用-用途" class="headerlink" title="26.HTML5标签的作用?(用途)"></a>26.HTML5标签的作用?(用途)</h3><ol>
 <li>使Web页面的内容更加有序和规范</li>
 <li>使搜索引擎更加容易按照HTML5规则识别出有效的内容</li>
@@ -513,8 +506,7 @@ var _hmt = _hmt || [];
 </ol>
 <h3 id="27-简述一下src与href的区别？"><a href="#27-简述一下src与href的区别？" class="headerlink" title="27.简述一下src与href的区别？"></a>27.简述一下src与href的区别？</h3><p><code>src</code>用于替换当前元素， <code>href</code> 用于在当前文档和引用资源之间确立联系。</p>
 <p><code>src</code>是 source 的缩写，指向外部资源的位置，指向的内容将会嵌入到文档中当前标签所在位置；在请求 <code>src</code> 资源时会将其指向的资源下载并应用到文档内，例如 <code>js脚本</code> ， <code>img图片</code>和 <code>frame</code> 等元素。</p>
-<pre class=" language-html"><code class="language-html">&lt;script src ='js.js'><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-</code></pre>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span> =<span class="hljs-string">'js.js'</span>&gt;</span><span class="hljs-undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>当浏览器解析到该元素时，会暂停其他资源的下载和处理，直到将该资源加载、编译、执行完毕，图片和框架等元素也如此，类似于将所指向资源嵌入当前标签内。这也是为什么将js脚本放在底部而不是头部。</p>
 <p><code>href</code>是 <code>Hypertext Reference</code> 的缩写，指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接，如果我们在文档中添加<br><code>&lt;link href=&#39;common.css&#39; rel=&#39;stylesheet&#39;/&gt;</code>，那么浏览器会识别该文档为css文件，就会并行下载资源并且不会停止对当前文档的处理。这也是为什么建议使用 link 方式来加载 css ，而不是使用@import 方式。</p>
 <h3 id="28-谈谈你对canvas的理解？"><a href="#28-谈谈你对canvas的理解？" class="headerlink" title="28.谈谈你对canvas的理解？"></a>28.谈谈你对canvas的理解？</h3><p>canvas是HTML5中新增一个HTML5标签与操作canvas的javascript API，它可以实现在网页中完成动态的2D与3D图像技术。标记和 SVG以及 VML 之间的一个重要的不同是，有一个基于 JavaScript 的绘图 API，而 SVG 和 VML 使用一个 XML 文档来描述绘图。SVG 绘图很容易编辑与生成，但功能明显要弱一些。 canvas可以完成动画、游戏、图表、图像处理等原来需要Flash完成的一些功能。</p>
@@ -580,41 +572,31 @@ var _hmt = _hmt || [];
 <li>localStorage 用于持久化的本地存储，数据永远不会过期，关闭浏览器也不会丢失。</li>
 <li>sessionStorage 同一个会话中的页面才能访问并且当会话结束后数据也随之销毁。因此sessionStorage不是一种持久化的本地存储，仅仅是会话级别的存储</li>
 </ul>
-<h3 id="37-HTML5-应用程序缓存和浏览器缓存有什么区别？"><a href="#37-HTML5-应用程序缓存和浏览器缓存有什么区别？" class="headerlink" title="37.HTML5 应用程序缓存和浏览器缓存有什么区别？"></a>37.HTML5 应用程序缓存和浏览器缓存有什么区别？</h3><p><strong>应用程序缓存</strong>是 HTML5 的重要特性之一，提供了离线使用的功能，让应用程序可以获取本地的网站内容，例如 HTML 、 CSS 、图片以及 JavaScript 。这个特性可以提高网站性能，它的实现借助于 manifest 文件，如下：</p>
-<pre class=" language-html"><code class="language-html"><span class="token doctype">&lt;!doctype html></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">manifest</span><span class="token attr-value"><span class="token punctuation">=</span>”example.appcache”</span><span class="token punctuation">></span></span>
-    <span class="token comment" spellcheck="true">&lt;!-- ... --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
-</code></pre>
+<h3 id="37-HTML5-应用程序缓存和浏览器缓存有什么区别？"><a href="#37-HTML5-应用程序缓存和浏览器缓存有什么区别？" class="headerlink" title="37.HTML5 应用程序缓存和浏览器缓存有什么区别？"></a>37.HTML5 应用程序缓存和浏览器缓存有什么区别？</h3><p><strong>应用程序缓存</strong>是 HTML5 的重要特性之一，提供了离线使用的功能，让应用程序可以获取本地的网站内容，例如 HTML 、 CSS 、图片以及 JavaScript 。这个特性可以提高网站性能，它的实现借助于 manifest 文件，如下：<br><figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">manifest</span>=<span class="hljs-string">”example.appcache”</span>&gt;</span></span><br><span class="line">    <span class="hljs-comment">&lt;!-- ... --&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>与传统浏览器缓存相比，它不强制用户访问的网站内容被缓存。</p>
-<h3 id="38-HTML5-Canvas-元素有什么用？"><a href="#38-HTML5-Canvas-元素有什么用？" class="headerlink" title="38.HTML5 Canvas 元素有什么用？"></a>38.HTML5 Canvas 元素有什么用？</h3><p>Canvas 元素用于在网页上绘制图形，该元素标签强大之处在于可以直接在 HTML 上进行图形操作</p>
-<pre class=" language-js"><code class="language-js"><span class="token operator">&lt;</span>canvas id<span class="token operator">=</span>” canvas1 ″ width<span class="token operator">=</span> ” <span class="token number">300</span> ″ height<span class="token operator">=</span> ” <span class="token number">100</span> ″ <span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>canvas<span class="token operator">></span>
-</code></pre>
+<h3 id="38-HTML5-Canvas-元素有什么用？"><a href="#38-HTML5-Canvas-元素有什么用？" class="headerlink" title="38.HTML5 Canvas 元素有什么用？"></a>38.HTML5 Canvas 元素有什么用？</h3><p>Canvas 元素用于在网页上绘制图形，该元素标签强大之处在于可以直接在 HTML 上进行图形操作<br><figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;canvas id=” canvas1 ″ width= ” <span class="hljs-number">300</span> ″ height= ” <span class="hljs-number">100</span> ″ &gt;</span><br><span class="line">&lt;<span class="hljs-regexp">/canvas&gt;</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="39-除了-audio-和-video，HTML5-还有哪些媒体标签？"><a href="#39-除了-audio-和-video，HTML5-还有哪些媒体标签？" class="headerlink" title="39.除了 audio 和 video，HTML5 还有哪些媒体标签？"></a>39.除了 audio 和 video，HTML5 还有哪些媒体标签？</h3><blockquote>
 <p>HTML5 对于多媒体提供了强有力的支持，除了 audio 和 video 标签外，还支持以下标签：</p>
 <ul>
 <li><embed> 标签定义嵌入的内容，比如插件。<br><code>&lt;embed type=” video/quicktime ” src= ” Fishing.mov ” &gt;</code></li>
-<li><source> 对于定义多个数据源很有用。<br><code>`</code></li>
+<li><source> 对于定义多个数据源很有用。<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;video width=” 450 ″ height= ” 340 ″ controls&gt;</span><br><span class="line">  &lt;source src=” jamshed.mp4 ″ type= ” video/mp4 ″ &gt;</span><br><span class="line">  &lt;source src=” jamshed.ogg ” type= ” video/ogg ” &gt;</span><br><span class="line">&lt;/video&gt;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </blockquote>
-<p><video 340 450 width="”" ″ height="”" controls><br>  &lt;source src=” jamshed.mp4 ″ type= ” video/mp4 ″ &gt;<br>  &lt;source src=” jamshed.ogg ” type= ” video/ogg ” &gt;<br></video></p>
-<pre><code>* &lt;track&gt; 标签为诸如 video 元素之类的媒介规定外部文本轨道。 用于规定字幕文件或其他包含文本的文件，当媒介播放时，这些文件是可见的。
-</code></pre><p><video 340 450 width="”" ″ height="”" controls><br>    &lt;source src=” jamshed.mp4 ″ type= ” video/mp4 ″ &gt;<br>    &lt;source src=” jamshed.ogg ” type= ” video/ogg ” &gt;<br>    <track kind="”" subtitles ” label="”" english src="”" jamshed_en.vtt srclang="”" en default><br>    <track kind="”" subtitles ” label="”" arabic src="”" jamshed_ar.vtt srclang="”" ar><br></video></p>
-<pre><code>据源很有用。标签为诸如 video 元素之类的媒介规定外部文本轨道。 用于规定字幕文件或其他包含文本的文件，当媒介播放时，这些文件是可见的。
-
-### 40.HTML5 中如何嵌入视频？
-&gt;和音频类似，HTML5 支持 MP4 、 WebM 和 Ogg 格式的视频，下面是简单示例：
-</code></pre><p><video 340 450 width="”" ″ height="”" controls><br>    &lt;source src=” jamshed.mp4 ″ type= ” video/mp4 ″ &gt;<br>    Your browser does’ nt support video embedding feature.<br></video></p>
-<pre><code>
-### 4.HTML5 中如何嵌入音频？
-&gt;HTML5 支持 MP3 、 Wav 和 Ogg 格式的音频，下面是在网页中嵌入音频的简单示例：
-</code></pre><p><audio controls><br>    &lt;source src=” jamshed.mp3 ″ type= ” audio/mpeg ” &gt;<br>    Your browser does’ nt support audio embedding feature.<br></audio></p>
-<pre><code>
-### 42 .新的 HTML5 文档类型和字符集是？
-&gt;HTML5 文档类型很简单：
-</code></pre><p>&lt;!doctype html&gt;<br><!--HTML5 使用 UTF-8 编码示例--></p>
-<p><meta charset="”" utf-8 ″><br><code>`</code></p>
+<ul>
+<li><track> 标签为诸如 video 元素之类的媒介规定外部文本轨道。 用于规定字幕文件或其他包含文本的文件，当媒介播放时，这些文件是可见的。<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;video width=” 450 ″ height= ” 340 ″ controls&gt;</span><br><span class="line">    &lt;source src=” jamshed.mp4 ″ type= ” video/mp4 ″ &gt;</span><br><span class="line">    &lt;source src=” jamshed.ogg ” type= ” video/ogg ” &gt;</span><br><span class="line">    &lt;track kind=” subtitles ” label= ” English ” src= ” jamshed_en.vtt ” srclang= ” en ” default&gt;&lt;/track&gt;</span><br><span class="line">    &lt;track kind=” subtitles ” label= ” Arabic ” src= ” jamshed_ar.vtt ” srclang= ” ar ” &gt;&lt;/track&gt;</span><br><span class="line">&lt;/video&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>据源很有用。标签为诸如 video 元素之类的媒介规定外部文本轨道。 用于规定字幕文件或其他包含文本的文件，当媒介播放时，这些文件是可见的。</p>
+<h3 id="40-HTML5-中如何嵌入视频？"><a href="#40-HTML5-中如何嵌入视频？" class="headerlink" title="40.HTML5 中如何嵌入视频？"></a>40.HTML5 中如何嵌入视频？</h3><blockquote>
+<p>和音频类似，HTML5 支持 MP4 、 WebM 和 Ogg 格式的视频，下面是简单示例：<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;video width=” 450 ″ height= ” 340 ″ controls&gt;</span><br><span class="line">    &lt;source src=” jamshed.mp4 ″ type= ” video/mp4 ″ &gt;</span><br><span class="line">    Your browser does’ nt support video embedding feature.</span><br><span class="line">&lt;/video&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="4-HTML5-中如何嵌入音频？"><a href="#4-HTML5-中如何嵌入音频？" class="headerlink" title="4.HTML5 中如何嵌入音频？"></a>4.HTML5 中如何嵌入音频？</h3><blockquote>
+<p>HTML5 支持 MP3 、 Wav 和 Ogg 格式的音频，下面是在网页中嵌入音频的简单示例：<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;audio controls&gt;</span><br><span class="line">    &lt;source src=” jamshed.mp3 ″ type= ” audio/mpeg ” &gt;</span><br><span class="line">    Your browser does’ nt support audio embedding feature.</span><br><span class="line">&lt;/audio&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="42-新的-HTML5-文档类型和字符集是？"><a href="#42-新的-HTML5-文档类型和字符集是？" class="headerlink" title="42 .新的 HTML5 文档类型和字符集是？"></a>42 .新的 HTML5 文档类型和字符集是？</h3><blockquote>
+<p>HTML5 文档类型很简单：<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!doctype html&gt;</span><br><span class="line">&lt;!--HTML5 使用 UTF-8 编码示例--&gt;</span><br><span class="line">&lt;meta charset=” UTF-8 ″ &gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
 <h3 id="43-解释一下CSS的盒子模型？"><a href="#43-解释一下CSS的盒子模型？" class="headerlink" title="43.解释一下CSS的盒子模型？"></a>43.解释一下CSS的盒子模型？</h3><ol>
 <li><strong>标准的css盒子模型</strong>：宽度=内容的宽度+边框的宽度+加上内边具的宽度</li>
 <li>网页设计中常听的属性名：内容(content)、填充(padding)、边框(border)、边界(margin)， CSS盒子模式都具备这些属性。</li>
@@ -782,7 +764,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        29
+                        30
                     </p>
                 </div>
             </div>
@@ -802,7 +784,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        24
+                        25
                     </p>
                 </div>
             </div>
@@ -1055,7 +1037,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
 </div>
 
@@ -1072,9 +1054,28 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -1146,25 +1147,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1176,6 +1158,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -1403,6 +1396,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1460,9 +1460,28 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -1534,25 +1553,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1564,6 +1564,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -1791,6 +1802,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

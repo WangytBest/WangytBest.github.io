@@ -195,132 +195,7 @@ var _hmt = _hmt || [];
             
         </h1>
         <div class="content">
-            <p>URL<br><a id="more"></a></p>
-<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">/**
- * URL模块
- * @param  {[type]} require [description]
- * @param  {[type]} exports [description]
- * @param  {[type]} module  [description]
- * @return {[type]}         [description]
- */</span>
-<span class="token function">define</span><span class="token punctuation">(</span><span class="token string">'url'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>require<span class="token punctuation">,</span> exports<span class="token punctuation">,</span> module<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> _cacheThisModule_<span class="token punctuation">;</span>
-    module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">/**
-         * 设置hash
-         * @param name
-         */</span>
-        setHash<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                location<span class="token punctuation">.</span>hash <span class="token operator">=</span> name<span class="token punctuation">;</span>
-            <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token comment" spellcheck="true">/**
-         * 获取当前url中的hash值
-         * @param url
-         * @return String
-         */</span>
-        getHash<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>url<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">var</span> u <span class="token operator">=</span> url <span class="token operator">||</span> location<span class="token punctuation">.</span>hash<span class="token punctuation">;</span>
-            <span class="token keyword">return</span> u <span class="token operator">?</span> u<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/.*#/</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token comment" spellcheck="true">/*
-         *    根据hash获取对应的模块名
-         */</span>
-        getHashModelName<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">var</span> hash <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getHash</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> <span class="token punctuation">(</span>hash <span class="token operator">?</span> hash<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"&amp;"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token comment" spellcheck="true">/*
-         *    从hash中获取action
-         */</span>
-        getHashActionName<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">var</span> hash <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getHash</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>hash <span class="token operator">==</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token keyword">return</span> <span class="token string">""</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> <span class="token punctuation">(</span>hash <span class="token operator">?</span> hash<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"&amp;"</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token comment" spellcheck="true">/*
-         * 从hash中获取name对应的值
-         */</span>
-        getHashParam<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getHash</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">RegExp</span><span class="token punctuation">(</span><span class="token string">"(^|&amp;)"</span> <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">"=([^&amp;]*)(&amp;|$)"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> result <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">?</span> result<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token comment" spellcheck="true">/*
-         *    从URL中获取参数对应的值
-         */</span>
-        getUrlParam<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>name<span class="token punctuation">,</span> url<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">//参数：变量名，url为空则表从当前页面的url中取</span>
-            <span class="token keyword">var</span> u <span class="token operator">=</span> arguments<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">||</span> window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>search<span class="token punctuation">,</span>
-                reg <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RegExp</span><span class="token punctuation">(</span><span class="token string">"(^|&amp;)"</span> <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">"=([^&amp;]*)(&amp;|$)"</span><span class="token punctuation">,</span> <span class="token string">'i'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                r <span class="token operator">=</span> u<span class="token punctuation">.</span><span class="token function">substr</span><span class="token punctuation">(</span>u<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">"\?"</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span>reg<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> r <span class="token operator">!=</span> <span class="token keyword">null</span> <span class="token operator">?</span> r<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        <span class="token comment" spellcheck="true">/*
-         *    获取所有HASH的参数，剔除model.
-         */</span>
-        getParams<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">var</span> param <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                hash <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getHash</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            paramArr <span class="token operator">=</span> hash <span class="token operator">?</span> hash<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"&amp;"</span><span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span> l <span class="token operator">=</span> paramArr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> l<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                param<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>paramArr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            <span class="token keyword">return</span> param<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        decodeUrl<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>url<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            url <span class="token operator">=</span> <span class="token function">decodeURIComponent</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">var</span> urlObj <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">parseUrl</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">,</span> decodedParam <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-            $<span class="token punctuation">.</span><span class="token function">each</span><span class="token punctuation">(</span>urlObj<span class="token punctuation">.</span>params<span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                value <span class="token operator">=</span> <span class="token function">decodeURIComponent</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                decodedParam<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>key <span class="token operator">+</span> <span class="token string">"="</span> <span class="token operator">+</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">var</span> urlPrefix <span class="token operator">=</span> url<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"?"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> urlPrefix <span class="token operator">+</span> <span class="token string">"?"</span> <span class="token operator">+</span> decodedParam<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">"&amp;"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        parseUrl<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>url<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">var</span> a <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            a<span class="token punctuation">.</span>href <span class="token operator">=</span> url<span class="token punctuation">;</span>
-            <span class="token keyword">return</span> <span class="token punctuation">{</span>
-                source<span class="token punctuation">:</span> url<span class="token punctuation">,</span>
-                protocol<span class="token punctuation">:</span> a<span class="token punctuation">.</span>protocol<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                host<span class="token punctuation">:</span> a<span class="token punctuation">.</span>hostname<span class="token punctuation">,</span>
-                port<span class="token punctuation">:</span> a<span class="token punctuation">.</span>port<span class="token punctuation">,</span>
-                query<span class="token punctuation">:</span> a<span class="token punctuation">.</span>search<span class="token punctuation">,</span>
-                params<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                    <span class="token keyword">var</span> ret <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-                        seg <span class="token operator">=</span> a<span class="token punctuation">.</span>search<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/^\?/</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'&amp;'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                        len <span class="token operator">=</span> seg<span class="token punctuation">.</span>length<span class="token punctuation">,</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> s<span class="token punctuation">;</span>
-                    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>seg<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                            <span class="token keyword">continue</span><span class="token punctuation">;</span>
-                        <span class="token punctuation">}</span>
-                        s <span class="token operator">=</span> seg<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'='</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                        ret<span class="token punctuation">[</span>s<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> s<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">}</span>
-                    <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
-                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                file<span class="token punctuation">:</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>pathname<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex">/([^\/?#]+)$/i</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                hash<span class="token punctuation">:</span> a<span class="token punctuation">.</span>hash<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">'#'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                path<span class="token punctuation">:</span> a<span class="token punctuation">.</span>pathname<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/^([^\/])/</span><span class="token punctuation">,</span> <span class="token string">'/$1'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                relative<span class="token punctuation">:</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>href<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex">/tps?:\/\/[^\/]+(.+)/</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                segments<span class="token punctuation">:</span> a<span class="token punctuation">.</span>pathname<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/^\//</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">)</span>
-            <span class="token punctuation">}</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">,</span>
-        replaceParam<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>param<span class="token punctuation">,</span> value<span class="token punctuation">,</span> url<span class="token punctuation">,</span> forceReplace<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            url <span class="token operator">=</span> url <span class="token operator">||</span> location<span class="token punctuation">.</span>href<span class="token punctuation">;</span>
-            <span class="token keyword">var</span> reg <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RegExp</span><span class="token punctuation">(</span><span class="token string">"([\\?&amp;]"</span> <span class="token operator">+</span> param <span class="token operator">+</span> <span class="token string">"=)[^&amp;#]*"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>url<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span>reg<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">return</span> <span class="token punctuation">(</span>url<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">"?"</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token punctuation">(</span>url <span class="token operator">+</span> <span class="token string">"?"</span> <span class="token operator">+</span> param <span class="token operator">+</span> <span class="token string">"="</span> <span class="token operator">+</span> value<span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token punctuation">(</span>url <span class="token operator">+</span> <span class="token string">"&amp;"</span> <span class="token operator">+</span> param <span class="token operator">+</span> <span class="token string">"="</span> <span class="token operator">+</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span>forceReplace<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">return</span> url<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>reg<span class="token punctuation">,</span> <span class="token string">"$1"</span> <span class="token operator">+</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            <span class="token keyword">return</span> url<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
+            <p>URL<br><a id="more"></a><br><figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment"> * URL模块</span></span><br><span class="line"><span class="hljs-comment"> * @param  &#123;[type]&#125; require [description]</span></span><br><span class="line"><span class="hljs-comment"> * @param  &#123;[type]&#125; exports [description]</span></span><br><span class="line"><span class="hljs-comment"> * @param  &#123;[type]&#125; module  [description]</span></span><br><span class="line"><span class="hljs-comment"> * @return &#123;[type]&#125;         [description]</span></span><br><span class="line"><span class="hljs-comment"> */</span></span><br><span class="line">define(<span class="hljs-string">'url'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">require, exports, module</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">var</span> _cacheThisModule_;</span><br><span class="line">    <span class="hljs-built_in">module</span>.exports = &#123;</span><br><span class="line">        <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">         * 设置hash</span></span><br><span class="line"><span class="hljs-comment">         * @param name</span></span><br><span class="line"><span class="hljs-comment">         */</span></span><br><span class="line">        setHash: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">name</span>) </span>&#123;</span><br><span class="line">            setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">                location.hash = name;</span><br><span class="line">            &#125;, <span class="hljs-number">0</span>);</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">         * 获取当前url中的hash值</span></span><br><span class="line"><span class="hljs-comment">         * @param url</span></span><br><span class="line"><span class="hljs-comment">         * @return String</span></span><br><span class="line"><span class="hljs-comment">         */</span></span><br><span class="line">        getHash: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">url</span>) </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">var</span> u = url || location.hash;</span><br><span class="line">            <span class="hljs-keyword">return</span> u ? u.replace(<span class="hljs-regexp">/.*#/</span>, <span class="hljs-string">""</span>) : <span class="hljs-string">""</span>;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment">         *	根据hash获取对应的模块名</span></span><br><span class="line"><span class="hljs-comment">         */</span></span><br><span class="line">        getHashModelName: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">var</span> hash = <span class="hljs-keyword">this</span>.getHash();</span><br><span class="line">            <span class="hljs-keyword">return</span> (hash ? hash.split(<span class="hljs-string">"&amp;"</span>)[<span class="hljs-number">0</span>].split(<span class="hljs-string">"="</span>)[<span class="hljs-number">0</span>] : []);</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment">         *	从hash中获取action</span></span><br><span class="line"><span class="hljs-comment">         */</span></span><br><span class="line">        getHashActionName: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">var</span> hash = <span class="hljs-keyword">this</span>.getHash();</span><br><span class="line">            <span class="hljs-keyword">if</span> (hash == <span class="hljs-string">""</span>)<span class="hljs-keyword">return</span> <span class="hljs-string">""</span>;</span><br><span class="line">            <span class="hljs-keyword">return</span> (hash ? hash.split(<span class="hljs-string">"&amp;"</span>) : [])[<span class="hljs-number">0</span>].split(<span class="hljs-string">"="</span>)[<span class="hljs-number">1</span>];</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment">         * 从hash中获取name对应的值</span></span><br><span class="line"><span class="hljs-comment">         */</span></span><br><span class="line">        getHashParam: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">name</span>) </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">var</span> result = <span class="hljs-keyword">this</span>.getHash().match(<span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">"(^|&amp;)"</span> + name + <span class="hljs-string">"=([^&amp;]*)(&amp;|$)"</span>));</span><br><span class="line">            <span class="hljs-keyword">return</span> result != <span class="hljs-literal">null</span> ? result[<span class="hljs-number">2</span>] : <span class="hljs-string">""</span>;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment">         *	从URL中获取参数对应的值</span></span><br><span class="line"><span class="hljs-comment">         */</span></span><br><span class="line">        getUrlParam: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">name, url</span>) </span>&#123;</span><br><span class="line">            <span class="hljs-comment">//参数：变量名，url为空则表从当前页面的url中取</span></span><br><span class="line">            <span class="hljs-keyword">var</span> u = <span class="hljs-built_in">arguments</span>[<span class="hljs-number">1</span>] || <span class="hljs-built_in">window</span>.location.search,</span><br><span class="line">                reg = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">"(^|&amp;)"</span> + name + <span class="hljs-string">"=([^&amp;]*)(&amp;|$)"</span>, <span class="hljs-string">'i'</span>),</span><br><span class="line">                r = u.substr(u.indexOf(<span class="hljs-string">"\?"</span>) + <span class="hljs-number">1</span>).match(reg);</span><br><span class="line">            <span class="hljs-keyword">return</span> r != <span class="hljs-literal">null</span> ? r[<span class="hljs-number">2</span>] : <span class="hljs-string">""</span>;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="hljs-comment">/*</span></span><br><span class="line"><span class="hljs-comment">         *	获取所有HASH的参数，剔除model.</span></span><br><span class="line"><span class="hljs-comment">         */</span></span><br><span class="line">        getParams: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">var</span> param = [],</span><br><span class="line">                hash = <span class="hljs-keyword">this</span>.getHash();</span><br><span class="line">            paramArr = hash ? hash.split(<span class="hljs-string">"&amp;"</span>) : [];</span><br><span class="line">            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">1</span>, l = paramArr.length; i &lt; l; i++) &#123;</span><br><span class="line">                param.push(paramArr[i]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">return</span> param;</span><br><span class="line">        &#125;,</span><br><span class="line">        decodeUrl: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">url</span>) </span>&#123;</span><br><span class="line">            url = <span class="hljs-built_in">decodeURIComponent</span>(url);</span><br><span class="line">            <span class="hljs-keyword">var</span> urlObj = <span class="hljs-keyword">this</span>.parseUrl(url), decodedParam = [];</span><br><span class="line">            $.each(urlObj.params, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">key, value</span>) </span>&#123;</span><br><span class="line">                value = <span class="hljs-built_in">decodeURIComponent</span>(value);</span><br><span class="line">                decodedParam.push(key + <span class="hljs-string">"="</span> + value);</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="hljs-keyword">var</span> urlPrefix = url.split(<span class="hljs-string">"?"</span>)[<span class="hljs-number">0</span>];</span><br><span class="line">            <span class="hljs-keyword">return</span> urlPrefix + <span class="hljs-string">"?"</span> + decodedParam.join(<span class="hljs-string">"&amp;"</span>);</span><br><span class="line">        &#125;,</span><br><span class="line">        parseUrl: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">url</span>) </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">var</span> a = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'a'</span>);</span><br><span class="line">            a.href = url;</span><br><span class="line">            <span class="hljs-keyword">return</span> &#123;</span><br><span class="line">                source: url,</span><br><span class="line">                protocol: a.protocol.replace(<span class="hljs-string">':'</span>, <span class="hljs-string">''</span>),</span><br><span class="line">                host: a.hostname,</span><br><span class="line">                port: a.port,</span><br><span class="line">                query: a.search,</span><br><span class="line">                params: (<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">                    <span class="hljs-keyword">var</span> ret = &#123;&#125;,</span><br><span class="line">                        seg = a.search.replace(<span class="hljs-regexp">/^\?/</span>, <span class="hljs-string">''</span>).split(<span class="hljs-string">'&amp;'</span>),</span><br><span class="line">                        len = seg.length, i = <span class="hljs-number">0</span>, s;</span><br><span class="line">                    <span class="hljs-keyword">for</span> (; i &lt; len; i++) &#123;</span><br><span class="line">                        <span class="hljs-keyword">if</span> (!seg[i]) &#123;</span><br><span class="line">                            <span class="hljs-keyword">continue</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                        s = seg[i].split(<span class="hljs-string">'='</span>);</span><br><span class="line">                        ret[s[<span class="hljs-number">0</span>]] = s[<span class="hljs-number">1</span>];</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="hljs-keyword">return</span> ret;</span><br><span class="line">                &#125;)(),</span><br><span class="line">                file: (a.pathname.match(<span class="hljs-regexp">/([^\/?#]+)$/i</span>) || [, <span class="hljs-string">''</span>])[<span class="hljs-number">1</span>],</span><br><span class="line">                hash: a.hash.replace(<span class="hljs-string">'#'</span>, <span class="hljs-string">''</span>),</span><br><span class="line">                path: a.pathname.replace(<span class="hljs-regexp">/^([^\/])/</span>, <span class="hljs-string">'/$1'</span>),</span><br><span class="line">                relative: (a.href.match(<span class="hljs-regexp">/tps?:\/\/[^\/]+(.+)/</span>) || [, <span class="hljs-string">''</span>])[<span class="hljs-number">1</span>],</span><br><span class="line">                segments: a.pathname.replace(<span class="hljs-regexp">/^\//</span>, <span class="hljs-string">''</span>).split(<span class="hljs-string">'/'</span>)</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;,</span><br><span class="line">        replaceParam: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">param, value, url, forceReplace</span>) </span>&#123;</span><br><span class="line">            url = url || location.href;</span><br><span class="line">            <span class="hljs-keyword">var</span> reg = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">"([\\?&amp;]"</span> + param + <span class="hljs-string">"=)[^&amp;#]*"</span>);</span><br><span class="line">            <span class="hljs-keyword">if</span> (!url.match(reg)) &#123;</span><br><span class="line">                <span class="hljs-keyword">return</span> (url.indexOf(<span class="hljs-string">"?"</span>) == <span class="hljs-number">-1</span>) ? (url + <span class="hljs-string">"?"</span> + param + <span class="hljs-string">"="</span> + value) : (url + <span class="hljs-string">"&amp;"</span> + param + <span class="hljs-string">"="</span> + value);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">if</span> (forceReplace) &#123;</span><br><span class="line">                <span class="hljs-keyword">return</span> url.replace(reg, <span class="hljs-string">"$1"</span> + value);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">return</span> url;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 
         </div>
         
@@ -450,7 +325,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        29
+                        30
                     </p>
                 </div>
             </div>
@@ -470,7 +345,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        24
+                        25
                     </p>
                 </div>
             </div>
@@ -723,7 +598,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
 </div>
 
@@ -740,9 +615,28 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -814,25 +708,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -844,6 +719,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -1071,6 +957,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1128,9 +1021,28 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -1202,25 +1114,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1232,6 +1125,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -1459,6 +1363,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

@@ -239,33 +239,16 @@ var _hmt = _hmt || [];
 <h3 id="flexible的实质"><a href="#flexible的实质" class="headerlink" title="flexible的实质"></a>flexible的实质</h3><blockquote>
 <p><code>flexible</code>实际上就是通过JS来动态改写meta标签</p>
 </blockquote>
-<pre class=" language-HTML"><code class="language-HTML"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-</code></pre>
-<p>源代码：</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> meta <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'meta'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> scale <span class="token operator">=</span> isRetina <span class="token operator">?</span> <span class="token number">0.5</span> <span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
-meta<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'viewport'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-meta<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'content'</span><span class="token punctuation">,</span> <span class="token string">'initial-scale='</span> <span class="token operator">+</span> scale <span class="token operator">+</span> <span class="token string">' ,maximun-scale='</span> <span class="token operator">+</span> scale <span class="token operator">+</span> <span class="token string">' ,minimum-scale='</span> <span class="token operator">+</span> scale <span class="token operator">+</span> <span class="token string">' ,user-scalable=no, width=device-width'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span>doucmentElement<span class="token punctuation">.</span>firstElementChild<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  document<span class="token punctuation">.</span>doucmentElement<span class="token punctuation">.</span>firstElementChild<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>meta<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-  <span class="token keyword">var</span> wrap <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  wrap<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>meta<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>wrap<span class="token punctuation">.</span>innerHTML<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"viewport"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"width=device-width, initial-scale=1, maximum-scale=1"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>源代码：<br><figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> meta = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'meta'</span>);</span><br><span class="line"><span class="hljs-keyword">var</span> scale = isRetina ? <span class="hljs-number">0.5</span> : <span class="hljs-number">1</span>;</span><br><span class="line">meta.setAttribute(<span class="hljs-string">'name'</span>, <span class="hljs-string">'viewport'</span>);</span><br><span class="line">meta.setAttribute(<span class="hljs-string">'content'</span>, <span class="hljs-string">'initial-scale='</span> + scale + <span class="hljs-string">' ,maximun-scale='</span> + scale + <span class="hljs-string">' ,minimum-scale='</span> + scale + <span class="hljs-string">' ,user-scalable=no, width=device-width'</span>);</span><br><span class="line"><span class="hljs-keyword">if</span>(<span class="hljs-built_in">document</span>.doucmentElement.firstElementChild) &#123;</span><br><span class="line">  <span class="hljs-built_in">document</span>.doucmentElement.firstElementChild.appendChild(meta);</span><br><span class="line">&#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">  <span class="hljs-keyword">var</span> wrap = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'div'</span>);</span><br><span class="line">  wrap.appendChild(meta);</span><br><span class="line">  <span class="hljs-built_in">document</span>.write(wrap.innerHTML);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>动态改写<code>&lt;meta&gt;</code>标签</li>
 <li><code>html</code>标签上加上<code>data-dpr</code>属性，并且动态改写<code>data-dpr</code>的值。</li>
 <li><code>html</code>标签上加上<code>font-size</code>属性，并且动态改写<code>font-size</code>的值。</li>
 </ul>
 <p><code>&lt;meta&gt;</code>中<code>initial-dpr</code>会把<code>dpr</code>强制设置为给定的值。如果手动设置了<code>dpr</code>之后，不管设备是多少<code>dpr</code>，都会强制设置其<code>dpr</code>为你设置的值。不建议设置这个<code>meta</code>标签值(<code>initial-dpr</code>)，因为在<code>flexible</code>中，只有对<code>iOS</code>设备进行<code>dpr</code>的判断，对于<code>Android</code>系列，始终认为其<code>dpr</code>为<strong>1</strong></p>
-<h2 id="px和rem转换"><a href="#px和rem转换" class="headerlink" title="px和rem转换"></a>px和rem转换</h2><p>目前Flexible会将设计稿分成100份，为了更好的兼容vw和vh，同时1rem单位被认定为10a。</p>
-<pre><code>width为750px设计稿
-750px = 100vw = 100a
-1rem = 10a
-1rem = 75px
-</code></pre><p>我们设计稿都是750px宽度，分成10份，每份为10a（10vw），也就是整个宽度为10rem，所以html对应的font-size为75px。</p>
+<h2 id="px和rem转换"><a href="#px和rem转换" class="headerlink" title="px和rem转换"></a>px和rem转换</h2><p>目前Flexible会将设计稿分成100份，为了更好的兼容vw和vh，同时1rem单位被认定为10a。<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">width为750px设计稿</span><br><span class="line">750px = 100vw = 100a</span><br><span class="line">1rem = 10a</span><br><span class="line">1rem = 75px</span><br></pre></td></tr></table></figure></p>
+<p>我们设计稿都是750px宽度，分成10份，每份为10a（10vw），也就是整个宽度为10rem，所以html对应的font-size为75px。</p>
 <h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><ul>
 <li><a href="https://www.quirksmode.org/mobile/viewports.html" target="_blank" rel="noopener">A tale of two viewports - Part One</a></li>
 <li><a href="https://www.quirksmode.org/mobile/viewports2.html" target="_blank" rel="noopener">A tale of two viewports - Part Two</a></li>
@@ -399,7 +382,7 @@ meta<span class="token punctuation">.</span><span class="token function">setAttr
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        29
+                        30
                     </p>
                 </div>
             </div>
@@ -419,7 +402,7 @@ meta<span class="token punctuation">.</span><span class="token function">setAttr
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        24
+                        25
                     </p>
                 </div>
             </div>
@@ -731,7 +714,7 @@ meta<span class="token punctuation">.</span><span class="token function">setAttr
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
 </div>
 
@@ -748,9 +731,28 @@ meta<span class="token punctuation">.</span><span class="token function">setAttr
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -822,25 +824,6 @@ meta<span class="token punctuation">.</span><span class="token function">setAttr
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -852,6 +835,17 @@ meta<span class="token punctuation">.</span><span class="token function">setAttr
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -1079,6 +1073,13 @@ meta<span class="token punctuation">.</span><span class="token function">setAttr
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1136,9 +1137,28 @@ meta<span class="token punctuation">.</span><span class="token function">setAttr
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -1210,25 +1230,6 @@ meta<span class="token punctuation">.</span><span class="token function">setAttr
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1240,6 +1241,17 @@ meta<span class="token punctuation">.</span><span class="token function">setAttr
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -1467,6 +1479,13 @@ meta<span class="token punctuation">.</span><span class="token function">setAttr
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

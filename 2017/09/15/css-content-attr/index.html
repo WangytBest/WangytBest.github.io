@@ -7,19 +7,19 @@
 
 
 
-    <meta name="description" content="content和attr表达式，它们能在你的页面下面悄悄的使用CSS来生成内容，下面让我们看看attr和content如何相互配合产生神奇效果的。 基本content用法 content属性能让程序员使用CSS往页面元素里填写内容：  .myDiv:after {     content: &amp;quot;我是一个使用*content*属性生产的静态文字&amp;quot;;  }">
+    <meta name="description" content="content和attr表达式，它们能在你的页面下面悄悄的使用CSS来生成内容，下面让我们看看attr和content如何相互配合产生神奇效果的。 基本content用法 content属性能让程序员使用CSS往页面元素里填写内容：  123.myDiv:after &amp;#123;    content: &quot;我是一个使用*content*属性生产的静态文字&quot;; &amp;#125;">
 <meta name="keywords" content="CSS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS中的content和attr">
 <meta property="og:url" content="http://wangytbest.github.io/2017/09/15/css-content-attr/index.html">
 <meta property="og:site_name" content="王小贱">
-<meta property="og:description" content="content和attr表达式，它们能在你的页面下面悄悄的使用CSS来生成内容，下面让我们看看attr和content如何相互配合产生神奇效果的。 基本content用法 content属性能让程序员使用CSS往页面元素里填写内容：  .myDiv:after {     content: &amp;quot;我是一个使用*content*属性生产的静态文字&amp;quot;;  }">
+<meta property="og:description" content="content和attr表达式，它们能在你的页面下面悄悄的使用CSS来生成内容，下面让我们看看attr和content如何相互配合产生神奇效果的。 基本content用法 content属性能让程序员使用CSS往页面元素里填写内容：  123.myDiv:after &amp;#123;    content: &quot;我是一个使用*content*属性生产的静态文字&quot;; &amp;#125;">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wangytbest.github.io/images/og_image.png">
 <meta property="og:updated_time" content="2019-04-09T07:08:00.211Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS中的content和attr">
-<meta name="twitter:description" content="content和attr表达式，它们能在你的页面下面悄悄的使用CSS来生成内容，下面让我们看看attr和content如何相互配合产生神奇效果的。 基本content用法 content属性能让程序员使用CSS往页面元素里填写内容：  .myDiv:after {     content: &amp;quot;我是一个使用*content*属性生产的静态文字&amp;quot;;  }">
+<meta name="twitter:description" content="content和attr表达式，它们能在你的页面下面悄悄的使用CSS来生成内容，下面让我们看看attr和content如何相互配合产生神奇效果的。 基本content用法 content属性能让程序员使用CSS往页面元素里填写内容：  123.myDiv:after &amp;#123;    content: &quot;我是一个使用*content*属性生产的静态文字&quot;; &amp;#125;">
 <meta name="twitter:image" content="http://wangytbest.github.io/images/og_image.png">
 
 
@@ -204,30 +204,14 @@ var _hmt = _hmt || [];
 <h3 id="基本content用法"><a href="#基本content用法" class="headerlink" title="基本content用法"></a>基本content用法</h3><blockquote>
 <p>content属性能让程序员使用CSS往页面元素里填写内容：</p>
 </blockquote>
-<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.myDiv</span><span class="token pseudo-element">:after</span> </span><span class="token punctuation">{</span>
-    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">"我是一个使用*content*属性生产的静态文字"</span><span class="token punctuation">;</span> 
-<span class="token punctuation">}</span>
-</code></pre>
+<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.myDiv</span><span class="hljs-selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="hljs-attribute">content</span>: <span class="hljs-string">"我是一个使用*content*属性生产的静态文字"</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>请注意，如果想让伪元素<code>:after</code>绝对定位，你必须对你的div设置<code>position: relative</code>。</p>
-<h3 id="content和attr配合使用"><a href="#content和attr配合使用" class="headerlink" title="content和attr配合使用"></a>content和attr配合使用</h3><p>如果你不想把content内容在CSS里写死，那你可以使用attr表达式来从页面元素中动态的获取内容：</p>
-<blockquote>
-<p>attr属性通常和自定义属性data-配合使用，因为传统的其它属性虽然也能存值，但通常不适合存放表达性文字。</p>
-</blockquote>
-<pre class=" language-css"><code class="language-css"><span class="token comment" spellcheck="true">/* &lt;div data-line="1">&lt;/div> */</span>
-<span class="token selector">div<span class="token attribute">[data-line]</span><span class="token pseudo-element">:after</span> </span><span class="token punctuation">{</span>
-    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token function">attr</span><span class="token punctuation">(</span>data-line<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* 属性名称上不要加引号！ */</span>
-<span class="token punctuation">}</span>
-</code></pre>
+<p>请注意，如果想让伪元素<figure class="highlight plain hljs"><figcaption><span>relative```。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### content和attr配合使用</span><br><span class="line"></span><br><span class="line">如果你不想把content内容在CSS里写死，那你可以使用attr表达式来从页面元素中动态的获取内容：</span><br><span class="line">&gt; attr属性通常和自定义属性data-配合使用，因为传统的其它属性虽然也能存值，但通常不适合存放表达性文字。</span><br><span class="line"></span><br><span class="line">```css</span><br><span class="line">/* &lt;div data-line=&quot;1&quot;&gt;&lt;/div&gt; */</span><br><span class="line">div[data-line]:after &#123;</span><br><span class="line">    content: attr(data-line); /* 属性名称上不要加引号！ */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="content里的字符串连接操作"><a href="#content里的字符串连接操作" class="headerlink" title="content里的字符串连接操作"></a>content里的字符串连接操作</h3><blockquote>
 <p>content内容支持字符串的拼接</p>
 </blockquote>
 <p>这种字符串连接很像常规编程语言了：</p>
-<pre class=" language-css"><code class="language-css"><span class="token comment" spellcheck="true">/* &lt;div data-line="1">&lt;/div> */</span>
-<span class="token selector">div<span class="token attribute">[data-line]</span><span class="token pseudo-element">:after</span> </span><span class="token punctuation">{</span>
-    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">"[line "</span> <span class="token function">attr</span><span class="token punctuation">(</span>data-line<span class="token punctuation">)</span> <span class="token string">"]"</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
+<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/* &lt;div data-line="1"&gt;&lt;/div&gt; */</span></span><br><span class="line"><span class="hljs-selector-tag">div</span><span class="hljs-selector-attr">[data-line]</span><span class="hljs-selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="hljs-attribute">content</span>: <span class="hljs-string">"[line "</span> <span class="hljs-built_in">attr</span>(data-line) <span class="hljs-string">"]"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>还需要用JavaScript里拼装字符串吗？CSS3里就能完成这些，是不是感觉CSS3可以部分的替代Javascript了！attr的动态生成页面内容的能力着实是一件让人兴奋的事情。你实际上可以用它配合content对页面的很多其他元素和属性进行操作。</p>
 
         </div>
@@ -367,7 +351,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        29
+                        30
                     </p>
                 </div>
             </div>
@@ -387,7 +371,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        24
+                        25
                     </p>
                 </div>
             </div>
@@ -447,12 +431,8 @@ var _hmt = _hmt || [];
         <span class="has-mr-6">1</span>
         <span>基本content用法</span>
         </a></li><li>
-        <a class="is-flex" href="#content和attr配合使用">
-        <span class="has-mr-6">2</span>
-        <span>content和attr配合使用</span>
-        </a></li><li>
         <a class="is-flex" href="#content里的字符串连接操作">
-        <span class="has-mr-6">3</span>
+        <span class="has-mr-6">2</span>
         <span>content里的字符串连接操作</span>
         </a></li></ul>
         </div>
@@ -663,7 +643,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
 </div>
 
@@ -680,9 +660,28 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -754,25 +753,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -784,6 +764,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -1011,6 +1002,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1068,9 +1066,28 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -1142,25 +1159,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1172,6 +1170,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -1399,6 +1408,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

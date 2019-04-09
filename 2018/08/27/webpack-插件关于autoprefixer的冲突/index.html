@@ -7,19 +7,20 @@
 
 
 
-    <meta name="description" content="1. 实际遇到的问题项目中经常会遇到css的一些奇怪问题，有些css属性的设置在在本地编译运行的时候是好的，但是打包上线之后这个属性就平白无故的没有了？ 具体场景  在处理多行文本溢出时，需要使用-webkit-box-orient: vertial，在本地开发测试一切正常，但是在webpack编译之后，检查样式并没有这个属性，其他的属性都有。  // 多行文本 @mixin textmultil">
+    <meta name="description" content="1. 实际遇到的问题项目中经常会遇到css的一些奇怪问题，有些css属性的设置在在本地编译运行的时候是好的，但是打包上线之后这个属性就平白无故的没有了？ 具体场景  在处理多行文本溢出时，需要使用vertial```，在本地开发测试一切正常，但是在webpack编译之后，检查样式并没有这个属性，其他的属性都有。123456789101112```scss// 多行文本@mixin textmult">
+<meta name="keywords" content="webpack">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webpack插件关于autoprefixer的冲突">
 <meta property="og:url" content="http://wangytbest.github.io/2018/08/27/webpack-插件关于autoprefixer的冲突/index.html">
 <meta property="og:site_name" content="王小贱">
-<meta property="og:description" content="1. 实际遇到的问题项目中经常会遇到css的一些奇怪问题，有些css属性的设置在在本地编译运行的时候是好的，但是打包上线之后这个属性就平白无故的没有了？ 具体场景  在处理多行文本溢出时，需要使用-webkit-box-orient: vertial，在本地开发测试一切正常，但是在webpack编译之后，检查样式并没有这个属性，其他的属性都有。  // 多行文本 @mixin textmultil">
+<meta property="og:description" content="1. 实际遇到的问题项目中经常会遇到css的一些奇怪问题，有些css属性的设置在在本地编译运行的时候是好的，但是打包上线之后这个属性就平白无故的没有了？ 具体场景  在处理多行文本溢出时，需要使用vertial```，在本地开发测试一切正常，但是在webpack编译之后，检查样式并没有这个属性，其他的属性都有。123456789101112```scss// 多行文本@mixin textmult">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://wangytbest.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-04-09T07:16:19.871Z">
+<meta property="og:image" content="http://cloud.xuww.wang/nianshaodeni.png">
+<meta property="og:updated_time" content="2019-04-09T07:36:57.131Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack插件关于autoprefixer的冲突">
-<meta name="twitter:description" content="1. 实际遇到的问题项目中经常会遇到css的一些奇怪问题，有些css属性的设置在在本地编译运行的时候是好的，但是打包上线之后这个属性就平白无故的没有了？ 具体场景  在处理多行文本溢出时，需要使用-webkit-box-orient: vertial，在本地开发测试一切正常，但是在webpack编译之后，检查样式并没有这个属性，其他的属性都有。  // 多行文本 @mixin textmultil">
-<meta name="twitter:image" content="http://wangytbest.github.io/images/og_image.png">
+<meta name="twitter:description" content="1. 实际遇到的问题项目中经常会遇到css的一些奇怪问题，有些css属性的设置在在本地编译运行的时候是好的，但是打包上线之后这个属性就平白无故的没有了？ 具体场景  在处理多行文本溢出时，需要使用vertial```，在本地开发测试一切正常，但是在webpack编译之后，检查样式并没有这个属性，其他的属性都有。123456789101112```scss// 多行文本@mixin textmult">
+<meta name="twitter:image" content="http://cloud.xuww.wang/nianshaodeni.png">
 
 
 
@@ -167,6 +168,12 @@ var _hmt = _hmt || [];
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
     
+    <div class="card-image">
+        <span class="image is-7by1">
+            <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
+        </span>
+    </div>
+    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
@@ -202,19 +209,8 @@ var _hmt = _hmt || [];
             <h3 id="1-实际遇到的问题"><a href="#1-实际遇到的问题" class="headerlink" title="1. 实际遇到的问题"></a>1. 实际遇到的问题</h3><p>项目中经常会遇到css的一些奇怪问题，有些css属性的设置在在本地编译运行的时候是好的，但是打包上线之后这个属性就平白无故的没有了？</p>
 <p>具体场景</p>
 <blockquote>
-<p>在处理多行文本溢出时，需要使用<code>-webkit-box-orient: vertial</code>，在本地开发测试一切正常，但是在webpack编译之后，检查样式并没有这个属性，其他的属性都有。</p>
+<p>在处理多行文本溢出时，需要使用<figure class="highlight plain hljs"><figcaption><span>vertial```，在本地开发测试一切正常，但是在webpack编译之后，检查样式并没有这个属性，其他的属性都有。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```scss</span><br><span class="line">// 多行文本</span><br><span class="line">@mixin textmultiline($line:2) &#123;</span><br><span class="line">  display: -webkit-box;</span><br><span class="line">  /* autoprefixer: off*/</span><br><span class="line">  -webkit-box-orient: vertical;</span><br><span class="line">  /* autoprefixer: on*/</span><br><span class="line">  -webkit-line-clamp: $line;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  text-overflow: ellipsis;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<pre class=" language-scss"><code class="language-scss"><span class="token comment" spellcheck="true">// 多行文本</span>
-<span class="token keyword">@mixin</span> <span class="token function">textmultiline</span><span class="token punctuation">(</span><span class="token property"><span class="token variable">$line</span></span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token property">display</span><span class="token punctuation">:</span> -webkit-box<span class="token punctuation">;</span>
-  <span class="token comment" spellcheck="true">/* autoprefixer: off*/</span>
-  <span class="token property">-webkit-box-orient</span><span class="token punctuation">:</span> vertical<span class="token punctuation">;</span>
-  <span class="token comment" spellcheck="true">/* autoprefixer: on*/</span>
-  <span class="token property">-webkit-line-clamp</span><span class="token punctuation">:</span> <span class="token variable">$line</span><span class="token punctuation">;</span>
-  <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
-  <span class="token property">text-overflow</span><span class="token punctuation">:</span> ellipsis<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
 <a id="more"></a>
 <h3 id="2-为什么啊？"><a href="#2-为什么啊？" class="headerlink" title="2. 为什么啊？"></a>2. 为什么啊？</h3><ol>
 <li><p><a href="https://github.com/cssnano/cssnano/issues/357" target="_blank" rel="noopener">why remove -webkit-box-orient property? #357</a></p>
@@ -225,34 +221,28 @@ var _hmt = _hmt || [];
 <p>原因：<br>  autoprefixer自动的删除了一些它觉得没有必要的属性，所以解决办法就是设autoprefixer为false，或者针对某个属性忽autoprefixer</p>
 <h3 id="3-怎么办"><a href="#3-怎么办" class="headerlink" title="3. 怎么办"></a>3. 怎么办</h3><ol>
 <li><p>属性忽略autoprefixer</p>
-<pre class=" language-css"><code class="language-css">// eslint-disable-next-line
-<span class="token comment" spellcheck="true">/* autoprefixer: off*/</span>
-<span class="token property">-webkit-box-orient</span><span class="token punctuation">:</span> vertical<span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">/* autoprefixer: on*/</span>
-</code></pre>
+<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// eslint-disable-next-line</span><br><span class="line"><span class="hljs-comment">/* autoprefixer: off*/</span></span><br><span class="line"><span class="hljs-selector-tag">-webkit-box-orient</span>: <span class="hljs-selector-tag">vertical</span>;</span><br><span class="line"><span class="hljs-comment">/* autoprefixer: on*/</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>关闭cssnano的autoprefixer</p>
 </li>
 </ol>
 <p>just remove the postcss config in vue-loader’s config</p>
 <p>Add the following option to prevent autoprefixer from removing prefixes (<strong>for cssnano v3 only</strong>):</p>
-<pre class=" language-shell"><code class="language-shell">{
-  autoprefixer: {
-    remove: false
-  }
-}
-</code></pre>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  autoprefixer: &#123;</span><br><span class="line">    remove: false</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Then -webkit-box-orient will be preserved.</p>
 <ol start="3">
-<li><code>optimize-css-assets-webpack-plugin</code> 插件问题</li>
+<li><figure class="highlight plain hljs"><figcaption><span>插件问题</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```cs</span><br><span class="line">new OptimizeCSSPlugin(&#123;</span><br><span class="line">  cssProcessorOptions: config.build.productionSourceMap</span><br><span class="line">    ? &#123; safe: true, map: &#123; inline: false &#125; &#125;</span><br><span class="line">    : &#123; safe: true &#125;</span><br><span class="line">&#125;),</span><br></pre></td></tr></table></figure></li>
 </ol>
-<pre class=" language-cs"><code class="language-cs">new OptimizeCSSPlugin({
-  cssProcessorOptions: config.build.productionSourceMap
-    ? { safe: true, map: { inline: false } }
-    : { safe: true }
-}),
-</code></pre>
 
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/webpack/">webpack</a>
+                </div>
+            </div>
         </div>
         
         
@@ -295,6 +285,13 @@ var _hmt = _hmt || [];
 
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/04/09/跨域/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">跨域</span>
+            </a>
+        </div>
         
         
         <div class="level-end">
@@ -374,7 +371,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        29
+                        30
                     </p>
                 </div>
             </div>
@@ -394,7 +391,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        24
+                        25
                     </p>
                 </div>
             </div>
@@ -670,7 +667,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
 </div>
 
@@ -687,9 +684,28 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -761,25 +777,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -791,6 +788,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -1018,6 +1026,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1075,9 +1090,28 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -1149,25 +1183,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1179,6 +1194,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -1406,6 +1432,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

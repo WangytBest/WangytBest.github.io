@@ -198,70 +198,7 @@ var _hmt = _hmt || [];
             <blockquote>
 <p>JS控制Gif动画</p>
 </blockquote>
-<p>思想： 使用canvas获取Gif第一帧图片，静止的时候使用图片，播放的时候使用Gif。<br><a id="more"></a></p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token string">'getContext'</span> <span class="token keyword">in</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'canvas'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    HTMLImageElement<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>play <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>storeCanvas<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">// 移除存储的canvas</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>storeCanvas<span class="token punctuation">.</span>parentElement<span class="token punctuation">.</span><span class="token function">removeChild</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>storeCanvas<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>storeCanvas <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-            <span class="token comment" spellcheck="true">// 透明度还原c</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>style<span class="token punctuation">.</span>opacity <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>storeUrl<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>storeUrl<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    HTMLImageElement<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>stop <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// polyfill 提供了这个方法用来获取设备的 pixel ratio</span>
-        <span class="token keyword">let</span> getPixelRatio <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">let</span> backingStore <span class="token operator">=</span> context<span class="token punctuation">.</span>backingStorePixelRatio <span class="token operator">||</span>
-                context<span class="token punctuation">.</span>webkitBackingStorePixelRatio <span class="token operator">||</span>
-                context<span class="token punctuation">.</span>mozBackingStorePixelRatio <span class="token operator">||</span>
-                context<span class="token punctuation">.</span>msBackingStorePixelRatio <span class="token operator">||</span>
-                context<span class="token punctuation">.</span>oBackingStorePixelRatio <span class="token operator">||</span>
-                context<span class="token punctuation">.</span>backingStorePixelRatio <span class="token operator">||</span> <span class="token number">1</span><span class="token punctuation">;</span>
-
-            <span class="token keyword">return</span> <span class="token punctuation">(</span>window<span class="token punctuation">.</span>devicePixelRatio <span class="token operator">||</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">/</span> backingStore<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span>
-        <span class="token keyword">let</span> canvas <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'canvas'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">let</span> ratio <span class="token operator">=</span> <span class="token function">getPixelRatio</span><span class="token punctuation">(</span>canvas<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">// 尺寸</span>
-        <span class="token keyword">let</span> width <span class="token operator">=</span> <span class="token operator">+</span><span class="token keyword">this</span><span class="token punctuation">.</span>width<span class="token punctuation">;</span>
-        <span class="token keyword">let</span> height <span class="token operator">=</span> <span class="token operator">+</span><span class="token keyword">this</span><span class="token punctuation">.</span>height<span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>width <span class="token operator">&amp;&amp;</span> height<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">// 存储之前的地址</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>storeUrl<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">this</span><span class="token punctuation">.</span>storeUrl <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>src<span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            <span class="token comment" spellcheck="true">// canvas大小</span>
-            canvas<span class="token punctuation">.</span>width <span class="token operator">=</span> width <span class="token operator">*</span> ratio<span class="token punctuation">;</span>
-            canvas<span class="token punctuation">.</span>height <span class="token operator">=</span> height <span class="token operator">*</span> ratio<span class="token punctuation">;</span>
-            <span class="token comment" spellcheck="true">// 绘制图片帧（第一帧）</span>
-            <span class="token comment" spellcheck="true">// 注意，这里的 width 和 height 变成了 width * ratio 和 height * ratio</span>
-            canvas<span class="token punctuation">.</span><span class="token function">getContext</span><span class="token punctuation">(</span><span class="token string">'2d'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">drawImage</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> width <span class="token operator">*</span> ratio<span class="token punctuation">,</span> height <span class="token operator">*</span> ratio<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            canvas<span class="token punctuation">.</span>style<span class="token punctuation">.</span>width <span class="token operator">=</span> width<span class="token punctuation">;</span>
-            canvas<span class="token punctuation">.</span>style<span class="token punctuation">.</span>height <span class="token operator">=</span> height<span class="token punctuation">;</span>
-            <span class="token comment" spellcheck="true">// 重置当前图片</span>
-            <span class="token keyword">try</span> <span class="token punctuation">{</span>
-                <span class="token keyword">this</span><span class="token punctuation">.</span>src <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token function">toDataURL</span><span class="token punctuation">(</span><span class="token string">'image/gif'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token comment" spellcheck="true">// 跨域</span>
-                <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">removeAttribute</span><span class="token punctuation">(</span><span class="token string">'src'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token comment" spellcheck="true">// 载入canvas元素</span>
-                canvas<span class="token punctuation">.</span>style<span class="token punctuation">.</span>position <span class="token operator">=</span> <span class="token string">'absolute'</span><span class="token punctuation">;</span>
-                <span class="token comment" spellcheck="true">// 前面插入图片</span>
-                <span class="token keyword">this</span><span class="token punctuation">.</span>parentElement<span class="token punctuation">.</span><span class="token function">insertBefore</span><span class="token punctuation">(</span>canvas<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token comment" spellcheck="true">// 隐藏原图</span>
-                <span class="token keyword">this</span><span class="token punctuation">.</span>style<span class="token punctuation">.</span>opacity <span class="token operator">=</span> <span class="token string">'0'</span><span class="token punctuation">;</span>
-                <span class="token comment" spellcheck="true">// 存储canvas</span>
-                <span class="token keyword">this</span><span class="token punctuation">.</span>storeCanvas <span class="token operator">=</span> canvas<span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
+<p>思想： 使用canvas获取Gif第一帧图片，静止的时候使用图片，播放的时候使用Gif。<br><a id="more"></a><br><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">if</span> (<span class="hljs-string">'getContext'</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'canvas'</span>)) &#123;</span><br><span class="line">    HTMLImageElement.prototype.play = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.storeCanvas) &#123;</span><br><span class="line">            <span class="hljs-comment">// 移除存储的canvas</span></span><br><span class="line">            <span class="hljs-keyword">this</span>.storeCanvas.parentElement.removeChild(<span class="hljs-keyword">this</span>.storeCanvas);</span><br><span class="line">            <span class="hljs-keyword">this</span>.storeCanvas = <span class="hljs-literal">null</span>;</span><br><span class="line">            <span class="hljs-comment">// 透明度还原c</span></span><br><span class="line">            <span class="hljs-keyword">this</span>.style.opacity = <span class="hljs-string">''</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.storeUrl) &#123;</span><br><span class="line">            <span class="hljs-keyword">this</span>.src = <span class="hljs-keyword">this</span>.storeUrl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    HTMLImageElement.prototype.stop = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">        <span class="hljs-comment">// polyfill 提供了这个方法用来获取设备的 pixel ratio</span></span><br><span class="line">        <span class="hljs-keyword">let</span> getPixelRatio = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">context</span>) </span>&#123;</span><br><span class="line">            <span class="hljs-keyword">let</span> backingStore = context.backingStorePixelRatio ||</span><br><span class="line">                context.webkitBackingStorePixelRatio ||</span><br><span class="line">                context.mozBackingStorePixelRatio ||</span><br><span class="line">                context.msBackingStorePixelRatio ||</span><br><span class="line">                context.oBackingStorePixelRatio ||</span><br><span class="line">                context.backingStorePixelRatio || <span class="hljs-number">1</span>;</span><br><span class="line"></span><br><span class="line">            <span class="hljs-keyword">return</span> (<span class="hljs-built_in">window</span>.devicePixelRatio || <span class="hljs-number">1</span>) / backingStore;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="hljs-keyword">let</span> canvas = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'canvas'</span>);</span><br><span class="line">        <span class="hljs-keyword">let</span> ratio = getPixelRatio(canvas);</span><br><span class="line">        <span class="hljs-comment">// 尺寸</span></span><br><span class="line">        <span class="hljs-keyword">let</span> width = +<span class="hljs-keyword">this</span>.width;</span><br><span class="line">        <span class="hljs-keyword">let</span> height = +<span class="hljs-keyword">this</span>.height;</span><br><span class="line">        <span class="hljs-keyword">if</span> (width &amp;&amp; height) &#123;</span><br><span class="line">            <span class="hljs-comment">// 存储之前的地址</span></span><br><span class="line">            <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.storeUrl) &#123;</span><br><span class="line">                <span class="hljs-keyword">this</span>.storeUrl = <span class="hljs-keyword">this</span>.src;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-comment">// canvas大小</span></span><br><span class="line">            canvas.width = width * ratio;</span><br><span class="line">            canvas.height = height * ratio;</span><br><span class="line">            <span class="hljs-comment">// 绘制图片帧（第一帧）</span></span><br><span class="line">            <span class="hljs-comment">// 注意，这里的 width 和 height 变成了 width * ratio 和 height * ratio</span></span><br><span class="line">            canvas.getContext(<span class="hljs-string">'2d'</span>).drawImage(<span class="hljs-keyword">this</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, width * ratio, height * ratio);</span><br><span class="line">            canvas.style.width = width;</span><br><span class="line">            canvas.style.height = height;</span><br><span class="line">            <span class="hljs-comment">// 重置当前图片</span></span><br><span class="line">            <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">                <span class="hljs-keyword">this</span>.src = canvas.toDataURL(<span class="hljs-string">'image/gif'</span>);</span><br><span class="line">            &#125; <span class="hljs-keyword">catch</span> (e) &#123;</span><br><span class="line">                <span class="hljs-built_in">console</span>.log(e);</span><br><span class="line">                <span class="hljs-comment">// 跨域</span></span><br><span class="line">                <span class="hljs-keyword">this</span>.removeAttribute(<span class="hljs-string">'src'</span>);</span><br><span class="line">                <span class="hljs-comment">// 载入canvas元素</span></span><br><span class="line">                canvas.style.position = <span class="hljs-string">'absolute'</span>;</span><br><span class="line">                <span class="hljs-comment">// 前面插入图片</span></span><br><span class="line">                <span class="hljs-keyword">this</span>.parentElement.insertBefore(canvas, <span class="hljs-keyword">this</span>);</span><br><span class="line">                <span class="hljs-comment">// 隐藏原图</span></span><br><span class="line">                <span class="hljs-keyword">this</span>.style.opacity = <span class="hljs-string">'0'</span>;</span><br><span class="line">                <span class="hljs-comment">// 存储canvas</span></span><br><span class="line">                <span class="hljs-keyword">this</span>.storeCanvas = canvas;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
         </div>
         
@@ -391,7 +328,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        29
+                        30
                     </p>
                 </div>
             </div>
@@ -411,7 +348,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        24
+                        25
                     </p>
                 </div>
             </div>
@@ -664,7 +601,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
 </div>
 
@@ -681,9 +618,28 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -755,25 +711,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -785,6 +722,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -1012,6 +960,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1069,9 +1024,28 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/04/09/跨域/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="跨域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/跨域/" class="has-link-black-ter is-size-6">跨域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -1143,25 +1117,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2018/05/30/cookie操作/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="cookie操作">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
-                    <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1173,6 +1128,17 @@ var _hmt = _hmt || [];
             归档
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2018/08/">
@@ -1400,6 +1366,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/util/">
                         <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
