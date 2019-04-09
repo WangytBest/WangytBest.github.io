@@ -7,19 +7,19 @@
 
 
 
-    <meta name="description" content="1. 实际遇到的问题项目中经常会遇到css的一些奇怪问题，有些css属性的设置在在本地编译运行的时候是好的，但是打包上线之后这个属性就平白无故的没有了？ 具体场景在处理多行文本溢出时，需要使用vertial```，在本地开发测试一切正常，但是在webpack编译之后，检查样式并没有这个属性，其他的属性都有。12345678910111213&amp;lt;!-- more --&amp;gt;```scss//">
+    <meta name="description" content="1. 实际遇到的问题项目中经常会遇到css的一些奇怪问题，有些css属性的设置在在本地编译运行的时候是好的，但是打包上线之后这个属性就平白无故的没有了？ 具体场景在处理多行文本溢出时，需要使用-webkit-box-orient: vertial，在本地开发测试一切正常，但是在webpack编译之后，检查样式并没有这个属性，其他的属性都有。">
 <meta name="keywords" content="webpack">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webpack插件关于autoprefixer的冲突">
 <meta property="og:url" content="http://wangytbest.github.io/2018/08/27/webpack-插件关于autoprefixer的冲突/index.html">
 <meta property="og:site_name" content="王小贱">
-<meta property="og:description" content="1. 实际遇到的问题项目中经常会遇到css的一些奇怪问题，有些css属性的设置在在本地编译运行的时候是好的，但是打包上线之后这个属性就平白无故的没有了？ 具体场景在处理多行文本溢出时，需要使用vertial```，在本地开发测试一切正常，但是在webpack编译之后，检查样式并没有这个属性，其他的属性都有。12345678910111213&amp;lt;!-- more --&amp;gt;```scss//">
+<meta property="og:description" content="1. 实际遇到的问题项目中经常会遇到css的一些奇怪问题，有些css属性的设置在在本地编译运行的时候是好的，但是打包上线之后这个属性就平白无故的没有了？ 具体场景在处理多行文本溢出时，需要使用-webkit-box-orient: vertial，在本地开发测试一切正常，但是在webpack编译之后，检查样式并没有这个属性，其他的属性都有。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wangytbest.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-04-09T07:44:16.963Z">
+<meta property="og:updated_time" content="2019-04-09T07:45:27.031Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack插件关于autoprefixer的冲突">
-<meta name="twitter:description" content="1. 实际遇到的问题项目中经常会遇到css的一些奇怪问题，有些css属性的设置在在本地编译运行的时候是好的，但是打包上线之后这个属性就平白无故的没有了？ 具体场景在处理多行文本溢出时，需要使用vertial```，在本地开发测试一切正常，但是在webpack编译之后，检查样式并没有这个属性，其他的属性都有。12345678910111213&amp;lt;!-- more --&amp;gt;```scss//">
+<meta name="twitter:description" content="1. 实际遇到的问题项目中经常会遇到css的一些奇怪问题，有些css属性的设置在在本地编译运行的时候是好的，但是打包上线之后这个属性就平白无故的没有了？ 具体场景在处理多行文本溢出时，需要使用-webkit-box-orient: vertial，在本地开发测试一切正常，但是在webpack编译之后，检查样式并没有这个属性，其他的属性都有。">
 <meta name="twitter:image" content="http://wangytbest.github.io/images/og_image.png">
 
 
@@ -201,7 +201,9 @@ var _hmt = _hmt || [];
         </h1>
         <div class="content">
             <h3 id="1-实际遇到的问题"><a href="#1-实际遇到的问题" class="headerlink" title="1. 实际遇到的问题"></a>1. 实际遇到的问题</h3><p>项目中经常会遇到css的一些奇怪问题，有些css属性的设置在在本地编译运行的时候是好的，但是打包上线之后这个属性就平白无故的没有了？</p>
-<p>具体场景<br>在处理多行文本溢出时，需要使用<figure class="highlight plain hljs"><figcaption><span>vertial```，在本地开发测试一切正常，但是在webpack编译之后，检查样式并没有这个属性，其他的属性都有。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line">```scss</span><br><span class="line">// 多行文本</span><br><span class="line">@mixin textmultiline($line:2) &#123;</span><br><span class="line">  display: -webkit-box;</span><br><span class="line">  /* autoprefixer: off*/</span><br><span class="line">  -webkit-box-orient: vertical;</span><br><span class="line">  /* autoprefixer: on*/</span><br><span class="line">  -webkit-line-clamp: $line;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  text-overflow: ellipsis;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>具体场景<br>在处理多行文本溢出时，需要使用<code>-webkit-box-orient: vertial</code>，在本地开发测试一切正常，但是在webpack编译之后，检查样式并没有这个属性，其他的属性都有。</p>
+<a id="more"></a>
+<figure class="highlight scss hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 多行文本</span></span><br><span class="line">@<span class="hljs-keyword">mixin</span> textmultiline(<span class="hljs-variable">$line</span>:<span class="hljs-number">2</span>) &#123;</span><br><span class="line">  <span class="hljs-attribute">display</span>: -webkit-box;</span><br><span class="line">  <span class="hljs-comment">/* autoprefixer: off*/</span></span><br><span class="line">  -webkit-box-orient: vertical;</span><br><span class="line">  <span class="hljs-comment">/* autoprefixer: on*/</span></span><br><span class="line">  -webkit-line-clamp: <span class="hljs-variable">$line</span>;</span><br><span class="line">  <span class="hljs-attribute">overflow</span>: hidden;</span><br><span class="line">  <span class="hljs-attribute">text-overflow</span>: ellipsis;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="2-为什么啊？"><a href="#2-为什么啊？" class="headerlink" title="2. 为什么啊？"></a>2. 为什么啊？</h3><ol>
 <li><p><a href="https://github.com/cssnano/cssnano/issues/357" target="_blank" rel="noopener">why remove -webkit-box-orient property? #357</a></p>
 </li>
