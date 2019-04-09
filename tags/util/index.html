@@ -187,7 +187,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    1 分钟 读完 (大约 187 个字)
+                    1 分钟 读完 (大约 188 个字)
                 </span>
                 
                 
@@ -200,95 +200,17 @@ var _hmt = _hmt || [];
             
         </h1>
         <div class="content">
-            <p>数组对象判断方法</p>
-<h2 id="支付宝base-js"><a href="#支付宝base-js" class="headerlink" title="支付宝base.js"></a>支付宝base.js</h2><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">if</span> <span class="token punctuation">(</span> value <span class="token keyword">instanceof</span> <span class="token class-name">Array</span> <span class="token operator">||</span> 
-  <span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>value <span class="token keyword">instanceof</span> <span class="token class-name">Object</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> 
-  <span class="token punctuation">(</span>Object<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>toString<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">'[object Array]'</span><span class="token punctuation">)</span> <span class="token operator">||</span> 
-  <span class="token keyword">typeof</span> value<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token string">'number'</span> <span class="token operator">&amp;&amp;</span> 
-  <span class="token keyword">typeof</span> value<span class="token punctuation">.</span>splice <span class="token operator">!=</span> <span class="token string">'undefined'</span> <span class="token operator">&amp;&amp;</span> 
-  <span class="token keyword">typeof</span> value<span class="token punctuation">.</span>propertyIsEnumerable <span class="token operator">!=</span> <span class="token string">'undefined'</span> <span class="token operator">&amp;&amp;</span> 
-  <span class="token operator">!</span>value<span class="token punctuation">.</span><span class="token function">propertyIsEnumerable</span><span class="token punctuation">(</span><span class="token string">'splice'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
-    <span class="token keyword">return</span> <span class="token string">'array'</span><span class="token punctuation">;</span> 
-<span class="token punctuation">}</span> 
-</code></pre>
-<h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span> 
-arr <span class="token keyword">instanceof</span> <span class="token class-name">Array</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// true </span>
-arr<span class="token punctuation">.</span>constructor <span class="token operator">==</span> Array<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//true </span>
-</code></pre>
-<h2 id="call-apply"><a href="#call-apply" class="headerlink" title="call/apply"></a>call/apply</h2><pre class=" language-javascript"><code class="language-javascript">Object<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>toString<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">'[object Array]'</span>
-
-<span class="token keyword">var</span> isArray <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
-  <span class="token keyword">return</span> Object<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>toString<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token string">'[object Array]'</span><span class="token punctuation">;</span> 
-<span class="token punctuation">}</span> 
-</code></pre>
-<h2 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h2><blockquote>
-<p>typeof方法返回一个字符串，来表示数据的类型。</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>数据类型</th>
-<th style="text-align:center">type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>数据类型</td>
-<td style="text-align:center">Type</td>
-</tr>
-<tr>
-<td>Undefined</td>
-<td style="text-align:center">undefined</td>
-</tr>
-<tr>
-<td>Null</td>
-<td style="text-align:center">object</td>
-</tr>
-<tr>
-<td>布尔值</td>
-<td style="text-align:center">boolean</td>
-</tr>
-<tr>
-<td>数值</td>
-<td style="text-align:center">number</td>
-</tr>
-<tr>
-<td>字符串</td>
-<td style="text-align:center">string</td>
-</tr>
-<tr>
-<td>Symbol (ECMAScript 6 新增)</td>
-<td style="text-align:center">symbol</td>
-</tr>
-<tr>
-<td>宿主对象(JS环境提供的，比如浏览器)</td>
-<td style="text-align:center">Implementation-dependent</td>
-</tr>
-<tr>
-<td>函数对象</td>
-<td style="text-align:center">function</td>
-</tr>
-<tr>
-<td>任何其他对象</td>
-<td style="text-align:center">object</td>
-</tr>
-</tbody>
-</table>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-<span class="token keyword">typeof</span> a<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// "object"</span>
-<span class="token keyword">typeof</span> b<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// "object"</span>
-
-a <span class="token keyword">instanceof</span> <span class="token class-name">Object</span> <span class="token comment" spellcheck="true">// true</span>
-b <span class="token keyword">instanceof</span> <span class="token class-name">Object</span> <span class="token comment" spellcheck="true">// true</span>
-
-a <span class="token keyword">instanceof</span> <span class="token class-name">Array</span> <span class="token comment" spellcheck="true">// true</span>
-b <span class="token keyword">instanceof</span> <span class="token class-name">Array</span> <span class="token comment" spellcheck="true">// false</span>
-</code></pre>
-
+            <p>数组对象判断方法<br></p>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2018/04/12/数组对象判断/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>

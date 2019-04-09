@@ -7,18 +7,18 @@
 
 
 
-    <meta name="description" content="1. 实际遇到的问题项目中经常会遇到css的一些奇怪问题，有些css属性的设置在在本地编译运行的时候是好的，但是打包上线之后这个属性就平白无故的没有了？ 具体场景  在处理多行文本溢出时，需要使用-webkit-box-orient: vertial，在本地开发测试一切正常，但是在webpack编译之后，检查样式并没有这个属性，其他的属性都有。 // 多行文本 @mixin textmultili">
+    <meta name="description" content="1. 实际遇到的问题项目中经常会遇到css的一些奇怪问题，有些css属性的设置在在本地编译运行的时候是好的，但是打包上线之后这个属性就平白无故的没有了？ 具体场景  在处理多行文本溢出时，需要使用-webkit-box-orient: vertial，在本地开发测试一切正常，但是在webpack编译之后，检查样式并没有这个属性，其他的属性都有。  // 多行文本 @mixin textmultil">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webpack插件关于autoprefixer的冲突">
 <meta property="og:url" content="http://wangytbest.github.io/2018/08/27/webpack-插件关于autoprefixer的冲突/index.html">
 <meta property="og:site_name" content="王小贱">
-<meta property="og:description" content="1. 实际遇到的问题项目中经常会遇到css的一些奇怪问题，有些css属性的设置在在本地编译运行的时候是好的，但是打包上线之后这个属性就平白无故的没有了？ 具体场景  在处理多行文本溢出时，需要使用-webkit-box-orient: vertial，在本地开发测试一切正常，但是在webpack编译之后，检查样式并没有这个属性，其他的属性都有。 // 多行文本 @mixin textmultili">
+<meta property="og:description" content="1. 实际遇到的问题项目中经常会遇到css的一些奇怪问题，有些css属性的设置在在本地编译运行的时候是好的，但是打包上线之后这个属性就平白无故的没有了？ 具体场景  在处理多行文本溢出时，需要使用-webkit-box-orient: vertial，在本地开发测试一切正常，但是在webpack编译之后，检查样式并没有这个属性，其他的属性都有。  // 多行文本 @mixin textmultil">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wangytbest.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-04-09T06:58:51.573Z">
+<meta property="og:updated_time" content="2019-04-09T07:16:19.871Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack插件关于autoprefixer的冲突">
-<meta name="twitter:description" content="1. 实际遇到的问题项目中经常会遇到css的一些奇怪问题，有些css属性的设置在在本地编译运行的时候是好的，但是打包上线之后这个属性就平白无故的没有了？ 具体场景  在处理多行文本溢出时，需要使用-webkit-box-orient: vertial，在本地开发测试一切正常，但是在webpack编译之后，检查样式并没有这个属性，其他的属性都有。 // 多行文本 @mixin textmultili">
+<meta name="twitter:description" content="1. 实际遇到的问题项目中经常会遇到css的一些奇怪问题，有些css属性的设置在在本地编译运行的时候是好的，但是打包上线之后这个属性就平白无故的没有了？ 具体场景  在处理多行文本溢出时，需要使用-webkit-box-orient: vertial，在本地开发测试一切正常，但是在webpack编译之后，检查样式并没有这个属性，其他的属性都有。  // 多行文本 @mixin textmultil">
 <meta name="twitter:image" content="http://wangytbest.github.io/images/og_image.png">
 
 
@@ -203,6 +203,7 @@ var _hmt = _hmt || [];
 <p>具体场景</p>
 <blockquote>
 <p>在处理多行文本溢出时，需要使用<code>-webkit-box-orient: vertial</code>，在本地开发测试一切正常，但是在webpack编译之后，检查样式并没有这个属性，其他的属性都有。</p>
+</blockquote>
 <pre class=" language-scss"><code class="language-scss"><span class="token comment" spellcheck="true">// 多行文本</span>
 <span class="token keyword">@mixin</span> <span class="token function">textmultiline</span><span class="token punctuation">(</span><span class="token property"><span class="token variable">$line</span></span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token property">display</span><span class="token punctuation">:</span> -webkit-box<span class="token punctuation">;</span>
@@ -214,7 +215,6 @@ var _hmt = _hmt || [];
   <span class="token property">text-overflow</span><span class="token punctuation">:</span> ellipsis<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
-</blockquote>
 <a id="more"></a>
 <h3 id="2-为什么啊？"><a href="#2-为什么啊？" class="headerlink" title="2. 为什么啊？"></a>2. 为什么啊？</h3><ol>
 <li><p><a href="https://github.com/cssnano/cssnano/issues/357" target="_blank" rel="noopener">why remove -webkit-box-orient property? #357</a></p>
