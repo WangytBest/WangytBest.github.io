@@ -203,17 +203,17 @@ var _hmt = _hmt || [];
         </h1>
         <div class="content">
             <p>github上创建新的项目后，在本地拉取项目或者将本地的项目关联到建立的仓库。</p>
-<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> git <span class="hljs-built_in">clone</span> git@github.com:xxxxxxxxx.git</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span> git clone git@github.com:xxxxxxxxx.git</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="命令行新建一个新的仓库"><a href="#命令行新建一个新的仓库" class="headerlink" title="命令行新建一个新的仓库"></a>命令行新建一个新的仓库</h2><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> mkdir myProject</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> <span class="hljs-built_in">cd</span> myProject </span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> <span class="hljs-built_in">echo</span> <span class="hljs-string">'# my new project'</span> &gt;&gt; README.md</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> git init</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> git add .</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> git commit -m <span class="hljs-string">"first commit"</span></span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> git remote add origin git@github.com:xxxxxxxxx.git</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> git push origin master</span></span><br></pre></td></tr></table></figure>
-<h2 id="本地项目关联远程git仓库"><a href="#本地项目关联远程git仓库" class="headerlink" title="本地项目关联远程git仓库"></a>本地项目关联远程git仓库</h2><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> <span class="hljs-built_in">cd</span> myProject</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> git remote add origin git@github.com:xxxxx/xxxx/git</span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> git push origin master</span></span><br></pre></td></tr></table></figure>
-<h1 id="本地分支关联远程分支"><a href="#本地分支关联远程分支" class="headerlink" title="本地分支关联远程分支"></a>本地分支关联远程分支</h1><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> git checkout <span class="hljs-built_in">test</span></span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> git remote add origin git@github.com:xxxx/test.git</span></span><br></pre></td></tr></table></figure>
+<h2 id="命令行新建一个新的仓库"><a href="#命令行新建一个新的仓库" class="headerlink" title="命令行新建一个新的仓库"></a>命令行新建一个新的仓库</h2><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span> mkdir myProject</span><br><span class="line"><span class="hljs-meta">#</span> cd myProject </span><br><span class="line"><span class="hljs-meta">#</span> echo '# my new project' &gt;&gt; README.md</span><br><span class="line"><span class="hljs-meta">#</span> git init</span><br><span class="line"><span class="hljs-meta">#</span> git add .</span><br><span class="line"><span class="hljs-meta">#</span> git commit -m "first commit"</span><br><span class="line"><span class="hljs-meta">#</span> git remote add origin git@github.com:xxxxxxxxx.git</span><br><span class="line"><span class="hljs-meta">#</span> git push origin master</span><br></pre></td></tr></table></figure>
+<h2 id="本地项目关联远程git仓库"><a href="#本地项目关联远程git仓库" class="headerlink" title="本地项目关联远程git仓库"></a>本地项目关联远程git仓库</h2><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span> cd myProject</span><br><span class="line"><span class="hljs-meta">#</span> git remote add origin git@github.com:xxxxx/xxxx/git</span><br><span class="line"><span class="hljs-meta">#</span> git push origin master</span><br></pre></td></tr></table></figure>
+<h1 id="本地分支关联远程分支"><a href="#本地分支关联远程分支" class="headerlink" title="本地分支关联远程分支"></a>本地分支关联远程分支</h1><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span> git checkout test</span><br><span class="line"><span class="hljs-meta">#</span> git remote add origin git@github.com:xxxx/test.git</span><br></pre></td></tr></table></figure>
 <h2 id="fatal"><a href="#fatal" class="headerlink" title="fatal"></a>fatal</h2><p>首次拉取代码失败</p>
 <blockquote>
 <p>git pull错误信息 :<br><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">* branch       master     -&gt; FETCH_HEAD</span><br><span class="line">fatal: refusing to merge unrelated histories</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<p>解决：<br><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> git pull origin master --allow-unrelated-histories</span></span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"><span class="hljs-comment"># 首次安装git设置</span></span></span><br><span class="line">```shell</span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> git config -global user.nme <span class="hljs-string">"xxxxxx"</span></span></span><br><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> git config -global user.email <span class="hljs-string">"xxxxxx@jd.com"</span></span></span><br></pre></td></tr></table></figure></p>
-<h1 id="公钥密钥配置"><a href="#公钥密钥配置" class="headerlink" title="公钥密钥配置"></a>公钥密钥配置</h1><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span><span class="hljs-bash"> ssh-keygen -t rsa</span></span><br></pre></td></tr></table></figure>
+<p>解决：<br><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span> git pull origin master --allow-unrelated-histories</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span># 首次安装git设置</span><br><span class="line">```shell</span><br><span class="line"><span class="hljs-meta">#</span> git config -global user.nme "xxxxxx"</span><br><span class="line"><span class="hljs-meta">#</span> git config -global user.email "xxxxxx@jd.com"</span><br></pre></td></tr></table></figure></p>
+<h1 id="公钥密钥配置"><a href="#公钥密钥配置" class="headerlink" title="公钥密钥配置"></a>公钥密钥配置</h1><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span> ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
 <p>会生成两个文件：<code>id_rsa</code>（密钥）和<code>id_rsa.pub</code>（公钥）<br>在github中设置公钥。</p>
 
         </div>
@@ -518,6 +518,14 @@ var _hmt = _hmt || [];
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
+        <a class="level is-marginless" href="/categories/Javasciipt/">
+            <span class="level-start">
+                <span class="level-item">Javasciipt</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
         <a class="level is-marginless" href="/categories/Javascript/">
             <span class="level-start">
                 <span class="level-item">Javascript</span>
@@ -550,14 +558,6 @@ var _hmt = _hmt || [];
                 <span class="level-item tag">1</span>
             </span>
         </a></li></ul></li><li>
-        <a class="level is-marginless" href="/categories/Javasctipt/">
-            <span class="level-start">
-                <span class="level-item">Javasctipt</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
         <a class="level is-marginless" href="/categories/MySQL/">
             <span class="level-start">
                 <span class="level-item">MySQL</span>
@@ -617,7 +617,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 12.5px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 15px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 12.5px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/webpack/" style="font-size: 17.5px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 12.5px;">面试</a>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 12.5px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 17.5px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 12.5px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/webpack/" style="font-size: 17.5px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 12.5px;">面试</a>
     </div>
 </div>
 
@@ -878,7 +878,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Javascript/">
                         <span class="tag">Javascript</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
@@ -1284,7 +1284,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Javascript/">
                         <span class="tag">Javascript</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 

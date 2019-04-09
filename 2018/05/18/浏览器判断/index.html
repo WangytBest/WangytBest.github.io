@@ -8,6 +8,7 @@
 
 
     <meta name="description" content="移动端判断浏览器环境：  微信浏览器 小程序 JD APP 浏览器  123456const uaTypes = &amp;#123;  APP: &apos;app&apos;,  WECHAT: &apos;webchat&apos;,  QQ: &apos;qq&apos;,  MOBILE: &apos;mobile&apos;&amp;#125;">
+<meta name="keywords" content="Javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浏览器判断">
 <meta property="og:url" content="http://wangytbest.github.io/2018/05/18/浏览器判断/index.html">
@@ -15,7 +16,7 @@
 <meta property="og:description" content="移动端判断浏览器环境：  微信浏览器 小程序 JD APP 浏览器  123456const uaTypes = &amp;#123;  APP: &apos;app&apos;,  WECHAT: &apos;webchat&apos;,  QQ: &apos;qq&apos;,  MOBILE: &apos;mobile&apos;&amp;#125;">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wangytbest.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-04-09T09:55:57.895Z">
+<meta property="og:updated_time" content="2019-04-09T09:58:24.955Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器判断">
 <meta name="twitter:description" content="移动端判断浏览器环境：  微信浏览器 小程序 JD APP 浏览器  123456const uaTypes = &amp;#123;  APP: &apos;app&apos;,  WECHAT: &apos;webchat&apos;,  QQ: &apos;qq&apos;,  MOBILE: &apos;mobile&apos;&amp;#125;">
@@ -166,7 +167,7 @@ var _hmt = _hmt || [];
                 <time class="level-item has-text-grey" datetime="2018-05-18T06:09:14.000Z">2018-05-18</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Javasctipt/">Javasctipt</a>
+                <a class="has-link-grey -link" href="/categories/Javasciipt/">Javasciipt</a>
                 </div>
                 
                 
@@ -201,6 +202,15 @@ var _hmt = _hmt || [];
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> uaTypes = &#123;</span><br><span class="line">  APP: <span class="hljs-string">'app'</span>,</span><br><span class="line">  WECHAT: <span class="hljs-string">'webchat'</span>,</span><br><span class="line">  QQ: <span class="hljs-string">'qq'</span>,</span><br><span class="line">  MOBILE: <span class="hljs-string">'mobile'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
  <a id="more"></a>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> ua = navigator.userAgent</span><br><span class="line"><span class="hljs-keyword">const</span> type = <span class="hljs-function">(<span class="hljs-params">(</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="hljs-keyword">if</span> (<span class="hljs-regexp">/jdapp/i</span>.test(ua)) &#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> uaTypes.APP</span><br><span class="line">  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-regexp">/MicroMessenger/i</span>.test(ua)) &#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> uaTypes.WECHAT</span><br><span class="line">  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-regexp">/QQ/</span>.test(ua)) &#123;</span><br><span class="line">    <span class="hljs-comment">// 区分手机QQ和QQ浏览器</span></span><br><span class="line">    <span class="hljs-keyword">if</span> (<span class="hljs-regexp">/MQQBrowser/i</span>.test(ua)) &#123;</span><br><span class="line">      <span class="hljs-keyword">return</span> uaTypes.MOBILE</span><br><span class="line">    &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">      <span class="hljs-keyword">return</span> uaTypes.QQ</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> uaTypes.MOBILE</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Javascript/">Javascript</a>
+                </div>
+            </div>
         </div>
         
         
@@ -463,6 +473,14 @@ var _hmt = _hmt || [];
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
+        <a class="level is-marginless" href="/categories/Javasciipt/">
+            <span class="level-start">
+                <span class="level-item">Javasciipt</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
         <a class="level is-marginless" href="/categories/Javascript/">
             <span class="level-start">
                 <span class="level-item">Javascript</span>
@@ -495,14 +513,6 @@ var _hmt = _hmt || [];
                 <span class="level-item tag">1</span>
             </span>
         </a></li></ul></li><li>
-        <a class="level is-marginless" href="/categories/Javasctipt/">
-            <span class="level-start">
-                <span class="level-item">Javasctipt</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
         <a class="level is-marginless" href="/categories/MySQL/">
             <span class="level-start">
                 <span class="level-item">MySQL</span>
@@ -562,7 +572,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 12.5px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 15px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 12.5px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/webpack/" style="font-size: 17.5px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 12.5px;">面试</a>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 12.5px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 17.5px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 12.5px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 15px;">css</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/webpack/" style="font-size: 17.5px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 12.5px;">面试</a>
     </div>
 </div>
 
@@ -823,7 +833,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Javascript/">
                         <span class="tag">Javascript</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
@@ -1229,7 +1239,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Javascript/">
                         <span class="tag">Javascript</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 

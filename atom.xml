@@ -404,7 +404,7 @@
     <link href="http://wangytbest.github.io/2018/05/18/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%88%A4%E6%96%AD/"/>
     <id>http://wangytbest.github.io/2018/05/18/浏览器判断/</id>
     <published>2018-05-18T06:09:14.000Z</published>
-    <updated>2019-04-09T09:55:57.895Z</updated>
+    <updated>2019-04-09T09:58:24.955Z</updated>
     
     <content type="html"><![CDATA[<p>移动端判断浏览器环境：</p><ul><li>微信浏览器</li><li>小程序</li><li>JD APP</li><li>浏览器</li></ul><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> uaTypes = &#123;</span><br><span class="line">  APP: <span class="hljs-string">'app'</span>,</span><br><span class="line">  WECHAT: <span class="hljs-string">'webchat'</span>,</span><br><span class="line">  QQ: <span class="hljs-string">'qq'</span>,</span><br><span class="line">  MOBILE: <span class="hljs-string">'mobile'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> <a id="more"></a><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> ua = navigator.userAgent</span><br><span class="line"><span class="hljs-keyword">const</span> type = <span class="hljs-function">(<span class="hljs-params">(</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="hljs-keyword">if</span> (<span class="hljs-regexp">/jdapp/i</span>.test(ua)) &#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> uaTypes.APP</span><br><span class="line">  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-regexp">/MicroMessenger/i</span>.test(ua)) &#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> uaTypes.WECHAT</span><br><span class="line">  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-regexp">/QQ/</span>.test(ua)) &#123;</span><br><span class="line">    <span class="hljs-comment">// 区分手机QQ和QQ浏览器</span></span><br><span class="line">    <span class="hljs-keyword">if</span> (<span class="hljs-regexp">/MQQBrowser/i</span>.test(ua)) &#123;</span><br><span class="line">      <span class="hljs-keyword">return</span> uaTypes.MOBILE</span><br><span class="line">    &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">      <span class="hljs-keyword">return</span> uaTypes.QQ</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> uaTypes.MOBILE</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -421,8 +421,10 @@
     
     </summary>
     
-      <category term="Javasctipt" scheme="http://wangytbest.github.io/categories/Javasctipt/"/>
+      <category term="Javasciipt" scheme="http://wangytbest.github.io/categories/Javasciipt/"/>
     
+    
+      <category term="Javascript" scheme="http://wangytbest.github.io/tags/Javascript/"/>
     
   </entry>
   
