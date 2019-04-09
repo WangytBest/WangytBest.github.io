@@ -2,11 +2,12 @@
 title: css控制文本内容溢出截断
 date: 2017-10-19 10:39:12
 tags: [css, text-overflow]
-thumbnail: http://ow9cw9x3t.bkt.clouddn.com/nianshaodeni.png
+categories: [CSS]
+# thumbnail: http://cloud.xuww.wang/nianshaodeni.png
 ---
 
 css控制文字内容的溢出显示，溢出截断后末尾出现省略```...```，单行文本与多行文本的控制又有区别。
-
+<!-- more -->
 **单行文本**
 ```css
 overfolw: hidden;

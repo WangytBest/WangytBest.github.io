@@ -1,8 +1,13 @@
 ---
 title: localstroge本地缓存
 date: 2018-05-30 15:01:25
+categories: [Javascript, util]
+
 tags:
 ---
+
+localStorage设置过期时间
+<!-- more -->
 ```js
 define("localStorage", function(require, exports, module){
     var cache = require("cachev1").local;

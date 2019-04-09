@@ -2,7 +2,9 @@
 title: git基础
 date: 2017-10-13 16:07:26
 tags: [git, github]
-thumbnail: http://ow9cw9x3t.bkt.clouddn.com/nianshaodeni.png
+categories: [Git]
+toc: true
+thumbnail: http://cloud.xuww.wang/nianshaodeni.png
 ---
 
 github上创建新的项目后，在本地拉取项目或者将本地的项目关联到建立的仓库。
@@ -11,6 +13,7 @@ github上创建新的项目后，在本地拉取项目或者将本地的项目�
 # git clone git@github.com:xxxxxxxxx.git  
 ```
 
+<!-- more -->
 ## 命令行新建一个新的仓库
 
 ```shell

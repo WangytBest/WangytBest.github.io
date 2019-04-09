@@ -2,13 +2,14 @@
 title: 按钮点击水波效果
 date: 2017-09-25 16:42:20
 tags: [css, button, canvas]
-thumbnail: http://ow9cw9x3t.bkt.clouddn.com/nianshaodeni.png
+categories: [CSS]
+# thumbnail: http://cloud.xuww.wang/nianshaodeni.png
 ---
 
 Material Design设计按钮点击效果比较酷炫，每次点击按钮都会产生一次水波涟漪的效果。
 
 可以css和canvas来实现这种效果。
-
+<!-- more -->
 ### css实现
 
 伪类（pseudo-class）和伪元素(peseudo-element)
@@ -72,7 +73,7 @@ Material Design设计按钮点击效果比较酷炫，每次点击按钮都会�
 
 
 ** 参考 **
-![](http://ow9cw9x3t.bkt.clouddn.com/click-button.png)
+![](http://cloud.xuww.wang/click-button.png)
 
 
 

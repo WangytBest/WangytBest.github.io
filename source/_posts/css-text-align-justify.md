@@ -1,8 +1,9 @@
 ---
 title: css文字两端对齐
 date: 2017-10-16 14:37:17
-tags:
-thumbnail: http://ow9cw9x3t.bkt.clouddn.com/nianshaodeni.png
+categories: [CSS]
+tags: CSS
+# thumbnail: http://cloud.xuww.wang/nianshaodeni.png
 ---
 
 文本内容可以实现左对齐、右对齐以及居中对齐，如何实现两端对齐？很多时候为了对齐文字中间使用空格来隔开，这样每个内容需要计算空格个数，当内容不一样长短的时候又通过JS进行麻烦的计算。
@@ -14,7 +15,7 @@ text-align: center | left | right | start | end | justify | inherit | initial | 
 text-align: justify
 ```
 css2中`text-align`有一个属性为`justify`，居中对齐。其实现的效果就是可以让一行文字两端对齐显示（文字内容要超过一行）
-
+<!-- more -->
 * 有多行文字
 > 多行文字内容时直接使用`justify`可以实现两端对齐效果
 

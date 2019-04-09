@@ -2,15 +2,18 @@
 title: AJAX异步请求
 date: 2017-09-26 16:33:26
 tags: [javascript, ajax]
-thumbnail: http://ow9cw9x3t.bkt.clouddn.com/nianshaodeni.png
+toc: true
+categories: [Javascript, util]
 ---
 
 AJAX： Asyncchronous Javascript + XMLL
 Ajax的技术核心是XMLHttpRequest对象，简称XHR。
 
-``` XMLHttpRequest ```对象（XHR）
+`XMLHttpRequest`对象（XHR）
 
 以异步的方式从服务器获取数据，获取新数据后，通过DOM的方式将新数据插入到页面中。
+
+<!-- more -->
 
 ### 1. 新建XHR对象
 * IE7+、现代浏览器都支持原生的XHR对象
@@ -24,9 +27,9 @@ var xhr = new XMLHttpRequest();
 > open() 方法并不会真正发送请求，而是启动一个请求以备发送。
 > 同域、同端口、同协议
 
-* ```method```: 发送请求的类型（get、post、delete、put等）
-* ```url```： 请求URL（相对路径是相对于当前页面或者绝对路径）
-* ```boolean```： 是否异步发送请求
+* `method`: 发送请求的类型（get、post、delete、put等）
+* `url`： 请求URL（相对路径是相对于当前页面或者绝对路径）
+* `boolean`： 是否异步发送请求
 
 ### 3. send()
 
@@ -37,20 +40,20 @@ var xhr = new XMLHttpRequest();
         2、serialize()函数序列化表单内容。
 
 收到相应请求后，响应数据会自动填充XHR对象的属性。
-* ```responseText``` 作为响应主体被返回的文本。
-* ```responseXML``` 如果响应类型是```text/xml```或者```application/xml```，这个属性中保存着包含响应数据的```XML DOM```文档。
-* ```status``` HTTP响应状态
-* ```statusText``` HTTP响应状态说明
+* `responseText` 作为响应主体被返回的文本。
+* `responseXML` 如果响应类型是`text/xml`或者`application/xml`，这个属性中保存着包含响应数据的`XML DOM`文档。
+* `status` HTTP响应状态
+* `statusText` HTTP响应状态说明
 
 > 异步请求，检测XHR对象的<code>readyState</code>属性，该属性表示请求/响应过程中的当前活动阶段。
 
-* *0* ： 未初始化。尚未调用```open()```方法。
-* *1* ： 启动。已经调用```open()```方法， 但未调用```send()```方法。
-* *2* ： 发送。已经调用```send()```方法， 但未接收到响应。
+* *0* ： 未初始化。尚未调用`open()`方法。
+* *1* ： 启动。已经调用`open()`方法， 但未调用`send()`方法。
+* *2* ： 发送。已经调用`send()`方法， 但未接收到响应。
 * *3* ： 接收。已经接收到部分响应数据。
 * *4* ： 完成。已经接收到全部响应数据，已经可以在客户端使用。
 
->```readyState```值变化都会触发```readystatechange```事件。
+>`readyState`值变化都会触发`readystatechange`事件。
 
 #### 同步方式请求
 ``` javascript
@@ -79,22 +82,23 @@ xhr.onreadystatechange = function(){
 xhr.open('get', 'example.json', true);
 xhr.send(null);
 ```
+
 ### 4. 取消异步请求
-``` xhr.abort() ```
+` xhr.abort() `
 
 ### 5.HTTP头部信息
 
-* ```Accept``` 浏览器处理的内容类型
-* ```Accept-Charset``` 显示的字符集
-* ``` Accept-Econding``` 处理的压缩编码
-* ```Connection``` 与服务器之间的连接类型  
-* ```Cookie``` Cookie设置
-* ```Host``` 发出请求所在的域
-* ```Referer``` 发出请求坐在的URI
+* `Accept` 浏览器处理的内容类型
+* `Accept-Charset` 显示的字符集
+* ` Accept-Econding` 处理的压缩编码
+* `Connection` 与服务器之间的连接类型  
+* `Cookie` Cookie设置
+* `Host` 发出请求所在的域
+* `Referer` 发出请求坐在的URI
 
-``` xhr.setRequestHeader('HeaderName', 'HeaderVal');``` 使用自定义的头部字段名称，有些浏览器禁止修改默认的头部字段 。
-``` xhr.getResponseHeader('HeaderName'); ```
-``` xhr.getAllResponseHeaders(); ```
+` xhr.setRequestHeader('HeaderName', 'HeaderVal');` 使用自定义的头部字段名称，有些浏览器禁止修改默认的头部字段 。
+` xhr.getResponseHeader('HeaderName'); `
+` xhr.getAllResponseHeaders(); `
 
 ---
 ```javascript

@@ -4,9 +4,9 @@
 
 # Head info
 head:
-    favicon: "http://ow9cw9x3t.bkt.clouddn.com/lloveyou.jpg"
-    high_res_favicon: "http://ow9cw9x3t.bkt.clouddn.com/lloveyou.jpg"
-    apple_touch_icon: "http://ow9cw9x3t.bkt.clouddn.com/lloveyou.jpg"
+    favicon: "http://cloud.xuww.wang/lloveyou.jpg"
+    high_res_favicon: "http://cloud.xuww.wang/lloveyou.jpg"
+    apple_touch_icon: "http://cloud.xuww.wang/lloveyou.jpg"
     keywords: [前端,html,css,javascript,vue,angular,react,webpack,gulp,sass,京东,jd]
     site_verification:
         google:
@@ -72,8 +72,8 @@ background:
 
 # Images Settings
 img:
-    logo: "http://ow9cw9x3t.bkt.clouddn.com/lloveyou.jpg"
-    avatar: "http://ow9cw9x3t.bkt.clouddn.com/logo.jpg"
+    logo: "http://cloud.xuww.wang/lloveyou.jpg"
+    avatar: "http://cloud.xuww.wang/logo.jpg"
     daily_pic: "/img/daily_pic.png"
     sidebar_header: "/img/sidebar_header.png"
     random_thumbnail: "/img/random/material-"

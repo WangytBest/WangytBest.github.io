@@ -2,9 +2,9 @@
 title: CSS中的content和attr
 date: 2017-09-15 16:37:47
 tags: CSS
-categories: 
-top: true
-thumbnail: http://ow9cw9x3t.bkt.clouddn.com/nianshaodeni.png
+categories: CSS
+toc: true
+# thumbnail: http://cloud.xuww.wang/nianshaodeni.png
 ---
 
 content和attr表达式，它们能在你的页面下面悄悄的使用CSS来生成内容，下面让我们看看attr和content如何相互配合产生神奇效果的。
@@ -19,6 +19,7 @@ content和attr表达式，它们能在你的页面下面悄悄的使用CSS来生
 }
  ```
 
+<!-- more -->
 请注意，如果想让伪元素```:after```绝对定位，你必须对你的div设置```position: relative```。
 
 ### content和attr配合使用

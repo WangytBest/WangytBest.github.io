@@ -4,12 +4,13 @@ title: CSS实现元素水平垂直居中
 date: 2017-09-13 16:14:28
 tags: [CSS, CSS3]
 categories: CSS
-thumbnail: http://ow9cw9x3t.bkt.clouddn.com/spider-man.jpg
-top: true
+# thumbnail: http://cloud.xuww.wang/spider-man.jpg
+toc: true
 ---
 
 在前端开发过程中，盒子居中是常常用到的。其中 ，居中又可以分为水平居中和垂直居中。块级元素的水平居中比较容易，直接设置元素的```margin: 0 auto```就可以实现，垂直居中相对来说是比较复杂一些的。
 
+<!-- more -->
 ## 高度位置，使用绝对定位
 
 ```css
@@ -73,7 +74,7 @@ top: true
 > * ```<百分比>```，```<长度>``` : 可为负数
 > * ```inherit```
 
-![垂直对齐属性](http://ow9cw9x3t.bkt.clouddn.com/vertial-align.gif)
+![垂直对齐属性](http://cloud.xuww.wang/vertial-align.gif)
 
 图片本身没有基线，则将其底部与父元素的基线对齐。
 

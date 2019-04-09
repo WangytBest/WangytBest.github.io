@@ -3,14 +3,14 @@ layout: react
 title: React-JSX
 date: 2017-09-15 17:43:17
 tags: React
-categories: React
-thumbnail: http://ow9cw9x3t.bkt.clouddn.com/react.jpg
+categories: [React]
+thumbnail: http://cloud.xuww.wang/react.jpg
 ---
 
 ### JSX语法
 
 > JSX 既不是字符串也不是HTML，是JavaScript的语法扩展，将被解析成JavaScript的一个对象。JSX用于生成React的“元素”。JSX中可以嵌入js表达式，用```｛｝```包裹。
-
+<!-- more -->
 ```javascript
 function formatName(user) {
     return user.firstName + ' ' + user.lastName; 

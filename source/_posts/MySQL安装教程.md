@@ -1,7 +1,8 @@
 ---
 title: MySQL安装教程
 date: 2018-05-29 18:34:44
-tags:
+categories: [MySQL]
+tags: MySQL
 ---
 
 # 1. 下载安装
@@ -9,7 +10,7 @@ tags:
 ## 1.1 下载
 
 MySQL8.0 For Windows zip包下载地址：[MySQL8.0 For Window](https://dev.mysql.com/downloads/file/?id=476233)，进入页面后可以不登录。后点击底部`No thanks, just start my download.`即可开始下载。或直接下载：https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.11-winx64.zip
-
+<!-- more -->
 ## 1.2 安装
 
 解压zip包到安装目录

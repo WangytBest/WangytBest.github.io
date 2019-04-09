@@ -1,7 +1,9 @@
 ---
 title: sass基础入门
 date: 2018-04-03 20:39:08
-tags:
+categories: [CSS]
+toc: true
+tags: CSS
 ---
 
 ## css功能拓展
@@ -20,7 +22,7 @@ sass允许将css样式嵌套进另一套样式中，内层的样式将他的外�
 }
 ```
 ### 占位符选择器 %foo (Placeholder Selectors: %foo)
-
+<!-- more -->
 ## SassScript
 
 ### 变量 $ (Variables: $)

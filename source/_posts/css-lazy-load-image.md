@@ -2,8 +2,9 @@
 title: JS原生图片懒加载
 date: 2017-09-20 14:43:41
 tags: [Javascript, 图片, 懒加载， 原生JS]
-categories: Javascript
-thumbnail: http://ow9cw9x3t.bkt.clouddn.com/banner.png
+categories: [Javascript, util]
+toc: true
+thumbnail: http://cloud.xuww.wang/banner.png
 ---
 
 ### 图片懒加载
@@ -15,7 +16,7 @@ thumbnail: http://ow9cw9x3t.bkt.clouddn.com/banner.png
 
 1. 页面中的img元素，如果没有src属性，浏览器就不会发出请求去下载图片
 2. 用户滚动页面至图片位置时，img元素获取到真正的路径后，开始发送请求加载图片
-
+<!-- more -->
 ### JS中位置相关
 > * ```screenLeft/screenX```: 窗口相对于屏幕左边的位置 
 > * ```screenTop/screenY```: 窗口相对于屏幕上边的位置
@@ -79,7 +80,7 @@ window.onscroll = () => {
 
 ### 补充
 
-![位置](http://ow9cw9x3t.bkt.clouddn.com/js-position.jpg)
+![位置](http://cloud.xuww.wang/js-position.jpg)
 
 #### 偏移量(```offset```)
 > * ```offsetWidht``` : 元素在水平方向上占用的空间大小。包括元素的宽度、水平滚动条的宽度、左右边框的宽度。
@@ -90,7 +91,7 @@ window.onscroll = () => {
 ```offsetParent```为相对于元素定位的父级元素
 ```offsetTop``` 和 ```offsetLeft``` 与其包含元素```offsetParent```有关。```offsetParent```的值不一定与```parentNode```相同。
 这些偏移量属性均为**只读**。
-![偏移量 offset](http://ow9cw9x3t.bkt.clouddn.com/offset.jpg)
+![偏移量 offset](http://cloud.xuww.wang/offset.jpg)
 
 
 #### 客户区大小（```client dismension```）

@@ -1,7 +1,9 @@
 ---
 title: vue中keep-alive
 date: 2018-04-03 20:07:54
-tags:
+toc: true
+categories: [Vue]
+tags: Vue
 ---
 
 ## keep-alive使用
@@ -10,13 +12,15 @@ tags:
 > Vue2.2.0及以上版本，`activated` 和 `deactivated` 将会在 `<keep-alive>` 树内的所有嵌套组件中触发。
 **主要用于保留组件状态或避免重新渲染。**
 
+<!-- more -->
+
 当引入`<keep-alive>`的时候，页面第一次进入，钩子的触发顺序`created` -> `mounted` -> `activated`，退出时触发`deactivated`。当再次进入（前进或者后退）时，只触发`activated`。
 
 `<keep-alive>`之后页面模板第一次初始化解析变成HTML片段后，再次进入就不在重新解析而是读取内存中的数据，即，只有当数据变化时，才使用VirtualDOM进行diff更新。故，页面进入的数据获取应该在`activated`中也放一份。数据下载完毕手动操作DOM的部分也应该在`activated`中执行才会生效。
 
 所以，应该`activated`中留一份数据获取的代码，或者不要`created`部分，直接将`created`中的代码转移到`activated`中。
 
-```
+```html
 <!-- 基本 -->
 <keep-alive>
   <component :is="view"></component>
@@ -39,7 +43,7 @@ tags:
 ## include 和 exclude 
 
 **include 和 exclude 属性允许组件有条件地缓存。**二者都可以用逗号分隔字符串、正则表达式或一个数组来表示：
-```
+```html
 <!-- 逗号分隔字符串 -->
 <keep-alive include="a,b">
   <component :is="view"></component>
@@ -65,7 +69,7 @@ tags:
 项目开发中，使用`Vue2.0` 搭配路由切换`vue-router`，所有路径匹配到的视图组件都会被缓存。
 如何使某些组件不缓存？
 
-```javascript
+```html
 <keep-alive>
     <router-view>
         <!-- 所有路径匹配到的视图组件都会被缓存！ -->
@@ -74,7 +78,7 @@ tags:
 ```
 
 #1. 使用`include`和`exclude`
-```javascript
+```html
 <keep-alive include='a,b,c' exclude='d,e,f'>
     <router-view>
         <!-- 所有路径匹配到的视图组件都会被缓存！ -->
@@ -106,7 +110,7 @@ export default [
 ]
 ```
 
-```javascript
+```html
 <keep-alive>
     <router-view v-if="$route.meta.keepAlive">
         <!-- 这里是会被缓存的视图组件，比如 Home！ -->

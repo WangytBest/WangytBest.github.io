@@ -1,8 +1,11 @@
 ---
 title: canvas精灵
 date: 2018-04-18 17:40:26
-tags:
+tags: [JS]
+categories: [Javascript, canvas]
 ---
+
+<!-- more -->
 [requestAnimationFrame](http://javascript.ruanyifeng.com/htmlapi/requestanimationframe.html)
 [使用 canvas 实现精灵动画](https://segmentfault.com/a/1190000010435543)
 [CREATE A SPRITE ANIMATION WITH HTML5 CANVAS AND JAVASCRIPT](http://www.williammalone.com/articles/create-html5-canvas-javascript-sprite-animation/)
