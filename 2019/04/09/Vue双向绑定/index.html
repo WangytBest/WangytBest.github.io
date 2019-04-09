@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>Vue双向绑定 - 王小贱</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="双向绑定MVVM：数据变化更新试图，视图变化更新数据。  Model View ViewModel  双向绑定实现 vue: 数据劫持  vue数据实现双向绑定是通过数据劫持结合发布者-订阅者模式实现的。   angular: 脏检查机制  当触发了指定事件后会进入脏数据检测，这时会调用 $digest 循环遍历所有的数据观察者，判断当前值是否和先前的值有区别，如果检测到变化的话，会调用 $wat">
+<meta name="keywords" content="Vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue双向绑定">
+<meta property="og:url" content="http://wangytbest.github.io/2019/04/09/Vue双向绑定/index.html">
+<meta property="og:site_name" content="王小贱">
+<meta property="og:description" content="双向绑定MVVM：数据变化更新试图，视图变化更新数据。  Model View ViewModel  双向绑定实现 vue: 数据劫持  vue数据实现双向绑定是通过数据劫持结合发布者-订阅者模式实现的。   angular: 脏检查机制  当触发了指定事件后会进入脏数据检测，这时会调用 $digest 循环遍历所有的数据观察者，判断当前值是否和先前的值有区别，如果检测到变化的话，会调用 $wat">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://wangytbest.github.io/images/og_image.png">
+<meta property="og:updated_time" content="2019-04-09T08:04:07.451Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue双向绑定">
+<meta name="twitter:description" content="双向绑定MVVM：数据变化更新试图，视图变化更新数据。  Model View ViewModel  双向绑定实现 vue: 数据劫持  vue数据实现双向绑定是通过数据劫持结合发布者-订阅者模式实现的。   angular: 脏检查机制  当触发了指定事件后会进入脏数据检测，这时会调用 $digest 循环遍历所有的数据观察者，判断当前值是否和先前的值有区别，如果检测到变化的话，会调用 $wat">
+<meta name="twitter:image" content="http://wangytbest.github.io/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106635475-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-106635475-2');
+</script>
+
+
+    
+    
+<script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?bc6ddecb4ea9a4b1debbe06f56db8d90";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                Write the Code, Change the World!
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">主页</a>
+                
+                <a class="navbar-item" href="/archives">文章</a>
+                
+                <a class="navbar-item" href="/categories">目录</a>
+                
+                <a class="navbar-item" href="/tags">标签</a>
+                
+                <a class="navbar-item" href="http://blog.xuww.wang/resume/">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/WangytBest">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-09T08:03:43.000Z">2019-04-09</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Vue/">Vue</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    8 分钟 读完 (大约 1212 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Vue双向绑定
+            
+        </h1>
+        <div class="content">
+            <h3 id="双向绑定"><a href="#双向绑定" class="headerlink" title="双向绑定"></a>双向绑定</h3><p>MVVM：数据变化更新试图，视图变化更新数据。</p>
+<ul>
+<li>Model</li>
+<li>View</li>
+<li>ViewModel</li>
+</ul>
+<h3 id="双向绑定实现"><a href="#双向绑定实现" class="headerlink" title="双向绑定实现"></a>双向绑定实现</h3><ul>
+<li><p>vue: 数据劫持</p>
+<blockquote>
+<p>vue数据实现双向绑定是通过数据劫持结合发布者-订阅者模式实现的。</p>
+</blockquote>
+</li>
+<li><p>angular: 脏检查机制</p>
+<blockquote>
+<p>当触发了指定事件后会进入脏数据检测，这时会调用 $digest 循环遍历所有的数据观察者，判断当前值是否和先前的值有区别，如果检测到变化的话，会调用 $watch 函数，然后再次调用 $digest 循环直到发现没有变化。循环至少为二次 ，至多为十次。</p>
+</blockquote>
+</li>
+</ul>
+<a id="more"></a>
+<h3 id="vue实现"><a href="#vue实现" class="headerlink" title="vue实现"></a>vue实现</h3><p>实现数据的双向绑定，首先要对数据进行劫持监听，设置一个<code>监听器Observer</code>，用来监听所有属性。如果属性发上变化了，就需要告诉<code>订阅者Watcher</code>看是否需要更新。因为订阅者是有很多个，所以我们需要有一个<code>消息订阅器Dep</code>来专门收集这些订阅者，然后在监听器Observer和订阅者Watcher之间进行统一管理。接着，我们还需要有一个<code>指令解析器Compile</code>，对每个节点元素进行扫描和解析，将相关指令对应初始化成一个订阅者Watcher，并替换模板数据或者绑定相应的函数，此时当订阅者Watcher接收到相应属性的变化，就会执行对应的更新函数，从而更新视图。</p>
+<h4 id="1-实现一个监听器Observer，用来劫持并监听所有属性，如果有变动，就通知订阅者。"><a href="#1-实现一个监听器Observer，用来劫持并监听所有属性，如果有变动，就通知订阅者。" class="headerlink" title="1. 实现一个监听器Observer，用来劫持并监听所有属性，如果有变动，就通知订阅者。"></a>1. 实现一个<code>监听器Observer</code>，用来劫持并监听所有属性，如果有变动，就通知订阅者。</h4><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">defineReactive</span>(<span class="hljs-params">data, key, value</span>) </span>&#123;</span><br><span class="line">    observe(val); <span class="hljs-comment">// 递归遍历所有子属性</span></span><br><span class="line">    <span class="hljs-keyword">var</span> dep = <span class="hljs-keyword">new</span> Dep();</span><br><span class="line">    <span class="hljs-built_in">Object</span>.defineProperty(data, key, &#123;</span><br><span class="line">        enumerable: <span class="hljs-literal">true</span>,</span><br><span class="line">        configurable: <span class="hljs-literal">true</span>,</span><br><span class="line">        <span class="hljs-keyword">set</span>: function(newVal) &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span>( val === newVal ) &#123;</span><br><span class="line">                <span class="hljs-keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            value = newVal;</span><br><span class="line">            dep.notify(); <span class="hljs-comment">// 如果数据变化，通知所有订阅者</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="hljs-keyword">get</span>: function() &#123;</span><br><span class="line">            <span class="hljs-keyword">if</span>(Dep.target) &#123; <span class="hljs-comment">// 判断是否需要添加订阅者</span></span><br><span class="line">                dep.addSub(Dep.target); <span class="hljs-comment">// 添加订阅者</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="hljs-keyword">return</span> value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">observe</span>(<span class="hljs-params">data</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span>(!data || <span class="hljs-keyword">typeof</span> data !== <span class="hljs-string">'object'</span>) &#123;</span><br><span class="line">        <span class="hljs-keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-built_in">Object</span>.keys(data).forEach(<span class="hljs-function"><span class="hljs-params">key</span> =&gt;</span> &#123;</span><br><span class="line">        defineReactive(data, key, data[key]);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-实现一个消息订阅器Dep，主要负责收集订阅者，然后在属性变化的时候执行对应订阅者的更新函数。"><a href="#2-实现一个消息订阅器Dep，主要负责收集订阅者，然后在属性变化的时候执行对应订阅者的更新函数。" class="headerlink" title="2. 实现一个消息订阅器Dep，主要负责收集订阅者，然后在属性变化的时候执行对应订阅者的更新函数。"></a>2. 实现一个<code>消息订阅器Dep</code>，主要负责收集订阅者，然后在属性变化的时候执行对应订阅者的更新函数。</h4><blockquote>
+<p>创建一个可以容纳订阅者的消息订阅起Dep。</p>
+</blockquote>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Dep</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">this</span>.subs = [];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Dep.property.addSub = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">sub</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">this</span>.subs.push(sub);</span><br><span class="line">&#125;</span><br><span class="line">Dep.property.notify = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">this</span>.subs.forEach(<span class="hljs-function"><span class="hljs-params">sub</span> =&gt;</span> &#123;</span><br><span class="line">        sub.update();</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Dep.target = <span class="hljs-literal">null</span>;</span><br></pre></td></tr></table></figure>
+<p>我们将订阅器Dep添加一个订阅者设计在getter里面，这是为了让Watcher初始化进行触发，因此需要判断是否要添加订阅者，至于具体设计方案，下文会详细说明的。在setter函数里面，如果数据变化，就会去通知所有订阅者，订阅者们就会去执行对应的更新的函数。到此为止，一个比较完整Observer已经实现了，接下来我们开始设计Watcher。</p>
+<h4 id="3-实现一个订阅者Watcher，可以收到属性的变化通知并执行相应的函数，从而更新视图。"><a href="#3-实现一个订阅者Watcher，可以收到属性的变化通知并执行相应的函数，从而更新视图。" class="headerlink" title="3. 实现一个订阅者Watcher，可以收到属性的变化通知并执行相应的函数，从而更新视图。"></a>3. 实现一个订阅者<code>Watcher</code>，可以收到属性的变化通知并执行相应的函数，从而更新视图。</h4><blockquote>
+<p><code>监听器Observer</code>是在<code>get函数</code>执行了添加<code>订阅者Watcher</code>的操作，所以在<code>订阅者Watcher</code>初始化的时候触发对应的<code>get</code>函数去执行添加订阅者操作。注意只在<code>订阅者Watcher</code>初始化的时候才需要添加订阅者。</p>
+</blockquote>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Watcher</span>(<span class="hljs-params">vm, exp, cb</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">this</span>.cb = cb;</span><br><span class="line">    <span class="hljs-keyword">this</span>.vm = vm;</span><br><span class="line">    <span class="hljs-keyword">this</span>.exp = exp;</span><br><span class="line">    <span class="hljs-keyword">this</span>.value = <span class="hljs-keyword">this</span>.get();  <span class="hljs-comment">// 将自己添加到订阅器的操作</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">Watcher.prototype = &#123;</span><br><span class="line">    update: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.run();</span><br><span class="line">    &#125;,</span><br><span class="line">    run: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">var</span> value = <span class="hljs-keyword">this</span>.vm.data[<span class="hljs-keyword">this</span>.exp];</span><br><span class="line">        <span class="hljs-keyword">var</span> oldVal = <span class="hljs-keyword">this</span>.value;</span><br><span class="line">        <span class="hljs-keyword">if</span> (value !== oldVal) &#123;</span><br><span class="line">            <span class="hljs-keyword">this</span>.value = value;</span><br><span class="line">            <span class="hljs-keyword">this</span>.cb.call(<span class="hljs-keyword">this</span>.vm, value, oldVal);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="hljs-keyword">get</span>: function() &#123;</span><br><span class="line">        Dep.target = <span class="hljs-keyword">this</span>;  <span class="hljs-comment">// 缓存自己</span></span><br><span class="line">        <span class="hljs-keyword">var</span> value = <span class="hljs-keyword">this</span>.vm.data[<span class="hljs-keyword">this</span>.exp]  <span class="hljs-comment">// 强制执行监听器里的get函数</span></span><br><span class="line">        Dep.target = <span class="hljs-literal">null</span>;  <span class="hljs-comment">// 释放自己</span></span><br><span class="line">        <span class="hljs-keyword">return</span> value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="关联Wathcher和Observer"><a href="#关联Wathcher和Observer" class="headerlink" title="关联Wathcher和Observer"></a>关联Wathcher和Observer</h4><p>到此为止，简单版的Watcher设计完毕，这时候我们只要将Observer和Watcher关联起来，就可以实现一个简单的双向绑定数据了。</p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"name"</span>&gt;</span>&#123;&#123;name&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// Observer和Watcher关联起来</span></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">SelfVue</span> (<span class="hljs-params">data, el, exp</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">this</span>.data = data;</span><br><span class="line">    observe(data);</span><br><span class="line">    el.innerHTML = <span class="hljs-keyword">this</span>.data[exp];  <span class="hljs-comment">// 初始化模板数据的值</span></span><br><span class="line">    <span class="hljs-keyword">new</span> Watcher(<span class="hljs-keyword">this</span>, exp, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>&#123;</span><br><span class="line">        el.innerHTML = value;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> ele = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'#name'</span>);</span><br><span class="line"><span class="hljs-keyword">var</span> selfVue = <span class="hljs-keyword">new</span> SelfVue(&#123;</span><br><span class="line">    name: <span class="hljs-string">'hello world'</span></span><br><span class="line">&#125;, ele, <span class="hljs-string">'name'</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">window</span>.setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'name值改变了'</span>);</span><br><span class="line">    selfVue.data.name = <span class="hljs-string">'canfoo'</span>;</span><br><span class="line">&#125;, <span class="hljs-number">2000</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="4-实现一个解析器Compile，可以扫描和解析每个节点的相关指令，并根据初始化模板数据以及初始化相应的订阅器。"><a href="#4-实现一个解析器Compile，可以扫描和解析每个节点的相关指令，并根据初始化模板数据以及初始化相应的订阅器。" class="headerlink" title="4. 实现一个解析器Compile，可以扫描和解析每个节点的相关指令，并根据初始化模板数据以及初始化相应的订阅器。"></a>4. 实现一个解析器<code>Compile</code>，可以扫描和解析每个节点的相关指令，并根据初始化模板数据以及初始化相应的订阅器。</h4><h4 id="数据劫持"><a href="#数据劫持" class="headerlink" title="数据劫持"></a>数据劫持</h4><p><code>Object.defineProperty()</code>方法实现数据劫持，<code>Object.defineProperty()</code>用来控制对象属性，比如读写权限、是否可枚举、描述属性<code>get</code>和<code>set</code>等。</p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Vue/">Vue</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="http://cloud.xuww.wang/wechat_qrcode.jpeg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="http://cloud.xuww.wang/wechat_qrcode.jpeg" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/04/09/Loadsh库模块化引入/">
+                <span class="level-item">Loadsh库模块化引入</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="comment-container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		id: '2019/04/09/Vue双向绑定/',
+		owner: 'WangytBest',
+		repo: 'wangytbest.github.io',
+		oauth: {
+			client_id: '85e326c0d624202af0e5',
+			client_secret: '6323329d79fd55b2566b067c4ae839541dd6f354',
+		},
+	})
+	gitment.render('comment-container')
+</script>
+
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="http://cloud.xuww.wang/logo.jpg" alt="王玉涛">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        王玉涛
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        FE
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>上海</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        38
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        18
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        26
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/WangytBest" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/WangytBest">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Facebook" href="http://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="http://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Dribbble" href="http://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#双向绑定">
+        <span class="has-mr-6">1</span>
+        <span>双向绑定</span>
+        </a></li><li>
+        <a class="is-flex" href="#双向绑定实现">
+        <span class="has-mr-6">2</span>
+        <span>双向绑定实现</span>
+        </a></li><li>
+        <a class="is-flex" href="#vue实现">
+        <span class="has-mr-6">3</span>
+        <span>vue实现</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#1-实现一个监听器Observer，用来劫持并监听所有属性，如果有变动，就通知订阅者。">
+        <span class="has-mr-6">3.1</span>
+        <span>1. 实现一个监听器Observer，用来劫持并监听所有属性，如果有变动，就通知订阅者。</span>
+        </a></li><li>
+        <a class="is-flex" href="#2-实现一个消息订阅器Dep，主要负责收集订阅者，然后在属性变化的时候执行对应订阅者的更新函数。">
+        <span class="has-mr-6">3.2</span>
+        <span>2. 实现一个消息订阅器Dep，主要负责收集订阅者，然后在属性变化的时候执行对应订阅者的更新函数。</span>
+        </a></li><li>
+        <a class="is-flex" href="#3-实现一个订阅者Watcher，可以收到属性的变化通知并执行相应的函数，从而更新视图。">
+        <span class="has-mr-6">3.3</span>
+        <span>3. 实现一个订阅者Watcher，可以收到属性的变化通知并执行相应的函数，从而更新视图。</span>
+        </a></li><li>
+        <a class="is-flex" href="#关联Wathcher和Observer">
+        <span class="has-mr-6">3.4</span>
+        <span>关联Wathcher和Observer</span>
+        </a></li><li>
+        <a class="is-flex" href="#4-实现一个解析器Compile，可以扫描和解析每个节点的相关指令，并根据初始化模板数据以及初始化相应的订阅器。">
+        <span class="has-mr-6">3.5</span>
+        <span>4. 实现一个解析器Compile，可以扫描和解析每个节点的相关指令，并根据初始化模板数据以及初始化相应的订阅器。</span>
+        </a></li><li>
+        <a class="is-flex" href="#数据劫持">
+        <span class="has-mr-6">3.6</span>
+        <span>数据劫持</span>
+        </a></li></ul></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://github.com/WangytBest" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">github</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">github.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="http://blog.xuww.wang/resume" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">关于我</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">blog.xuww.wang</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Angular/">
+            <span class="level-start">
+                <span class="level-item">Angular</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/CSS/">
+            <span class="level-start">
+                <span class="level-item">CSS</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">11</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/CSS/SVG/">
+            <span class="level-start">
+                <span class="level-item">SVG</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Git/">
+            <span class="level-start">
+                <span class="level-item">Git</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Javascript/">
+            <span class="level-start">
+                <span class="level-item">Javascript</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">11</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Javascript/canvas/">
+            <span class="level-start">
+                <span class="level-item">canvas</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Javascript/util/">
+            <span class="level-start">
+                <span class="level-item">util</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Javascript/阿里字体/">
+            <span class="level-start">
+                <span class="level-item">阿里字体</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/MySQL/">
+            <span class="level-start">
+                <span class="level-item">MySQL</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/React/">
+            <span class="level-start">
+                <span class="level-item">React</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/React/study/">
+            <span class="level-start">
+                <span class="level-item">study</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Vue/">
+            <span class="level-start">
+                <span class="level-item">Vue</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Web-H5/">
+            <span class="level-start">
+                <span class="level-item">Web / H5</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Web-H5/">
+            <span class="level-start">
+                <span class="level-item">Web H5</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Webpack/">
+            <span class="level-start">
+                <span class="level-item">Webpack</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/webpack/">
+            <span class="level-start">
+                <span class="level-item">webpack</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/面试/">
+            <span class="level-start">
+                <span class="level-item">面试</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/面试/前端/">
+            <span class="level-start">
+                <span class="level-item">前端</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 13.33px;">Vue</a> <a href="/tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/webpack/" style="font-size: 16.67px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 13.33px;">面试</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/04/09/Vue双向绑定/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vue双向绑定">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T08:03:43.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/Vue双向绑定/" class="has-link-black-ter is-size-6">Vue双向绑定</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Vue/">Vue</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/09/Loadsh库模块化引入/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Loadsh库模块化引入">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T08:02:53.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/Loadsh库模块化引入/" class="has-link-black-ter is-size-6">Loadsh库模块化引入</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/webpack/">webpack</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/09/webpack-spritesmith雪碧图/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack-spritesmith雪碧图">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T08:02:00.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/webpack-spritesmith雪碧图/" class="has-link-black-ter is-size-6">webpack-spritesmith雪碧图</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Webpack/">Webpack</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/09/externals外部扩展理解/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="externals外部扩展理解">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T08:00:44.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/externals外部扩展理解/" class="has-link-black-ter is-size-6">externals外部扩展理解</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/webpack/">webpack</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/09/头条前端面试/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="头条前端面试">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:55:05.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/头条前端面试/" class="has-link-black-ter is-size-6">头条前端面试</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/面试/">面试</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">9</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/03/">
+                <span class="level-start">
+                    <span class="level-item">三月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/02/">
+                <span class="level-start">
+                    <span class="level-item">二月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">10</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Angular/">
+                        <span class="tag">Angular</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CSS/">
+                        <span class="tag">CSS</span>
+                        <span class="tag is-grey">9</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CSS3/">
+                        <span class="tag">CSS3</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/HTML/">
+                        <span class="tag">HTML</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/JS/">
+                        <span class="tag">JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Javascript/">
+                        <span class="tag">Javascript</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/MySQL/">
+                        <span class="tag">MySQL</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/React/">
+                        <span class="tag">React</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SVG/">
+                        <span class="tag">SVG</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Vue/">
+                        <span class="tag">Vue</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Webpack/">
+                        <span class="tag">Webpack</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ajax/">
+                        <span class="tag">ajax</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/button/">
+                        <span class="tag">button</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/canvas/">
+                        <span class="tag">canvas</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/css/">
+                        <span class="tag">css</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/github/">
+                        <span class="tag">github</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/javascript/">
+                        <span class="tag">javascript</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ngSanitize/">
+                        <span class="tag">ngSanitize</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/text-overflow/">
+                        <span class="tag">text-overflow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/util/">
+                        <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/图片/">
+                        <span class="tag">图片</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/懒加载，-原生JS/">
+                        <span class="tag">懒加载， 原生JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/阿里字体/">
+                        <span class="tag">阿里字体</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/面试/">
+                        <span class="tag">面试</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/04/09/Vue双向绑定/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vue双向绑定">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T08:03:43.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/Vue双向绑定/" class="has-link-black-ter is-size-6">Vue双向绑定</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Vue/">Vue</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/09/Loadsh库模块化引入/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Loadsh库模块化引入">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T08:02:53.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/Loadsh库模块化引入/" class="has-link-black-ter is-size-6">Loadsh库模块化引入</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/webpack/">webpack</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/09/webpack-spritesmith雪碧图/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack-spritesmith雪碧图">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T08:02:00.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/webpack-spritesmith雪碧图/" class="has-link-black-ter is-size-6">webpack-spritesmith雪碧图</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Webpack/">Webpack</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/09/externals外部扩展理解/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="externals外部扩展理解">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T08:00:44.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/externals外部扩展理解/" class="has-link-black-ter is-size-6">externals外部扩展理解</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/webpack/">webpack</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/09/头条前端面试/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="头条前端面试">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:55:05.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/头条前端面试/" class="has-link-black-ter is-size-6">头条前端面试</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/面试/">面试</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">9</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/03/">
+                <span class="level-start">
+                    <span class="level-item">三月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/02/">
+                <span class="level-start">
+                    <span class="level-item">二月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">10</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Angular/">
+                        <span class="tag">Angular</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CSS/">
+                        <span class="tag">CSS</span>
+                        <span class="tag is-grey">9</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CSS3/">
+                        <span class="tag">CSS3</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/HTML/">
+                        <span class="tag">HTML</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/JS/">
+                        <span class="tag">JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Javascript/">
+                        <span class="tag">Javascript</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/MySQL/">
+                        <span class="tag">MySQL</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/React/">
+                        <span class="tag">React</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SVG/">
+                        <span class="tag">SVG</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Vue/">
+                        <span class="tag">Vue</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Webpack/">
+                        <span class="tag">Webpack</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ajax/">
+                        <span class="tag">ajax</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/button/">
+                        <span class="tag">button</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/canvas/">
+                        <span class="tag">canvas</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/css/">
+                        <span class="tag">css</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/github/">
+                        <span class="tag">github</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/javascript/">
+                        <span class="tag">javascript</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ngSanitize/">
+                        <span class="tag">ngSanitize</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/text-overflow/">
+                        <span class="tag">text-overflow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/util/">
+                        <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/图片/">
+                        <span class="tag">图片</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/懒加载，-原生JS/">
+                        <span class="tag">懒加载， 原生JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/阿里字体/">
+                        <span class="tag">阿里字体</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/面试/">
+                        <span class="tag">面试</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    Write the Code, Change the World!
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Wangyutao&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/WangytBest">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>webpack-spritesmith雪碧图 - 王小贱</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="项目开发设计师没有提供svg或者icon-font，只能使用图片，过多的小图片造成资源浪费，解决方案：webpack打包将多个图标合成雪碧图 需要同时配置开发环境和线上环境的webpack配置  webpack-spritesmith 合成雪碧图插件 file-loader">
+<meta name="keywords" content="Webpack">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack-spritesmith雪碧图">
+<meta property="og:url" content="http://wangytbest.github.io/2019/04/09/webpack-spritesmith雪碧图/index.html">
+<meta property="og:site_name" content="王小贱">
+<meta property="og:description" content="项目开发设计师没有提供svg或者icon-font，只能使用图片，过多的小图片造成资源浪费，解决方案：webpack打包将多个图标合成雪碧图 需要同时配置开发环境和线上环境的webpack配置  webpack-spritesmith 合成雪碧图插件 file-loader">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://wangytbest.github.io/images/og_image.png">
+<meta property="og:updated_time" content="2019-04-09T08:02:29.690Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webpack-spritesmith雪碧图">
+<meta name="twitter:description" content="项目开发设计师没有提供svg或者icon-font，只能使用图片，过多的小图片造成资源浪费，解决方案：webpack打包将多个图标合成雪碧图 需要同时配置开发环境和线上环境的webpack配置  webpack-spritesmith 合成雪碧图插件 file-loader">
+<meta name="twitter:image" content="http://wangytbest.github.io/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106635475-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-106635475-2');
+</script>
+
+
+    
+    
+<script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?bc6ddecb4ea9a4b1debbe06f56db8d90";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                Write the Code, Change the World!
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">主页</a>
+                
+                <a class="navbar-item" href="/archives">文章</a>
+                
+                <a class="navbar-item" href="/categories">目录</a>
+                
+                <a class="navbar-item" href="/tags">标签</a>
+                
+                <a class="navbar-item" href="http://blog.xuww.wang/resume/">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/WangytBest">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-09T08:02:00.000Z">2019-04-09</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Webpack/">Webpack</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    5 分钟 读完 (大约 707 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                webpack-spritesmith雪碧图
+            
+        </h1>
+        <div class="content">
+            <p>项目开发设计师没有提供svg或者icon-font，只能使用图片，过多的小图片造成资源浪费，解决方案：webpack打包将多个图标合成雪碧图</p>
+<p><strong>需要同时配置开发环境和线上环境的webpack配置</strong></p>
+<ul>
+<li><code>webpack-spritesmith</code> 合成雪碧图插件</li>
+<li><code>file-loader</code></li>
+</ul>
+<a id="more"></a>
+<hr>
+<pre><code>| build
+|      |
+|      |--utils.js
+|      |--webpack.base.config.js
+|      |--webpack.dev.config.js
+|      |--webpack.pro.config.js
+|
+|src
+|   |
+|   |--assets
+|   |        |
+|   |        |--css
+|   |        |--incons
+|   |
+|   |-sprites
+</code></pre><h3 id="1-修改webpack-base-config-js"><a href="#1-修改webpack-base-config-js" class="headerlink" title="1. 修改webpack.base.config.js"></a>1. 修改<code>webpack.base.config.js</code></h3><blockquote>
+<ul>
+<li>resolve</li>
+<li>modules<blockquote>
+<p>添加resolve和处理雪碧图资源的loader</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">resolve: &#123;</span><br><span class="line">    modules: [</span><br><span class="line">        <span class="hljs-string">'node_modules'</span>,</span><br><span class="line">        <span class="hljs-string">'src/sprites'</span> <span class="hljs-comment">// 合成sprite图片地址</span></span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">modules: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">        ...</span><br><span class="line">        <span class="hljs-comment">// 对需要合成雪碧图的资源不进行base64转换</span></span><br><span class="line">        &#123;</span><br><span class="line">            test: <span class="hljs-regexp">/\.(png|jpe?g|gif|svg)(\?.*)?$/</span>,</span><br><span class="line">            exclude: path.join(__dirname, <span class="hljs-string">'src/assets/icons'</span>),</span><br><span class="line">            loader: <span class="hljs-string">'url-loader'</span>,</span><br><span class="line">            options: &#123;</span><br><span class="line">                limit: <span class="hljs-number">10000</span>,</span><br><span class="line">                name: utils.assetsPath(<span class="hljs-string">'img/[name].[hash:7].[ext]'</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="hljs-comment">// 对图标单独设置，以便生成雪碧图</span></span><br><span class="line">        &#123;</span><br><span class="line">            test: <span class="hljs-regexp">/\.(png|jpe?g|gif|svg)(\?.*)?$/</span>,</span><br><span class="line">            include: path.join(__dirname, <span class="hljs-string">'src/assets/icons'</span>),</span><br><span class="line">            loaders: [</span><br><span class="line">                <span class="hljs-string">'file-loader?name=i/[hash].[ext]'</span> <span class="hljs-comment">// 使用file-loader 对 png 图标进行设置</span></span><br><span class="line">            ]</span><br><span class="line">        &#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-修改webpack-dev-config-js"><a href="#2-修改webpack-dev-config-js" class="headerlink" title="2. 修改webpack.dev.config.js"></a>2. 修改<code>webpack.dev.config.js</code></h3><blockquote>
+<p>添加plugin</p>
+</blockquote>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> utils = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./utils'</span>)</span><br><span class="line"><span class="hljs-keyword">const</span> SpritesmithPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">'webpack-spritesmith'</span>)</span><br><span class="line"></span><br><span class="line">plugins: [</span><br><span class="line">    <span class="hljs-comment">// 雪碧图设置</span></span><br><span class="line">    <span class="hljs-keyword">new</span> SpritesmithPlugin(&#123;</span><br><span class="line">      src: &#123;</span><br><span class="line">        cwd: path.resolve(__dirname, <span class="hljs-string">'../src/assets/icons'</span>), <span class="hljs-comment">// 图标根路径</span></span><br><span class="line">        glob: <span class="hljs-string">'*.png'</span> <span class="hljs-comment">// 匹配任意 png 图标</span></span><br><span class="line">      &#125;,</span><br><span class="line">      target: &#123;</span><br><span class="line">        image: path.resolve(__dirname, <span class="hljs-string">'../src/sprites/sprites.png'</span>), <span class="hljs-comment">// 生成雪碧图目标路径与名称</span></span><br><span class="line">        <span class="hljs-comment">// 设置生成CSS背景及其定位的文件或方式</span></span><br><span class="line">        css: [</span><br><span class="line">          [</span><br><span class="line">            path.resolve(__dirname, <span class="hljs-string">'../src/sprites/sprites.css'</span>),</span><br><span class="line">            &#123; <span class="hljs-attr">format</span>: <span class="hljs-string">'function_based_template'</span> &#125;</span><br><span class="line">          ],</span><br><span class="line">          [</span><br><span class="line">            path.resolve(__dirname, <span class="hljs-string">'../src/sprites/_sprites.scss'</span>),</span><br><span class="line">            &#123; <span class="hljs-attr">format</span>: <span class="hljs-string">'handlebars_based_template'</span> &#125;</span><br><span class="line">          ],</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      customTemplates: &#123;</span><br><span class="line">        <span class="hljs-string">'function_based_template'</span>: utils.cssTemplateFunction,</span><br><span class="line">        <span class="hljs-string">'handlebars_based_template'</span>: utils.scssTemplateFunction</span><br><span class="line">      &#125;,</span><br><span class="line">      apiOptions: &#123;</span><br><span class="line">        cssImageRef: <span class="hljs-string">"~sprites.png"</span>, <span class="hljs-comment">// css文件中引用雪碧图的相对位置路径配置</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="hljs-comment">// retina: '@2x',</span></span><br><span class="line">      spritesmithOptions: &#123;</span><br><span class="line">        padding: <span class="hljs-number">8</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="hljs-comment">// When set to true will console.log list of created files.</span></span><br><span class="line">      logCreatedFiles: <span class="hljs-literal">true</span></span><br><span class="line">    &#125;),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h3 id="3-修改utils-js"><a href="#3-修改utils-js" class="headerlink" title="3.修改utils.js"></a>3.修改<code>utils.js</code></h3><blockquote>
+<p>打包中使用<code>webpack-spritesmith</code>插件使用自定义生成css/scss文件的模版方法</p>
+</blockquote>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">exports.cssTemplateFunction = <span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="hljs-keyword">const</span> shared = <span class="hljs-string">'.icon &#123; background-image: url(I); &#125;'</span></span><br><span class="line">      .replace(<span class="hljs-string">'I'</span>, data.sprites[<span class="hljs-number">0</span>].image);</span><br><span class="line">  <span class="hljs-comment">// 注意：此处默认图标使用的是二倍图</span></span><br><span class="line">  <span class="hljs-keyword">const</span> perSprite = data.sprites.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">sprite</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-comment">// background-size: SWpx SHpx;</span></span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-string">'.icon-N &#123; width: Wpx; height: Hpx; background-position: Xpx Ypx;&#125;'</span></span><br><span class="line">    <span class="hljs-comment">// return '.icon-N &#123; width: SWpx; height: SHpx; background-position: Xpx Ypx;&#125;\n.icon-N .icon, .icon-N.icon &#123; width: Wpx; height: Hpx; background-position: Xpx Ypx; &#125; '</span></span><br><span class="line">      .replace(<span class="hljs-regexp">/N/g</span>, sprite.name)</span><br><span class="line">      .replace(<span class="hljs-regexp">/SW/g</span>, sprite.width / <span class="hljs-number">2</span>)</span><br><span class="line">      .replace(<span class="hljs-regexp">/SH/g</span>, sprite.height / <span class="hljs-number">2</span>)</span><br><span class="line">      .replace(<span class="hljs-regexp">/W/g</span>, sprite.width)</span><br><span class="line">      .replace(<span class="hljs-regexp">/H/g</span>, sprite.height)</span><br><span class="line">      .replace(<span class="hljs-regexp">/X/g</span>, sprite.offset_x)</span><br><span class="line">      .replace(<span class="hljs-regexp">/Y/g</span>, sprite.offset_y);</span><br><span class="line">  &#125;).join(<span class="hljs-string">'\n'</span>);</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">return</span> shared + <span class="hljs-string">'\n'</span> + perSprite;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">exports.scssTemplateFunction = <span class="hljs-function"><span class="hljs-params">data</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="hljs-comment">// console.log(data, '==========', data.spritesheet)</span></span><br><span class="line">  <span class="hljs-keyword">const</span> mixs = <span class="hljs-string">`$screen:750;</span></span><br><span class="line"><span class="hljs-string">                @function px2rem($px) &#123;</span></span><br><span class="line"><span class="hljs-string">                  @return #&#123;$px/($screen/10)&#125;rem</span></span><br><span class="line"><span class="hljs-string">                &#125;`</span></span><br><span class="line">  <span class="hljs-keyword">const</span> shared = <span class="hljs-string">'.icon &#123; background-image: url(I); background-size: px2rem\(W\) px2rem\(H\);&#125;'</span></span><br><span class="line">      .replace(<span class="hljs-string">'I'</span>, data.sprites[<span class="hljs-number">0</span>].image)</span><br><span class="line">      .replace(<span class="hljs-regexp">/W/g</span>, data.spritesheet.width)</span><br><span class="line">      .replace(<span class="hljs-regexp">/H/g</span>, data.spritesheet.height)</span><br><span class="line">  <span class="hljs-comment">// 注意：此处默认图标使用的是二倍图</span></span><br><span class="line">  <span class="hljs-keyword">const</span> perSprite = data.sprites.map(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">sprite</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-string">'.icon-N &#123; width: px2rem\(W\); height: px2rem\(H\); background-position: px2rem\(X\) px2rem\(Y\);&#125; '</span></span><br><span class="line">      .replace(<span class="hljs-regexp">/N/g</span>, sprite.name)</span><br><span class="line">      .replace(<span class="hljs-regexp">/SW/g</span>, sprite.width / <span class="hljs-number">2</span>)</span><br><span class="line">      .replace(<span class="hljs-regexp">/SH/g</span>, sprite.height / <span class="hljs-number">2</span>)</span><br><span class="line">      .replace(<span class="hljs-regexp">/W/g</span>, sprite.width)</span><br><span class="line">      .replace(<span class="hljs-regexp">/H/g</span>, sprite.height)</span><br><span class="line">      .replace(<span class="hljs-regexp">/X/g</span>, sprite.offset_x)</span><br><span class="line">      .replace(<span class="hljs-regexp">/Y/g</span>, sprite.offset_y);</span><br><span class="line">  &#125;).join(<span class="hljs-string">'\n'</span>);</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">return</span> mixs + <span class="hljs-string">'\n'</span> + shared + <span class="hljs-string">'\n'</span> + perSprite;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>参考</p>
+<ul>
+<li><a href="https://github.com/HaoyCn/postcss-sprite-property" target="_blank" rel="noopener">雪碧图处理工具</a></li>
+<li><a href="https://github.com/mixtur/webpack-spritesmith" target="_blank" rel="noopener">webpack-spritesmith github</a></li>
+</ul>
+</blockquote>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Webpack/">Webpack</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="http://cloud.xuww.wang/wechat_qrcode.jpeg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="http://cloud.xuww.wang/wechat_qrcode.jpeg" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/04/09/Loadsh库模块化引入/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Loadsh库模块化引入</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/04/09/externals外部扩展理解/">
+                <span class="level-item">externals外部扩展理解</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="comment-container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		id: '2019/04/09/webpack-spritesmith雪碧图/',
+		owner: 'WangytBest',
+		repo: 'wangytbest.github.io',
+		oauth: {
+			client_id: '85e326c0d624202af0e5',
+			client_secret: '6323329d79fd55b2566b067c4ae839541dd6f354',
+		},
+	})
+	gitment.render('comment-container')
+</script>
+
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="http://cloud.xuww.wang/logo.jpg" alt="王玉涛">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        王玉涛
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        FE
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>上海</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        38
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        18
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        26
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/WangytBest" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/WangytBest">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Facebook" href="http://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="http://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Dribbble" href="http://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#1-修改webpack-base-config-js">
+        <span class="has-mr-6">1</span>
+        <span>1. 修改webpack.base.config.js</span>
+        </a></li><li>
+        <a class="is-flex" href="#2-修改webpack-dev-config-js">
+        <span class="has-mr-6">2</span>
+        <span>2. 修改webpack.dev.config.js</span>
+        </a></li><li>
+        <a class="is-flex" href="#3-修改utils-js">
+        <span class="has-mr-6">3</span>
+        <span>3.修改utils.js</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://github.com/WangytBest" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">github</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">github.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="http://blog.xuww.wang/resume" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">关于我</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">blog.xuww.wang</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Angular/">
+            <span class="level-start">
+                <span class="level-item">Angular</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/CSS/">
+            <span class="level-start">
+                <span class="level-item">CSS</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">11</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/CSS/SVG/">
+            <span class="level-start">
+                <span class="level-item">SVG</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Git/">
+            <span class="level-start">
+                <span class="level-item">Git</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Javascript/">
+            <span class="level-start">
+                <span class="level-item">Javascript</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">11</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Javascript/canvas/">
+            <span class="level-start">
+                <span class="level-item">canvas</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Javascript/util/">
+            <span class="level-start">
+                <span class="level-item">util</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Javascript/阿里字体/">
+            <span class="level-start">
+                <span class="level-item">阿里字体</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/MySQL/">
+            <span class="level-start">
+                <span class="level-item">MySQL</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/React/">
+            <span class="level-start">
+                <span class="level-item">React</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/React/study/">
+            <span class="level-start">
+                <span class="level-item">study</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Vue/">
+            <span class="level-start">
+                <span class="level-item">Vue</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Web-H5/">
+            <span class="level-start">
+                <span class="level-item">Web / H5</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Web-H5/">
+            <span class="level-start">
+                <span class="level-item">Web H5</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Webpack/">
+            <span class="level-start">
+                <span class="level-item">Webpack</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/webpack/">
+            <span class="level-start">
+                <span class="level-item">webpack</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/面试/">
+            <span class="level-start">
+                <span class="level-item">面试</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/面试/前端/">
+            <span class="level-start">
+                <span class="level-item">前端</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 13.33px;">Vue</a> <a href="/tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/webpack/" style="font-size: 16.67px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 13.33px;">面试</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/04/09/Vue双向绑定/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vue双向绑定">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T08:03:43.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/Vue双向绑定/" class="has-link-black-ter is-size-6">Vue双向绑定</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Vue/">Vue</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/09/Loadsh库模块化引入/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Loadsh库模块化引入">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T08:02:53.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/Loadsh库模块化引入/" class="has-link-black-ter is-size-6">Loadsh库模块化引入</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/webpack/">webpack</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/09/webpack-spritesmith雪碧图/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack-spritesmith雪碧图">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T08:02:00.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/webpack-spritesmith雪碧图/" class="has-link-black-ter is-size-6">webpack-spritesmith雪碧图</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Webpack/">Webpack</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/09/externals外部扩展理解/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="externals外部扩展理解">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T08:00:44.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/externals外部扩展理解/" class="has-link-black-ter is-size-6">externals外部扩展理解</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/webpack/">webpack</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/09/头条前端面试/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="头条前端面试">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:55:05.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/头条前端面试/" class="has-link-black-ter is-size-6">头条前端面试</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/面试/">面试</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">9</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/03/">
+                <span class="level-start">
+                    <span class="level-item">三月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/02/">
+                <span class="level-start">
+                    <span class="level-item">二月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">10</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Angular/">
+                        <span class="tag">Angular</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CSS/">
+                        <span class="tag">CSS</span>
+                        <span class="tag is-grey">9</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CSS3/">
+                        <span class="tag">CSS3</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/HTML/">
+                        <span class="tag">HTML</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/JS/">
+                        <span class="tag">JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Javascript/">
+                        <span class="tag">Javascript</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/MySQL/">
+                        <span class="tag">MySQL</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/React/">
+                        <span class="tag">React</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SVG/">
+                        <span class="tag">SVG</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Vue/">
+                        <span class="tag">Vue</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Webpack/">
+                        <span class="tag">Webpack</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ajax/">
+                        <span class="tag">ajax</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/button/">
+                        <span class="tag">button</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/canvas/">
+                        <span class="tag">canvas</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/css/">
+                        <span class="tag">css</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/github/">
+                        <span class="tag">github</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/javascript/">
+                        <span class="tag">javascript</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ngSanitize/">
+                        <span class="tag">ngSanitize</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/text-overflow/">
+                        <span class="tag">text-overflow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/util/">
+                        <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/图片/">
+                        <span class="tag">图片</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/懒加载，-原生JS/">
+                        <span class="tag">懒加载， 原生JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/阿里字体/">
+                        <span class="tag">阿里字体</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/面试/">
+                        <span class="tag">面试</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/04/09/Vue双向绑定/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Vue双向绑定">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T08:03:43.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/Vue双向绑定/" class="has-link-black-ter is-size-6">Vue双向绑定</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Vue/">Vue</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/09/Loadsh库模块化引入/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Loadsh库模块化引入">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T08:02:53.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/Loadsh库模块化引入/" class="has-link-black-ter is-size-6">Loadsh库模块化引入</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/webpack/">webpack</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/09/webpack-spritesmith雪碧图/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack-spritesmith雪碧图">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T08:02:00.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/webpack-spritesmith雪碧图/" class="has-link-black-ter is-size-6">webpack-spritesmith雪碧图</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Webpack/">Webpack</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/09/externals外部扩展理解/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="externals外部扩展理解">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T08:00:44.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/externals外部扩展理解/" class="has-link-black-ter is-size-6">externals外部扩展理解</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/webpack/">webpack</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/09/头条前端面试/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="头条前端面试">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T07:55:05.000Z">2019-04-09</time></div>
+                    <a href="/2019/04/09/头条前端面试/" class="has-link-black-ter is-size-6">头条前端面试</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/面试/">面试</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">9</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/03/">
+                <span class="level-start">
+                    <span class="level-item">三月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/02/">
+                <span class="level-start">
+                    <span class="level-item">二月 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/09/">
+                <span class="level-start">
+                    <span class="level-item">九月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">10</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Angular/">
+                        <span class="tag">Angular</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CSS/">
+                        <span class="tag">CSS</span>
+                        <span class="tag is-grey">9</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/CSS3/">
+                        <span class="tag">CSS3</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/HTML/">
+                        <span class="tag">HTML</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/JS/">
+                        <span class="tag">JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Javascript/">
+                        <span class="tag">Javascript</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/MySQL/">
+                        <span class="tag">MySQL</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/React/">
+                        <span class="tag">React</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SVG/">
+                        <span class="tag">SVG</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Vue/">
+                        <span class="tag">Vue</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Webpack/">
+                        <span class="tag">Webpack</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ajax/">
+                        <span class="tag">ajax</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/button/">
+                        <span class="tag">button</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/canvas/">
+                        <span class="tag">canvas</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/css/">
+                        <span class="tag">css</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/github/">
+                        <span class="tag">github</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/javascript/">
+                        <span class="tag">javascript</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ngSanitize/">
+                        <span class="tag">ngSanitize</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/text-overflow/">
+                        <span class="tag">text-overflow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/util/">
+                        <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/webpack/">
+                        <span class="tag">webpack</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/图片/">
+                        <span class="tag">图片</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/懒加载，-原生JS/">
+                        <span class="tag">懒加载， 原生JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/阿里字体/">
+                        <span class="tag">阿里字体</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/面试/">
+                        <span class="tag">面试</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    Write the Code, Change the World!
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Wangyutao&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/WangytBest">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
