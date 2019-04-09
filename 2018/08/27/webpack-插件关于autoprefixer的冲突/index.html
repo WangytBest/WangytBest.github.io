@@ -16,7 +16,7 @@
 <meta property="og:description" content="1. 实际遇到的问题项目中经常会遇到css的一些奇怪问题，有些css属性的设置在在本地编译运行的时候是好的，但是打包上线之后这个属性就平白无故的没有了？ 具体场景在处理多行文本溢出时，需要使用-webkit-box-orient: vertial，在本地开发测试一切正常，但是在webpack编译之后，检查样式并没有这个属性，其他的属性都有。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wangytbest.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-04-09T07:45:27.031Z">
+<meta property="og:updated_time" content="2019-04-09T07:49:39.455Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack插件关于autoprefixer的冲突">
 <meta name="twitter:description" content="1. 实际遇到的问题项目中经常会遇到css的一些奇怪问题，有些css属性的设置在在本地编译运行的时候是好的，但是打包上线之后这个属性就平白无故的没有了？ 具体场景在处理多行文本溢出时，需要使用-webkit-box-orient: vertial，在本地开发测试一切正常，但是在webpack编译之后，检查样式并没有这个属性，其他的属性都有。">
@@ -212,20 +212,22 @@ var _hmt = _hmt || [];
 </ol>
 <p>原因：<br>  autoprefixer自动的删除了一些它觉得没有必要的属性，所以解决办法就是设autoprefixer为false，或者针对某个属性忽autoprefixer</p>
 <h3 id="3-怎么办"><a href="#3-怎么办" class="headerlink" title="3. 怎么办"></a>3. 怎么办</h3><ol>
-<li><p>属性忽略autoprefixer</p>
+<li><p>属性忽略<code>autoprefixer</code></p>
 <figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// eslint-disable-next-line</span><br><span class="line"><span class="hljs-comment">/* autoprefixer: off*/</span></span><br><span class="line"><span class="hljs-selector-tag">-webkit-box-orient</span>: <span class="hljs-selector-tag">vertical</span>;</span><br><span class="line"><span class="hljs-comment">/* autoprefixer: on*/</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>关闭cssnano的autoprefixer</p>
+<li><p>关闭<code>cssnano</code>的<code>autoprefixer</code></p>
 </li>
 </ol>
+<blockquote>
 <p>just remove the postcss config in vue-loader’s config</p>
+</blockquote>
 <p>Add the following option to prevent autoprefixer from removing prefixes (<strong>for cssnano v3 only</strong>):</p>
 <figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  autoprefixer: &#123;</span><br><span class="line">    remove: false</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>Then -webkit-box-orient will be preserved.</p>
 <ol start="3">
-<li><figure class="highlight plain hljs"><figcaption><span>插件问题</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```cs</span><br><span class="line">new OptimizeCSSPlugin(&#123;</span><br><span class="line">  cssProcessorOptions: config.build.productionSourceMap</span><br><span class="line">    ? &#123; safe: true, map: &#123; inline: false &#125; &#125;</span><br><span class="line">    : &#123; safe: true &#125;</span><br><span class="line">&#125;),</span><br></pre></td></tr></table></figure></li>
+<li><code>optimize-css-assets-webpack-plugin</code> 插件问题</li>
 </ol>
-
+<figure class="highlight cs hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">new</span> OptimizeCSSPlugin(&#123;</span><br><span class="line">  cssProcessorOptions: config.build.productionSourceMap</span><br><span class="line">    ? &#123; safe: <span class="hljs-literal">true</span>, map: &#123; inline: <span class="hljs-literal">false</span> &#125; &#125;</span><br><span class="line">    : &#123; safe: <span class="hljs-literal">true</span> &#125;</span><br><span class="line">&#125;),</span><br></pre></td></tr></table></figure>
         </div>
         
         <div class="level is-size-7 is-uppercase">
