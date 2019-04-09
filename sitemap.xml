@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wangytbest.github.io/2017/09/27/css-svg-basic/</loc>
+    
+    <lastmod>2019-04-09T10:08:13.432Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wangytbest.github.io/2019/04/09/%E5%9C%A3%E6%9D%AF%E5%B8%83%E5%B1%80%EF%BC%88%E5%8F%8C%E9%A3%9E%E7%BF%BC%E5%B8%83%E5%B1%80%EF%BC%89/</loc>
+    
+    <lastmod>2019-04-09T10:07:25.638Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://wangytbest.github.io/2017/09/26/javascript-ajax/</loc>
     
     <lastmod>2019-04-09T10:02:20.255Z</lastmod>
@@ -61,13 +75,6 @@
     <loc>http://wangytbest.github.io/2019/04/09/externals%E5%A4%96%E9%83%A8%E6%89%A9%E5%B1%95%E7%90%86%E8%A7%A3/</loc>
     
     <lastmod>2019-04-09T08:01:31.290Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wangytbest.github.io/2019/04/09/%E5%9C%A3%E6%9D%AF%E5%B8%83%E5%B1%80%EF%BC%88%E5%8F%8C%E9%A3%9E%E7%BF%BC%E5%B8%83%E5%B1%80%EF%BC%89/</loc>
-    
-    <lastmod>2019-04-09T07:59:07.895Z</lastmod>
     
   </url>
   
@@ -159,13 +166,6 @@
     <loc>http://wangytbest.github.io/2017/09/20/css-lazy-load-image/</loc>
     
     <lastmod>2019-04-09T07:07:28.265Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wangytbest.github.io/2017/09/27/css-svg-basic/</loc>
-    
-    <lastmod>2019-04-09T07:06:56.801Z</lastmod>
     
   </url>
   
