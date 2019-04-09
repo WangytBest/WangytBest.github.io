@@ -199,15 +199,15 @@
     <link href="http://wangytbest.github.io/2018/04/20/margin%E3%80%81padding%E7%9A%84%E7%99%BE%E5%88%86%E6%AF%94%E8%AE%A1%E7%AE%97/"/>
     <id>http://wangytbest.github.io/2018/04/20/margin、padding的百分比计算/</id>
     <published>2018-04-20T02:54:12.000Z</published>
-    <updated>2019-04-09T07:02:55.169Z</updated>
+    <updated>2019-04-09T07:18:48.365Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="CSS2-1-Box-model"><a href="#CSS2-1-Box-model" class="headerlink" title="CSS2.1 Box model"></a>CSS2.1 Box model</h1><blockquote><p>The percentage is calculated with respect to the width of the generated box’s containing block. Note that this is true for <code>margin-top</code> and <code>margin-bottom</code> as well.</p></blockquote><p>margin：百分比的计算基于生成框的包含块(父元素)的width（margin-top/bottom也是如此）。<br>padding同理</p>]]></content>
+    <content type="html"><![CDATA[<h3 id="CSS2-1-Box-model"><a href="#CSS2-1-Box-model" class="headerlink" title="CSS2.1 Box model"></a>CSS2.1 Box model</h3><blockquote><p>The percentage is calculated with respect to the width of the generated box’s containing block. Note that this is true for <code>margin-top</code> and <code>margin-bottom</code> as well.</p></blockquote><p>margin：百分比的计算基于生成框的包含块(父元素)的width（margin-top/bottom也是如此）。<br>padding同理</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;CSS2-1-Box-model&quot;&gt;&lt;a href=&quot;#CSS2-1-Box-model&quot; class=&quot;headerlink&quot; title=&quot;CSS2.1 Box model&quot;&gt;&lt;/a&gt;CSS2.1 Box model&lt;/h1&gt;&lt;blockquote&gt;
+        &lt;h3 id=&quot;CSS2-1-Box-model&quot;&gt;&lt;a href=&quot;#CSS2-1-Box-model&quot; class=&quot;headerlink&quot; title=&quot;CSS2.1 Box model&quot;&gt;&lt;/a&gt;CSS2.1 Box model&lt;/h3&gt;&lt;blockquote&gt;
 &lt;p&gt;T
       
     
@@ -215,6 +215,8 @@
     
       <category term="CSS" scheme="http://wangytbest.github.io/categories/CSS/"/>
     
+    
+      <category term="CSS" scheme="http://wangytbest.github.io/tags/CSS/"/>
     
   </entry>
   
