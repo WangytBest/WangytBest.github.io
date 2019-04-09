@@ -2,7 +2,7 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>分类: React study - 王小贱</title>
+<title>分类: SCSS - 王小贱</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
@@ -10,7 +10,7 @@
     <meta name="description" content="狗厂 商城研发 前端工程湿太">
 <meta property="og:type" content="website">
 <meta property="og:title" content="王小贱">
-<meta property="og:url" content="http://wangytbest.github.io/categories/React-study/index.html">
+<meta property="og:url" content="http://wangytbest.github.io/categories/CSS/SCSS/index.html">
 <meta property="og:site_name" content="王小贱">
 <meta property="og:description" content="狗厂 商城研发 前端工程湿太">
 <meta property="og:locale" content="zh-CN">
@@ -115,7 +115,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="http://cloud.xuww.wang/spider-man.jpg" alt="王小贱" height="28">
+                Write the Code, Change the World!
             
             </a>
         </div>
@@ -166,7 +166,9 @@ var _hmt = _hmt || [];
         <ul>
             <li><a href="/categories">分类</a></li>
             
-            <li class="is-active"><a href="#" aria-current="page">React study</a></li>
+            <li><a href="/categories/CSS/">CSS</a></li>
+            
+            <li class="is-active"><a href="#" aria-current="page">SCSS</a></li>
         </ul>
         </nav>
     </div>
@@ -174,27 +176,21 @@ var _hmt = _hmt || [];
 
     <div class="card">
     
-    <div class="card-image">
-        <a href="/2017/09/15/React-JSX/" class="image is-7by1">
-            <img class="thumbnail" src="http://cloud.xuww.wang/react.jpg" alt="React-JSX">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2017-09-15T09:43:17.000Z">2017-09-15</time>
+                <time class="level-item has-text-grey" datetime="2018-04-03T12:39:08.000Z">2018-04-03</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/React-study/">React study</a>
+                <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/CSS/SCSS/">SCSS</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 319 个字)
+                    1 分钟 读完 (大约 186 个字)
                 </span>
                 
                 
@@ -203,88 +199,30 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2017/09/15/React-JSX/">React-JSX</a>
+                <a class="has-link-black-ter" href="/2018/04/03/sass基础入门/">sass基础入门</a>
             
         </h1>
         <div class="content">
-            <h3 id="JSX语法"><a href="#JSX语法" class="headerlink" title="JSX语法"></a>JSX语法</h3><blockquote>
-<p>JSX 既不是字符串也不是HTML，是JavaScript的语法扩展，将被解析成JavaScript的一个对象。JSX用于生成React的“元素”。JSX中可以嵌入js表达式，用<code>｛｝</code>包裹。</p>
-</blockquote>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">formatName</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> user<span class="token punctuation">.</span>firstName <span class="token operator">+</span> <span class="token string">' '</span> <span class="token operator">+</span> user<span class="token punctuation">.</span>lastName<span class="token punctuation">;</span> 
-<span class="token punctuation">}</span>
-
-<span class="token keyword">const</span> user <span class="token operator">=</span> <span class="token punctuation">{</span>
-    firstName<span class="token punctuation">:</span> <span class="token string">'Harper'</span><span class="token punctuation">,</span>
-    lastName<span class="token punctuation">:</span> <span class="token string">'Perez'</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">const</span> element <span class="token operator">=</span> <span class="token punctuation">(</span>
-    <span class="token operator">&lt;</span>h1<span class="token operator">></span>Hello<span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token function">formatName</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">}</span> <span class="token operator">!</span><span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
-<span class="token punctuation">)</span>
-
-ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>
-    element<span class="token punctuation">,</span>
-    document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'root'</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span>
+            <h2 id="css功能拓展"><a href="#css功能拓展" class="headerlink" title="css功能拓展"></a>css功能拓展</h2><h3 id="嵌套（Nested-Rules）"><a href="#嵌套（Nested-Rules）" class="headerlink" title="嵌套（Nested Rules）"></a>嵌套（Nested Rules）</h3><p>sass允许将css样式嵌套进另一套样式中，内层的样式将他的外层的选择器作为父选择器。</p>
+<h3 id="父选择器-amp-Referencing-Parent-Selectors-amp"><a href="#父选择器-amp-Referencing-Parent-Selectors-amp" class="headerlink" title="父选择器 &amp; (Referencing Parent Selectors: &amp;)"></a>父选择器 &amp; (Referencing Parent Selectors: &amp;)</h3><h3 id="属性嵌套-Nested-Properties"><a href="#属性嵌套-Nested-Properties" class="headerlink" title="属性嵌套 (Nested Properties)"></a>属性嵌套 (Nested Properties)</h3><pre><code class="css">.funky {
+  font: {
+    family: fantasy;
+    size: 30em;
+    weight: bold;
+  }
+}
 </code></pre>
-<iframe width="100%" height="300" src="//jsfiddle.net/wangyutao/z2pzn6xh/22/embedded/js,html,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
-
-
-<h3 id="JSX指定属性"><a href="#JSX指定属性" class="headerlink" title="JSX指定属性"></a>JSX指定属性</h3><ul>
-<li>使用引号将字符串文字指定为属性值<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> element <span class="token operator">=</span> <span class="token operator">&lt;</span>div tabIndex<span class="token operator">=</span><span class="token string">"0"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-</code></pre>
-</li>
-<li>使用花括号<code>{}</code>将JavaScript表达式嵌入属性中，｛｝中的变量不需要用””括起来，否则将解析为字符串<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> element <span class="token operator">=</span> <span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token punctuation">{</span>user<span class="token punctuation">.</span>avtarurl<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
-</code></pre>
-</li>
-</ul>
-<h3 id="JXS包含子标签"><a href="#JXS包含子标签" class="headerlink" title="JXS包含子标签"></a>JXS包含子标签</h3><blockquote>
-<p>JSX可以包含子标签</p>
-</blockquote>
-<blockquote>
-<ul>
-<li>JSX最外层只能包含一个标签，父标签内可以嵌套任意的子标签</li>
-<li>JSX 标签内的属性命名约定使用 <code>camelCase</code>方式命名，而不是HTML属性名称</li>
-</ul>
-</blockquote>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> element <span class="token operator">=</span> <span class="token punctuation">(</span>
-    <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"demo"</span><span class="token operator">></span>
-        <span class="token operator">&lt;</span>h1<span class="token operator">></span>Hello<span class="token operator">!</span><span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
-        <span class="token operator">&lt;</span>h2<span class="token operator">></span>Good to see you<span class="token operator">!</span><span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-<span class="token punctuation">)</span>
-
-<span class="token keyword">const</span> elemtent <span class="token operator">=</span> <span class="token punctuation">(</span>
-    <span class="token operator">&lt;</span>div tabIndex<span class="token operator">=</span><span class="token string">"0"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-<span class="token punctuation">)</span>
-</code></pre>
-<h3 id="JSX转换"><a href="#JSX转换" class="headerlink" title="JSX转换"></a>JSX转换</h3><p>Bebel将JSX转换编译成<code>React.createElement()</code>对象。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> element <span class="token operator">=</span> <span class="token punctuation">(</span>
-    <span class="token operator">&lt;</span>h1 className<span class="token operator">=</span><span class="token string">"greeting"</span><span class="token operator">></span>
-        Hello<span class="token punctuation">,</span> World<span class="token operator">!</span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
-<span class="token punctuation">)</span>
-</code></pre>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> element <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span>
-    <span class="token string">'h1'</span><span class="token punctuation">,</span>
-    <span class="token punctuation">{</span>className<span class="token punctuation">:</span> <span class="token string">'greeting'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token string">'Hello, World!'</span>
-<span class="token punctuation">)</span>
-</code></pre>
-<p>以上两种方式是等价的，最后都会转换成React Elements，这些对象组成页面的DOM并且保持更新。</p>
-<p>解析为react Elements</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> element <span class="token operator">=</span> <span class="token punctuation">{</span>
-    type<span class="token punctuation">:</span> <span class="token string">'h1'</span><span class="token punctuation">,</span>
-    props<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        className<span class="token punctuation">:</span> <span class="token string">'greeting'</span><span class="token punctuation">,</span>
-        children<span class="token punctuation">:</span> <span class="token string">'Hello, World!'</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-
+<h3 id="占位符选择器-foo-Placeholder-Selectors-foo"><a href="#占位符选择器-foo-Placeholder-Selectors-foo" class="headerlink" title="占位符选择器 %foo (Placeholder Selectors: %foo)"></a>占位符选择器 %foo (Placeholder Selectors: %foo)</h3>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2018/04/03/sass基础入门/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -340,7 +278,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        30
+                        29
                     </p>
                 </div>
             </div>
@@ -350,7 +288,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        9
+                        18
                     </p>
                 </div>
             </div>
@@ -360,7 +298,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        19
+                        24
                     </p>
                 </div>
             </div>
@@ -471,7 +409,31 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                 <span class="level-item">CSS</span>
             </span>
             <span class="level-end">
+                <span class="level-item tag">9</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/CSS/SCSS/">
+            <span class="level-start">
+                <span class="level-item">SCSS</span>
+            </span>
+            <span class="level-end">
                 <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/CSS/SVG/">
+            <span class="level-start">
+                <span class="level-item">SVG</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Git/">
+            <span class="level-start">
+                <span class="level-item">Git</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Javascript/">
@@ -479,12 +441,60 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                 <span class="level-item">Javascript</span>
             </span>
             <span class="level-end">
+                <span class="level-item tag">10</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Javascript/canvas/">
+            <span class="level-start">
+                <span class="level-item">canvas</span>
+            </span>
+            <span class="level-end">
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/React-study/">
+        <a class="level is-marginless" href="/categories/Javascript/util/">
             <span class="level-start">
-                <span class="level-item">React study</span>
+                <span class="level-item">util</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Javascript/阿里字体/">
+            <span class="level-start">
+                <span class="level-item">阿里字体</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/MySQL/">
+            <span class="level-start">
+                <span class="level-item">MySQL</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/React/">
+            <span class="level-start">
+                <span class="level-item">React</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/React/study/">
+            <span class="level-start">
+                <span class="level-item">study</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Vue/">
+            <span class="level-start">
+                <span class="level-item">Vue</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">1</span>
@@ -506,9 +516,9 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/git/">
+        <a class="level is-marginless" href="/categories/webpack/">
             <span class="level-start">
-                <span class="level-item">git</span>
+                <span class="level-item">webpack</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">1</span>
@@ -541,7 +551,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 20px;">css</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
 </div>
 
@@ -569,7 +579,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-08-27T03:15:54.000Z">2018-08-27</time></div>
                     <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="has-link-black-ter is-size-6">webpack插件关于autoprefixer的冲突</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/webpack/">webpack</a>
                     </p>
                 </div>
             </div>
@@ -588,7 +598,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T07:02:33.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/URL操作处理/" class="has-link-black-ter is-size-6">URL操作处理</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -607,7 +617,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T07:01:25.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/localstroge本地缓存/" class="has-link-black-ter is-size-6">localstroge本地缓存</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -626,7 +636,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:58:34.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/时间处理/" class="has-link-black-ter is-size-6">时间处理</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -645,7 +655,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -735,7 +745,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                     <span class="level-item">九月 2017</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">11</span>
+                    <span class="level-item tag">10</span>
                 </span>
             </a>
         </li>
@@ -763,7 +773,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                 <div class="control">
                     <a class="tags has-addons" href="/tags/CSS/">
                         <span class="tag">CSS</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
@@ -782,8 +792,22 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/JS/">
+                        <span class="tag">JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Javascript/">
                         <span class="tag">Javascript</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/MySQL/">
+                        <span class="tag">MySQL</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -798,6 +822,13 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                 <div class="control">
                     <a class="tags has-addons" href="/tags/SVG/">
                         <span class="tag">SVG</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Vue/">
+                        <span class="tag">Vue</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -866,6 +897,13 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/util/">
+                        <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/图片/">
                         <span class="tag">图片</span>
                         <span class="tag is-grey">1</span>
@@ -875,6 +913,13 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                 <div class="control">
                     <a class="tags has-addons" href="/tags/懒加载，-原生JS/">
                         <span class="tag">懒加载， 原生JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/阿里字体/">
+                        <span class="tag">阿里字体</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -922,7 +967,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-08-27T03:15:54.000Z">2018-08-27</time></div>
                     <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="has-link-black-ter is-size-6">webpack插件关于autoprefixer的冲突</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/webpack/">webpack</a>
                     </p>
                 </div>
             </div>
@@ -941,7 +986,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T07:02:33.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/URL操作处理/" class="has-link-black-ter is-size-6">URL操作处理</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -960,7 +1005,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T07:01:25.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/localstroge本地缓存/" class="has-link-black-ter is-size-6">localstroge本地缓存</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -979,7 +1024,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:58:34.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/时间处理/" class="has-link-black-ter is-size-6">时间处理</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -998,7 +1043,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -1088,7 +1133,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                     <span class="level-item">九月 2017</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">11</span>
+                    <span class="level-item tag">10</span>
                 </span>
             </a>
         </li>
@@ -1116,7 +1161,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                 <div class="control">
                     <a class="tags has-addons" href="/tags/CSS/">
                         <span class="tag">CSS</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
@@ -1135,8 +1180,22 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/JS/">
+                        <span class="tag">JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Javascript/">
                         <span class="tag">Javascript</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/MySQL/">
+                        <span class="tag">MySQL</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1151,6 +1210,13 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                 <div class="control">
                     <a class="tags has-addons" href="/tags/SVG/">
                         <span class="tag">SVG</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Vue/">
+                        <span class="tag">Vue</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1219,6 +1285,13 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/util/">
+                        <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/图片/">
                         <span class="tag">图片</span>
                         <span class="tag is-grey">1</span>
@@ -1228,6 +1301,13 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
                 <div class="control">
                     <a class="tags has-addons" href="/tags/懒加载，-原生JS/">
                         <span class="tag">懒加载， 原生JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/阿里字体/">
+                        <span class="tag">阿里字体</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1256,7 +1336,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="http://cloud.xuww.wang/spider-man.jpg" alt="王小贱" height="28">
+                    Write the Code, Change the World!
                 
                 </a>
                 <p class="is-size-7">

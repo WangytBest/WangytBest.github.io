@@ -115,7 +115,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="http://cloud.xuww.wang/spider-man.jpg" alt="王小贱" height="28">
+                Write the Code, Change the World!
             
             </a>
         </div>
@@ -186,14 +186,14 @@ var _hmt = _hmt || [];
                 <time class="level-item has-text-grey" datetime="2017-09-20T06:43:41.000Z">2017-09-20</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a>
+                <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    7 分钟 读完 (大约 1070 个字)
+                    7 分钟 读完 (大约 1071 个字)
                 </span>
                 
                 
@@ -210,114 +210,17 @@ var _hmt = _hmt || [];
 <h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p>先将图片的<code>src</code>设置为空或者小的图片，将真实的图片地址存在<code>img</code>的自定义属性中，比如<code>data-src</code>中，等到页面滚动至图片位置时将真实图片位置复制给src属性。</p>
 <ol>
 <li>页面中的img元素，如果没有src属性，浏览器就不会发出请求去下载图片</li>
-<li>用户滚动页面至图片位置时，img元素获取到真正的路径后，开始发送请求加载图片</li>
-</ol>
-<h3 id="JS中位置相关"><a href="#JS中位置相关" class="headerlink" title="JS中位置相关"></a>JS中位置相关</h3><blockquote>
-<ul>
-<li><code>screenLeft/screenX</code>: 窗口相对于屏幕左边的位置 </li>
-<li><code>screenTop/screenY</code>: 窗口相对于屏幕上边的位置</li>
-</ul>
-</blockquote>
-<p><strong>表示的是从屏幕左边和上边到window对象表示的可见区域的距离</strong>。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">//FF中支持 screenX 和 screenY</span>
-<span class="token keyword">let</span> leftPos <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> window<span class="token punctuation">.</span>screenLeft <span class="token operator">==</span> <span class="token string">'Number'</span><span class="token punctuation">)</span> <span class="token operator">?</span> window<span class="token punctuation">.</span>screenLeft <span class="token punctuation">:</span> window<span class="token punctuation">.</span>screenX<span class="token punctuation">;</span>
-<span class="token keyword">let</span> TopPos <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> window<span class="token punctuation">.</span>screenTop <span class="token operator">==</span> <span class="token string">'Number'</span><span class="token punctuation">)</span> <span class="token operator">?</span> window<span class="token punctuation">.</span>screenTop <span class="token punctuation">:</span> window<span class="token punctuation">.</span>screenY<span class="token punctuation">;</span>
-</code></pre>
-<p>若window对象是最外层对象，而且浏览器窗口贴紧屏幕上方，则 <code>screenTop/screenY</code> 为 0</p>
-<blockquote>
-<ul>
-<li><code>clientWidth/clientHeight</code> : 页面视口大小信息（ALL，注意获取方式）</li>
-<li><code>innerWidth/innerHeight</code> : 获取页面视口大小（页面尺寸）,页面视图容器大小</li>
-<li><code>outerWidth/outerHeight</code> : 获取浏览器窗口本身的大小（IE9+、Safari、FF）</li>
-</ul>
-</blockquote>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> pageWidth <span class="token operator">=</span> window<span class="token punctuation">.</span>innerWidth<span class="token punctuation">;</span>
-<span class="token keyword">let</span> pageHeight <span class="token operator">=</span> window<span class="token punctuation">.</span>innerHeight<span class="token punctuation">;</span>
-
-<span class="token keyword">if</span><span class="token punctuation">(</span> <span class="token keyword">typeof</span> pageWidth <span class="token operator">!=</span> <span class="token string">'Number'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span>compatMode <span class="token operator">==</span> <span class="token string">'CSS!Compat'</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">//标准模式</span>
-        pageWidth <span class="token operator">=</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientWidth<span class="token punctuation">;</span>
-        pageHeight <span class="token operator">=</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientHeight<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">//怪异模式（混杂模式）</span>
-        pageWidth <span class="token operator">=</span> document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>clientWidth<span class="token punctuation">;</span>
-        pageHeight <span class="token operator">=</span> document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>clientHeight<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<h3 id="懒加载实现"><a href="#懒加载实现" class="headerlink" title="懒加载实现"></a>懒加载实现</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> imgCurrent <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//初始化页面加载图片个数</span>
-<span class="token keyword">var</span> imgCount <span class="token operator">=</span> <span class="token number">40</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//总图片数</span>
-<span class="token keyword">var</span> height <span class="token operator">=</span> document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>clientHeight <span class="token operator">||</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientHeight<span class="token punctuation">;</span>
-<span class="token keyword">var</span> scrollTop <span class="token operator">=</span> document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>scrollTop <span class="token operator">||</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>scrollTop<span class="token punctuation">;</span>
-<span class="token keyword">var</span> clientHeight <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>scrollHeight<span class="token punctuation">,</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientHeight<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> img <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">'img'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-window<span class="token punctuation">.</span>onscroll <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-window<span class="token punctuation">.</span>onscroll <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//图片懒加载</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> imgCurrent<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> imgCount<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>img<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>offsetTop <span class="token operator">&lt;</span> clientHeight <span class="token operator">+</span> scrollTop<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            img<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>src <span class="token operator">=</span> img<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">'data-src'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            img<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>style<span class="token punctuation">.</span>opacity <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-            imgCurrent <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
-            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'图片加载['</span> <span class="token operator">+</span> i <span class="token operator">+</span> <span class="token string">']:'</span> <span class="token operator">+</span> img<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>src<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code></pre>
-<!-- <script async src="//jsfiddle.net/wangyutao/wd70mk9q/16/embed/"></script> -->
-<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><p><img src="http://cloud.xuww.wang/js-position.jpg" alt="位置"></p>
-<h4 id="偏移量-offset"><a href="#偏移量-offset" class="headerlink" title="偏移量(offset)"></a>偏移量(<code>offset</code>)</h4><blockquote>
-<ul>
-<li><code>offsetWidht</code> : 元素在水平方向上占用的空间大小。包括元素的宽度、水平滚动条的宽度、左右边框的宽度。</li>
-<li><code>offsetHeight</code> : 元素在垂直方向上占用的空间大小。包括元素的高度、垂直滚动条的高度、上下边框的高度。</li>
-<li><code>offsetLeft</code> : 元素的左边框至包含元素的左内边距的距离。（offsetParent） </li>
-<li><code>offsetTop</code> : 元素的上边框至包含元素的上内边距的距离。（offsetParent）</li>
-</ul>
-</blockquote>
-<pre class=" language-offsetParent```为相对于元素定位的父级元素"><code class="language-offsetParent```为相对于元素定位的父级元素">```offsetTop``` 和 ```offsetLeft``` 与其包含元素```offsetParent```有关。```offsetParent```的值不一定与```parentNode```相同。
-这些偏移量属性均为**只读**。
-![偏移量 offset](http://cloud.xuww.wang/offset.jpg)
-
-
-#### 客户区大小（```client dismension```）
-
-> * clientWidth : 元素内容区宽度加上左右内边距。```content + padding-left + padding-right
-</code></pre>
-<blockquote>
-<ul>
-<li>clientHeight : 元素内容区高度加上上下内边距。<code>content + padding-top + padding-bottom</code></li>
-</ul>
-</blockquote>
-<p>client dismension 值也是<strong>只读</strong>的。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> clientWidth <span class="token operator">=</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientWidht<span class="token punctuation">;</span>
-<span class="token keyword">let</span> clientHeight <span class="token operator">=</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientHeight<span class="token punctuation">;</span>
-</code></pre>
-<h4 id="滚动大小（scroll-dismension）"><a href="#滚动大小（scroll-dismension）" class="headerlink" title="滚动大小（scroll dismension）"></a>滚动大小（<code>scroll dismension</code>）</h4><blockquote>
-<ul>
-<li><code>scrollTop</code> : 被隐藏在内容区域上方的高度。（上方被隐藏了多少）</li>
-<li><code>scrollLeft</code> : 被隐藏在内容区域左侧的宽度。（左侧被隐藏了多少）</li>
-<li><code>scrollWidth</code> : 在没有滚动的情况下，元素内容的总宽度。</li>
-<li><code>scrollHeight</code> : 在没有滚动的情况下，元素内容的总高度。</li>
-</ul>
-</blockquote>
-<ul>
-<li>带有垂直滚动条的页面总高度：<code>document.documentElement.scrollHeight</code></li>
-<li>带有水平滚动条的页面总宽度：<code>document.documentElement.scrollWidth</code></li>
-<li>通过scrollLeft和scrollTop既可以确定元素当前滚动的状态，也可以设置元素的滚动位置。</li>
-</ul>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 确定文档的总高度</span>
-<span class="token comment" spellcheck="true">//scrollHeight和clientHeight中的最大值</span>
-<span class="token keyword">let</span> docHeight <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>documnt<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>scrollHeight<span class="token punctuation">,</span> document<span class="token punctuation">.</span>documntElement<span class="token punctuation">.</span>clientHeight<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">// 确定文档的总宽度</span>
-<span class="token comment" spellcheck="true">//scrollWidth和clientWidth中的最大值</span>
-<span class="token keyword">let</span> docWidth <span class="token operator">=</span> Max<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>scrollWidth<span class="token punctuation">,</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientWidth<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-
+<li>用户滚动页面至图片位置时，img元素获取到真正的路径后，开始发送请求加载图片</li></ol>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2017/09/20/css-lazy-load-image/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -373,7 +276,7 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        30
+                        29
                     </p>
                 </div>
             </div>
@@ -383,7 +286,7 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        9
+                        18
                     </p>
                 </div>
             </div>
@@ -393,7 +296,7 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        19
+                        24
                     </p>
                 </div>
             </div>
@@ -504,7 +407,31 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                 <span class="level-item">CSS</span>
             </span>
             <span class="level-end">
+                <span class="level-item tag">9</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/CSS/SCSS/">
+            <span class="level-start">
+                <span class="level-item">SCSS</span>
+            </span>
+            <span class="level-end">
                 <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/CSS/SVG/">
+            <span class="level-start">
+                <span class="level-item">SVG</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Git/">
+            <span class="level-start">
+                <span class="level-item">Git</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Javascript/">
@@ -512,12 +439,60 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                 <span class="level-item">Javascript</span>
             </span>
             <span class="level-end">
+                <span class="level-item tag">10</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Javascript/canvas/">
+            <span class="level-start">
+                <span class="level-item">canvas</span>
+            </span>
+            <span class="level-end">
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/React-study/">
+        <a class="level is-marginless" href="/categories/Javascript/util/">
             <span class="level-start">
-                <span class="level-item">React study</span>
+                <span class="level-item">util</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Javascript/阿里字体/">
+            <span class="level-start">
+                <span class="level-item">阿里字体</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/MySQL/">
+            <span class="level-start">
+                <span class="level-item">MySQL</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/React/">
+            <span class="level-start">
+                <span class="level-item">React</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/React/study/">
+            <span class="level-start">
+                <span class="level-item">study</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Vue/">
+            <span class="level-start">
+                <span class="level-item">Vue</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">1</span>
@@ -539,9 +514,9 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/git/">
+        <a class="level is-marginless" href="/categories/webpack/">
             <span class="level-start">
-                <span class="level-item">git</span>
+                <span class="level-item">webpack</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">1</span>
@@ -574,7 +549,7 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 20px;">css</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
 </div>
 
@@ -602,7 +577,7 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-08-27T03:15:54.000Z">2018-08-27</time></div>
                     <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="has-link-black-ter is-size-6">webpack插件关于autoprefixer的冲突</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/webpack/">webpack</a>
                     </p>
                 </div>
             </div>
@@ -621,7 +596,7 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T07:02:33.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/URL操作处理/" class="has-link-black-ter is-size-6">URL操作处理</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -640,7 +615,7 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T07:01:25.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/localstroge本地缓存/" class="has-link-black-ter is-size-6">localstroge本地缓存</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -659,7 +634,7 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:58:34.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/时间处理/" class="has-link-black-ter is-size-6">时间处理</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -678,7 +653,7 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -768,7 +743,7 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                     <span class="level-item">九月 2017</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">11</span>
+                    <span class="level-item tag">10</span>
                 </span>
             </a>
         </li>
@@ -796,7 +771,7 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                 <div class="control">
                     <a class="tags has-addons" href="/tags/CSS/">
                         <span class="tag">CSS</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
@@ -815,8 +790,22 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/JS/">
+                        <span class="tag">JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Javascript/">
                         <span class="tag">Javascript</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/MySQL/">
+                        <span class="tag">MySQL</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -831,6 +820,13 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                 <div class="control">
                     <a class="tags has-addons" href="/tags/SVG/">
                         <span class="tag">SVG</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Vue/">
+                        <span class="tag">Vue</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -899,6 +895,13 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/util/">
+                        <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/图片/">
                         <span class="tag">图片</span>
                         <span class="tag is-grey">1</span>
@@ -908,6 +911,13 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                 <div class="control">
                     <a class="tags has-addons" href="/tags/懒加载，-原生JS/">
                         <span class="tag">懒加载， 原生JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/阿里字体/">
+                        <span class="tag">阿里字体</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -955,7 +965,7 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-08-27T03:15:54.000Z">2018-08-27</time></div>
                     <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="has-link-black-ter is-size-6">webpack插件关于autoprefixer的冲突</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/webpack/">webpack</a>
                     </p>
                 </div>
             </div>
@@ -974,7 +984,7 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T07:02:33.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/URL操作处理/" class="has-link-black-ter is-size-6">URL操作处理</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -993,7 +1003,7 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T07:01:25.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/localstroge本地缓存/" class="has-link-black-ter is-size-6">localstroge本地缓存</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -1012,7 +1022,7 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:58:34.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/时间处理/" class="has-link-black-ter is-size-6">时间处理</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -1031,7 +1041,7 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -1121,7 +1131,7 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                     <span class="level-item">九月 2017</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">11</span>
+                    <span class="level-item tag">10</span>
                 </span>
             </a>
         </li>
@@ -1149,7 +1159,7 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                 <div class="control">
                     <a class="tags has-addons" href="/tags/CSS/">
                         <span class="tag">CSS</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
@@ -1168,8 +1178,22 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/JS/">
+                        <span class="tag">JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Javascript/">
                         <span class="tag">Javascript</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/MySQL/">
+                        <span class="tag">MySQL</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1184,6 +1208,13 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                 <div class="control">
                     <a class="tags has-addons" href="/tags/SVG/">
                         <span class="tag">SVG</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Vue/">
+                        <span class="tag">Vue</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1252,6 +1283,13 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/util/">
+                        <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/图片/">
                         <span class="tag">图片</span>
                         <span class="tag is-grey">1</span>
@@ -1261,6 +1299,13 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
                 <div class="control">
                     <a class="tags has-addons" href="/tags/懒加载，-原生JS/">
                         <span class="tag">懒加载， 原生JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/阿里字体/">
+                        <span class="tag">阿里字体</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1289,7 +1334,7 @@ window<span class="token punctuation">.</span>onscroll <span class="token operat
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="http://cloud.xuww.wang/spider-man.jpg" alt="王小贱" height="28">
+                    Write the Code, Change the World!
                 
                 </a>
                 <p class="is-size-7">

@@ -115,7 +115,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="http://cloud.xuww.wang/spider-man.jpg" alt="王小贱" height="28">
+                Write the Code, Change the World!
             
             </a>
         </div>
@@ -179,11 +179,15 @@ var _hmt = _hmt || [];
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2017-09-25T08:42:20.000Z">2017-09-25</time>
                 
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
+                </div>
+                
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 268 个字)
+                    2 分钟 读完 (大约 269 个字)
                 </span>
                 
                 
@@ -197,72 +201,17 @@ var _hmt = _hmt || [];
         </h1>
         <div class="content">
             <p>Material Design设计按钮点击效果比较酷炫，每次点击按钮都会产生一次水波涟漪的效果。</p>
-<p>可以css和canvas来实现这种效果。</p>
-<h3 id="css实现"><a href="#css实现" class="headerlink" title="css实现"></a>css实现</h3><p>伪类（pseudo-class）和伪元素(peseudo-element)</p>
-<h4 id="伪类"><a href="#伪类" class="headerlink" title="伪类"></a>伪类</h4><blockquote>
-<ul>
-<li><code>:before</code></li>
-<li><code>:after</code></li>
-</ul>
-</blockquote>
-<h4 id="链接定义样式"><a href="#链接定义样式" class="headerlink" title="链接定义样式"></a>链接定义样式</h4><blockquote>
-<ul>
-<li><code>:hover</code> : 鼠标滑过元素上方时的展现效果</li>
-<li><code>:active</code> : 鼠标单击元素时展现效果</li>
-<li><code>:visited</code> : 已经单击过的链接</li>
-<li><code>:link</code> : 未访问、未滑过、未点击过的链接标签的样式</li>
-</ul>
-</blockquote>
-<h4 id="段落样式"><a href="#段落样式" class="headerlink" title="段落样式"></a>段落样式</h4><blockquote>
-<ul>
-<li><code>:first-letter</code> : 首字母</li>
-<li><code>:first-line</code> : 首行</li>
-</ul>
-</blockquote>
-<h4 id="设置元素"><a href="#设置元素" class="headerlink" title="设置元素"></a>设置元素</h4><blockquote>
-<p>button元素在没有点击或者鼠标滑过时设置按钮样式,同时设置hover和active的样式效果</p>
-</blockquote>
-<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.button</span> </span><span class="token punctuation">{</span>
-    <span class="token property">text-decoration</span><span class="token punctuation">:</span>none<span class="token punctuation">;</span>
-    <span class="token property">user-select</span><span class="token punctuation">:</span>none<span class="token punctuation">;</span>
-    <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
-    <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
-    <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">100</span>px auto<span class="token punctuation">;</span>
-    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">120</span>px<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span><span class="token number">50</span>px<span class="token punctuation">;</span>
-    <span class="token property">line-height</span><span class="token punctuation">:</span><span class="token number">50</span>px<span class="token punctuation">;</span>
-    <span class="token property">text-align</span><span class="token punctuation">:</span>center<span class="token punctuation">;</span>
-    <span class="token property">border-radius</span><span class="token punctuation">:</span><span class="token number">25</span>px<span class="token punctuation">;</span>
-    <span class="token property">border</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
-    <span class="token property">color</span><span class="token punctuation">:</span><span class="token hexcode">#fff</span><span class="token punctuation">;</span>
-    <span class="token property">font-size</span><span class="token punctuation">:</span><span class="token number">16</span>px<span class="token punctuation">;</span>
-    <span class="token property">cursor</span><span class="token punctuation">:</span>pointer<span class="token punctuation">;</span>
-    <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token hexcode">#ff8300</span><span class="token punctuation">;</span>
-    <span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token number">3</span>px <span class="token number">9</span>px <span class="token number">0</span> <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">255</span>, <span class="token number">131</span>, <span class="token number">0</span>, <span class="token number">0.35</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token selector"><span class="token class">.button</span><span class="token pseudo-class">:hover</span> </span><span class="token punctuation">{</span>
-    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translateY</span><span class="token punctuation">(</span>-<span class="token number">2</span>px<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token number">5</span>px <span class="token number">13</span>px <span class="token number">0</span> <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">255</span>, <span class="token number">131</span>, <span class="token number">0</span>, <span class="token number">0.59</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token selector"><span class="token class">.button</span><span class="token pseudo-class">:active</span> </span><span class="token punctuation">{</span>
-    <span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token number">3</span>px <span class="token number">9</span>px <span class="token number">0</span> <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">255</span>, <span class="token number">131</span>, <span class="token number">0</span>, <span class="token number">0.35</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#ffca8c</span><span class="token punctuation">;</span>
-    <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token hexcode">#f07b00</span><span class="token punctuation">;</span>
-    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translateY</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<script async src="//jsfiddle.net/wangyutao/3vseL19b/2/embed/html,css,result/"></script>
-
-<blockquote>
-<p>添加水波效果</p>
-</blockquote>
-<p><strong> 参考 </strong><br><img src="http://cloud.xuww.wang/click-button.png" alt></p>
-
+<p>可以css和canvas来实现这种效果。<br></p>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2017/09/25/css-button-click/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -318,7 +267,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        30
+                        29
                     </p>
                 </div>
             </div>
@@ -328,7 +277,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        9
+                        18
                     </p>
                 </div>
             </div>
@@ -338,7 +287,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        19
+                        24
                     </p>
                 </div>
             </div>
@@ -449,7 +398,31 @@ var _hmt = _hmt || [];
                 <span class="level-item">CSS</span>
             </span>
             <span class="level-end">
+                <span class="level-item tag">9</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/CSS/SCSS/">
+            <span class="level-start">
+                <span class="level-item">SCSS</span>
+            </span>
+            <span class="level-end">
                 <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/CSS/SVG/">
+            <span class="level-start">
+                <span class="level-item">SVG</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Git/">
+            <span class="level-start">
+                <span class="level-item">Git</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Javascript/">
@@ -457,12 +430,60 @@ var _hmt = _hmt || [];
                 <span class="level-item">Javascript</span>
             </span>
             <span class="level-end">
+                <span class="level-item tag">10</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Javascript/canvas/">
+            <span class="level-start">
+                <span class="level-item">canvas</span>
+            </span>
+            <span class="level-end">
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/React-study/">
+        <a class="level is-marginless" href="/categories/Javascript/util/">
             <span class="level-start">
-                <span class="level-item">React study</span>
+                <span class="level-item">util</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Javascript/阿里字体/">
+            <span class="level-start">
+                <span class="level-item">阿里字体</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/MySQL/">
+            <span class="level-start">
+                <span class="level-item">MySQL</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/React/">
+            <span class="level-start">
+                <span class="level-item">React</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/React/study/">
+            <span class="level-start">
+                <span class="level-item">study</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Vue/">
+            <span class="level-start">
+                <span class="level-item">Vue</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">1</span>
@@ -484,9 +505,9 @@ var _hmt = _hmt || [];
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/git/">
+        <a class="level is-marginless" href="/categories/webpack/">
             <span class="level-start">
-                <span class="level-item">git</span>
+                <span class="level-item">webpack</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">1</span>
@@ -519,7 +540,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 20px;">css</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
 </div>
 
@@ -547,7 +568,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-08-27T03:15:54.000Z">2018-08-27</time></div>
                     <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="has-link-black-ter is-size-6">webpack插件关于autoprefixer的冲突</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/webpack/">webpack</a>
                     </p>
                 </div>
             </div>
@@ -566,7 +587,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T07:02:33.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/URL操作处理/" class="has-link-black-ter is-size-6">URL操作处理</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -585,7 +606,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T07:01:25.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/localstroge本地缓存/" class="has-link-black-ter is-size-6">localstroge本地缓存</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -604,7 +625,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:58:34.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/时间处理/" class="has-link-black-ter is-size-6">时间处理</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -623,7 +644,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -713,7 +734,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">九月 2017</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">11</span>
+                    <span class="level-item tag">10</span>
                 </span>
             </a>
         </li>
@@ -741,7 +762,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/CSS/">
                         <span class="tag">CSS</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
@@ -760,8 +781,22 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/JS/">
+                        <span class="tag">JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Javascript/">
                         <span class="tag">Javascript</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/MySQL/">
+                        <span class="tag">MySQL</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -776,6 +811,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/SVG/">
                         <span class="tag">SVG</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Vue/">
+                        <span class="tag">Vue</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -844,6 +886,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/util/">
+                        <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/图片/">
                         <span class="tag">图片</span>
                         <span class="tag is-grey">1</span>
@@ -853,6 +902,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/懒加载，-原生JS/">
                         <span class="tag">懒加载， 原生JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/阿里字体/">
+                        <span class="tag">阿里字体</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -900,7 +956,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-08-27T03:15:54.000Z">2018-08-27</time></div>
                     <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="has-link-black-ter is-size-6">webpack插件关于autoprefixer的冲突</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/webpack/">webpack</a>
                     </p>
                 </div>
             </div>
@@ -919,7 +975,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T07:02:33.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/URL操作处理/" class="has-link-black-ter is-size-6">URL操作处理</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -938,7 +994,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T07:01:25.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/localstroge本地缓存/" class="has-link-black-ter is-size-6">localstroge本地缓存</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -957,7 +1013,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:58:34.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/时间处理/" class="has-link-black-ter is-size-6">时间处理</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -976,7 +1032,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -1066,7 +1122,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">九月 2017</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">11</span>
+                    <span class="level-item tag">10</span>
                 </span>
             </a>
         </li>
@@ -1094,7 +1150,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/CSS/">
                         <span class="tag">CSS</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
@@ -1113,8 +1169,22 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/JS/">
+                        <span class="tag">JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Javascript/">
                         <span class="tag">Javascript</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/MySQL/">
+                        <span class="tag">MySQL</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1129,6 +1199,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/SVG/">
                         <span class="tag">SVG</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Vue/">
+                        <span class="tag">Vue</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1197,6 +1274,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/util/">
+                        <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/图片/">
                         <span class="tag">图片</span>
                         <span class="tag is-grey">1</span>
@@ -1206,6 +1290,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/懒加载，-原生JS/">
                         <span class="tag">懒加载， 原生JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/阿里字体/">
+                        <span class="tag">阿里字体</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1234,7 +1325,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="http://cloud.xuww.wang/spider-man.jpg" alt="王小贱" height="28">
+                    Write the Code, Change the World!
                 
                 </a>
                 <p class="is-size-7">

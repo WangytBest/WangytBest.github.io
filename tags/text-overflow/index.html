@@ -115,7 +115,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="http://cloud.xuww.wang/spider-man.jpg" alt="王小贱" height="28">
+                Write the Code, Change the World!
             
             </a>
         </div>
@@ -179,11 +179,15 @@ var _hmt = _hmt || [];
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2017-10-19T02:39:12.000Z">2017-10-19</time>
                 
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
+                </div>
+                
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    4 分钟 读完 (大约 548 个字)
+                    4 分钟 读完 (大约 549 个字)
                 </span>
                 
                 
@@ -196,69 +200,17 @@ var _hmt = _hmt || [];
             
         </h1>
         <div class="content">
-            <p>css控制文字内容的溢出显示，溢出截断后末尾出现省略<code>...</code>，单行文本与多行文本的控制又有区别。</p>
-<p><strong>单行文本</strong></p>
-<pre class=" language-css"><code class="language-css"><span class="token property">overfolw</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> ellipsis<span class="token punctuation">;</span>
-<span class="token property">white-space</span><span class="token punctuation">:</span> nowrap<span class="token punctuation">;</span>
-</code></pre>
-<p><strong>多行文本</strong></p>
-<pre class=" language-css"><code class="language-css"><span class="token property">display</span><span class="token punctuation">:</span>-webkit-box<span class="token punctuation">;</span>
-<span class="token property">-webkit-line-clamp</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token property">-webkit-box-orient</span><span class="token punctuation">:</span> vertical<span class="token punctuation">;</span>
-<span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
-</code></pre>
-<p><strong>知识点</strong></p>
-<p><code>text-overflow</code> 确定内容的溢出显示，可以被剪切(<code>clip</code>)、显示一个省略号（<code>...</code>）或者显示一个自定义字符串。</p>
-<blockquote>
-<ul>
-<li>需要设置<code>overflow: hidden</code>属性才能生效，否则不会强制溢出事件发生。</li>
-<li>属性只对<strong>块级元素</strong>溢出的内容有效，但必须与块级元素内联（<code>inline</code>）方向一致。如内容在盒子下方溢出，则属性不会生效。</li>
-<li>文本溢出：1、文本无法换行，设置了<code>white-space: nowrap;</code>。2、单词太长。 </li>
-</ul>
-</blockquote>
-<pre class=" language-css"><code class="language-css"><span class="token selector">text-overflow: <span class="token attribute">[ clip | ellipise | &lt;string> ]</span></span><span class="token punctuation">{</span><span class="token number">1</span>, <span class="token number">2</span><span class="token punctuation">}</span>
-</code></pre>
-<blockquote>
-<ol>
-<li><code>clip</code>: 内容区域的极限处截断文本，因此可能在字符的中间可能会发生截断。<strong>为了能够在两个字符过度处截断，必须使用一个空字符串值（<code></code>）</strong>。</li>
-<li><code>ellipse</code>: 用省略号<code>...</code>来表示截断的文本。如果空间太小连省略号也不能显示，那么省略号也会被截断。</li>
-<li><code>&lt;string&gt;</code>: <code>&lt;string&gt;</code>用来表示被截断的文本。字符串内容将被添加在内容区域中，所以会减少显示出的文本。如果空间太小到连省略号的容纳下，那么这个字符串也会被截断。</li>
-</ol>
-</blockquote>
-<pre class=" language-css"><code class="language-css"><span class="token comment" spellcheck="true">/* Overflow behavior at line end
-Right end if ltr, left end if rtl */</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> clip<span class="token punctuation">;</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> ellipsis<span class="token punctuation">;</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> <span class="token string">"…"</span><span class="token punctuation">;</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> fade<span class="token punctuation">;</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> <span class="token function">fade</span><span class="token punctuation">(</span><span class="token number">10</span>px<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> <span class="token function">fade</span><span class="token punctuation">(</span><span class="token number">5%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">/* Overflow behavior at left end | at right end
-Directionality has no influence */</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> clip ellipsis<span class="token punctuation">;</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> <span class="token string">"…"</span> <span class="token string">"…"</span><span class="token punctuation">;</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> fade clip<span class="token punctuation">;</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> <span class="token function">fade</span><span class="token punctuation">(</span><span class="token number">10</span>px<span class="token punctuation">)</span> <span class="token function">fade</span><span class="token punctuation">(</span><span class="token number">10</span>px<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> <span class="token function">fade</span><span class="token punctuation">(</span><span class="token number">5%</span><span class="token punctuation">)</span> <span class="token function">fade</span><span class="token punctuation">(</span><span class="token number">5%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">/* Global values */</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> inherit<span class="token punctuation">;</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> initial<span class="token punctuation">;</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> unset<span class="token punctuation">;</span>
-</code></pre>
-<style type="text/css">
-    div br{
-        display: none;
-    }
-</style>
-
-<div><br>    <table><br>        <thead><br>            <tr><br>                <th colspan="1" rowspan="2" scope="col">CSS value</th><br>                <th colspan="2" rowspan="1" scope="col"><code>direction: ltr</code></th><br>                <th colspan="2" rowspan="1" scope="col"><code>direction: rtl</code></th><br>            </tr><br>            <tr><br>                <th scope="col">Expected Result</th><br>                <th scope="col">Live result</th><br>                <th scope="col">Expected Result</th><br>                <th scope="col">Live result</th><br>            </tr><br>        </thead><br>        <tbody><br>            <tr><br>                <td><em>visible overflow</em></td><br>                <td>1234567890</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>                <td>0987654321</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>            </tr><br>            <tr><br>                <td><code>text-overflow: clip</code></td><br>                <td><img src="https://developer.mozilla.org/@api/deki/files/6056/=t-o_clip.png" alt="t-o_clip.png"></td><br>                <td><br>                    <p>123456</p><br>                </td><br>                <td><img src="https://developer.mozilla.org/@api/deki/files/6057/=t-o_clip_rtl.png" alt="t-o_clip_rtl.png"></td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>            </tr><br>            <tr><br>                <td><code>text-overflow: ‘’</code></td><br>                <td>12345</td><br>                <td><br>                    <p>123456</p><br>                </td><br>                <td>54321</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>            </tr><br>            <tr><br>                <td><code>text-overflow: ellipsis</code></td><br>                <td>1234…</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>                <td>…4321</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>            </tr><br>            <tr><br>                <td><code>text-overflow: ‘.’</code></td><br>                <td>1234.</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>                <td>.4321</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>            </tr><br>            <tr><br>                <td><code>text-overflow: clip clip</code></td><br>                <td>123456</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>                <td>654321</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>            </tr><br>            <tr><br>                <td><code>text-overflow: clip ellipsis</code></td><br>                <td>1234…</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>                <td>6543…</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>            </tr><br>            <tr><br>                <td><code>text-overflow: clip ‘.’</code></td><br>                <td>1234.</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>                <td>6543.</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>            </tr><br>            <tr><br>                <td><code>text-overflow: ellipsis clip</code></td><br>                <td>…3456</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>                <td>…4321</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>            </tr><br>            <tr><br>                <td><code>text-overflow: ellipsis ellipsis</code></td><br>                <td>…34…</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>                <td>…43…</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>            </tr><br>            <tr><br>                <td><code>text-overflow: ellipsis ‘.’</code></td><br>                <td>…34.</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>                <td>…43.</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>            </tr><br>            <tr><br>                <td><code>text-overflow: ‘,’ clip</code></td><br>                <td>,3456</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>                <td>,4321</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>            </tr><br>            <tr><br>                <td><code>text-overflow: ‘,’ ellipsis</code></td><br>                <td>,34…</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>                <td>,43…</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>            </tr><br>            <tr><br>                <td><code>text-overflow: ‘,’ ‘.’</code></td><br>                <td>,34.</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>                <td>,53.</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>            </tr><br>        </tbody><br>    </table><br></div>
-
-
+            <p>css控制文字内容的溢出显示，溢出截断后末尾出现省略<code>...</code>，单行文本与多行文本的控制又有区别。<br></p>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2017/10/19/css-text-overflow/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -314,7 +266,7 @@ Directionality has no influence */</span>
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        30
+                        29
                     </p>
                 </div>
             </div>
@@ -324,7 +276,7 @@ Directionality has no influence */</span>
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        9
+                        18
                     </p>
                 </div>
             </div>
@@ -334,7 +286,7 @@ Directionality has no influence */</span>
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        19
+                        24
                     </p>
                 </div>
             </div>
@@ -445,7 +397,31 @@ Directionality has no influence */</span>
                 <span class="level-item">CSS</span>
             </span>
             <span class="level-end">
+                <span class="level-item tag">9</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/CSS/SCSS/">
+            <span class="level-start">
+                <span class="level-item">SCSS</span>
+            </span>
+            <span class="level-end">
                 <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/CSS/SVG/">
+            <span class="level-start">
+                <span class="level-item">SVG</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Git/">
+            <span class="level-start">
+                <span class="level-item">Git</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Javascript/">
@@ -453,12 +429,60 @@ Directionality has no influence */</span>
                 <span class="level-item">Javascript</span>
             </span>
             <span class="level-end">
+                <span class="level-item tag">10</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Javascript/canvas/">
+            <span class="level-start">
+                <span class="level-item">canvas</span>
+            </span>
+            <span class="level-end">
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/React-study/">
+        <a class="level is-marginless" href="/categories/Javascript/util/">
             <span class="level-start">
-                <span class="level-item">React study</span>
+                <span class="level-item">util</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Javascript/阿里字体/">
+            <span class="level-start">
+                <span class="level-item">阿里字体</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/MySQL/">
+            <span class="level-start">
+                <span class="level-item">MySQL</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/React/">
+            <span class="level-start">
+                <span class="level-item">React</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/React/study/">
+            <span class="level-start">
+                <span class="level-item">study</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Vue/">
+            <span class="level-start">
+                <span class="level-item">Vue</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">1</span>
@@ -480,9 +504,9 @@ Directionality has no influence */</span>
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/git/">
+        <a class="level is-marginless" href="/categories/webpack/">
             <span class="level-start">
-                <span class="level-item">git</span>
+                <span class="level-item">webpack</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">1</span>
@@ -515,7 +539,7 @@ Directionality has no influence */</span>
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 20px;">css</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
 </div>
 
@@ -543,7 +567,7 @@ Directionality has no influence */</span>
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-08-27T03:15:54.000Z">2018-08-27</time></div>
                     <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="has-link-black-ter is-size-6">webpack插件关于autoprefixer的冲突</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/webpack/">webpack</a>
                     </p>
                 </div>
             </div>
@@ -562,7 +586,7 @@ Directionality has no influence */</span>
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T07:02:33.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/URL操作处理/" class="has-link-black-ter is-size-6">URL操作处理</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -581,7 +605,7 @@ Directionality has no influence */</span>
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T07:01:25.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/localstroge本地缓存/" class="has-link-black-ter is-size-6">localstroge本地缓存</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -600,7 +624,7 @@ Directionality has no influence */</span>
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:58:34.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/时间处理/" class="has-link-black-ter is-size-6">时间处理</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -619,7 +643,7 @@ Directionality has no influence */</span>
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -709,7 +733,7 @@ Directionality has no influence */</span>
                     <span class="level-item">九月 2017</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">11</span>
+                    <span class="level-item tag">10</span>
                 </span>
             </a>
         </li>
@@ -737,7 +761,7 @@ Directionality has no influence */</span>
                 <div class="control">
                     <a class="tags has-addons" href="/tags/CSS/">
                         <span class="tag">CSS</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
@@ -756,8 +780,22 @@ Directionality has no influence */</span>
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/JS/">
+                        <span class="tag">JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Javascript/">
                         <span class="tag">Javascript</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/MySQL/">
+                        <span class="tag">MySQL</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -772,6 +810,13 @@ Directionality has no influence */</span>
                 <div class="control">
                     <a class="tags has-addons" href="/tags/SVG/">
                         <span class="tag">SVG</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Vue/">
+                        <span class="tag">Vue</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -840,6 +885,13 @@ Directionality has no influence */</span>
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/util/">
+                        <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/图片/">
                         <span class="tag">图片</span>
                         <span class="tag is-grey">1</span>
@@ -849,6 +901,13 @@ Directionality has no influence */</span>
                 <div class="control">
                     <a class="tags has-addons" href="/tags/懒加载，-原生JS/">
                         <span class="tag">懒加载， 原生JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/阿里字体/">
+                        <span class="tag">阿里字体</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -896,7 +955,7 @@ Directionality has no influence */</span>
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-08-27T03:15:54.000Z">2018-08-27</time></div>
                     <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="has-link-black-ter is-size-6">webpack插件关于autoprefixer的冲突</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/webpack/">webpack</a>
                     </p>
                 </div>
             </div>
@@ -915,7 +974,7 @@ Directionality has no influence */</span>
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T07:02:33.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/URL操作处理/" class="has-link-black-ter is-size-6">URL操作处理</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -934,7 +993,7 @@ Directionality has no influence */</span>
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T07:01:25.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/localstroge本地缓存/" class="has-link-black-ter is-size-6">localstroge本地缓存</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -953,7 +1012,7 @@ Directionality has no influence */</span>
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:58:34.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/时间处理/" class="has-link-black-ter is-size-6">时间处理</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -972,7 +1031,7 @@ Directionality has no influence */</span>
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -1062,7 +1121,7 @@ Directionality has no influence */</span>
                     <span class="level-item">九月 2017</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">11</span>
+                    <span class="level-item tag">10</span>
                 </span>
             </a>
         </li>
@@ -1090,7 +1149,7 @@ Directionality has no influence */</span>
                 <div class="control">
                     <a class="tags has-addons" href="/tags/CSS/">
                         <span class="tag">CSS</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
@@ -1109,8 +1168,22 @@ Directionality has no influence */</span>
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/JS/">
+                        <span class="tag">JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Javascript/">
                         <span class="tag">Javascript</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/MySQL/">
+                        <span class="tag">MySQL</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1125,6 +1198,13 @@ Directionality has no influence */</span>
                 <div class="control">
                     <a class="tags has-addons" href="/tags/SVG/">
                         <span class="tag">SVG</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Vue/">
+                        <span class="tag">Vue</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1193,6 +1273,13 @@ Directionality has no influence */</span>
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/util/">
+                        <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/图片/">
                         <span class="tag">图片</span>
                         <span class="tag is-grey">1</span>
@@ -1202,6 +1289,13 @@ Directionality has no influence */</span>
                 <div class="control">
                     <a class="tags has-addons" href="/tags/懒加载，-原生JS/">
                         <span class="tag">懒加载， 原生JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/阿里字体/">
+                        <span class="tag">阿里字体</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1230,7 +1324,7 @@ Directionality has no influence */</span>
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="http://cloud.xuww.wang/spider-man.jpg" alt="王小贱" height="28">
+                    Write the Code, Change the World!
                 
                 </a>
                 <p class="is-size-7">

@@ -8,6 +8,7 @@
 
 
     <meta name="description" content="keep-alive使用&amp;lt;keep-alive&amp;gt;包裹动态的组件，会缓存不活动的组件实例，而不是销毁他们。&amp;lt;keep-alive&amp;gt;是一个抽象的组件，他自身不会渲染一个DOM元素，也不会出现在父组件链中。当组件在&amp;lt;keep-alive&amp;gt;组件内被切换，它的actived和deactived这两个生命周期钩子函数将会被对应执行。  Vue2.2.0及以上版本，activ">
+<meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue中keep-alive">
 <meta property="og:url" content="http://wangytbest.github.io/2018/04/03/vue中keep-alive/index.html">
@@ -15,7 +16,7 @@
 <meta property="og:description" content="keep-alive使用&amp;lt;keep-alive&amp;gt;包裹动态的组件，会缓存不活动的组件实例，而不是销毁他们。&amp;lt;keep-alive&amp;gt;是一个抽象的组件，他自身不会渲染一个DOM元素，也不会出现在父组件链中。当组件在&amp;lt;keep-alive&amp;gt;组件内被切换，它的actived和deactived这两个生命周期钩子函数将会被对应执行。  Vue2.2.0及以上版本，activ">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wangytbest.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-04-09T05:57:10.578Z">
+<meta property="og:updated_time" content="2019-04-09T06:59:26.625Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue中keep-alive">
 <meta name="twitter:description" content="keep-alive使用&amp;lt;keep-alive&amp;gt;包裹动态的组件，会缓存不活动的组件实例，而不是销毁他们。&amp;lt;keep-alive&amp;gt;是一个抽象的组件，他自身不会渲染一个DOM元素，也不会出现在父组件链中。当组件在&amp;lt;keep-alive&amp;gt;组件内被切换，它的actived和deactived这两个生命周期钩子函数将会被对应执行。  Vue2.2.0及以上版本，activ">
@@ -116,7 +117,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="http://cloud.xuww.wang/spider-man.jpg" alt="vue中keep-alive" height="28">
+                Write the Code, Change the World!
             
             </a>
         </div>
@@ -148,6 +149,10 @@ var _hmt = _hmt || [];
                     
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -169,11 +174,15 @@ var _hmt = _hmt || [];
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2018-04-03T12:07:54.000Z">2018-04-03</time>
                 
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Vue/">Vue</a>
+                </div>
+                
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    5 分钟 读完 (大约 680 个字)
+                    5 分钟 读完 (大约 681 个字)
                 </span>
                 
                 
@@ -195,6 +204,7 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>Vue2.2.0及以上版本，<code>activated</code> 和 <code>deactivated</code> 将会在 <code>&lt;keep-alive&gt;</code> 树内的所有嵌套组件中触发。<br><strong>主要用于保留组件状态或避免重新渲染。</strong></p>
 </blockquote>
+<a id="more"></a>
 <p>当引入<code>&lt;keep-alive&gt;</code>的时候，页面第一次进入，钩子的触发顺序<code>created</code> -&gt; <code>mounted</code> -&gt; <code>activated</code>，退出时触发<code>deactivated</code>。当再次进入（前进或者后退）时，只触发<code>activated</code>。</p>
 <p><code>&lt;keep-alive&gt;</code>之后页面模板第一次初始化解析变成HTML片段后，再次进入就不在重新解析而是读取内存中的数据，即，只有当数据变化时，才使用VirtualDOM进行diff更新。故，页面进入的数据获取应该在<code>activated</code>中也放一份。数据下载完毕手动操作DOM的部分也应该在<code>activated</code>中执行才会生效。</p>
 <p>所以，应该<code>activated</code>中留一份数据获取的代码，或者不要<code>created</code>部分，直接将<code>created</code>中的代码转移到<code>activated</code>中。</p>
@@ -282,6 +292,15 @@ var _hmt = _hmt || [];
 </code></pre>
 <p>部分转载<a href="https://blog.csdn.net/zgrkaka/article/details/73480947?locationNum=1&amp;fps=1" target="_blank" rel="noopener">vue-router 之 keep-alive</a></p>
 
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Vue/">Vue</a>
+                </div>
+            </div>
         </div>
         
         
@@ -410,7 +429,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        30
+                        29
                     </p>
                 </div>
             </div>
@@ -420,7 +439,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        9
+                        18
                     </p>
                 </div>
             </div>
@@ -430,7 +449,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        19
+                        24
                     </p>
                 </div>
             </div>
@@ -479,6 +498,33 @@ var _hmt = _hmt || [];
 </div>
     
         
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#keep-alive使用">
+        <span class="has-mr-6">1</span>
+        <span>keep-alive使用</span>
+        </a></li><li>
+        <a class="is-flex" href="#include-和-exclude">
+        <span class="has-mr-6">2</span>
+        <span>include 和 exclude</span>
+        </a></li><li>
+        <a class="is-flex" href="#actived-和-deactived">
+        <span class="has-mr-6">3</span>
+        <span>actived 和 deactived</span>
+        </a></li><li>
+        <a class="is-flex" href="#应用">
+        <span class="has-mr-6">4</span>
+        <span>应用</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
     
         
 
@@ -541,7 +587,31 @@ var _hmt = _hmt || [];
                 <span class="level-item">CSS</span>
             </span>
             <span class="level-end">
+                <span class="level-item tag">9</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/CSS/SCSS/">
+            <span class="level-start">
+                <span class="level-item">SCSS</span>
+            </span>
+            <span class="level-end">
                 <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/CSS/SVG/">
+            <span class="level-start">
+                <span class="level-item">SVG</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Git/">
+            <span class="level-start">
+                <span class="level-item">Git</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Javascript/">
@@ -549,12 +619,60 @@ var _hmt = _hmt || [];
                 <span class="level-item">Javascript</span>
             </span>
             <span class="level-end">
+                <span class="level-item tag">10</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Javascript/canvas/">
+            <span class="level-start">
+                <span class="level-item">canvas</span>
+            </span>
+            <span class="level-end">
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/React-study/">
+        <a class="level is-marginless" href="/categories/Javascript/util/">
             <span class="level-start">
-                <span class="level-item">React study</span>
+                <span class="level-item">util</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Javascript/阿里字体/">
+            <span class="level-start">
+                <span class="level-item">阿里字体</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/MySQL/">
+            <span class="level-start">
+                <span class="level-item">MySQL</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/React/">
+            <span class="level-start">
+                <span class="level-item">React</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/React/study/">
+            <span class="level-start">
+                <span class="level-item">study</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Vue/">
+            <span class="level-start">
+                <span class="level-item">Vue</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">1</span>
@@ -576,9 +694,9 @@ var _hmt = _hmt || [];
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/git/">
+        <a class="level is-marginless" href="/categories/webpack/">
             <span class="level-start">
-                <span class="level-item">git</span>
+                <span class="level-item">webpack</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">1</span>
@@ -611,7 +729,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 20px;">css</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
 </div>
 
@@ -639,7 +757,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-08-27T03:15:54.000Z">2018-08-27</time></div>
                     <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="has-link-black-ter is-size-6">webpack插件关于autoprefixer的冲突</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/webpack/">webpack</a>
                     </p>
                 </div>
             </div>
@@ -658,7 +776,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T07:02:33.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/URL操作处理/" class="has-link-black-ter is-size-6">URL操作处理</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -677,7 +795,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T07:01:25.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/localstroge本地缓存/" class="has-link-black-ter is-size-6">localstroge本地缓存</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -696,7 +814,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:58:34.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/时间处理/" class="has-link-black-ter is-size-6">时间处理</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -715,7 +833,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -805,7 +923,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">九月 2017</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">11</span>
+                    <span class="level-item tag">10</span>
                 </span>
             </a>
         </li>
@@ -833,7 +951,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/CSS/">
                         <span class="tag">CSS</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
@@ -852,8 +970,22 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/JS/">
+                        <span class="tag">JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Javascript/">
                         <span class="tag">Javascript</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/MySQL/">
+                        <span class="tag">MySQL</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -868,6 +1000,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/SVG/">
                         <span class="tag">SVG</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Vue/">
+                        <span class="tag">Vue</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -936,6 +1075,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/util/">
+                        <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/图片/">
                         <span class="tag">图片</span>
                         <span class="tag is-grey">1</span>
@@ -945,6 +1091,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/懒加载，-原生JS/">
                         <span class="tag">懒加载， 原生JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/阿里字体/">
+                        <span class="tag">阿里字体</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -992,7 +1145,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-08-27T03:15:54.000Z">2018-08-27</time></div>
                     <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="has-link-black-ter is-size-6">webpack插件关于autoprefixer的冲突</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/webpack/">webpack</a>
                     </p>
                 </div>
             </div>
@@ -1011,7 +1164,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T07:02:33.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/URL操作处理/" class="has-link-black-ter is-size-6">URL操作处理</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -1030,7 +1183,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T07:01:25.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/localstroge本地缓存/" class="has-link-black-ter is-size-6">localstroge本地缓存</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -1049,7 +1202,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:58:34.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/时间处理/" class="has-link-black-ter is-size-6">时间处理</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -1068,7 +1221,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -1158,7 +1311,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">九月 2017</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">11</span>
+                    <span class="level-item tag">10</span>
                 </span>
             </a>
         </li>
@@ -1186,7 +1339,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/CSS/">
                         <span class="tag">CSS</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
@@ -1205,8 +1358,22 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/JS/">
+                        <span class="tag">JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Javascript/">
                         <span class="tag">Javascript</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/MySQL/">
+                        <span class="tag">MySQL</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1221,6 +1388,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/SVG/">
                         <span class="tag">SVG</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Vue/">
+                        <span class="tag">Vue</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1289,6 +1463,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/util/">
+                        <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/图片/">
                         <span class="tag">图片</span>
                         <span class="tag is-grey">1</span>
@@ -1298,6 +1479,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/懒加载，-原生JS/">
                         <span class="tag">懒加载， 原生JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/阿里字体/">
+                        <span class="tag">阿里字体</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1326,7 +1514,7 @@ var _hmt = _hmt || [];
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="http://cloud.xuww.wang/spider-man.jpg" alt="vue中keep-alive" height="28">
+                    Write the Code, Change the World!
                 
                 </a>
                 <p class="is-size-7">

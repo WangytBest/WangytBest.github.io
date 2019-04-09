@@ -115,7 +115,7 @@ var _hmt = _hmt || [];
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="http://cloud.xuww.wang/spider-man.jpg" alt="王小贱" height="28">
+                Write the Code, Change the World!
             
             </a>
         </div>
@@ -169,11 +169,15 @@ var _hmt = _hmt || [];
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2018-04-03T12:39:08.000Z">2018-04-03</time>
                 
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/CSS/SCSS/">SCSS</a>
+                </div>
+                
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    1 分钟 读完 (大约 185 个字)
+                    1 分钟 读完 (大约 186 个字)
                 </span>
                 
                 
@@ -187,33 +191,25 @@ var _hmt = _hmt || [];
         </h1>
         <div class="content">
             <h2 id="css功能拓展"><a href="#css功能拓展" class="headerlink" title="css功能拓展"></a>css功能拓展</h2><h3 id="嵌套（Nested-Rules）"><a href="#嵌套（Nested-Rules）" class="headerlink" title="嵌套（Nested Rules）"></a>嵌套（Nested Rules）</h3><p>sass允许将css样式嵌套进另一套样式中，内层的样式将他的外层的选择器作为父选择器。</p>
-<h3 id="父选择器-amp-Referencing-Parent-Selectors-amp"><a href="#父选择器-amp-Referencing-Parent-Selectors-amp" class="headerlink" title="父选择器 &amp; (Referencing Parent Selectors: &amp;)"></a>父选择器 &amp; (Referencing Parent Selectors: &amp;)</h3><h3 id="属性嵌套-Nested-Properties"><a href="#属性嵌套-Nested-Properties" class="headerlink" title="属性嵌套 (Nested Properties)"></a>属性嵌套 (Nested Properties)</h3><pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.funky</span> </span><span class="token punctuation">{</span>
-  <span class="token selector">font: </span><span class="token punctuation">{</span>
-    <span class="token property">family</span><span class="token punctuation">:</span> fantasy<span class="token punctuation">;</span>
-    <span class="token property">size</span><span class="token punctuation">:</span> <span class="token number">30</span>em<span class="token punctuation">;</span>
-    <span class="token property">weight</span><span class="token punctuation">:</span> bold<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+<h3 id="父选择器-amp-Referencing-Parent-Selectors-amp"><a href="#父选择器-amp-Referencing-Parent-Selectors-amp" class="headerlink" title="父选择器 &amp; (Referencing Parent Selectors: &amp;)"></a>父选择器 &amp; (Referencing Parent Selectors: &amp;)</h3><h3 id="属性嵌套-Nested-Properties"><a href="#属性嵌套-Nested-Properties" class="headerlink" title="属性嵌套 (Nested Properties)"></a>属性嵌套 (Nested Properties)</h3><pre><code class="css">.funky {
+  font: {
+    family: fantasy;
+    size: 30em;
+    weight: bold;
+  }
+}
 </code></pre>
-<h3 id="占位符选择器-foo-Placeholder-Selectors-foo"><a href="#占位符选择器-foo-Placeholder-Selectors-foo" class="headerlink" title="占位符选择器 %foo (Placeholder Selectors: %foo)"></a>占位符选择器 %foo (Placeholder Selectors: %foo)</h3><h2 id="SassScript"><a href="#SassScript" class="headerlink" title="SassScript"></a>SassScript</h2><h3 id="变量-Variables"><a href="#变量-Variables" class="headerlink" title="变量 $ (Variables: $)"></a>变量 $ (Variables: $)</h3><pre class=" language-css"><code class="language-css"><span class="token selector">$width: 5em;
-
-<span class="token id">#main</span> </span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span> $width<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>变量支持块级作用域，嵌套规则内定义的变量只能在嵌套规则内使用（局部变量），不在嵌套规则内定义的变量则可在任何地方使用（全局变量）。将局部变量转换为全局变量可以添加 <code>!global</code> 声明</p>
-<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token id">#main</span> </span><span class="token punctuation">{</span>
-    $<span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">5</span>em !global<span class="token punctuation">;</span>
-    <span class="token property">width</span><span class="token punctuation">:</span> $width<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token selector"><span class="token id">#sidebar</span> </span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span> $width<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-
+<h3 id="占位符选择器-foo-Placeholder-Selectors-foo"><a href="#占位符选择器-foo-Placeholder-Selectors-foo" class="headerlink" title="占位符选择器 %foo (Placeholder Selectors: %foo)"></a>占位符选择器 %foo (Placeholder Selectors: %foo)</h3>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2018/04/03/sass基础入门/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -234,11 +230,15 @@ var _hmt = _hmt || [];
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2018-04-03T12:07:54.000Z">2018-04-03</time>
                 
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Vue/">Vue</a>
+                </div>
+                
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    5 分钟 读完 (大约 680 个字)
+                    5 分钟 读完 (大约 681 个字)
                 </span>
                 
                 
@@ -255,95 +255,16 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>Vue2.2.0及以上版本，<code>activated</code> 和 <code>deactivated</code> 将会在 <code>&lt;keep-alive&gt;</code> 树内的所有嵌套组件中触发。<br><strong>主要用于保留组件状态或避免重新渲染。</strong></p>
 </blockquote>
-<p>当引入<code>&lt;keep-alive&gt;</code>的时候，页面第一次进入，钩子的触发顺序<code>created</code> -&gt; <code>mounted</code> -&gt; <code>activated</code>，退出时触发<code>deactivated</code>。当再次进入（前进或者后退）时，只触发<code>activated</code>。</p>
-<p><code>&lt;keep-alive&gt;</code>之后页面模板第一次初始化解析变成HTML片段后，再次进入就不在重新解析而是读取内存中的数据，即，只有当数据变化时，才使用VirtualDOM进行diff更新。故，页面进入的数据获取应该在<code>activated</code>中也放一份。数据下载完毕手动操作DOM的部分也应该在<code>activated</code>中执行才会生效。</p>
-<p>所以，应该<code>activated</code>中留一份数据获取的代码，或者不要<code>created</code>部分，直接将<code>created</code>中的代码转移到<code>activated</code>中。</p>
-<pre class=" language-html"><code class="language-html"><span class="token comment" spellcheck="true">&lt;!-- 基本 --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>keep-alive</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>component</span> <span class="token attr-name">:is</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>view<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>component</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>keep-alive</span><span class="token punctuation">></span></span>
-
-<span class="token comment" spellcheck="true">&lt;!-- 多个条件判断的子组件 --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>keep-alive</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>comp-a</span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>a <span class="token punctuation">></span> 1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>comp-a</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>comp-b</span> <span class="token attr-name">v-else</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>comp-b</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>keep-alive</span><span class="token punctuation">></span></span>
-
-<span class="token comment" spellcheck="true">&lt;!-- 和 `&lt;transition>` 一起使用 --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>transition</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>keep-alive</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>component</span> <span class="token attr-name">:is</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>view<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>component</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>keep-alive</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>transition</span><span class="token punctuation">></span></span>
-</code></pre>
-<h2 id="include-和-exclude"><a href="#include-和-exclude" class="headerlink" title="include 和 exclude"></a>include 和 exclude</h2><p><strong>include 和 exclude 属性允许组件有条件地缓存。</strong>二者都可以用逗号分隔字符串、正则表达式或一个数组来表示：</p>
-<pre class=" language-html"><code class="language-html"><span class="token comment" spellcheck="true">&lt;!-- 逗号分隔字符串 --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>keep-alive</span> <span class="token attr-name">include</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>a,b<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>component</span> <span class="token attr-name">:is</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>view<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>component</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>keep-alive</span><span class="token punctuation">></span></span>
-
-<span class="token comment" spellcheck="true">&lt;!-- 正则表达式 (使用 `v-bind`) --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>keep-alive</span> <span class="token attr-name">:include</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/a|b/<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>component</span> <span class="token attr-name">:is</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>view<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>component</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>keep-alive</span><span class="token punctuation">></span></span>
-
-<span class="token comment" spellcheck="true">&lt;!-- 数组 (使用 `v-bind`) --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>keep-alive</span> <span class="token attr-name">:include</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>[<span class="token punctuation">'</span>a<span class="token punctuation">'</span>, <span class="token punctuation">'</span>b<span class="token punctuation">'</span>]<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>component</span> <span class="token attr-name">:is</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>view<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>component</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>keep-alive</span><span class="token punctuation">></span></span>
-</code></pre>
-<h2 id="actived-和-deactived"><a href="#actived-和-deactived" class="headerlink" title="actived 和 deactived"></a>actived 和 deactived</h2><ul>
-<li>类型：<code>Function</code></li>
-<li>说明：<code>&lt;keep-alive&gt;</code>组件 <strong>激活/停用</strong> 时调用（该钩子在服务器端渲染期间不被调用）</li>
-</ul>
-<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>项目开发中，使用<code>Vue2.0</code> 搭配路由切换<code>vue-router</code>，所有路径匹配到的视图组件都会被缓存。<br>如何使某些组件不缓存？</p>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>keep-alive</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-view</span><span class="token punctuation">></span></span>
-        <span class="token comment" spellcheck="true">&lt;!-- 所有路径匹配到的视图组件都会被缓存！ --></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-view</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>keep-alive</span><span class="token punctuation">></span></span>
-</code></pre>
-<p>#1. 使用<code>include</code>和<code>exclude</code></p>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>keep-alive</span> <span class="token attr-name">include</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>a,b,c<span class="token punctuation">'</span></span> <span class="token attr-name">exclude</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>d,e,f<span class="token punctuation">'</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-view</span><span class="token punctuation">></span></span>
-        <span class="token comment" spellcheck="true">&lt;!-- 所有路径匹配到的视图组件都会被缓存！ --></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-view</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>keep-alive</span><span class="token punctuation">></span></span>
-</code></pre>
-<p>#2. 使用router.meta属性<br>设置路由，通过meta属性判断组件是否需要缓存</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// routes 配置</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">[</span>
-  <span class="token punctuation">{</span>
-    path<span class="token punctuation">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span>
-    name<span class="token punctuation">:</span> <span class="token string">'home'</span><span class="token punctuation">,</span>
-    component<span class="token punctuation">:</span> Home<span class="token punctuation">,</span>
-    meta<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-      keepAlive<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token comment" spellcheck="true">// 需要被缓存</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
-    path<span class="token punctuation">:</span> <span class="token string">'/:id'</span><span class="token punctuation">,</span>
-    name<span class="token punctuation">:</span> <span class="token string">'edit'</span><span class="token punctuation">,</span>
-    component<span class="token punctuation">:</span> Edit<span class="token punctuation">,</span>
-    meta<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-      keepAlive<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token comment" spellcheck="true">// 不需要被缓存</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">]</span>
-</code></pre>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>keep-alive</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-view</span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>$route.meta.keepAlive<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-        <span class="token comment" spellcheck="true">&lt;!-- 这里是会被缓存的视图组件，比如 Home！ --></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-view</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>keep-alive</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-view</span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>!$route.meta.keepAlive<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token comment" spellcheck="true">&lt;!-- 这里是不被缓存的视图组件，比如 Edit！ --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-view</span><span class="token punctuation">></span></span>
-</code></pre>
-<p>部分转载<a href="https://blog.csdn.net/zgrkaka/article/details/73480947?locationNum=1&amp;fps=1" target="_blank" rel="noopener">vue-router 之 keep-alive</a></p>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2018/04/03/vue中keep-alive/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -364,11 +285,15 @@ var _hmt = _hmt || [];
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2018-04-03T11:56:59.000Z">2018-04-03</time>
                 
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
+                </div>
+                
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 239 个字)
+                    2 分钟 读完 (大约 240 个字)
                 </span>
                 
                 
@@ -382,25 +307,17 @@ var _hmt = _hmt || [];
         </h1>
         <div class="content">
             <h2 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h2><h2 id="UC和微信浏览器下的兼容性问题"><a href="#UC和微信浏览器下的兼容性问题" class="headerlink" title="UC和微信浏览器下的兼容性问题"></a>UC和微信浏览器下的兼容性问题</h2><p>所有<code>webkit</code>内核的浏览器（包括移动端）都支持 flex 布局，只不过一些浏览器只支持旧语法，如：<code>display: -webkit-box</code> 。<br>旧语法和标准的 <code>flex</code> 语法有较大区别，需要做好兼容。不过可以来使用 <code>autoprefixer</code> 来自动处理这些兼容性问题，而开发时只需要写标准的语法就好了。</p>
-<p>假如没有使用<code>autoprefixer</code>，在UC浏览器和微信内置浏览器中，使用<code>display:flex;</code>时会不起作用，要加上兼容性写法。</p>
-<pre class=" language-css"><code class="language-css"><span class="token property">display</span><span class="token punctuation">:</span> -webkit-box<span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">/* OLD - iOS 6-, Safari 3.1-6 */</span>
-<span class="token property">display</span><span class="token punctuation">:</span> -moz-box<span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">/* OLD - Firefox 19- (buggy but mostly works) */</span>
-<span class="token property">display</span><span class="token punctuation">:</span> -ms-flexbox<span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">/* TWEENER - IE 10 */</span>
-<span class="token property">display</span><span class="token punctuation">:</span> -webkit-flex<span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">/* NEW - Chrome */</span>
-<span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
-</code></pre>
-<p>使用<code>flex:1;</code>时也要添加兼容性写法</p>
-<pre class=" language-css"><code class="language-css">           <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">20%</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">/* For old syntax, otherwise collapses. */</span>
-<span class="token property">-webkit-box-flex</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">/* OLD - iOS 6-, Safari 3.1-6 */</span>
-   <span class="token property">-moz-box-flex</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">/* OLD - Firefox 19- */</span>
-    <span class="token property">-webkit-flex</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">/* Chrome */</span>
-        <span class="token property">-ms-flex</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">/* IE 10 */</span>
-            <span class="token property">flex</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>  
-</code></pre>
-<p><a href="https://github.com/lzxb/flex.css" target="_blank" rel="noopener">flex.css</a></p>
-
+<p>假如没有使用<code>autoprefixer</code>，在UC浏览器和微信内置浏览器中，使用<code>display:flex;</code>时会不起作用，要加上兼容性写法。<br></p>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2018/04/03/flex布局在UC和微信浏览器下的兼容性问题/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -420,6 +337,10 @@ var _hmt = _hmt || [];
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2018-03-21T09:19:02.000Z">2018-03-21</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Javascript/阿里字体/">阿里字体</a>
+                </div>
                 
                 
                 <span class="level-item has-text-grey">
@@ -475,7 +396,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    10 分钟 读完 (大约 1428 个字)
+                    10 分钟 读完 (大约 1429 个字)
                 </span>
                 
                 
@@ -493,74 +414,16 @@ var _hmt = _hmt || [];
 <p><code>虚拟viewport</code> ： <code>visual viewport</code><br><code>布局viewport</code> ： <code>layout viewport</code></p>
 </blockquote>
 <h3 id="物理像素-physical-pixel"><a href="#物理像素-physical-pixel" class="headerlink" title="物理像素 physical pixel"></a>物理像素 physical pixel</h3><p>物理像素也被称为设备像素，他是显示设备中一个最小的物理设备，物理像素单位。每个像素可以根据操作系统设置自己的颜色和亮度。</p>
-<h3 id="设备独立像素-device-independent-pixel-逻辑像素"><a href="#设备独立像素-device-independent-pixel-逻辑像素" class="headerlink" title="设备独立像素 device-independent pixel - 逻辑像素"></a>设备独立像素 device-independent pixel - 逻辑像素</h3><p>设备独立像素也称为密度无关像素，可以认为是计算机坐标系统中的一个点，这个点代表一个可以程序使用的虚拟像素，比如CSS像素，然后由相关系统转换为物理像素。</p>
-<h3 id="CSS像素（与设备无关像素-device-independent-piexl）"><a href="#CSS像素（与设备无关像素-device-independent-piexl）" class="headerlink" title="CSS像素（与设备无关像素 device-independent piexl）"></a>CSS像素（与设备无关像素 device-independent piexl）</h3><p>一个抽象单位，主要使用在浏览器上，用来精确度量Web页面上点内容。一般CSS像素称为与设备无关的像素（device-independent piexl），DIPs。</p>
-<h3 id="屏幕密度"><a href="#屏幕密度" class="headerlink" title="屏幕密度"></a>屏幕密度</h3><p>屏幕密度是指一个设备表面上存在的像素数量，通常以<strong>每英寸有多少像素来计算</strong>（PPI）</p>
-<h3 id="设备像素比（device-pixel-ratio）"><a href="#设备像素比（device-pixel-ratio）" class="headerlink" title="设备像素比（device pixel ratio）"></a>设备像素比（device pixel ratio）</h3><p>设备像素比简称为<strong>dpr</strong>，定义了物理像素和设备独立像素之间的对应关系</p>
-<blockquote>
-<p>设备像素 = 物理像素 / 设备独立像素</p>
-</blockquote>
-<ul>
-<li>在JavaScript中，可以通过<code>window.devicePiexlRatio</code>获取当前设备的dpr。</li>
-<li>在css中，可以通过<code>-webkit-device-piexl-ratio</code>、<code>-webkit-min-device-piexl-ratio</code>、<code>-webkit-max-device-piexl-ratio</code>进行媒体查询。</li>
-</ul>
-<h3 id="常见终端设备参数"><a href="#常见终端设备参数" class="headerlink" title="常见终端设备参数"></a>常见终端设备参数</h3><p><img src="https://hexo-blog-1256208212.cos.ap-beijing.myqcloud.com/1521689499823.jpg" alt="常见设备终端"><br><a href="https://design.google.com/devices/" target="_blank" rel="noopener">终端设备的参数</a></p>
-<h3 id="UI设计与前端开发适配的协作"><a href="#UI设计与前端开发适配的协作" class="headerlink" title="UI设计与前端开发适配的协作"></a>UI设计与前端开发适配的协作</h3><p>选择一种尺寸作为设计和开发的基准，定义其余尺寸的适配规则，对于特殊适配给出设计效果</p>
-<p>淘宝手淘团队适配协作模式<br><img src="https://hexo-blog-1256208212.cos.ap-beijing.myqcloud.com/taobaotuanduishipei.jpeg" alt="淘宝手淘团队适配协作模式"></p>
-<p>视觉稿</p>
-<p>在开发之前，UI设计师提供含有标注的PSD文件，为视觉稿。<br>对于移动端而言，为了做到页面高清的效果，视觉稿会遵循以下两点：</p>
-<ol>
-<li>选取一款手机的<code>屏幕宽度</code>最为基准，<code>iphone6（375pt * 667pt）</code></li>
-<li>对于retina屏幕（如<code>dpr = 2</code>）,为了达到高清的效果，视觉稿的画布大小会是<code>基准</code>的<code>2倍</code>，也就是说像素点个数是原来的4倍。</li>
-</ol>
-<blockquote>
-<p>iphone6：<br><code>dpr</code>：2<br><code>设备独立像素</code>：375pt * 667pt (设备宽度为375pt，设备高度667pt)<br><code>物理像素</code>：750pt * 1334pt</p>
-</blockquote>
-<p><em>视觉稿按照设备独立像素设计，放大两倍</em><br>UI设计师常选择iPhone6作为基准设计尺寸，交付给前端的设计尺寸是按<code>750px * 1334px</code>为准(高度会随着内容多少而改变)。前端开发人员通过一套适配规则自动适配到其他的尺寸。</p>
-<p><strong>位图像素</strong><br>一个位图像素是栅格图像最小的数据单元，如png、jpg、gif等。每一个位图像素都包含着一些自身的显示信息，包括显示位置、颜色值、透明度等</p>
-<p>理论上，<strong>一个位图像素对应一个物理像素</strong>，图片才能得到完美清晰的展示。<br>在Retina屏幕下，<strong>一个位图像素对应4个物理像素</strong>。由于单个位图像素不可以在分割，所以只能就近取色，就会出现位图像素点不够，从而导致图片模糊。</p>
-<h3 id="rem单位"><a href="#rem单位" class="headerlink" title="rem单位"></a>rem单位</h3><blockquote>
-<p>font size of the root element.</p>
-</blockquote>
-<p><code>rem</code>就是相对于根元素<code>&lt;html&gt;</code>的<code>font-size</code>来做计算。而我们的方案中使用rem单位，是能轻易的根据<html>的<code>font-size</code>计算出元素的盒模型大小。</html></p>
-<p><code>em</code>是根据父元素的<code>font-size</code>计算。</p>
-<h3 id="flexible的实质"><a href="#flexible的实质" class="headerlink" title="flexible的实质"></a>flexible的实质</h3><blockquote>
-<p><code>flexible</code>实际上就是通过JS来动态改写meta标签</p>
-</blockquote>
-<pre class=" language-HTML"><code class="language-HTML"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-</code></pre>
-<p>源代码：</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> meta <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'meta'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> scale <span class="token operator">=</span> isRetina <span class="token operator">?</span> <span class="token number">0.5</span> <span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
-meta<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'viewport'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-meta<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'content'</span><span class="token punctuation">,</span> <span class="token string">'initial-scale='</span> <span class="token operator">+</span> scale <span class="token operator">+</span> <span class="token string">' ,maximun-scale='</span> <span class="token operator">+</span> scale <span class="token operator">+</span> <span class="token string">' ,minimum-scale='</span> <span class="token operator">+</span> scale <span class="token operator">+</span> <span class="token string">' ,user-scalable=no, width=device-width'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span>doucmentElement<span class="token punctuation">.</span>firstElementChild<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  document<span class="token punctuation">.</span>doucmentElement<span class="token punctuation">.</span>firstElementChild<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>meta<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-  <span class="token keyword">var</span> wrap <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  wrap<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>meta<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>wrap<span class="token punctuation">.</span>innerHTML<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<ul>
-<li>动态改写<code>&lt;meta&gt;</code>标签</li>
-<li><code>html</code>标签上加上<code>data-dpr</code>属性，并且动态改写<code>data-dpr</code>的值。</li>
-<li><code>html</code>标签上加上<code>font-size</code>属性，并且动态改写<code>font-size</code>的值。</li>
-</ul>
-<p><code>&lt;meta&gt;</code>中<code>initial-dpr</code>会把<code>dpr</code>强制设置为给定的值。如果手动设置了<code>dpr</code>之后，不管设备是多少<code>dpr</code>，都会强制设置其<code>dpr</code>为你设置的值。不建议设置这个<code>meta</code>标签值(<code>initial-dpr</code>)，因为在<code>flexible</code>中，只有对<code>iOS</code>设备进行<code>dpr</code>的判断，对于<code>Android</code>系列，始终认为其<code>dpr</code>为<strong>1</strong></p>
-<h2 id="px和rem转换"><a href="#px和rem转换" class="headerlink" title="px和rem转换"></a>px和rem转换</h2><p>目前Flexible会将设计稿分成100份，为了更好的兼容vw和vh，同时1rem单位被认定为10a。</p>
-<pre><code>width为750px设计稿
-750px = 100vw = 100a
-1rem = 10a
-1rem = 75px
-</code></pre><p>我们设计稿都是750px宽度，分成10份，每份为10a（10vw），也就是整个宽度为10rem，所以html对应的font-size为75px。</p>
-<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><ul>
-<li><a href="https://www.quirksmode.org/mobile/viewports.html" target="_blank" rel="noopener">A tale of two viewports - Part One</a></li>
-<li><a href="https://www.quirksmode.org/mobile/viewports2.html" target="_blank" rel="noopener">A tale of two viewports - Part Two</a></li>
-</ul>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2018/03/21/移动端适配方案/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -581,11 +444,15 @@ meta<span class="token punctuation">.</span><span class="token function">setAttr
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2018-02-02T02:14:25.000Z">2018-02-02</time>
                 
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
+                </div>
+                
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 275 个字)
+                    2 分钟 读完 (大约 276 个字)
                 </span>
                 
                 
@@ -601,73 +468,17 @@ meta<span class="token punctuation">.</span><span class="token function">setAttr
             <blockquote>
 <p>JS控制Gif动画</p>
 </blockquote>
-<p>思想： 使用canvas获取Gif第一帧图片，静止的时候使用图片，播放的时候使用Gif。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token string">'getContext'</span> <span class="token keyword">in</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'canvas'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    HTMLImageElement<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>play <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>storeCanvas<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">// 移除存储的canvas</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>storeCanvas<span class="token punctuation">.</span>parentElement<span class="token punctuation">.</span><span class="token function">removeChild</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>storeCanvas<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>storeCanvas <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-            <span class="token comment" spellcheck="true">// 透明度还原c</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>style<span class="token punctuation">.</span>opacity <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>storeUrl<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">this</span><span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>storeUrl<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    HTMLImageElement<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>stop <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">// polyfill 提供了这个方法用来获取设备的 pixel ratio</span>
-        <span class="token keyword">let</span> getPixelRatio <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">let</span> backingStore <span class="token operator">=</span> context<span class="token punctuation">.</span>backingStorePixelRatio <span class="token operator">||</span>
-                context<span class="token punctuation">.</span>webkitBackingStorePixelRatio <span class="token operator">||</span>
-                context<span class="token punctuation">.</span>mozBackingStorePixelRatio <span class="token operator">||</span>
-                context<span class="token punctuation">.</span>msBackingStorePixelRatio <span class="token operator">||</span>
-                context<span class="token punctuation">.</span>oBackingStorePixelRatio <span class="token operator">||</span>
-                context<span class="token punctuation">.</span>backingStorePixelRatio <span class="token operator">||</span> <span class="token number">1</span><span class="token punctuation">;</span>
-
-            <span class="token keyword">return</span> <span class="token punctuation">(</span>window<span class="token punctuation">.</span>devicePixelRatio <span class="token operator">||</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">/</span> backingStore<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">;</span>
-        <span class="token keyword">let</span> canvas <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'canvas'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">let</span> ratio <span class="token operator">=</span> <span class="token function">getPixelRatio</span><span class="token punctuation">(</span>canvas<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">// 尺寸</span>
-        <span class="token keyword">let</span> width <span class="token operator">=</span> <span class="token operator">+</span><span class="token keyword">this</span><span class="token punctuation">.</span>width<span class="token punctuation">;</span>
-        <span class="token keyword">let</span> height <span class="token operator">=</span> <span class="token operator">+</span><span class="token keyword">this</span><span class="token punctuation">.</span>height<span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>width <span class="token operator">&amp;&amp;</span> height<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">// 存储之前的地址</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>storeUrl<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">this</span><span class="token punctuation">.</span>storeUrl <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>src<span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-            <span class="token comment" spellcheck="true">// canvas大小</span>
-            canvas<span class="token punctuation">.</span>width <span class="token operator">=</span> width <span class="token operator">*</span> ratio<span class="token punctuation">;</span>
-            canvas<span class="token punctuation">.</span>height <span class="token operator">=</span> height <span class="token operator">*</span> ratio<span class="token punctuation">;</span>
-            <span class="token comment" spellcheck="true">// 绘制图片帧（第一帧）</span>
-            <span class="token comment" spellcheck="true">// 注意，这里的 width 和 height 变成了 width * ratio 和 height * ratio</span>
-            canvas<span class="token punctuation">.</span><span class="token function">getContext</span><span class="token punctuation">(</span><span class="token string">'2d'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">drawImage</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> width <span class="token operator">*</span> ratio<span class="token punctuation">,</span> height <span class="token operator">*</span> ratio<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            canvas<span class="token punctuation">.</span>style<span class="token punctuation">.</span>width <span class="token operator">=</span> width<span class="token punctuation">;</span>
-            canvas<span class="token punctuation">.</span>style<span class="token punctuation">.</span>height <span class="token operator">=</span> height<span class="token punctuation">;</span>
-            <span class="token comment" spellcheck="true">// 重置当前图片</span>
-            <span class="token keyword">try</span> <span class="token punctuation">{</span>
-                <span class="token keyword">this</span><span class="token punctuation">.</span>src <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token function">toDataURL</span><span class="token punctuation">(</span><span class="token string">'image/gif'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token comment" spellcheck="true">// 跨域</span>
-                <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">removeAttribute</span><span class="token punctuation">(</span><span class="token string">'src'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token comment" spellcheck="true">// 载入canvas元素</span>
-                canvas<span class="token punctuation">.</span>style<span class="token punctuation">.</span>position <span class="token operator">=</span> <span class="token string">'absolute'</span><span class="token punctuation">;</span>
-                <span class="token comment" spellcheck="true">// 前面插入图片</span>
-                <span class="token keyword">this</span><span class="token punctuation">.</span>parentElement<span class="token punctuation">.</span><span class="token function">insertBefore</span><span class="token punctuation">(</span>canvas<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token comment" spellcheck="true">// 隐藏原图</span>
-                <span class="token keyword">this</span><span class="token punctuation">.</span>style<span class="token punctuation">.</span>opacity <span class="token operator">=</span> <span class="token string">'0'</span><span class="token punctuation">;</span>
-                <span class="token comment" spellcheck="true">// 存储canvas</span>
-                <span class="token keyword">this</span><span class="token punctuation">.</span>storeCanvas <span class="token operator">=</span> canvas<span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-
+<p>思想： 使用canvas获取Gif第一帧图片，静止的时候使用图片，播放的时候使用Gif。<br></p>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2018/02/02/js-contro-gif-md/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -688,11 +499,15 @@ meta<span class="token punctuation">.</span><span class="token function">setAttr
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2017-10-19T02:39:12.000Z">2017-10-19</time>
                 
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
+                </div>
+                
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    4 分钟 读完 (大约 548 个字)
+                    4 分钟 读完 (大约 549 个字)
                 </span>
                 
                 
@@ -705,69 +520,17 @@ meta<span class="token punctuation">.</span><span class="token function">setAttr
             
         </h1>
         <div class="content">
-            <p>css控制文字内容的溢出显示，溢出截断后末尾出现省略<code>...</code>，单行文本与多行文本的控制又有区别。</p>
-<p><strong>单行文本</strong></p>
-<pre class=" language-css"><code class="language-css"><span class="token property">overfolw</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> ellipsis<span class="token punctuation">;</span>
-<span class="token property">white-space</span><span class="token punctuation">:</span> nowrap<span class="token punctuation">;</span>
-</code></pre>
-<p><strong>多行文本</strong></p>
-<pre class=" language-css"><code class="language-css"><span class="token property">display</span><span class="token punctuation">:</span>-webkit-box<span class="token punctuation">;</span>
-<span class="token property">-webkit-line-clamp</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token property">-webkit-box-orient</span><span class="token punctuation">:</span> vertical<span class="token punctuation">;</span>
-<span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
-</code></pre>
-<p><strong>知识点</strong></p>
-<p><code>text-overflow</code> 确定内容的溢出显示，可以被剪切(<code>clip</code>)、显示一个省略号（<code>...</code>）或者显示一个自定义字符串。</p>
-<blockquote>
-<ul>
-<li>需要设置<code>overflow: hidden</code>属性才能生效，否则不会强制溢出事件发生。</li>
-<li>属性只对<strong>块级元素</strong>溢出的内容有效，但必须与块级元素内联（<code>inline</code>）方向一致。如内容在盒子下方溢出，则属性不会生效。</li>
-<li>文本溢出：1、文本无法换行，设置了<code>white-space: nowrap;</code>。2、单词太长。 </li>
-</ul>
-</blockquote>
-<pre class=" language-css"><code class="language-css"><span class="token selector">text-overflow: <span class="token attribute">[ clip | ellipise | &lt;string> ]</span></span><span class="token punctuation">{</span><span class="token number">1</span>, <span class="token number">2</span><span class="token punctuation">}</span>
-</code></pre>
-<blockquote>
-<ol>
-<li><code>clip</code>: 内容区域的极限处截断文本，因此可能在字符的中间可能会发生截断。<strong>为了能够在两个字符过度处截断，必须使用一个空字符串值（<code></code>）</strong>。</li>
-<li><code>ellipse</code>: 用省略号<code>...</code>来表示截断的文本。如果空间太小连省略号也不能显示，那么省略号也会被截断。</li>
-<li><code>&lt;string&gt;</code>: <code>&lt;string&gt;</code>用来表示被截断的文本。字符串内容将被添加在内容区域中，所以会减少显示出的文本。如果空间太小到连省略号的容纳下，那么这个字符串也会被截断。</li>
-</ol>
-</blockquote>
-<pre class=" language-css"><code class="language-css"><span class="token comment" spellcheck="true">/* Overflow behavior at line end
-Right end if ltr, left end if rtl */</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> clip<span class="token punctuation">;</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> ellipsis<span class="token punctuation">;</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> <span class="token string">"…"</span><span class="token punctuation">;</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> fade<span class="token punctuation">;</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> <span class="token function">fade</span><span class="token punctuation">(</span><span class="token number">10</span>px<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> <span class="token function">fade</span><span class="token punctuation">(</span><span class="token number">5%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">/* Overflow behavior at left end | at right end
-Directionality has no influence */</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> clip ellipsis<span class="token punctuation">;</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> <span class="token string">"…"</span> <span class="token string">"…"</span><span class="token punctuation">;</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> fade clip<span class="token punctuation">;</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> <span class="token function">fade</span><span class="token punctuation">(</span><span class="token number">10</span>px<span class="token punctuation">)</span> <span class="token function">fade</span><span class="token punctuation">(</span><span class="token number">10</span>px<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> <span class="token function">fade</span><span class="token punctuation">(</span><span class="token number">5%</span><span class="token punctuation">)</span> <span class="token function">fade</span><span class="token punctuation">(</span><span class="token number">5%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">/* Global values */</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> inherit<span class="token punctuation">;</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> initial<span class="token punctuation">;</span>
-<span class="token property">text-overflow</span><span class="token punctuation">:</span> unset<span class="token punctuation">;</span>
-</code></pre>
-<style type="text/css">
-    div br{
-        display: none;
-    }
-</style>
-
-<div><br>    <table><br>        <thead><br>            <tr><br>                <th colspan="1" rowspan="2" scope="col">CSS value</th><br>                <th colspan="2" rowspan="1" scope="col"><code>direction: ltr</code></th><br>                <th colspan="2" rowspan="1" scope="col"><code>direction: rtl</code></th><br>            </tr><br>            <tr><br>                <th scope="col">Expected Result</th><br>                <th scope="col">Live result</th><br>                <th scope="col">Expected Result</th><br>                <th scope="col">Live result</th><br>            </tr><br>        </thead><br>        <tbody><br>            <tr><br>                <td><em>visible overflow</em></td><br>                <td>1234567890</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>                <td>0987654321</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>            </tr><br>            <tr><br>                <td><code>text-overflow: clip</code></td><br>                <td><img src="https://developer.mozilla.org/@api/deki/files/6056/=t-o_clip.png" alt="t-o_clip.png"></td><br>                <td><br>                    <p>123456</p><br>                </td><br>                <td><img src="https://developer.mozilla.org/@api/deki/files/6057/=t-o_clip_rtl.png" alt="t-o_clip_rtl.png"></td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>            </tr><br>            <tr><br>                <td><code>text-overflow: ‘’</code></td><br>                <td>12345</td><br>                <td><br>                    <p>123456</p><br>                </td><br>                <td>54321</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>            </tr><br>            <tr><br>                <td><code>text-overflow: ellipsis</code></td><br>                <td>1234…</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>                <td>…4321</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>            </tr><br>            <tr><br>                <td><code>text-overflow: ‘.’</code></td><br>                <td>1234.</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>                <td>.4321</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>            </tr><br>            <tr><br>                <td><code>text-overflow: clip clip</code></td><br>                <td>123456</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>                <td>654321</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>            </tr><br>            <tr><br>                <td><code>text-overflow: clip ellipsis</code></td><br>                <td>1234…</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>                <td>6543…</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>            </tr><br>            <tr><br>                <td><code>text-overflow: clip ‘.’</code></td><br>                <td>1234.</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>                <td>6543.</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>            </tr><br>            <tr><br>                <td><code>text-overflow: ellipsis clip</code></td><br>                <td>…3456</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>                <td>…4321</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>            </tr><br>            <tr><br>                <td><code>text-overflow: ellipsis ellipsis</code></td><br>                <td>…34…</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>                <td>…43…</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>            </tr><br>            <tr><br>                <td><code>text-overflow: ellipsis ‘.’</code></td><br>                <td>…34.</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>                <td>…43.</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>            </tr><br>            <tr><br>                <td><code>text-overflow: ‘,’ clip</code></td><br>                <td>,3456</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>                <td>,4321</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>            </tr><br>            <tr><br>                <td><code>text-overflow: ‘,’ ellipsis</code></td><br>                <td>,34…</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>                <td>,43…</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>            </tr><br>            <tr><br>                <td><code>text-overflow: ‘,’ ‘.’</code></td><br>                <td>,34.</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>                <td>,53.</td><br>                <td><br>                    <p>1234567890</p><br>                </td><br>            </tr><br>        </tbody><br>    </table><br></div>
-
-
+            <p>css控制文字内容的溢出显示，溢出截断后末尾出现省略<code>...</code>，单行文本与多行文本的控制又有区别。<br></p>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2017/10/19/css-text-overflow/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -788,11 +551,15 @@ Directionality has no influence */</span>
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2017-10-16T06:37:17.000Z">2017-10-16</time>
                 
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
+                </div>
+                
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    4 分钟 读完 (大约 545 个字)
+                    4 分钟 读完 (大约 546 个字)
                 </span>
                 
                 
@@ -807,53 +574,20 @@ Directionality has no influence */</span>
         <div class="content">
             <p>文本内容可以实现左对齐、右对齐以及居中对齐，如何实现两端对齐？很多时候为了对齐文字中间使用空格来隔开，这样每个内容需要计算空格个数，当内容不一样长短的时候又通过JS进行麻烦的计算。</p>
 <p><code>text-align</code>是控制文字的对齐与显示，从其属性名上就可以看出来。从其渲染与解析上来看，其主要是用来控制<code>inline</code>水平元素或<code>inline-block</code>元素的对齐与显示的，例如嵌套行内标签的文字、图片、input表单控件等；而对block水平的元素是没有作用的。</p>
-<pre class=" language-css"><code class="language-css"><span class="token property">text-align</span><span class="token punctuation">:</span> center | left | right | start | end | justify | inherit | initial | unset
-<span class="token property">text-align</span><span class="token punctuation">:</span> justify
+<pre><code class="css">text-align: center | left | right | start | end | justify | inherit | initial | unset
+text-align: justify
 </code></pre>
-<p>css2中<code>text-align</code>有一个属性为<code>justify</code>，居中对齐。其实现的效果就是可以让一行文字两端对齐显示（文字内容要超过一行）</p>
-<ul>
-<li>有多行文字<blockquote>
-<p>多行文字内容时直接使用<code>justify</code>可以实现两端对齐效果</p>
-</blockquote>
-</li>
-</ul>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>Vue.js (读音 /vjuː/，类似于 view) 是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，它不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与单文件组件和 Vue 生态系统支持的库结合使用时，Vue 也完全能够为复杂的单页应用程序提供驱动。<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-</code></pre>
-<pre class=" language-css"><code class="language-css"><span class="token selector">div </span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">500</span>px<span class="token punctuation">;</span>
-    <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">1</span>px solid <span class="token hexcode">#000</span><span class="token punctuation">;</span>
-    <span class="token property">text-align</span><span class="token punctuation">:</span> justify<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<ul>
-<li>只有一行文字</li>
-</ul>
-<blockquote>
-<p>需要在文字后面加一个占位元素，可以使用伪类元素实现，或者加<code>&lt;span&gt;&lt;/span&gt;</code>、<code>&lt;i&gt;&lt;/i&gt;</code>空元素。</p>
-</blockquote>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>css文字两端对齐！<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-</code></pre>
-<pre class=" language-css"><code class="language-css"><span class="token selector">div </span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">500</span>px<span class="token punctuation">;</span>
-    <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">1</span>px solid <span class="token hexcode">#000</span><span class="token punctuation">;</span>
-    <span class="token property">text-align</span><span class="token punctuation">:</span> justify<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>此时的效果并没有实现两端对齐，因为文字内容没有换行。可以使用伪类元素实现。</p>
-<pre class=" language-css"><code class="language-css"><span class="token selector">div </span><span class="token punctuation">{</span>
-    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">500</span>px<span class="token punctuation">;</span>
-    <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">1</span>px solid <span class="token hexcode">#000</span><span class="token punctuation">;</span>
-    <span class="token property">text-align</span><span class="token punctuation">:</span> justify<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector">div<span class="token pseudo-element">:after</span> </span><span class="token punctuation">{</span>
-    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">;</span>   
-    <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
-    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100%</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-
+<p>css2中<code>text-align</code>有一个属性为<code>justify</code>，居中对齐。其实现的效果就是可以让一行文字两端对齐显示（文字内容要超过一行）<br></p>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2017/10/16/css-text-align-justify/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -868,17 +602,27 @@ Directionality has no influence */</span>
 
     <div class="card">
     
+    <div class="card-image">
+        <a href="/2017/10/13/github-project-init/" class="image is-7by1">
+            <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="git基础">
+        </a>
+    </div>
+    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2017-10-13T08:07:26.000Z">2017-10-13</time>
                 
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Git/">Git</a>
+                </div>
+                
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 238 个字)
+                    2 分钟 读完 (大约 239 个字)
                 </span>
                 
                 
@@ -892,43 +636,18 @@ Directionality has no influence */</span>
         </h1>
         <div class="content">
             <p>github上创建新的项目后，在本地拉取项目或者将本地的项目关联到建立的仓库。</p>
-<pre class=" language-shell"><code class="language-shell"># git clone git@github.com:xxxxxxxxx.git  
+<pre><code class="shell"># git clone git@github.com:xxxxxxxxx.git  
 </code></pre>
-<h2 id="命令行新建一个新的仓库"><a href="#命令行新建一个新的仓库" class="headerlink" title="命令行新建一个新的仓库"></a>命令行新建一个新的仓库</h2><pre class=" language-shell"><code class="language-shell"># mkdir myProject
-# cd myProject 
-# echo '# my new project' >> README.md
-# git init
-# git add .
-# git commit -m "first commit"
-# git remote add origin git@github.com:xxxxxxxxx.git
-# git push origin master
-</code></pre>
-<h2 id="本地项目关联远程git仓库"><a href="#本地项目关联远程git仓库" class="headerlink" title="本地项目关联远程git仓库"></a>本地项目关联远程git仓库</h2><pre class=" language-shell"><code class="language-shell"># cd myProject
-# git remote add origin git@github.com:xxxxx/xxxx/git
-# git push origin master
-</code></pre>
-<h1 id="本地分支关联远程分支"><a href="#本地分支关联远程分支" class="headerlink" title="本地分支关联远程分支"></a>本地分支关联远程分支</h1><pre class=" language-shell"><code class="language-shell"># git checkout test
-# git remote add origin git@github.com:xxxx/test.git
-</code></pre>
-<h2 id="fatal"><a href="#fatal" class="headerlink" title="fatal"></a>fatal</h2><p>首次拉取代码失败</p>
-<blockquote>
-<p>git pull错误信息 : </p>
-<pre class=" language-shell"><code class="language-shell"> * branch       master     -> FETCH_HEAD
- fatal: refusing to merge unrelated histories
-</code></pre>
-</blockquote>
-<p>解决：</p>
-<pre class=" language-shell"><code class="language-shell"># git pull origin master --allow-unrelated-histories
-</code></pre>
-<h2 id="首次安装git设置"><a href="#首次安装git设置" class="headerlink" title="首次安装git设置"></a>首次安装git设置</h2><pre class=" language-shell"><code class="language-shell"># git config -global user.nme "xxxxxx"
-# git config -global user.email "xxxxxx@jd.com"
-</code></pre>
-<h1 id="公钥密钥配置"><a href="#公钥密钥配置" class="headerlink" title="公钥密钥配置"></a>公钥密钥配置</h1><pre class=" language-shell"><code class="language-shell"># ssh-keygen -t rsa
-</code></pre>
-<p>会生成两个文件：<code>id_rsa</code>（密钥）和<code>id_rsa.pub</code>（公钥）<br>在github中设置公钥。</p>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2017/10/13/github-project-init/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -949,11 +668,15 @@ Directionality has no influence */</span>
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2017-09-27T03:37:17.000Z">2017-09-27</time>
                 
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/CSS/SVG/">SVG</a>
+                </div>
+                
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    2 分钟 读完 (大约 349 个字)
+                    2 分钟 读完 (大约 350 个字)
                 </span>
                 
                 
@@ -978,28 +701,16 @@ Directionality has no influence */</span>
 <li><code>width | height</code>： 定义 <code>svg</code> 画布的大小</li>
 <li><code>viewbox</code>： 定义了画布上可以显示的区域，当 <code>viewBox</code> 的大小和 <code>svg</code> <code>不同时，viewBox</code> 在屏幕上的显示会缩放至 <code>svg</code> 同等大小。</li>
 </ul>
-<p>有了 <code>svg</code> 标签，我们就可以愉快的在内部添加 <code>SVG</code> 图形了。</p>
-<pre class=" language-html"><code class="language-html"><span class="token prolog">&lt;?xml version="1.0" standalone="no"?></span>
-
-<span class="token doctype">&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
-"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>100%<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>100%<span class="token punctuation">"</span></span> <span class="token attr-name">version</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1.1<span class="token punctuation">"</span></span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>circle</span> <span class="token attr-name">cx</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>100<span class="token punctuation">"</span></span> <span class="token attr-name">cy</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">r</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>40<span class="token punctuation">"</span></span> <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>black<span class="token punctuation">"</span></span> <span class="token attr-name">stroke-width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>2<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
-</code></pre>
-<svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg"><br/>    <circle cx="100" cy="50" r="40" stroke="black" stroke-width="2" fill="red"/><br/></svg>
-
-<blockquote>
-<ul>
-<li>第一行包含了 XML 声明。standalone 属性规定此 SVG 文件是否是“独立的”，或含有对外部文件的引用。standalone=”no” 意味着 SVG 文档会引用一个外部文件。</li>
-<li>SVG 代码以 <code>&lt;svg&gt;</code>元素开始，包括开启标签 <code>&lt;svg&gt;</code> 和关闭标签<code>&lt;/svg&gt;</code> 。<code>width</code> 和 <code>height</code> 属性可设置此 SVG 文档的宽度和高度。<code>version</code>属性可定义所使用的 <code>SVG</code> 版本，<code>xmlns</code> 属性可定义 SVG 命名空间。</li>
-</ul>
-</blockquote>
-<p><img src="http://cloud.xuww.wang/svg.jpg" alt="SVG"></p>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2017/09/27/css-svg-basic/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -1076,7 +787,7 @@ Directionality has no influence */</span>
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        30
+                        29
                     </p>
                 </div>
             </div>
@@ -1086,7 +797,7 @@ Directionality has no influence */</span>
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        9
+                        18
                     </p>
                 </div>
             </div>
@@ -1096,7 +807,7 @@ Directionality has no influence */</span>
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        19
+                        24
                     </p>
                 </div>
             </div>
@@ -1207,7 +918,31 @@ Directionality has no influence */</span>
                 <span class="level-item">CSS</span>
             </span>
             <span class="level-end">
+                <span class="level-item tag">9</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/CSS/SCSS/">
+            <span class="level-start">
+                <span class="level-item">SCSS</span>
+            </span>
+            <span class="level-end">
                 <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/CSS/SVG/">
+            <span class="level-start">
+                <span class="level-item">SVG</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Git/">
+            <span class="level-start">
+                <span class="level-item">Git</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Javascript/">
@@ -1215,12 +950,60 @@ Directionality has no influence */</span>
                 <span class="level-item">Javascript</span>
             </span>
             <span class="level-end">
+                <span class="level-item tag">10</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/Javascript/canvas/">
+            <span class="level-start">
+                <span class="level-item">canvas</span>
+            </span>
+            <span class="level-end">
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/React-study/">
+        <a class="level is-marginless" href="/categories/Javascript/util/">
             <span class="level-start">
-                <span class="level-item">React study</span>
+                <span class="level-item">util</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Javascript/阿里字体/">
+            <span class="level-start">
+                <span class="level-item">阿里字体</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/MySQL/">
+            <span class="level-start">
+                <span class="level-item">MySQL</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/React/">
+            <span class="level-start">
+                <span class="level-item">React</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a><ul><li>
+        <a class="level is-marginless" href="/categories/React/study/">
+            <span class="level-start">
+                <span class="level-item">study</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li></ul></li><li>
+        <a class="level is-marginless" href="/categories/Vue/">
+            <span class="level-start">
+                <span class="level-item">Vue</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">1</span>
@@ -1242,9 +1025,9 @@ Directionality has no influence */</span>
                 <span class="level-item tag">1</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/git/">
+        <a class="level is-marginless" href="/categories/webpack/">
             <span class="level-start">
-                <span class="level-item">git</span>
+                <span class="level-item">webpack</span>
             </span>
             <span class="level-end">
                 <span class="level-item tag">1</span>
@@ -1277,7 +1060,7 @@ Directionality has no influence */</span>
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 20px;">css</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/Javascript/" style="font-size: 16.67px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 10px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 16.67px;">css</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/text-overflow/" style="font-size: 10px;">text-overflow</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
 </div>
 
@@ -1305,7 +1088,7 @@ Directionality has no influence */</span>
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-08-27T03:15:54.000Z">2018-08-27</time></div>
                     <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="has-link-black-ter is-size-6">webpack插件关于autoprefixer的冲突</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/webpack/">webpack</a>
                     </p>
                 </div>
             </div>
@@ -1324,7 +1107,7 @@ Directionality has no influence */</span>
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T07:02:33.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/URL操作处理/" class="has-link-black-ter is-size-6">URL操作处理</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -1343,7 +1126,7 @@ Directionality has no influence */</span>
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T07:01:25.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/localstroge本地缓存/" class="has-link-black-ter is-size-6">localstroge本地缓存</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -1362,7 +1145,7 @@ Directionality has no influence */</span>
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:58:34.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/时间处理/" class="has-link-black-ter is-size-6">时间处理</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -1381,7 +1164,7 @@ Directionality has no influence */</span>
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -1471,7 +1254,7 @@ Directionality has no influence */</span>
                     <span class="level-item">九月 2017</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">11</span>
+                    <span class="level-item tag">10</span>
                 </span>
             </a>
         </li>
@@ -1499,7 +1282,7 @@ Directionality has no influence */</span>
                 <div class="control">
                     <a class="tags has-addons" href="/tags/CSS/">
                         <span class="tag">CSS</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
@@ -1518,8 +1301,22 @@ Directionality has no influence */</span>
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/JS/">
+                        <span class="tag">JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Javascript/">
                         <span class="tag">Javascript</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/MySQL/">
+                        <span class="tag">MySQL</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1534,6 +1331,13 @@ Directionality has no influence */</span>
                 <div class="control">
                     <a class="tags has-addons" href="/tags/SVG/">
                         <span class="tag">SVG</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Vue/">
+                        <span class="tag">Vue</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1602,6 +1406,13 @@ Directionality has no influence */</span>
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/util/">
+                        <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/图片/">
                         <span class="tag">图片</span>
                         <span class="tag is-grey">1</span>
@@ -1611,6 +1422,13 @@ Directionality has no influence */</span>
                 <div class="control">
                     <a class="tags has-addons" href="/tags/懒加载，-原生JS/">
                         <span class="tag">懒加载， 原生JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/阿里字体/">
+                        <span class="tag">阿里字体</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1658,7 +1476,7 @@ Directionality has no influence */</span>
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-08-27T03:15:54.000Z">2018-08-27</time></div>
                     <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="has-link-black-ter is-size-6">webpack插件关于autoprefixer的冲突</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/webpack/">webpack</a>
                     </p>
                 </div>
             </div>
@@ -1677,7 +1495,7 @@ Directionality has no influence */</span>
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T07:02:33.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/URL操作处理/" class="has-link-black-ter is-size-6">URL操作处理</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -1696,7 +1514,7 @@ Directionality has no influence */</span>
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T07:01:25.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/localstroge本地缓存/" class="has-link-black-ter is-size-6">localstroge本地缓存</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -1715,7 +1533,7 @@ Directionality has no influence */</span>
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:58:34.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/时间处理/" class="has-link-black-ter is-size-6">时间处理</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -1734,7 +1552,7 @@ Directionality has no influence */</span>
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time></div>
                     <a href="/2018/05/30/cookie操作/" class="has-link-black-ter is-size-6">cookie操作</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
                     </p>
                 </div>
             </div>
@@ -1824,7 +1642,7 @@ Directionality has no influence */</span>
                     <span class="level-item">九月 2017</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">11</span>
+                    <span class="level-item tag">10</span>
                 </span>
             </a>
         </li>
@@ -1852,7 +1670,7 @@ Directionality has no influence */</span>
                 <div class="control">
                     <a class="tags has-addons" href="/tags/CSS/">
                         <span class="tag">CSS</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
@@ -1871,8 +1689,22 @@ Directionality has no influence */</span>
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/JS/">
+                        <span class="tag">JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/Javascript/">
                         <span class="tag">Javascript</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/MySQL/">
+                        <span class="tag">MySQL</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1887,6 +1719,13 @@ Directionality has no influence */</span>
                 <div class="control">
                     <a class="tags has-addons" href="/tags/SVG/">
                         <span class="tag">SVG</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Vue/">
+                        <span class="tag">Vue</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1955,6 +1794,13 @@ Directionality has no influence */</span>
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/util/">
+                        <span class="tag">util</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/图片/">
                         <span class="tag">图片</span>
                         <span class="tag is-grey">1</span>
@@ -1964,6 +1810,13 @@ Directionality has no influence */</span>
                 <div class="control">
                     <a class="tags has-addons" href="/tags/懒加载，-原生JS/">
                         <span class="tag">懒加载， 原生JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/阿里字体/">
+                        <span class="tag">阿里字体</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1992,7 +1845,7 @@ Directionality has no influence */</span>
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="http://cloud.xuww.wang/spider-man.jpg" alt="王小贱" height="28">
+                    Write the Code, Change the World!
                 
                 </a>
                 <p class="is-size-7">
