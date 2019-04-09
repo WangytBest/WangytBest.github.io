@@ -224,12 +224,6 @@ var _hmt = _hmt || [];
 
     <div class="card">
     
-    <div class="card-image">
-        <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="image is-7by1">
-            <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
-        </a>
-    </div>
-    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
@@ -258,20 +252,31 @@ var _hmt = _hmt || [];
         </h1>
         <div class="content">
             <h3 id="1-实际遇到的问题"><a href="#1-实际遇到的问题" class="headerlink" title="1. 实际遇到的问题"></a>1. 实际遇到的问题</h3><p>项目中经常会遇到css的一些奇怪问题，有些css属性的设置在在本地编译运行的时候是好的，但是打包上线之后这个属性就平白无故的没有了？</p>
-<p>具体场景</p>
-<blockquote>
-<p>在处理多行文本溢出时，需要使用<figure class="highlight plain hljs"><figcaption><span>vertial```，在本地开发测试一切正常，但是在webpack编译之后，检查样式并没有这个属性，其他的属性都有。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```scss</span><br><span class="line">// 多行文本</span><br><span class="line">@mixin textmultiline($line:2) &#123;</span><br><span class="line">  display: -webkit-box;</span><br><span class="line">  /* autoprefixer: off*/</span><br><span class="line">  -webkit-box-orient: vertical;</span><br><span class="line">  /* autoprefixer: on*/</span><br><span class="line">  -webkit-line-clamp: $line;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  text-overflow: ellipsis;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
+<p>具体场景<br>在处理多行文本溢出时，需要使用<figure class="highlight plain hljs"><figcaption><span>vertial```，在本地开发测试一切正常，但是在webpack编译之后，检查样式并没有这个属性，其他的属性都有。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line">```scss</span><br><span class="line">// 多行文本</span><br><span class="line">@mixin textmultiline($line:2) &#123;</span><br><span class="line">  display: -webkit-box;</span><br><span class="line">  /* autoprefixer: off*/</span><br><span class="line">  -webkit-box-orient: vertical;</span><br><span class="line">  /* autoprefixer: on*/</span><br><span class="line">  -webkit-line-clamp: $line;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  text-overflow: ellipsis;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-为什么啊？"><a href="#2-为什么啊？" class="headerlink" title="2. 为什么啊？"></a>2. 为什么啊？</h3><ol>
+<li><p><a href="https://github.com/cssnano/cssnano/issues/357" target="_blank" rel="noopener">why remove -webkit-box-orient property? #357</a></p>
+</li>
+<li><p><a href="https://github.com/cssnano/cssnano/issues/252" target="_blank" rel="noopener">Autoprefixer setting should be false by default #252</a></p>
+</li>
+</ol>
+<p>原因：<br>  autoprefixer自动的删除了一些它觉得没有必要的属性，所以解决办法就是设autoprefixer为false，或者针对某个属性忽autoprefixer</p>
+<h3 id="3-怎么办"><a href="#3-怎么办" class="headerlink" title="3. 怎么办"></a>3. 怎么办</h3><ol>
+<li><p>属性忽略autoprefixer</p>
+<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// eslint-disable-next-line</span><br><span class="line"><span class="hljs-comment">/* autoprefixer: off*/</span></span><br><span class="line"><span class="hljs-selector-tag">-webkit-box-orient</span>: <span class="hljs-selector-tag">vertical</span>;</span><br><span class="line"><span class="hljs-comment">/* autoprefixer: on*/</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>关闭cssnano的autoprefixer</p>
+</li>
+</ol>
+<p>just remove the postcss config in vue-loader’s config</p>
+<p>Add the following option to prevent autoprefixer from removing prefixes (<strong>for cssnano v3 only</strong>):</p>
+<figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  autoprefixer: &#123;</span><br><span class="line">    remove: false</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Then -webkit-box-orient will be preserved.</p>
+<ol start="3">
+<li><figure class="highlight plain hljs"><figcaption><span>插件问题</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```cs</span><br><span class="line">new OptimizeCSSPlugin(&#123;</span><br><span class="line">  cssProcessorOptions: config.build.productionSourceMap</span><br><span class="line">    ? &#123; safe: true, map: &#123; inline: false &#125; &#125;</span><br><span class="line">    : &#123; safe: true &#125;</span><br><span class="line">&#125;),</span><br></pre></td></tr></table></figure></li>
+</ol>
+
         </div>
         
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2018/08/27/webpack-插件关于autoprefixer的冲突/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
         
         
     </div>
@@ -1072,7 +1077,7 @@ var _hmt = _hmt || [];
             
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
@@ -1478,7 +1483,7 @@ var _hmt = _hmt || [];
             
             <a href="/2018/08/27/webpack-插件关于autoprefixer的冲突/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="http://cloud.xuww.wang/nianshaodeni.png" alt="webpack插件关于autoprefixer的冲突">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="webpack插件关于autoprefixer的冲突">
                 </p>
             </a>
             
