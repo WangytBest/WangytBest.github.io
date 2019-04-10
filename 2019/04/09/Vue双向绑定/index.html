@@ -7,19 +7,19 @@
 
 
 
-    <meta name="description" content="双向绑定MVVM：数据变化更新试图，视图变化更新数据。  Model View ViewModel  双向绑定实现 vue: 数据劫持  vue数据实现双向绑定是通过数据劫持结合发布者-订阅者模式实现的。   angular: 脏检查机制  当触发了指定事件后会进入脏数据检测，这时会调用 $digest 循环遍历所有的数据观察者，判断当前值是否和先前的值有区别，如果检测到变化的话，会调用 $wat">
+    <meta name="description" content="双向绑定MVVM：数据变化更新试图，视图变化更新数据。  Model View ViewModel  双向绑定实现 vue: 数据劫持vue数据实现双向绑定是通过数据劫持结合发布者-订阅者模式实现的。  angular: 脏检查机制当触发了指定事件后会进入脏数据检测，这时会调用 $digest 循环遍历所有的数据观察者，判断当前值是否和先前的值有区别，如果检测到变化的话，会调用 $watch 函数">
 <meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue双向绑定">
 <meta property="og:url" content="http://wangytbest.github.io/2019/04/09/Vue双向绑定/index.html">
 <meta property="og:site_name" content="王小贱">
-<meta property="og:description" content="双向绑定MVVM：数据变化更新试图，视图变化更新数据。  Model View ViewModel  双向绑定实现 vue: 数据劫持  vue数据实现双向绑定是通过数据劫持结合发布者-订阅者模式实现的。   angular: 脏检查机制  当触发了指定事件后会进入脏数据检测，这时会调用 $digest 循环遍历所有的数据观察者，判断当前值是否和先前的值有区别，如果检测到变化的话，会调用 $wat">
+<meta property="og:description" content="双向绑定MVVM：数据变化更新试图，视图变化更新数据。  Model View ViewModel  双向绑定实现 vue: 数据劫持vue数据实现双向绑定是通过数据劫持结合发布者-订阅者模式实现的。  angular: 脏检查机制当触发了指定事件后会进入脏数据检测，这时会调用 $digest 循环遍历所有的数据观察者，判断当前值是否和先前的值有区别，如果检测到变化的话，会调用 $watch 函数">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wangytbest.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-04-09T08:04:07.451Z">
+<meta property="og:updated_time" content="2019-04-10T02:04:15.318Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue双向绑定">
-<meta name="twitter:description" content="双向绑定MVVM：数据变化更新试图，视图变化更新数据。  Model View ViewModel  双向绑定实现 vue: 数据劫持  vue数据实现双向绑定是通过数据劫持结合发布者-订阅者模式实现的。   angular: 脏检查机制  当触发了指定事件后会进入脏数据检测，这时会调用 $digest 循环遍历所有的数据观察者，判断当前值是否和先前的值有区别，如果检测到变化的话，会调用 $wat">
+<meta name="twitter:description" content="双向绑定MVVM：数据变化更新试图，视图变化更新数据。  Model View ViewModel  双向绑定实现 vue: 数据劫持vue数据实现双向绑定是通过数据劫持结合发布者-订阅者模式实现的。  angular: 脏检查机制当触发了指定事件后会进入脏数据检测，这时会调用 $digest 循环遍历所有的数据观察者，判断当前值是否和先前的值有区别，如果检测到变化的话，会调用 $watch 函数">
 <meta name="twitter:image" content="http://wangytbest.github.io/images/og_image.png">
 
 
@@ -207,15 +207,9 @@ var _hmt = _hmt || [];
 <li>ViewModel</li>
 </ul>
 <h3 id="双向绑定实现"><a href="#双向绑定实现" class="headerlink" title="双向绑定实现"></a>双向绑定实现</h3><ul>
-<li><p>vue: 数据劫持</p>
-<blockquote>
-<p>vue数据实现双向绑定是通过数据劫持结合发布者-订阅者模式实现的。</p>
-</blockquote>
+<li><p>vue: 数据劫持<br>vue数据实现双向绑定是通过数据劫持结合发布者-订阅者模式实现的。</p>
 </li>
-<li><p>angular: 脏检查机制</p>
-<blockquote>
-<p>当触发了指定事件后会进入脏数据检测，这时会调用 $digest 循环遍历所有的数据观察者，判断当前值是否和先前的值有区别，如果检测到变化的话，会调用 $watch 函数，然后再次调用 $digest 循环直到发现没有变化。循环至少为二次 ，至多为十次。</p>
-</blockquote>
+<li><p>angular: 脏检查机制<br>当触发了指定事件后会进入脏数据检测，这时会调用 <code>$digest</code> 循环遍历所有的数据观察者，判断当前值是否和先前的值有区别，如果检测到变化的话，会调用 <code>$watch</code> 函数，然后再次调用 <code>$digest</code> 循环直到发现没有变化。循环至少为二次 ，至多为十次。</p>
 </li>
 </ul>
 <a id="more"></a>
