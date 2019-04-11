@@ -16,7 +16,7 @@
 <meta property="og:description" content="github上创建新的项目后，在本地拉取项目或者将本地的项目关联到建立的仓库。 1# git clone git@github.com:xxxxxxxxx.git">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://cloud.xuww.wang/nianshaodeni.png">
-<meta property="og:updated_time" content="2019-04-11T11:08:12.997Z">
+<meta property="og:updated_time" content="2019-04-11T11:10:14.610Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git基础">
 <meta name="twitter:description" content="github上创建新的项目后，在本地拉取项目或者将本地的项目关联到建立的仓库。 1# git clone git@github.com:xxxxxxxxx.git">
@@ -216,7 +216,7 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>git pull错误信息 :<br><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">* branch       master     -&gt; FETCH_HEAD</span><br><span class="line">fatal: refusing to merge unrelated histories</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<p>解决：<br><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="hljs-meta">#</span> git pull origin master --allow-unrelated-histories</span><br></pre></td></tr></table></figure></p>
+<p>解决：<br><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span> git pull origin master --allow-unrelated-histories</span><br></pre></td></tr></table></figure></p>
 <h2 id="首次安装git设置"><a href="#首次安装git设置" class="headerlink" title="首次安装git设置"></a>首次安装git设置</h2><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span> git config -global user.nme "xxxxxx"</span><br><span class="line"><span class="hljs-meta">#</span> git config -global user.email "xxxxxx@jd.com"</span><br></pre></td></tr></table></figure>
 <h1 id="公钥密钥配置"><a href="#公钥密钥配置" class="headerlink" title="公钥密钥配置"></a>公钥密钥配置</h1><figure class="highlight shell hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">#</span> ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
 <p>会生成两个文件：<code>id_rsa</code>（密钥）和<code>id_rsa.pub</code>（公钥）<br>在github中设置公钥。</p>
