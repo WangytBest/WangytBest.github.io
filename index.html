@@ -177,7 +177,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    9 分钟 读完 (大约 1368 个字)
+                    9 分钟 读完 (大约 1374 个字)
                 </span>
                 
                 
@@ -190,61 +190,21 @@ var _hmt = _hmt || [];
             
         </h1>
         <div class="content">
-            <p>对于<code>position</code>属性可以说是平时开发中使用频率非常高的<code>CSS</code>属性，本文主要对<code>position</code>做个总结。</p>
-<p><code>position</code>属性能够很好的体现<code>HTML</code>的普通流的特征。设置<code>position</code>属性之后主要关注<strong>是否脱离文档流</strong>和<strong>改变<code>display</code>属性</strong></p>
+            <p>对于 <code>position</code> 属性可以说是平时开发中使用频率非常高的 <code>CSS</code> 属性，本文主要对 <code>position</code> 做个总结。</p>
+<p><code>position</code> 属性能够很好的体现 <code>HTML</code> 的普通流的特征。设置 <code>position</code> 属性之后主要关注<strong>是否脱离文档流</strong>和<strong>改变 <code>display</code> 属性</strong></p>
 <blockquote>
-<p><code>position</code>属性值： <code>static</code> | <code>relative</code> | <code>absolute</code> | <code>sticky</code></p>
+<p><code>position</code> 属性值： <code>static</code> | <code>relative</code> | <code>absolute</code> | <code>sticky</code></p>
 </blockquote>
-<h3 id="static"><a href="#static" class="headerlink" title="static"></a>static</h3><p>所有元素在默认情况下<code>position</code>属性值都为<code>static</code>，此时设置<code>top</code>、<code>left</code>、<code>bottom</code>和<code>right</code>在<code>position</code>为<code>static</code>的情况下无效。<br>用法：在改变了元素的position属性后可以将其元素重置为static，让其回归到正常的普通文档流中。</p>
-<h3 id="relative"><a href="#relative" class="headerlink" title="relative"></a>relative</h3><p>相对定位: 指给元素设置相对于原本位置的定位，元素并不脱离文档流，因此元素原本的位置会被保留，其他的元素位置不会受到影响。</p>
-<p>每个元素在页面中的普通流中都会占用一个位置（元素默认文档流位置），设置为相对定位后，将元素偏离元素的默认位置，但是普通文档流中依然保持着原有的默认位置，并没有脱离普通文档流。</p>
-<h4 id="块级元素"><a href="#块级元素" class="headerlink" title="块级元素"></a>块级元素</h4><figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span><span class="hljs-undefined"></span></span><br><span class="line"><span class="hljs-undefined">  div&#123; </span></span><br><span class="line"><span class="hljs-undefined">    width: 100px; </span></span><br><span class="line"><span class="hljs-undefined">    height: 50px; </span></span><br><span class="line"><span class="hljs-undefined">    line-height: 50px; </span></span><br><span class="line"><span class="hljs-undefined">    text-align: center; </span></span><br><span class="line"><span class="hljs-css">    <span class="hljs-selector-tag">color</span>: <span class="hljs-selector-id">#fff</span>; </span></span><br><span class="line"><span class="hljs-undefined">  &#125;</span></span><br><span class="line"><span class="hljs-undefined"></span></span><br><span class="line"><span class="hljs-css">  <span class="hljs-selector-tag">div</span> <span class="hljs-selector-class">.A</span> &#123;</span></span><br><span class="line"><span class="hljs-undefined">    background: blue;</span></span><br><span class="line"><span class="hljs-undefined">  &#125;</span></span><br><span class="line"><span class="hljs-undefined"></span></span><br><span class="line"><span class="hljs-css">  <span class="hljs-selector-tag">div</span> <span class="hljs-selector-class">.B</span> &#123;</span></span><br><span class="line"><span class="hljs-undefined">    background: red; </span></span><br><span class="line"><span class="hljs-undefined">    position: relative; </span></span><br><span class="line"><span class="hljs-undefined">    top: 20px; </span></span><br><span class="line"><span class="hljs-undefined">    left: 20px;</span></span><br><span class="line"><span class="hljs-undefined">  &#125;</span></span><br><span class="line"><span class="hljs-css">  <span class="hljs-selector-tag">div</span> <span class="hljs-selector-class">.C</span> &#123;</span></span><br><span class="line"><span class="hljs-undefined">    background: green;</span></span><br><span class="line"><span class="hljs-undefined">  &#125;</span></span><br><span class="line"><span class="hljs-undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"A"</span>&gt;</span>A<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"B"</span>&gt;</span>B<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"C"</span>&gt;</span>C<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://images0.cnblogs.com/blog/163402/201402/070901493627278.png" alt="相对定位"></p>
-<p>在右图中的黑色虚线部分为B块的默认文档流位置，当B块设置为相对定位relative之后，则相对于<strong>默认位置</strong>进行偏移。C块依然保留在原位，并没有因为B块发生了偏移而随之变化。</p>
-<h4 id="行内元素"><a href="#行内元素" class="headerlink" title="行内元素"></a>行内元素</h4><figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span><span class="hljs-undefined"></span></span><br><span class="line"><span class="hljs-undefined">  strong &#123; </span></span><br><span class="line"><span class="hljs-css">    <span class="hljs-selector-tag">background</span>: <span class="hljs-selector-id">#808080</span>; </span></span><br><span class="line"><span class="hljs-undefined">  &#125;</span></span><br><span class="line"><span class="hljs-undefined">  em &#123; </span></span><br><span class="line"><span class="hljs-css">    <span class="hljs-selector-tag">background</span>: <span class="hljs-selector-id">#ffd800</span>; </span></span><br><span class="line"><span class="hljs-undefined">  &#125;</span></span><br><span class="line"><span class="hljs-undefined">  span &#123; </span></span><br><span class="line"><span class="hljs-css">    <span class="hljs-selector-tag">background</span>: <span class="hljs-selector-id">#b6ff00</span>; </span></span><br><span class="line"><span class="hljs-undefined">    position: relative; </span></span><br><span class="line"><span class="hljs-undefined">    top: 10px; </span></span><br><span class="line"><span class="hljs-undefined">    left: 10px; </span></span><br><span class="line"><span class="hljs-undefined">    width: 100px;</span></span><br><span class="line"><span class="hljs-undefined">  &#125;</span></span><br><span class="line"><span class="hljs-undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>strong<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>em<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>span<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://images0.cnblogs.com/blog/163402/201402/070901563721302.png" alt="行内元素-相对定位"></p>
-<p>行内元素在设置relative之后，依然是内联元素，widht属性未生效，并<strong>没有改变行内元素的display属性</strong>（这是于absolute的一个重要的区别）。</p>
-<h2 id="absolute"><a href="#absolute" class="headerlink" title="absolute"></a>absolute</h2><p>绝对定位: 是指给元素设置绝对的定位，相对定位的对象可以分为两种情况：</p>
-<ol>
-<li>设置了 <code>absolute</code> 的元素如果存在有祖先元素设置了 <code>position</code> 属性为 <code>relative</code> 或者 <code>absolute</code> ，则这时元素的定位对象为此已设置 <code>position</code> 属性的祖先元素。</li>
-<li>如果并没有设置了 <code>position</code> 属性的祖先元素，则此时相对于 <code>body</code> 进行定位。</li>
-</ol>
-<p><code>position: absolute</code>相对于第一个不是 <code>static</code> 的父级元素进行定位。如果在其节点中所有的父级祖先元素都没有设置 <code>position</code> 属性为 <code>relative</code> 或 <code>absolute</code> 则该元素最终将对 <code>body</code> 进行位置偏移。</p>
-<blockquote>
-<p>设置绝对定位的元素会<strong>脱离普通的文档流</strong>并且<strong>改变diaplay属性</strong>。</p>
-</blockquote>
-<p>结论：</p>
-<ul>
-<li>块级元素在设置为absolute绝对定位之后，会将width设置为auto（收到父元素的影响）</li>
-<li>行内元素在设置为absolute绝对定位之后，如果没有设置其top、left、bottom和right属性的话，浏览器会设置成auto，auto的值则是该元素的默认位置。</li>
-</ul>
-<h2 id="relative-absolute-点"><a href="#relative-absolute-点" class="headerlink" title="relative|absolute 点"></a>relative|absolute 点</h2><ol>
-<li>应用了<code>position: relative | absolute</code>的元素，<code>margin</code>属性依然生效，尽量不要设置<code>margin</code>，减少干扰、不精确。</li>
-<li><code>position: absolute</code> 将会忽略根元素的padding。</li>
-<li>行内元素使用了<code>position: absolute</code>之后会改变<code>display</code>属性，<code>inline-block</code>。</li>
-<li>设置<code>position: relative | absolute</code>之后，会覆盖其他非定位的元素，如果不想覆盖其他元素，也可以将其<code>z-index: -1</code>。</li>
-</ol>
-<h2 id="fixed"><a href="#fixed" class="headerlink" title="fixed"></a>fixed</h2><p>绝对定位。</p>
-<ul>
-<li>改变行内元素的<code>display</code>属性，使其<code>display</code>属性变更为<code>block</code>。</li>
-<li>会让元素脱硫文档流，不占据空间</li>
-<li>覆盖在非定位元素</li>
-</ul>
-<p><code>fixed</code> 和 <code>absolute</code> 的区别： <code>absolute</code> 根据第一个不是 <code>static</code> 的父元素进行定位， <code>fixed</code> 是根据浏览器窗口定位。</p>
-<h2 id="sticky"><a href="#sticky" class="headerlink" title="sticky"></a>sticky</h2><p>粘性定位: <code>sticky</code> 的元素，在屏幕范围（<code>viewport</code>）时该元素的位置并不受到定位影响（设置是 <code>top</code> 、 <code>left</code> 等属性无效），当该元素的位置将要移出偏移范围时，定位又会变成 <code>fixed</code> ，根据设置的 <code>left</code> 、 <code>top</code> 等属性成固定位置的效果。</p>
-<p>可以知道sticky属性有以下几个特点：</p>
-<ul>
-<li>该元素并不脱离文档流，仍然保留元素原本在文档流中的位置。</li>
-<li>当元素在容器中被滚动超过指定的偏移值时，元素在容器内固定在指定位置。亦即如果你设置了top: 50px，那么在sticky元素到达距离相对定位的元素顶部50px的位置时固定，不再向上移动。</li>
-<li>元素固定的相对偏移是相对于离它最近的具有滚动框的祖先元素，如果祖先元素都不可以滚动，那么是相对于viewport来计算元素的偏移量</li>
-</ul>
-<h2 id="position和float"><a href="#position和float" class="headerlink" title="position和float"></a>position和float</h2><ol>
-<li>当元素同时设置 <code>position: relative</code> 和 <code>float: left</code> ，则元素先浮动到相应的位置，然后在根据 <code>top/ left / bottom / right</code> 来发生偏移。</li>
-<li>当元素同时设置 <code>position: absolute</code> 和 <code>float: left</code> ，则 <code>float</code> 失效。</li>
-</ol>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/04/11/css中position属性深入探讨/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
