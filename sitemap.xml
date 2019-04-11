@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wangytbest.github.io/2017/10/13/github-project-init/</loc>
+    
+    <lastmod>2019-04-11T11:08:12.997Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://wangytbest.github.io/2017/10/19/css-text-overflow/</loc>
     
     <lastmod>2019-04-11T11:02:26.453Z</lastmod>
@@ -201,13 +208,6 @@
     <loc>http://wangytbest.github.io/2017/09/25/git-rm-cache/</loc>
     
     <lastmod>2019-04-09T07:05:01.895Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wangytbest.github.io/2017/10/13/github-project-init/</loc>
-    
-    <lastmod>2019-04-09T07:04:41.246Z</lastmod>
     
   </url>
   
