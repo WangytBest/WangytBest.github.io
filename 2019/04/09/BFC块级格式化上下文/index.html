@@ -16,7 +16,7 @@
 <meta property="og:description" content="BFC（Block Formating Context） 块级格式化上下文：一个独立的渲染区域，只有Block-level box参与，它内部规定了Block-level box如何布局，并且与这个区域外部毫不相干。  BFC是Web页面的可视化CSS渲染的一部分，并且有自身的一套渲染规则，它决定了其子元素如何定位，以及和其他元素的关系和相互作用。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wangytbest.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-04-11T10:31:25.753Z">
+<meta property="og:updated_time" content="2019-04-11T10:32:53.665Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BFC块级格式化上下文">
 <meta name="twitter:description" content="BFC（Block Formating Context） 块级格式化上下文：一个独立的渲染区域，只有Block-level box参与，它内部规定了Block-level box如何布局，并且与这个区域外部毫不相干。  BFC是Web页面的可视化CSS渲染的一部分，并且有自身的一套渲染规则，它决定了其子元素如何定位，以及和其他元素的关系和相互作用。">
@@ -240,6 +240,8 @@ var _hmt = _hmt || [];
 <li>可以包含浮动元素——清除内部浮动</li>
 </ol>
 <p>包含浮动元素的父元素，设置 <code>overflow: auto</code> 创建一个新的BFC来包含这个浮动。父元素现在变成布局中的迷你布局，任何子元素都会被包含进去。</p>
+<script async src="//jsfiddle.net/wangyutao/8dm7apts/embed/html,css,result/"></script>
+
 <blockquote>
 <p>面试题：为什会内容环绕呢，而不是跟浮动元素重合呢？<br>《CSS权威指南》中指出，浮动的目的，最初只能用于图像，目的就是为了允许其他内容（如文本）“围绕”该图像。而后来的CSS允许浮动任何元素。</p>
 </blockquote>
