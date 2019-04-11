@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wangytbest.github.io/2017/10/19/css-text-overflow/</loc>
+    
+    <lastmod>2019-04-11T10:55:06.242Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://wangytbest.github.io/2019/04/09/BFC%E5%9D%97%E7%BA%A7%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%B8%8A%E4%B8%8B%E6%96%87/</loc>
     
-    <lastmod>2019-04-11T10:37:16.438Z</lastmod>
+    <lastmod>2019-04-11T10:53:43.640Z</lastmod>
     
   </url>
   
@@ -180,13 +187,6 @@
     <loc>http://wangytbest.github.io/2017/10/16/css-text-align-justify/</loc>
     
     <lastmod>2019-04-09T07:06:33.557Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wangytbest.github.io/2017/10/19/css-text-overflow/</loc>
-    
-    <lastmod>2019-04-09T07:06:02.422Z</lastmod>
     
   </url>
   
