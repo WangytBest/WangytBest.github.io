@@ -16,7 +16,7 @@
 <meta property="og:description" content="BFC（Block Formating Context） 块级格式化上下文：一个独立的渲染区域，只有Block-level box参与，它内部规定了Block-level box如何布局，并且与这个区域外部毫不相干。  BFC是Web页面的可视化CSS渲染的一部分，并且有自身的一套渲染规则，它决定了其子元素如何定位，以及和其他元素的关系和相互作用。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wangytbest.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-04-11T10:24:07.728Z">
+<meta property="og:updated_time" content="2019-04-11T10:28:08.629Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BFC块级格式化上下文">
 <meta name="twitter:description" content="BFC（Block Formating Context） 块级格式化上下文：一个独立的渲染区域，只有Block-level box参与，它内部规定了Block-level box如何布局，并且与这个区域外部毫不相干。  BFC是Web页面的可视化CSS渲染的一部分，并且有自身的一套渲染规则，它决定了其子元素如何定位，以及和其他元素的关系和相互作用。">
@@ -238,19 +238,14 @@ var _hmt = _hmt || [];
 <script async src="//jsfiddle.net/wangyutao/tsxvwjh1/15/embed/html,css,result/"></script>
 
 <ol start="3">
-<li>可以包含浮动元素——清除内部浮动<blockquote>
-<p>包含浮动元素的父元素，设置 <code>overflow: auto</code> 创建一个新的BFC来包含这个浮动。父元素现在变成布局中的迷你布局，任何子元素都会被包含进去。</p>
-</blockquote>
-</li>
+<li>可以包含浮动元素——清除内部浮动</li>
 </ol>
+<p>包含浮动元素的父元素，设置 <code>overflow: auto</code> 创建一个新的BFC来包含这个浮动。父元素现在变成布局中的迷你布局，任何子元素都会被包含进去。</p>
 <blockquote>
 <p>面试题：为什会内容环绕呢，而不是跟浮动元素重合呢？<br>《CSS权威指南》中指出，浮动的目的，最初只能用于图像，目的就是为了允许其他内容（如文本）“围绕”该图像。而后来的CSS允许浮动任何元素。</p>
 </blockquote>
 <ol start="4">
-<li>分属于不同的BFC时可以阻止margin重叠<blockquote>
-<p>外边距塌陷: 创建新的BFC避免两个相邻<code>&lt;div&gt;</code>之间的外边距合并</p>
-</blockquote>
-</li>
+<li>分属于不同的BFC时可以阻止margin重叠<br>外边距塌陷: 创建新的BFC避免两个相邻<code>&lt;div&gt;</code>之间的外边距合并</li>
 </ol>
 <h2 id="外边距塌陷"><a href="#外边距塌陷" class="headerlink" title="外边距塌陷"></a>外边距塌陷</h2><blockquote>
 <p>外边距折叠：块级元素的上外边距和下外边距有时会合并（或折叠）为一个外边距，其大小取其中的最大者。</p>
