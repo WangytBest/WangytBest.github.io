@@ -260,7 +260,7 @@ var _hmt = _hmt || [];
 <li>资源嵌入： <code>&lt;link&gt;</code>、<code>&lt;script&gt;</code>、<code>&lt;img&gt;</code>、<code>&lt;frame&gt;</code>等dom标签，还有样式中<code>background:url()</code>、<code>@font-face()</code>等文件外链</li>
 <li>脚本请求： js发起的ajax请求、dom和js对象的跨域操作等<br>其实我们通常所说的跨域是狭义的，是由浏览器同源策略限制的一类请求场景。</li>
 </ol>
-<h3 id="什么是同源策略？"><a href="#什么是同源策略？" class="headerlink" title="什么是同源策略？"></a>什么是同源策略？</h3><p>同源策略/<code>SOP（Same origin policy）</code>是一种约定，由Netscape公司1995年引入浏览器，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，浏览器很容易受到XSS、CSFR等攻击。所谓同源是指”协议+域名+端口”三者相同，即便两个不同的域名指向同一个ip地址，也非同源。</p>
+<h3 id="什么是同源策略？"><a href="#什么是同源策略？" class="headerlink" title="什么是同源策略？"></a>什么是同源策略？</h3><p>同源策略/<code>SOP（Same origin policy）</code>是一种约定，由Netscape公司1995年引入浏览器，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，<strong>浏览器很容易受到XSS、CSFR等攻击</strong>。所谓同源是指”协议+域名+端口”三者相同，即便两个不同的域名指向同一个ip地址，也非同源。</p>
 <p>同源策略限制以下几种行为：</p>
 <ol>
 <li>Cookie、LocalStorage 和 IndexDB 无法读取</li>
