@@ -7,19 +7,19 @@
 
 
 
-    <meta name="description" content="BFC（Block Formating Context） 块级格式化上下文：一个独立的渲染区域，只有Block-level box参与，它内部规定了Block-level box如何布局，并且与这个区域外部毫不相干。  BFC布局规则 内部Box会在垂直方向上一个接一个的放置 Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会合并 每个元素的margin bo">
+    <meta name="description" content="BFC（Block Formating Context） 块级格式化上下文：一个独立的渲染区域，只有Block-level box参与，它内部规定了Block-level box如何布局，并且与这个区域外部毫不相干。  BFC是Web页面的可视化CSS渲染的一部分，并且有自身的一套渲染规则，它决定了其子元素如何定位，以及和其他元素的关系和相互作用。">
 <meta name="keywords" content="CSS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BFC块级格式化上下文">
 <meta property="og:url" content="http://wangytbest.github.io/2019/04/09/BFC块级格式化上下文/index.html">
 <meta property="og:site_name" content="王小贱">
-<meta property="og:description" content="BFC（Block Formating Context） 块级格式化上下文：一个独立的渲染区域，只有Block-level box参与，它内部规定了Block-level box如何布局，并且与这个区域外部毫不相干。  BFC布局规则 内部Box会在垂直方向上一个接一个的放置 Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会合并 每个元素的margin bo">
+<meta property="og:description" content="BFC（Block Formating Context） 块级格式化上下文：一个独立的渲染区域，只有Block-level box参与，它内部规定了Block-level box如何布局，并且与这个区域外部毫不相干。  BFC是Web页面的可视化CSS渲染的一部分，并且有自身的一套渲染规则，它决定了其子元素如何定位，以及和其他元素的关系和相互作用。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wangytbest.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-04-11T09:27:58.138Z">
+<meta property="og:updated_time" content="2019-04-11T10:24:07.728Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BFC块级格式化上下文">
-<meta name="twitter:description" content="BFC（Block Formating Context） 块级格式化上下文：一个独立的渲染区域，只有Block-level box参与，它内部规定了Block-level box如何布局，并且与这个区域外部毫不相干。  BFC布局规则 内部Box会在垂直方向上一个接一个的放置 Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会合并 每个元素的margin bo">
+<meta name="twitter:description" content="BFC（Block Formating Context） 块级格式化上下文：一个独立的渲染区域，只有Block-level box参与，它内部规定了Block-level box如何布局，并且与这个区域外部毫不相干。  BFC是Web页面的可视化CSS渲染的一部分，并且有自身的一套渲染规则，它决定了其子元素如何定位，以及和其他元素的关系和相互作用。">
 <meta name="twitter:image" content="http://wangytbest.github.io/images/og_image.png">
 
 
@@ -182,7 +182,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    7 分钟 读完 (大约 1047 个字)
+                    10 分钟 读完 (大约 1438 个字)
                 </span>
                 
                 
@@ -203,39 +203,51 @@ var _hmt = _hmt || [];
             <h2 id="BFC（Block-Formating-Context）"><a href="#BFC（Block-Formating-Context）" class="headerlink" title="BFC（Block Formating Context）"></a>BFC（Block Formating Context）</h2><blockquote>
 <p>块级格式化上下文：一个独立的渲染区域，只有<code>Block-level box</code>参与，它内部规定了<code>Block-level box</code>如何布局，并且与这个区域外部毫不相干。</p>
 </blockquote>
-<h4 id="BFC布局规则"><a href="#BFC布局规则" class="headerlink" title="BFC布局规则"></a>BFC布局规则</h4><ul>
+<p>BFC是Web页面的可视化CSS渲染的一部分，并且有自身的一套渲染规则，它决定了其子元素如何定位，以及和其他元素的关系和相互作用。</p>
+<a id="more"></a>
+<h2 id="CSS有三种基本定位机制"><a href="#CSS有三种基本定位机制" class="headerlink" title="CSS有三种基本定位机制"></a>CSS有三种基本定位机制</h2><ul>
+<li>普通流(或称常规流)：CSS默认的定位方式，触发方式包括为 <code>position: static | relative</code> ，且 <code>float:none</code></li>
+<li>浮动：浮动脱离普通流，可以左右移动，直到它的外边框边缘碰到包含框或另一个浮动框的边缘，触发方式基本就是 <code>float:left | top</code>等。可以通过 <code>position: relative</code> 设置其 <code>top、left</code> 等属性(先进行浮动，在进行位置偏移)。</li>
+<li>绝对定位：盒子脱离普通流，不影响普通流上其他元素的布局，设置float无效。</li>
+</ul>
+<h4 id="BFC布局规则"><a href="#BFC布局规则" class="headerlink" title="BFC布局规则"></a>BFC布局规则</h4><p>具有 BFC 特性的元素可以看成是隔离了的独立容器，容器里面的元素不会在布局上影响到外面的元素，并且BFC具有普通容器所没有的一些特性。</p>
+<ul>
 <li>内部<code>Box</code>会在垂直方向上一个接一个的放置</li>
 <li><code>Box</code>垂直方向的距离由<code>margin</code>决定。属于同一个<code>BFC</code>的两个相邻<code>Box</code>的<code>margin</code>会合并</li>
 <li>每个元素的<code>margin box</code>的左边，与包含块<code>border box</code>的左边相接触</li>
 <li><code>BFC</code>的区域不会与<code>float box</code>重叠</li>
-<li><code>BFC</code>是一个独立的容器，里面的子元素不会影响到外面的元素，反之亦然。</li>
+<li><code>BFC</code>是一个独立的容器，里面的子元素不会影响到外面的元素，反之亦然</li>
 <li>计算<code>BFC</code>的高度的时候，浮动元素也参与计算</li>
 </ul>
-<a id="more"></a>
-<script async src="//jsfiddle.net/wangyutao/8dm7apts/15/embed/html,css,result/"></script>
-
 <h4 id="生成BFC"><a href="#生成BFC" class="headerlink" title="生成BFC"></a>生成BFC</h4><ul>
 <li>根元素</li>
 <li><code>float</code>属性不为<code>none</code></li>
 <li>绝对定位元素（<code>absolute</code>, <code>fixed</code>）</li>
 <li><code>display</code>为<code>inline-block</code>,<code>table-cell</code>,<code>table-caption</code>,<code>flex</code>, <code>grid</code></li>
 <li><code>overflow</code>不为<code>visible</code></li>
+<li><code>flex</code></li>
+<li><code>grid</code></li>
 </ul>
 <h4 id="BFC作用"><a href="#BFC作用" class="headerlink" title="BFC作用"></a>BFC作用</h4><ol>
 <li>自适应两栏布局</li>
-<li>可以阻止元素被浮动元素覆盖<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"aside"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"main"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li>可以阻止元素被浮动元素覆盖<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"container"</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"aside"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"main"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-tag">body</span>&#123;</span><br><span class="line">  <span class="hljs-attribute">width</span>: <span class="hljs-number">300px</span>;</span><br><span class="line">  <span class="hljs-attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-selector-class">.aside</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;</span><br><span class="line">  <span class="hljs-attribute">height</span>: <span class="hljs-number">150px</span>;</span><br><span class="line">  <span class="hljs-attribute">float</span>: left;</span><br><span class="line">  <span class="hljs-attribute">background</span>: <span class="hljs-number">#f66</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-selector-class">.main</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>;</span><br><span class="line">  <span class="hljs-attribute">background</span>: <span class="hljs-number">#fcc</span>;</span><br><span class="line">  <span class="hljs-attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-tag">body</span>&#123;</span><br><span class="line">  <span class="hljs-comment">/* width: 300px; */</span></span><br><span class="line">  <span class="hljs-attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-selector-class">.aside</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">width</span>: <span class="hljs-number">100px</span>;</span><br><span class="line">  <span class="hljs-attribute">height</span>: <span class="hljs-number">150px</span>;</span><br><span class="line">  <span class="hljs-attribute">float</span>: left;</span><br><span class="line">  <span class="hljs-attribute">background</span>: <span class="hljs-number">#f66</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-selector-class">.main</span> &#123;</span><br><span class="line">  <span class="hljs-attribute">height</span>: <span class="hljs-number">200px</span>;</span><br><span class="line">  <span class="hljs-attribute">background</span>: <span class="hljs-number">#fcc</span>;</span><br><span class="line">  <span class="hljs-attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>main</code>节点如果不设置为<code>BFC</code>，那么根据规则每个元素的<code>margin box</code>的左边，与包含块<code>border box</code>的左边相接触,<code>main</code>将会被<code>aside</code>覆盖。通过<code>overflow:hidden</code>设置为<code>BFC</code>，<code>BFC</code>区域不会和<code>float box</code>重叠。</p>
+<script async src="//jsfiddle.net/wangyutao/tsxvwjh1/15/embed/html,css,result/"></script>
+
 <ol start="3">
-<li><p>可以包含浮动元素——清除内部浮动</p>
-<blockquote>
+<li>可以包含浮动元素——清除内部浮动<blockquote>
 <p>包含浮动元素的父元素，设置 <code>overflow: auto</code> 创建一个新的BFC来包含这个浮动。父元素现在变成布局中的迷你布局，任何子元素都会被包含进去。</p>
 </blockquote>
 </li>
-<li><p>分属于不同的BFC时可以阻止margin重叠</p>
+</ol>
 <blockquote>
+<p>面试题：为什会内容环绕呢，而不是跟浮动元素重合呢？<br>《CSS权威指南》中指出，浮动的目的，最初只能用于图像，目的就是为了允许其他内容（如文本）“围绕”该图像。而后来的CSS允许浮动任何元素。</p>
+</blockquote>
+<ol start="4">
+<li>分属于不同的BFC时可以阻止margin重叠<blockquote>
 <p>外边距塌陷: 创建新的BFC避免两个相邻<code>&lt;div&gt;</code>之间的外边距合并</p>
 </blockquote>
 </li>
@@ -253,7 +265,7 @@ var _hmt = _hmt || [];
 <li>如果参与折叠的外边距中包含负值，折叠后的外边距的值为最大的正边距与最小的负边距（即绝对值最大的负边距）的和。</li>
 <li>如果所有参与折叠的外边距都为负，折叠后的外边距的值为最小的负边距的值。这一规则适用于相邻元素和嵌套元素。</li>
 </ul>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context" target="_blank" rel="noopener">MDN: BFC 块级格式化上下文</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context" target="_blank" rel="noopener">MDN: BFC 块级格式化上下文</a><br><a href="https://www.smashingmagazine.com/2017/12/understanding-css-layout-block-formatting-context/" target="_blank" rel="noopener">Understanding CSS Layout And The Block Formatting Context</a></p>
 
         </div>
         
@@ -447,41 +459,45 @@ var _hmt = _hmt || [];
         <a class="is-flex" href="#BFC（Block-Formating-Context）">
         <span class="has-mr-6">1</span>
         <span>BFC（Block Formating Context）</span>
+        </a></li><li>
+        <a class="is-flex" href="#CSS有三种基本定位机制">
+        <span class="has-mr-6">2</span>
+        <span>CSS有三种基本定位机制</span>
         </a><ul class="menu-list"><li>
         <a class="is-flex" href="#BFC布局规则">
-        <span class="has-mr-6">1.1</span>
+        <span class="has-mr-6">2.1</span>
         <span>BFC布局规则</span>
         </a></li><li>
         <a class="is-flex" href="#生成BFC">
-        <span class="has-mr-6">1.2</span>
+        <span class="has-mr-6">2.2</span>
         <span>生成BFC</span>
         </a></li><li>
         <a class="is-flex" href="#BFC作用">
-        <span class="has-mr-6">1.3</span>
+        <span class="has-mr-6">2.3</span>
         <span>BFC作用</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#外边距塌陷">
-        <span class="has-mr-6">2</span>
+        <span class="has-mr-6">3</span>
         <span>外边距塌陷</span>
         </a><ul class="menu-list"><li>
         <a class="is-flex" href="#外边距折叠的三种基本情况">
-        <span class="has-mr-6">2.1</span>
+        <span class="has-mr-6">3.1</span>
         <span>外边距折叠的三种基本情况</span>
         </a><ul class="menu-list"><li>
         <a class="is-flex" href="#1-相邻元素之间">
-        <span class="has-mr-6">2.1.1</span>
+        <span class="has-mr-6">3.1.1</span>
         <span>1. 相邻元素之间</span>
         </a></li><li>
         <a class="is-flex" href="#2-父元素与其第一个或最后一个子元素之间">
-        <span class="has-mr-6">2.1.2</span>
+        <span class="has-mr-6">3.1.2</span>
         <span>2. 父元素与其第一个或最后一个子元素之间</span>
         </a></li><li>
         <a class="is-flex" href="#3-空的块级元素">
-        <span class="has-mr-6">2.1.3</span>
+        <span class="has-mr-6">3.1.3</span>
         <span>3.空的块级元素</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#一些需要注意的地方：">
-        <span class="has-mr-6">2.2</span>
+        <span class="has-mr-6">3.2</span>
         <span>一些需要注意的地方：</span>
         </a></li></ul></li></ul>
         </div>
