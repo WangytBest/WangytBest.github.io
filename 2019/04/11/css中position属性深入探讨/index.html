@@ -2,23 +2,24 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>分类 - 王小贱</title>
+<title>css中position属性深入探讨 - 王小贱</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="狗厂 商城研发 前端工程湿太">
-<meta name="keywords" content="webpack,MySQL,React,CSS,Angular,ngSanitize,Vue,JS,css,button,canvas,CSS3,Javascript,图片,懒加载， 原生JS,SVG,text-overflow,git,github,javascript,ajax,面试,阿里字体,util,HTML">
-<meta property="og:type" content="website">
-<meta property="og:title" content="王小贱">
-<meta property="og:url" content="http://wangytbest.github.io/categories/index.html">
+    <meta name="description" content="对于position属性可以说是平时开发中使用频率非常高的CSS属性，本文主要对position做个总结。 position属性能够很好的体现HTML的普通流的特征。设置position属性之后主要关注是否脱离文档流和改变display属性  position属性值： static | relative | absolute | sticky  static所有元素在默认情况下position属性">
+<meta name="keywords" content="CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css中position属性深入探讨">
+<meta property="og:url" content="http://wangytbest.github.io/2019/04/11/css中position属性深入探讨/index.html">
 <meta property="og:site_name" content="王小贱">
-<meta property="og:description" content="狗厂 商城研发 前端工程湿太">
+<meta property="og:description" content="对于position属性可以说是平时开发中使用频率非常高的CSS属性，本文主要对position做个总结。 position属性能够很好的体现HTML的普通流的特征。设置position属性之后主要关注是否脱离文档流和改变display属性  position属性值： static | relative | absolute | sticky  static所有元素在默认情况下position属性">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wangytbest.github.io/images/og_image.png">
+<meta property="og:updated_time" content="2019-04-11T08:22:37.776Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="王小贱">
-<meta name="twitter:description" content="狗厂 商城研发 前端工程湿太">
+<meta name="twitter:title" content="css中position属性深入探讨">
+<meta name="twitter:description" content="对于position属性可以说是平时开发中使用频率非常高的CSS属性，本文主要对position做个总结。 position属性能够很好的体现HTML的普通流的特征。设置position属性之后主要关注是否脱离文档流和改变display属性  position属性值： static | relative | absolute | sticky  static所有元素在默认情况下position属性">
 <meta name="twitter:image" content="http://wangytbest.github.io/images/og_image.png">
 
 
@@ -128,7 +129,7 @@ var _hmt = _hmt || [];
                 
                 <a class="navbar-item" href="/archives">文章</a>
                 
-                <a class="navbar-item is-active" href="/categories">目录</a>
+                <a class="navbar-item" href="/categories">目录</a>
                 
                 <a class="navbar-item" href="/tags">标签</a>
                 
@@ -148,6 +149,10 @@ var _hmt = _hmt || [];
                     
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="搜索" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -161,139 +166,181 @@ var _hmt = _hmt || [];
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-<div class="card widget">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-11T02:58:22.000Z">2019-04-11</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    9 分钟 读完 (大约 1368 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                css中position属性深入探讨
+            
+        </h1>
+        <div class="content">
+            <p>对于<code>position</code>属性可以说是平时开发中使用频率非常高的<code>CSS</code>属性，本文主要对<code>position</code>做个总结。</p>
+<p><code>position</code>属性能够很好的体现<code>HTML</code>的普通流的特征。设置<code>position</code>属性之后主要关注<strong>是否脱离文档流</strong>和<strong>改变<code>display</code>属性</strong></p>
+<blockquote>
+<p><code>position</code>属性值： <code>static</code> | <code>relative</code> | <code>absolute</code> | <code>sticky</code></p>
+</blockquote>
+<h3 id="static"><a href="#static" class="headerlink" title="static"></a>static</h3><p>所有元素在默认情况下<code>position</code>属性值都为<code>static</code>，此时设置<code>top</code>、<code>left</code>、<code>bottom</code>和<code>right</code>在<code>position</code>为<code>static</code>的情况下无效。<br>用法：在改变了元素的position属性后可以将其元素重置为static，让其回归到正常的普通文档流中。</p>
+<h3 id="relative"><a href="#relative" class="headerlink" title="relative"></a>relative</h3><p>相对定位: 指给元素设置相对于原本位置的定位，元素并不脱离文档流，因此元素原本的位置会被保留，其他的元素位置不会受到影响。</p>
+<p>每个元素在页面中的普通流中都会占用一个位置（元素默认文档流位置），设置为相对定位后，将元素偏离元素的默认位置，但是普通文档流中依然保持着原有的默认位置，并没有脱离普通文档流。</p>
+<h4 id="块级元素"><a href="#块级元素" class="headerlink" title="块级元素"></a>块级元素</h4><figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span><span class="hljs-undefined"></span></span><br><span class="line"><span class="hljs-undefined">  div&#123; </span></span><br><span class="line"><span class="hljs-undefined">    width: 100px; </span></span><br><span class="line"><span class="hljs-undefined">    height: 50px; </span></span><br><span class="line"><span class="hljs-undefined">    line-height: 50px; </span></span><br><span class="line"><span class="hljs-undefined">    text-align: center; </span></span><br><span class="line"><span class="hljs-css">    <span class="hljs-selector-tag">color</span>: <span class="hljs-selector-id">#fff</span>; </span></span><br><span class="line"><span class="hljs-undefined">  &#125;</span></span><br><span class="line"><span class="hljs-undefined"></span></span><br><span class="line"><span class="hljs-css">  <span class="hljs-selector-tag">div</span> <span class="hljs-selector-class">.A</span> &#123;</span></span><br><span class="line"><span class="hljs-undefined">    background: blue;</span></span><br><span class="line"><span class="hljs-undefined">  &#125;</span></span><br><span class="line"><span class="hljs-undefined"></span></span><br><span class="line"><span class="hljs-css">  <span class="hljs-selector-tag">div</span> <span class="hljs-selector-class">.B</span> &#123;</span></span><br><span class="line"><span class="hljs-undefined">    background: red; </span></span><br><span class="line"><span class="hljs-undefined">    position: relative; </span></span><br><span class="line"><span class="hljs-undefined">    top: 20px; </span></span><br><span class="line"><span class="hljs-undefined">    left: 20px;</span></span><br><span class="line"><span class="hljs-undefined">  &#125;</span></span><br><span class="line"><span class="hljs-css">  <span class="hljs-selector-tag">div</span> <span class="hljs-selector-class">.C</span> &#123;</span></span><br><span class="line"><span class="hljs-undefined">    background: green;</span></span><br><span class="line"><span class="hljs-undefined">  &#125;</span></span><br><span class="line"><span class="hljs-undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"A"</span>&gt;</span>A<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"B"</span>&gt;</span>B<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"C"</span>&gt;</span>C<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://images0.cnblogs.com/blog/163402/201402/070901493627278.png" alt="相对定位"></p>
+<p>在右图中的黑色虚线部分为B块的默认文档流位置，当B块设置为相对定位relative之后，则相对于<strong>默认位置</strong>进行偏移。C块依然保留在原位，并没有因为B块发生了偏移而随之变化。</p>
+<h4 id="行内元素"><a href="#行内元素" class="headerlink" title="行内元素"></a>行内元素</h4><figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span><span class="hljs-undefined"></span></span><br><span class="line"><span class="hljs-undefined">  strong &#123; </span></span><br><span class="line"><span class="hljs-css">    <span class="hljs-selector-tag">background</span>: <span class="hljs-selector-id">#808080</span>; </span></span><br><span class="line"><span class="hljs-undefined">  &#125;</span></span><br><span class="line"><span class="hljs-undefined">  em &#123; </span></span><br><span class="line"><span class="hljs-css">    <span class="hljs-selector-tag">background</span>: <span class="hljs-selector-id">#ffd800</span>; </span></span><br><span class="line"><span class="hljs-undefined">  &#125;</span></span><br><span class="line"><span class="hljs-undefined">  span &#123; </span></span><br><span class="line"><span class="hljs-css">    <span class="hljs-selector-tag">background</span>: <span class="hljs-selector-id">#b6ff00</span>; </span></span><br><span class="line"><span class="hljs-undefined">    position: relative; </span></span><br><span class="line"><span class="hljs-undefined">    top: 10px; </span></span><br><span class="line"><span class="hljs-undefined">    left: 10px; </span></span><br><span class="line"><span class="hljs-undefined">    width: 100px;</span></span><br><span class="line"><span class="hljs-undefined">  &#125;</span></span><br><span class="line"><span class="hljs-undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>strong<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>em<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>span<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://images0.cnblogs.com/blog/163402/201402/070901563721302.png" alt="行内元素-相对定位"></p>
+<p>行内元素在设置relative之后，依然是内联元素，widht属性未生效，并<strong>没有改变行内元素的display属性</strong>（这是于absolute的一个重要的区别）。</p>
+<h2 id="absolute"><a href="#absolute" class="headerlink" title="absolute"></a>absolute</h2><p>绝对定位: 是指给元素设置绝对的定位，相对定位的对象可以分为两种情况：</p>
+<ol>
+<li>设置了 <code>absolute</code> 的元素如果存在有祖先元素设置了 <code>position</code> 属性为 <code>relative</code> 或者 <code>absolute</code> ，则这时元素的定位对象为此已设置 <code>position</code> 属性的祖先元素。</li>
+<li>如果并没有设置了 <code>position</code> 属性的祖先元素，则此时相对于 <code>body</code> 进行定位。</li>
+</ol>
+<p><code>position: absolute</code>相对于第一个不是 <code>static</code> 的父级元素进行定位。如果在其节点中所有的父级祖先元素都没有设置 <code>position</code> 属性为 <code>relative</code> 或 <code>absolute</code> 则该元素最终将对 <code>body</code> 进行位置偏移。</p>
+<blockquote>
+<p>设置绝对定位的元素会<strong>脱离普通的文档流</strong>并且<strong>改变diaplay属性</strong>。</p>
+</blockquote>
+<p>结论：</p>
+<ul>
+<li>块级元素在设置为absolute绝对定位之后，会将width设置为auto（收到父元素的影响）</li>
+<li>行内元素在设置为absolute绝对定位之后，如果没有设置其top、left、bottom和right属性的话，浏览器会设置成auto，auto的值则是该元素的默认位置。</li>
+</ul>
+<h2 id="relative-absolute-点"><a href="#relative-absolute-点" class="headerlink" title="relative|absolute 点"></a>relative|absolute 点</h2><ol>
+<li>应用了<code>position: relative | absolute</code>的元素，<code>margin</code>属性依然生效，尽量不要设置<code>margin</code>，减少干扰、不精确。</li>
+<li><code>position: absolute</code> 将会忽略根元素的padding。</li>
+<li>行内元素使用了<code>position: absolute</code>之后会改变<code>display</code>属性，<code>inline-block</code>。</li>
+<li>设置<code>position: relative | absolute</code>之后，会覆盖其他非定位的元素，如果不想覆盖其他元素，也可以将其<code>z-index: -1</code>。</li>
+</ol>
+<h2 id="fixed"><a href="#fixed" class="headerlink" title="fixed"></a>fixed</h2><p>绝对定位。</p>
+<ul>
+<li>改变行内元素的<code>display</code>属性，使其<code>display</code>属性变更为<code>block</code>。</li>
+<li>会让元素脱硫文档流，不占据空间</li>
+<li>覆盖在非定位元素</li>
+</ul>
+<p><code>fixed</code> 和 <code>absolute</code> 的区别： <code>absolute</code> 根据第一个不是 <code>static</code> 的父元素进行定位， <code>fixed</code> 是根据浏览器窗口定位。</p>
+<h2 id="sticky"><a href="#sticky" class="headerlink" title="sticky"></a>sticky</h2><p>粘性定位: <code>sticky</code> 的元素，在屏幕范围（<code>viewport</code>）时该元素的位置并不受到定位影响（设置是 <code>top</code> 、 <code>left</code> 等属性无效），当该元素的位置将要移出偏移范围时，定位又会变成 <code>fixed</code> ，根据设置的 <code>left</code> 、 <code>top</code> 等属性成固定位置的效果。</p>
+<p>可以知道sticky属性有以下几个特点：</p>
+<ul>
+<li>该元素并不脱离文档流，仍然保留元素原本在文档流中的位置。</li>
+<li>当元素在容器中被滚动超过指定的偏移值时，元素在容器内固定在指定位置。亦即如果你设置了top: 50px，那么在sticky元素到达距离相对定位的元素顶部50px的位置时固定，不再向上移动。</li>
+<li>元素固定的相对偏移是相对于离它最近的具有滚动框的祖先元素，如果祖先元素都不可以滚动，那么是相对于viewport来计算元素的偏移量</li>
+</ul>
+<h2 id="position和float"><a href="#position和float" class="headerlink" title="position和float"></a>position和float</h2><ol>
+<li>当元素同时设置 <code>position: relative</code> 和 <code>float: left</code> ，则元素先浮动到相应的位置，然后在根据 <code>top/ left / bottom / right</code> 来发生偏移。</li>
+<li>当元素同时设置 <code>position: absolute</code> 和 <code>float: left</code> ，则 <code>float</code> 失效。</li>
+</ol>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/CSS/">CSS</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
     <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                分类
-            </h3>
-            <ul class="menu-list">
-            <li>
-        <a class="level is-marginless" href="/categories/Angular/">
-            <span class="level-start">
-                <span class="level-item">Angular</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/CSS/">
-            <span class="level-start">
-                <span class="level-item">CSS</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">12</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/Git/">
-            <span class="level-start">
-                <span class="level-item">Git</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/HTML/">
-            <span class="level-start">
-                <span class="level-item">HTML</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/Javasciipt/">
-            <span class="level-start">
-                <span class="level-item">Javasciipt</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/Javascript/">
-            <span class="level-start">
-                <span class="level-item">Javascript</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">11</span>
-            </span>
-        </a><ul><li>
-        <a class="level is-marginless" href="/categories/Javascript/canvas/">
-            <span class="level-start">
-                <span class="level-item">canvas</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/Javascript/util/">
-            <span class="level-start">
-                <span class="level-item">util</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">8</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/Javascript/阿里字体/">
-            <span class="level-start">
-                <span class="level-item">阿里字体</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li></ul></li><li>
-        <a class="level is-marginless" href="/categories/MySQL/">
-            <span class="level-start">
-                <span class="level-item">MySQL</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/React/">
-            <span class="level-start">
-                <span class="level-item">React</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/Vue/">
-            <span class="level-start">
-                <span class="level-item">Vue</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/webpack/">
-            <span class="level-start">
-                <span class="level-item">webpack</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">4</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/面试/">
-            <span class="level-start">
-                <span class="level-item">面试</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a><ul><li>
-        <a class="level is-marginless" href="/categories/面试/前端/">
-            <span class="level-start">
-                <span class="level-item">前端</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li></ul></li>
-            </ul>
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="http://cloud.xuww.wang/wechat_qrcode.jpeg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="http://cloud.xuww.wang/wechat_qrcode.jpeg" alt="微信"></div>
+</a>
+
+                
         </div>
     </div>
-</div></div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/04/09/Vue双向绑定/">
+                <span class="level-item">Vue双向绑定</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<div id="comment-container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+	var gitment = new Gitment({
+		id: '2019/04/11/css中position属性深入探讨/',
+		owner: 'WangytBest',
+		repo: 'wangytbest.github.io',
+		oauth: {
+			client_id: '85e326c0d624202af0e5',
+			client_secret: '6323329d79fd55b2566b067c4ae839541dd6f354',
+		},
+	})
+	gitment.render('comment-container')
+</script>
+
+    </div>
+</div>
+</div>
                 
 
 
@@ -381,6 +428,53 @@ var _hmt = _hmt || [];
 </div>
     
         
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><ul class="menu-list"><li>
+        <a class="is-flex" href="#static">
+        <span class="has-mr-6">1.1</span>
+        <span>static</span>
+        </a></li><li>
+        <a class="is-flex" href="#relative">
+        <span class="has-mr-6">1.2</span>
+        <span>relative</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#块级元素">
+        <span class="has-mr-6">1.2.1</span>
+        <span>块级元素</span>
+        </a></li><li>
+        <a class="is-flex" href="#行内元素">
+        <span class="has-mr-6">1.2.2</span>
+        <span>行内元素</span>
+        </a></li></ul></li></ul><li>
+        <a class="is-flex" href="#absolute">
+        <span class="has-mr-6">2</span>
+        <span>absolute</span>
+        </a></li><li>
+        <a class="is-flex" href="#relative-absolute-点">
+        <span class="has-mr-6">3</span>
+        <span>relative|absolute 点</span>
+        </a></li><li>
+        <a class="is-flex" href="#fixed">
+        <span class="has-mr-6">4</span>
+        <span>fixed</span>
+        </a></li><li>
+        <a class="is-flex" href="#sticky">
+        <span class="has-mr-6">5</span>
+        <span>sticky</span>
+        </a></li><li>
+        <a class="is-flex" href="#position和float">
+        <span class="has-mr-6">6</span>
+        <span>position和float</span>
+        </a></li></ul>
+        </div>
+    </div>
+</div>
+
     
         
 
