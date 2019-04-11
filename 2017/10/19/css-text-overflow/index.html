@@ -16,7 +16,7 @@
 <meta property="og:description" content="css控制文字内容的溢出显示，溢出截断后末尾出现省略 ... ，单行文本与多行文本的控制又有区别。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wangytbest.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-04-11T11:01:04.927Z">
+<meta property="og:updated_time" content="2019-04-11T11:02:26.453Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css控制文本内容溢出截断">
 <meta name="twitter:description" content="css控制文字内容的溢出显示，溢出截断后末尾出现省略 ... ，单行文本与多行文本的控制又有区别。">
@@ -178,7 +178,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    4 分钟 读完 (大约 549 个字)
+                    4 分钟 读完 (大约 551 个字)
                 </span>
                 
                 
@@ -198,9 +198,9 @@ var _hmt = _hmt || [];
         <div class="content">
             <p>css控制文字内容的溢出显示，溢出截断后末尾出现省略 <code>...</code> ，单行文本与多行文本的控制又有区别。<br><a id="more"></a></p>
 <p><strong>单行文本</strong></p>
-<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-tag">overfolw</span>: <span class="hljs-selector-tag">hidden</span>;</span><br><span class="line"><span class="hljs-selector-tag">text-overflow</span>: <span class="hljs-selector-tag">ellipsis</span>;</span><br><span class="line"><span class="hljs-selector-tag">white-space</span>: <span class="hljs-selector-tag">nowrap</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.text</span> &#123;</span><br><span class="line">    <span class="hljs-attribute">overfolw</span>: hidden;</span><br><span class="line">    <span class="hljs-attribute">text-overflow</span>: ellipsis;</span><br><span class="line">    <span class="hljs-attribute">white-space</span>: nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>多行文本</strong></p>
-<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-tag">display</span><span class="hljs-selector-pseudo">:-webkit-box</span>;</span><br><span class="line"><span class="hljs-selector-tag">-webkit-line-clamp</span>: 1;</span><br><span class="line"><span class="hljs-selector-tag">-webkit-box-orient</span>: <span class="hljs-selector-tag">vertical</span>;</span><br><span class="line"><span class="hljs-selector-tag">overflow</span>: <span class="hljs-selector-tag">hidden</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-selector-class">.text</span> &#123;</span><br><span class="line">    <span class="hljs-attribute">display</span>:-webkit-box;</span><br><span class="line">    <span class="hljs-attribute">-webkit-line-clamp</span>: <span class="hljs-number">1</span>;</span><br><span class="line">    <span class="hljs-attribute">-webkit-box-orient</span>: vertical;</span><br><span class="line">    <span class="hljs-attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>知识点</strong></p>
 <p><code>text-overflow</code> 确定内容的溢出显示，可以被剪切(<code>clip</code>)、显示一个省略号（<code>...</code>）或者显示一个自定义字符串。</p>
 <ul>
