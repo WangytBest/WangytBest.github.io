@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wangytbest.github.io/"/>
-  <updated>2019-04-11T09:01:22.656Z</updated>
+  <updated>2019-04-12T10:21:36.924Z</updated>
   <id>http://wangytbest.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ES6模块和CommonJS模块的区别</title>
+    <link href="http://wangytbest.github.io/2019/04/12/ES6%E6%A8%A1%E5%9D%97%E5%92%8CCommonJS%E6%A8%A1%E5%9D%97%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://wangytbest.github.io/2019/04/12/ES6模块和CommonJS模块的区别/</id>
+    <published>2019-04-12T10:19:37.000Z</published>
+    <updated>2019-04-12T10:21:36.924Z</updated>
+    
+    <content type="html"><![CDATA[<p>ES6 模块与 CommonJS 模块的差异<br>它们有两个重大差异：</p><p>① <code>CommonJS</code> 模块输出的是一个值的拷贝， <code>ES6</code> 模块输出的是值的引用。</p><p>② <code>CommonJS</code> 模块是运行时加载，ES6 模块是编译时输出接口。</p><p>第二个差异是因为 <code>CommonJS</code> 加载的是一个对象（即 <code>module.export</code>s 属性），该对象只有在脚本运行完才会生成。而 <code>ES6</code> 模块不是对象，它的对外接口只是一种静态定义，在代码静态解析阶段就会生成。</p><p>下面重点解释第一个差异，我们还是举上面那个CommonJS模块的加载机制例子:</p><figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// lib.js</span></span><br><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> counter = <span class="hljs-number">3</span>;</span><br><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">incCounter</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  counter++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">// main.js</span></span><br><span class="line"><span class="hljs-keyword">import</span> &#123; counter, incCounter &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'./lib'</span>;</span><br><span class="line"><span class="hljs-built_in">console</span>.log(counter); <span class="hljs-comment">// 3</span></span><br><span class="line">incCounter();</span><br><span class="line"><span class="hljs-built_in">console</span>.log(counter); <span class="hljs-comment">// 4</span></span><br></pre></td></tr></table></figure><p><code>ES6</code> 模块的运行机制与 <code>CommonJS</code> 不一样。 <code>ES6</code> 模块是动态引用，并且不会缓存值，模块里面的变量绑定其所在的模块。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;ES6 模块与 CommonJS 模块的差异&lt;br&gt;它们有两个重大差异：&lt;/p&gt;
+&lt;p&gt;① &lt;code&gt;CommonJS&lt;/code&gt; 模块输出的是一个值的拷贝， &lt;code&gt;ES6&lt;/code&gt; 模块输出的是值的引用。&lt;/p&gt;
+&lt;p&gt;② &lt;code&gt;CommonJS&lt;/c
+      
+    
+    </summary>
+    
+      <category term="Javascript" scheme="http://wangytbest.github.io/categories/Javascript/"/>
+    
+    
+      <category term="Javascript" scheme="http://wangytbest.github.io/tags/Javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>css中position属性深入探讨</title>
@@ -491,32 +518,6 @@
     
     
       <category term="JS" scheme="http://wangytbest.github.io/tags/JS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数组对象判断</title>
-    <link href="http://wangytbest.github.io/2018/04/12/%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1%E5%88%A4%E6%96%AD/"/>
-    <id>http://wangytbest.github.io/2018/04/12/数组对象判断/</id>
-    <published>2018-04-12T07:51:26.000Z</published>
-    <updated>2019-04-09T07:10:56.977Z</updated>
-    
-    <content type="html"><![CDATA[<p>数组对象判断方法<br><a id="more"></a></p><h2 id="支付宝base-js"><a href="#支付宝base-js" class="headerlink" title="支付宝base.js"></a>支付宝base.js</h2><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">if</span> ( value <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span> || </span><br><span class="line">  (!(value <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span>) &amp;&amp; </span><br><span class="line">  (<span class="hljs-built_in">Object</span>.prototype.toString.call((value)) == <span class="hljs-string">'[object Array]'</span>) || </span><br><span class="line">  <span class="hljs-keyword">typeof</span> value.length == <span class="hljs-string">'number'</span> &amp;&amp; </span><br><span class="line">  <span class="hljs-keyword">typeof</span> value.splice != <span class="hljs-string">'undefined'</span> &amp;&amp; </span><br><span class="line">  <span class="hljs-keyword">typeof</span> value.propertyIsEnumerable != <span class="hljs-string">'undefined'</span> &amp;&amp; </span><br><span class="line">  !value.propertyIsEnumerable(<span class="hljs-string">'splice'</span>))) &#123; </span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-string">'array'</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h2><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> arr = []; </span><br><span class="line">arr <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span>; <span class="hljs-comment">// true </span></span><br><span class="line">arr.constructor == <span class="hljs-built_in">Array</span>; <span class="hljs-comment">//true</span></span><br></pre></td></tr></table></figure><h2 id="call-apply"><a href="#call-apply" class="headerlink" title="call/apply"></a>call/apply</h2><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">Object</span>.prototype.toString.call(value) == <span class="hljs-string">'[object Array]'</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> isArray = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj</span>) </span>&#123; </span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-built_in">Object</span>.prototype.toString.call(obj) === <span class="hljs-string">'[object Array]'</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h2><blockquote><p>typeof方法返回一个字符串，来表示数据的类型。</p></blockquote><table><thead><tr><th>数据类型</th><th style="text-align:center">type</th></tr></thead><tbody><tr><td>数据类型</td><td style="text-align:center">Type</td></tr><tr><td>Undefined</td><td style="text-align:center">undefined</td></tr><tr><td>Null</td><td style="text-align:center">object</td></tr><tr><td>布尔值</td><td style="text-align:center">boolean</td></tr><tr><td>数值</td><td style="text-align:center">number</td></tr><tr><td>字符串</td><td style="text-align:center">string</td></tr><tr><td>Symbol (ECMAScript 6 新增)</td><td style="text-align:center">symbol</td></tr><tr><td>宿主对象(JS环境提供的，比如浏览器)</td><td style="text-align:center">Implementation-dependent</td></tr><tr><td>函数对象</td><td style="text-align:center">function</td></tr><tr><td>任何其他对象</td><td style="text-align:center">object</td></tr></tbody></table><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = [];</span><br><span class="line"><span class="hljs-keyword">var</span> b = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">typeof</span> a; <span class="hljs-comment">// "object"</span></span><br><span class="line"><span class="hljs-keyword">typeof</span> b; <span class="hljs-comment">// "object"</span></span><br><span class="line"></span><br><span class="line">a <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span> <span class="hljs-comment">// true</span></span><br><span class="line">b <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span> <span class="hljs-comment">// true</span></span><br><span class="line"></span><br><span class="line">a <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span> <span class="hljs-comment">// true</span></span><br><span class="line">b <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span> <span class="hljs-comment">// false</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;数组对象判断方法&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Javascript" scheme="http://wangytbest.github.io/categories/Javascript/"/>
-    
-      <category term="util" scheme="http://wangytbest.github.io/categories/Javascript/util/"/>
-    
-    
-      <category term="Javascript" scheme="http://wangytbest.github.io/tags/Javascript/"/>
-    
-      <category term="util" scheme="http://wangytbest.github.io/tags/util/"/>
     
   </entry>
   

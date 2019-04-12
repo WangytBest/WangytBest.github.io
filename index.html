@@ -167,6 +167,57 @@ var _hmt = _hmt || [];
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-04-12T10:19:37.000Z">2019-04-12</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 分钟 读完 (大约 252 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/04/12/ES6模块和CommonJS模块的区别/">ES6模块和CommonJS模块的区别</a>
+            
+        </h1>
+        <div class="content">
+            <p>ES6 模块与 CommonJS 模块的差异<br>它们有两个重大差异：</p>
+<p>① <code>CommonJS</code> 模块输出的是一个值的拷贝， <code>ES6</code> 模块输出的是值的引用。</p>
+<p>② <code>CommonJS</code> 模块是运行时加载，ES6 模块是编译时输出接口。</p>
+<p>第二个差异是因为 <code>CommonJS</code> 加载的是一个对象（即 <code>module.export</code>s 属性），该对象只有在脚本运行完才会生成。而 <code>ES6</code> 模块不是对象，它的对外接口只是一种静态定义，在代码静态解析阶段就会生成。</p>
+<p>下面重点解释第一个差异，我们还是举上面那个CommonJS模块的加载机制例子:</p>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// lib.js</span></span><br><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> counter = <span class="hljs-number">3</span>;</span><br><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">incCounter</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  counter++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">// main.js</span></span><br><span class="line"><span class="hljs-keyword">import</span> &#123; counter, incCounter &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'./lib'</span>;</span><br><span class="line"><span class="hljs-built_in">console</span>.log(counter); <span class="hljs-comment">// 3</span></span><br><span class="line">incCounter();</span><br><span class="line"><span class="hljs-built_in">console</span>.log(counter); <span class="hljs-comment">// 4</span></span><br></pre></td></tr></table></figure>
+<p><code>ES6</code> 模块的运行机制与 <code>CommonJS</code> 不一样。 <code>ES6</code> 模块是动态引用，并且不会缓存值，模块里面的变量绑定其所在的模块。</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-04-11T02:58:22.000Z">2019-04-11</time>
                 
                 <div class="level-item">
@@ -660,71 +711,6 @@ var _hmt = _hmt || [];
 
 
 
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-09T07:40:08.000Z">2019-04-09</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    17 分钟 读完 (大约 2477 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/04/09/跨域/">跨域</a>
-            
-        </h1>
-        <div class="content">
-            <h3 id="什么是跨域？"><a href="#什么是跨域？" class="headerlink" title="什么是跨域？"></a>什么是跨域？</h3><p>跨域是指一个域下的文档或脚本试图去请求另一个域下的资源，这里跨域是广义的。</p>
-<p>广义的跨域：</p>
-<ol>
-<li>资源跳转： A链接、重定向、表单提交</li>
-<li>资源嵌入： <code>&lt;link&gt;</code>、<code>&lt;script&gt;</code>、<code>&lt;img&gt;</code>、<code>&lt;frame&gt;</code>等dom标签，还有样式中<code>background:url()</code>、<code>@font-face()</code>等文件外链</li>
-<li>脚本请求： js发起的ajax请求、dom和js对象的跨域操作等<br>其实我们通常所说的跨域是狭义的，是由浏览器同源策略限制的一类请求场景。</li>
-</ol>
-<h3 id="什么是同源策略？"><a href="#什么是同源策略？" class="headerlink" title="什么是同源策略？"></a>什么是同源策略？</h3><p>同源策略/<code>SOP（Same origin policy）</code>是一种约定，由Netscape公司1995年引入浏览器，它是浏览器最核心也最基本的安全功能，如果缺少了同源策略，<strong>浏览器很容易受到XSS、CSFR等攻击</strong>。所谓同源是指”协议+域名+端口”三者相同，即便两个不同的域名指向同一个ip地址，也非同源。</p>
-<p>同源策略限制以下几种行为：</p>
-<ol>
-<li>Cookie、LocalStorage 和 IndexDB 无法读取</li>
-<li>DOM 和 Js对象无法获得</li>
-<li>AJAX 请求不能发送</li>
-</ol>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/04/09/跨域/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -791,7 +777,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        39
+                        40
                     </p>
                 </div>
             </div>
@@ -922,7 +908,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">Javascript</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">13</span>
+                <span class="level-item tag">14</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/Javascript/canvas/">
@@ -1025,6 +1011,25 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/04/12/ES6模块和CommonJS模块的区别/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="ES6模块和CommonJS模块的区别">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-12T10:19:37.000Z">2019-04-12</time></div>
+                    <a href="/2019/04/12/ES6模块和CommonJS模块的区别/" class="has-link-black-ter is-size-6">ES6模块和CommonJS模块的区别</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/04/11/css中position属性深入探讨/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="css中position属性深入探讨">
@@ -1099,25 +1104,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/04/09/externals外部扩展理解/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="externals外部扩展理解">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T08:00:44.000Z">2019-04-09</time></div>
-                    <a href="/2019/04/09/externals外部扩展理解/" class="has-link-black-ter is-size-6">externals外部扩展理解</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/webpack/">webpack</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1136,7 +1122,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">10</span>
+                    <span class="level-item tag">11</span>
                 </span>
             </a>
         </li>
@@ -1269,7 +1255,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Javascript/">
                         <span class="tag">Javascript</span>
-                        <span class="tag is-grey">5</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
@@ -1424,6 +1410,25 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/04/12/ES6模块和CommonJS模块的区别/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="ES6模块和CommonJS模块的区别">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-12T10:19:37.000Z">2019-04-12</time></div>
+                    <a href="/2019/04/12/ES6模块和CommonJS模块的区别/" class="has-link-black-ter is-size-6">ES6模块和CommonJS模块的区别</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/04/11/css中position属性深入探讨/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="css中position属性深入探讨">
@@ -1498,25 +1503,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/04/09/externals外部扩展理解/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="externals外部扩展理解">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-09T08:00:44.000Z">2019-04-09</time></div>
-                    <a href="/2019/04/09/externals外部扩展理解/" class="has-link-black-ter is-size-6">externals外部扩展理解</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/webpack/">webpack</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1535,7 +1521,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">10</span>
+                    <span class="level-item tag">11</span>
                 </span>
             </a>
         </li>
@@ -1668,7 +1654,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Javascript/">
                         <span class="tag">Javascript</span>
-                        <span class="tag is-grey">5</span>
+                        <span class="tag is-grey">6</span>
                     </a>
                 </div>
                 
