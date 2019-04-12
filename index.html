@@ -177,7 +177,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 510 个字)
+                    3 分钟 读完 (大约 511 个字)
                 </span>
                 
                 
@@ -191,25 +191,16 @@ var _hmt = _hmt || [];
         </h1>
         <div class="content">
             <p>ES6 模块与 CommonJS 模块的差异</p>
-<h2 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h2><p>基本语法</p>
-<ol>
-<li>暴露模块：<code>module.exports = value</code>或<code>exports.xxx = value</code></li>
-<li>引入模块：<code>require(xxx)</code>,如果是第三方模块，xxx为模块名；如果是自定义模块，xxx为模块文件路径</li>
-</ol>
-<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// example.js</span></span><br><span class="line"><span class="hljs-keyword">var</span> x = <span class="hljs-number">5</span>;</span><br><span class="line"><span class="hljs-keyword">var</span> addX = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> value + x;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="hljs-built_in">module</span>.exports.x = x;</span><br><span class="line"><span class="hljs-built_in">module</span>.exports.addX = addX;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// mian.js</span></span><br><span class="line"><span class="hljs-keyword">var</span> example = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./example.js'</span>); <span class="hljs-comment">//如果参数字符串以“./”开头，则表示加载的是一个位于相对路径</span></span><br><span class="line"><span class="hljs-built_in">console</span>.log(example.x); <span class="hljs-comment">// 5</span></span><br><span class="line"><span class="hljs-built_in">console</span>.log(example.addX(<span class="hljs-number">1</span>)); <span class="hljs-comment">// 6</span></span><br></pre></td></tr></table></figure>
-<h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h2><p><code>ES6</code> 模块的设计思想是尽量的<strong>静态化</strong>，<em>使得编译时就能确定模块的依赖关系，以及输入和输出的变量</em>。CommonJS 和 AMD 模块，都只能在运行时确定这些东西。比如，CommonJS 模块就是对象，输入时必须查找对象属性。</p>
-<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/** 定义模块 math.js **/</span></span><br><span class="line"><span class="hljs-keyword">var</span> basicNum = <span class="hljs-number">0</span>;</span><br><span class="line"><span class="hljs-keyword">var</span> add = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> a + b;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="hljs-keyword">export</span> &#123; basicNum, add &#125;;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">/** 引用模块 **/</span></span><br><span class="line"><span class="hljs-keyword">import</span> &#123; basicNum, add &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'./math'</span>;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test</span>(<span class="hljs-params">ele</span>) </span>&#123;</span><br><span class="line">    ele.textContent = add(<span class="hljs-number">99</span> + basicNum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>它们有两个重大差异：</p>
-<p>① <code>CommonJS</code> 模块输出的是一个值的拷贝， <code>ES6</code> 模块输出的是值的引用。</p>
-<p>② <code>CommonJS</code> 模块是运行时加载，ES6 模块是编译时输出接口。</p>
-<p>第二个差异是因为 <code>CommonJS</code> 加载的是一个对象（即 <code>module.export</code>s 属性），该对象只有在脚本运行完才会生成。而 <code>ES6</code> 模块不是对象，它的对外接口只是一种静态定义，在代码静态解析阶段就会生成。</p>
-<p>下面重点解释第一个差异，我们还是举上面那个CommonJS模块的加载机制例子:</p>
-<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// lib.js</span></span><br><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> counter = <span class="hljs-number">3</span>;</span><br><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">incCounter</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  counter++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">// main.js</span></span><br><span class="line"><span class="hljs-keyword">import</span> &#123; counter, incCounter &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">'./lib'</span>;</span><br><span class="line"><span class="hljs-built_in">console</span>.log(counter); <span class="hljs-comment">// 3</span></span><br><span class="line">incCounter();</span><br><span class="line"><span class="hljs-built_in">console</span>.log(counter); <span class="hljs-comment">// 4</span></span><br></pre></td></tr></table></figure>
-<p><code>ES6</code> 模块的运行机制与 <code>CommonJS</code> 不一样。 <code>ES6</code> 模块是动态引用，并且不会缓存值，模块里面的变量绑定其所在的模块。</p>
-<p><a href="https://github.com/ljianshu/Blog/issues/48" target="_blank" rel="noopener">前端模块化详解</a></p>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/04/12/ES6模块和CommonJS模块的区别/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
