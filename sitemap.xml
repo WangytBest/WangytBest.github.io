@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wangytbest.github.io/2019/04/17/%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E6%94%B6%E9%9B%86/</loc>
+    
+    <lastmod>2019-04-17T09:22:13.230Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://wangytbest.github.io/2019/04/12/ES6%E6%A8%A1%E5%9D%97%E5%92%8CCommonJS%E6%A8%A1%E5%9D%97%E7%9A%84%E5%8C%BA%E5%88%AB/</loc>
     
     <lastmod>2019-04-12T10:27:06.658Z</lastmod>
@@ -296,14 +303,14 @@
   </url>
   
   <url>
-    <loc>http://wangytbest.github.io/tags/index.html</loc>
+    <loc>http://wangytbest.github.io/ours/index.html</loc>
     
     <lastmod>2018-08-30T06:27:06.277Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://wangytbest.github.io/ours/index.html</loc>
+    <loc>http://wangytbest.github.io/tags/index.html</loc>
     
     <lastmod>2018-08-30T06:27:06.277Z</lastmod>
     
@@ -317,14 +324,14 @@
   </url>
   
   <url>
-    <loc>http://wangytbest.github.io/matrix/index.html</loc>
+    <loc>http://wangytbest.github.io/music/index.html</loc>
     
     <lastmod>2018-08-30T06:27:06.276Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://wangytbest.github.io/music/index.html</loc>
+    <loc>http://wangytbest.github.io/matrix/index.html</loc>
     
     <lastmod>2018-08-30T06:27:06.276Z</lastmod>
     
