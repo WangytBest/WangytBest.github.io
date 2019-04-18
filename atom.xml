@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wangytbest.github.io/"/>
-  <updated>2019-04-17T09:23:36.054Z</updated>
+  <updated>2019-04-18T10:28:30.655Z</updated>
   <id>http://wangytbest.github.io/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>面试题之CSS</title>
+    <link href="http://wangytbest.github.io/2019/04/18/%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B9%8BCSS/"/>
+    <id>http://wangytbest.github.io/2019/04/18/面试题之CSS/</id>
+    <published>2019-04-18T09:54:21.000Z</published>
+    <updated>2019-04-18T10:28:30.655Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="flex布局，兼容性"><a href="#flex布局，兼容性" class="headerlink" title="flex布局，兼容性"></a>flex布局，兼容性</h2><h2 id="低端设备动画卡顿原因及解决办法"><a href="#低端设备动画卡顿原因及解决办法" class="headerlink" title="低端设备动画卡顿原因及解决办法"></a>低端设备动画卡顿原因及解决办法</h2><h2 id="重绘与回流，提高性能"><a href="#重绘与回流，提高性能" class="headerlink" title="重绘与回流，提高性能"></a>重绘与回流，提高性能</h2><h2 id="position取值（sticky粘性）"><a href="#position取值（sticky粘性）" class="headerlink" title="position取值（sticky粘性）"></a>position取值（sticky粘性）</h2><h2 id="居中方法"><a href="#居中方法" class="headerlink" title="居中方法"></a>居中方法</h2><h2 id="布局（两列、三列）"><a href="#布局（两列、三列）" class="headerlink" title="布局（两列、三列）"></a>布局（两列、三列）</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;flex布局，兼容性&quot;&gt;&lt;a href=&quot;#flex布局，兼容性&quot; class=&quot;headerlink&quot; title=&quot;flex布局，兼容性&quot;&gt;&lt;/a&gt;flex布局，兼容性&lt;/h2&gt;&lt;h2 id=&quot;低端设备动画卡顿原因及解决办法&quot;&gt;&lt;a href=&quot;#低端设备动画
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>面试准备之JS</title>
+    <link href="http://wangytbest.github.io/2019/04/18/%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B9%8BJS/"/>
+    <id>http://wangytbest.github.io/2019/04/18/面试题之JS/</id>
+    <published>2019-04-18T09:51:47.000Z</published>
+    <updated>2019-04-18T10:28:32.821Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="JS基础"><a href="#JS基础" class="headerlink" title="JS基础"></a>JS基础</h2><h3 id="Promise-串行请求，all，race，finally"><a href="#Promise-串行请求，all，race，finally" class="headerlink" title="Promise 串行请求，all，race，finally"></a>Promise 串行请求，all，race，finally</h3><h3 id="柯理化，JS中柯理话的API"><a href="#柯理化，JS中柯理话的API" class="headerlink" title="柯理化，JS中柯理话的API"></a>柯理化，JS中柯理话的API</h3><h3 id="缓存，浏览器缓存原理，阶段"><a href="#缓存，浏览器缓存原理，阶段" class="headerlink" title="缓存，浏览器缓存原理，阶段"></a>缓存，浏览器缓存原理，阶段</h3><h3 id="webpack优化，写过loader和plugin"><a href="#webpack优化，写过loader和plugin" class="headerlink" title="webpack优化，写过loader和plugin"></a>webpack优化，写过loader和plugin</h3><h3 id="http-1，http-2，http-3，多路复用和keep-alive、pipelining区别"><a href="#http-1，http-2，http-3，多路复用和keep-alive、pipelining区别" class="headerlink" title="http/1，http/2，http/3，多路复用和keep-alive、pipelining区别"></a>http/1，http/2，http/3，多路复用和keep-alive、pipelining区别</h3><h3 id="网关作用"><a href="#网关作用" class="headerlink" title="网关作用"></a>网关作用</h3><h3 id="JSBridge的原理"><a href="#JSBridge的原理" class="headerlink" title="JSBridge的原理"></a>JSBridge的原理</h3><h3 id="模块化区别-ES6模块化和-CommonJS"><a href="#模块化区别-ES6模块化和-CommonJS" class="headerlink" title="模块化区别 ES6模块化和 CommonJS"></a>模块化区别 ES6模块化和 CommonJS</h3><h3 id="localStroage有效期"><a href="#localStroage有效期" class="headerlink" title="localStroage有效期"></a>localStroage有效期</h3><h3 id="图片懒加载实现，获取节点相对视图位置方法"><a href="#图片懒加载实现，获取节点相对视图位置方法" class="headerlink" title="图片懒加载实现，获取节点相对视图位置方法"></a>图片懒加载实现，获取节点相对视图位置方法</h3><h3 id="无限加载实现"><a href="#无限加载实现" class="headerlink" title="无限加载实现"></a>无限加载实现</h3><h3 id="轮播图实现"><a href="#轮播图实现" class="headerlink" title="轮播图实现"></a>轮播图实现</h3><h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><h3 id="dom-diff，为什么要虚拟DOM"><a href="#dom-diff，为什么要虚拟DOM" class="headerlink" title="dom-diff，为什么要虚拟DOM"></a>dom-diff，为什么要虚拟DOM</h3><h3 id="vue-双向绑定"><a href="#vue-双向绑定" class="headerlink" title="vue 双向绑定"></a>vue 双向绑定</h3><h3 id="vue-异步组件"><a href="#vue-异步组件" class="headerlink" title="vue 异步组件"></a>vue 异步组件</h3><h3 id="vue-keep-alive，-为什么数据修改要有-activated-生命周期"><a href="#vue-keep-alive，-为什么数据修改要有-activated-生命周期" class="headerlink" title="vue keep-alive， 为什么数据修改要有 activated 生命周期"></a>vue keep-alive， 为什么数据修改要有 activated 生命周期</h3><h3 id="系统设计"><a href="#系统设计" class="headerlink" title="系统设计"></a>系统设计</h3><h3 id="秒杀系统"><a href="#秒杀系统" class="headerlink" title="秒杀系统"></a>秒杀系统</h3><p>##浏览器</p><h3 id="首页性能优化，白屏优化"><a href="#首页性能优化，白屏优化" class="headerlink" title="首页性能优化，白屏优化"></a>首页性能优化，白屏优化</h3><h3 id="CDN缓存与客户端缓存"><a href="#CDN缓存与客户端缓存" class="headerlink" title="CDN缓存与客户端缓存"></a>CDN缓存与客户端缓存</h3><h3 id="TCP协议"><a href="#TCP协议" class="headerlink" title="TCP协议"></a>TCP协议</h3><h3 id="SQL注入，XSS攻击和CSRF攻击，原理，预防方法"><a href="#SQL注入，XSS攻击和CSRF攻击，原理，预防方法" class="headerlink" title="SQL注入，XSS攻击和CSRF攻击，原理，预防方法"></a>SQL注入，XSS攻击和CSRF攻击，原理，预防方法</h3><h3 id="跨域，CROS兼容性，设备不支持"><a href="#跨域，CROS兼容性，设备不支持" class="headerlink" title="跨域，CROS兼容性，设备不支持"></a>跨域，CROS兼容性，设备不支持</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;JS基础&quot;&gt;&lt;a href=&quot;#JS基础&quot; class=&quot;headerlink&quot; title=&quot;JS基础&quot;&gt;&lt;/a&gt;JS基础&lt;/h2&gt;&lt;h3 id=&quot;Promise-串行请求，all，race，finally&quot;&gt;&lt;a href=&quot;#Promise-串行请求，all
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>一些常用收集</title>
@@ -453,61 +495,6 @@
     
     
       <category term="MySQL" scheme="http://wangytbest.github.io/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>浏览器判断</title>
-    <link href="http://wangytbest.github.io/2018/05/18/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%88%A4%E6%96%AD/"/>
-    <id>http://wangytbest.github.io/2018/05/18/浏览器判断/</id>
-    <published>2018-05-18T06:09:14.000Z</published>
-    <updated>2019-04-11T10:56:01.403Z</updated>
-    
-    <content type="html"><![CDATA[<p>移动端判断浏览器环境：</p><ul><li>微信浏览器</li><li>小程序</li><li>JD APP</li><li>浏览器</li></ul><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> uaTypes = &#123;</span><br><span class="line">  APP: <span class="hljs-string">'app'</span>,</span><br><span class="line">  WECHAT: <span class="hljs-string">'webchat'</span>,</span><br><span class="line">  QQ: <span class="hljs-string">'qq'</span>,</span><br><span class="line">  MOBILE: <span class="hljs-string">'mobile'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> <a id="more"></a><figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> ua = navigator.userAgent</span><br><span class="line"><span class="hljs-keyword">const</span> type = <span class="hljs-function">(<span class="hljs-params">(</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="hljs-keyword">if</span> (<span class="hljs-regexp">/jdapp/i</span>.test(ua)) &#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> uaTypes.APP</span><br><span class="line">  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-regexp">/MicroMessenger/i</span>.test(ua)) &#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> uaTypes.WECHAT</span><br><span class="line">  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-regexp">/QQ/</span>.test(ua)) &#123;</span><br><span class="line">    <span class="hljs-comment">// 区分手机QQ和QQ浏览器</span></span><br><span class="line">    <span class="hljs-keyword">if</span> (<span class="hljs-regexp">/MQQBrowser/i</span>.test(ua)) &#123;</span><br><span class="line">      <span class="hljs-keyword">return</span> uaTypes.MOBILE</span><br><span class="line">    &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">      <span class="hljs-keyword">return</span> uaTypes.QQ</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> uaTypes.MOBILE</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;移动端判断浏览器环境：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;微信浏览器&lt;/li&gt;
-&lt;li&gt;小程序&lt;/li&gt;
-&lt;li&gt;JD APP&lt;/li&gt;
-&lt;li&gt;浏览器&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight javascript hljs&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;hljs-keyword&quot;&gt;const&lt;/span&gt; uaTypes = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  APP: &lt;span class=&quot;hljs-string&quot;&gt;&#39;app&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  WECHAT: &lt;span class=&quot;hljs-string&quot;&gt;&#39;webchat&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  QQ: &lt;span class=&quot;hljs-string&quot;&gt;&#39;qq&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  MOBILE: &lt;span class=&quot;hljs-string&quot;&gt;&#39;mobile&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="Javascript" scheme="http://wangytbest.github.io/categories/Javascript/"/>
-    
-    
-      <category term="Javascript" scheme="http://wangytbest.github.io/tags/Javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>margin、padding的百分比计算</title>
-    <link href="http://wangytbest.github.io/2018/04/20/margin%E3%80%81padding%E7%9A%84%E7%99%BE%E5%88%86%E6%AF%94%E8%AE%A1%E7%AE%97/"/>
-    <id>http://wangytbest.github.io/2018/04/20/margin、padding的百分比计算/</id>
-    <published>2018-04-20T02:54:12.000Z</published>
-    <updated>2019-04-09T07:18:48.365Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="CSS2-1-Box-model"><a href="#CSS2-1-Box-model" class="headerlink" title="CSS2.1 Box model"></a>CSS2.1 Box model</h3><blockquote><p>The percentage is calculated with respect to the width of the generated box’s containing block. Note that this is true for <code>margin-top</code> and <code>margin-bottom</code> as well.</p></blockquote><p>margin：百分比的计算基于生成框的包含块(父元素)的width（margin-top/bottom也是如此）。<br>padding同理</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;CSS2-1-Box-model&quot;&gt;&lt;a href=&quot;#CSS2-1-Box-model&quot; class=&quot;headerlink&quot; title=&quot;CSS2.1 Box model&quot;&gt;&lt;/a&gt;CSS2.1 Box model&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;T
-      
-    
-    </summary>
-    
-      <category term="CSS" scheme="http://wangytbest.github.io/categories/CSS/"/>
-    
-    
-      <category term="CSS" scheme="http://wangytbest.github.io/tags/CSS/"/>
     
   </entry>
   
