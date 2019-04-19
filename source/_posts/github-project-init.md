@@ -49,13 +49,12 @@ github上创建新的项目后，在本地拉取项目或者将本地的项目�
 ```shell
  * branch       master     -> FETCH_HEAD
  fatal: refusing to merge unrelated histories
- ```
+```
 
 解决：
 ```shell
 # git pull origin master --allow-unrelated-histories
-```  
-
+```
 
 ## 首次安装git设置
 ```shell

@@ -1,43 +1,51 @@
 ---
 title: css控制文本内容溢出截断
 date: 2017-10-19 10:39:12
-tags: [css, text-overflow]
+tags: [CSS]
+keywords: [CSS, text-overflow, 文本内容溢出截断]
 categories: [CSS]
 # thumbnail: http://cloud.xuww.wang/nianshaodeni.png
 ---
 
-css控制文字内容的溢出显示，溢出截断后末尾出现省略```...```，单行文本与多行文本的控制又有区别。
+css控制文字内容的溢出显示，溢出截断后末尾出现省略 `...` ，单行文本与多行文本的控制又有区别。
 <!-- more -->
+
 **单行文本**
+
 ```css
-overfolw: hidden;
-text-overflow: ellipsis;
-white-space: nowrap;
+.text {
+    overfolw: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 ```
 
 **多行文本**
+
 ```css
-display:-webkit-box;
--webkit-line-clamp: 1;
--webkit-box-orient: vertical;
-overflow: hidden;
+.text {
+    display:-webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
 ```
 
 **知识点**
 
 `text-overflow` 确定内容的溢出显示，可以被剪切(`clip`)、显示一个省略号（`...`）或者显示一个自定义字符串。
 
-> * 需要设置`overflow: hidden`属性才能生效，否则不会强制溢出事件发生。
-> * 属性只对**块级元素**溢出的内容有效，但必须与块级元素内联（`inline`）方向一致。如内容在盒子下方溢出，则属性不会生效。
-> * 文本溢出：1、文本无法换行，设置了`white-space: nowrap;`。2、单词太长。 
+* 需要设置 `overflow: hidden` 属性才能生效，否则不会强制溢出事件发生。
+* 属性只对**块级元素**溢出的内容有效，但必须与块级元素内联（ `inline` ）方向一致。如内容在盒子下方溢出，则属性不会生效。
+* 文本溢出：1、文本无法换行，设置了 `white-space: nowrap;` 。2、单词太长。 
 
 ```css
 text-overflow: [ clip | ellipise | <string> ]{1, 2}
 ```
 
-> 1. `clip`: 内容区域的极限处截断文本，因此可能在字符的中间可能会发生截断。**为了能够在两个字符过度处截断，必须使用一个空字符串值（` `）**。
-> 2. `ellipse`: 用省略号`...`来表示截断的文本。如果空间太小连省略号也不能显示，那么省略号也会被截断。
-> 3. `<string>`: `<string>`用来表示被截断的文本。字符串内容将被添加在内容区域中，所以会减少显示出的文本。如果空间太小到连省略号的容纳下，那么这个字符串也会被截断。
+1. `clip`: 内容区域的极限处截断文本，因此可能在字符的中间可能会发生截断。**为了能够在两个字符过度处截断，必须使用一个空字符串值（` `）**。
+2. `ellipse`: 用省略号`...`来表示截断的文本。如果空间太小连省略号也不能显示，那么省略号也会被截断。
+3. `<string>`: `<string>`用来表示被截断的文本。字符串内容将被添加在内容区域中，所以会减少显示出的文本。如果空间太小到连省略号的容纳下，那么这个字符串也会被截断。
 
 ```css
 /* Overflow behavior at line end
