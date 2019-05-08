@@ -16,7 +16,7 @@
 <meta property="og:description" content="什么是跨域？跨域是指一个域下的文档或脚本试图去请求另一个域下的资源，这里跨域是广义的。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wangytbest.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-05-08T08:51:13.836Z">
+<meta property="og:updated_time" content="2019-05-08T08:55:29.039Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="跨域">
 <meta name="twitter:description" content="什么是跨域？跨域是指一个域下的文档或脚本试图去请求另一个域下的资源，这里跨域是广义的。">
@@ -200,7 +200,7 @@ var _hmt = _hmt || [];
             
         </h1>
         <div class="content">
-            <h3 id="什么是跨域？"><a href="#什么是跨域？" class="headerlink" title="什么是跨域？"></a>什么是跨域？</h3><p>跨域是指一个域下的文档或脚本试图去请求另一个域下的资源，这里跨域是广义的。</p>
+            <h2 id="什么是跨域？"><a href="#什么是跨域？" class="headerlink" title="什么是跨域？"></a>什么是跨域？</h2><p>跨域是指一个域下的文档或脚本试图去请求另一个域下的资源，这里跨域是广义的。</p>
 <a id="more"></a>
 <p>广义的跨域：</p>
 <ol>
@@ -208,14 +208,14 @@ var _hmt = _hmt || [];
 <li>资源嵌入： <code>&lt;link&gt;</code>、<code>&lt;script&gt;</code>、<code>&lt;img&gt;</code>、<code>&lt;frame&gt;</code>等dom标签，还有样式中<code>background:url()</code>、<code>@font-face()</code>等文件外链</li>
 <li>脚本请求： js发起的ajax请求、dom和js对象的跨域操作等<br>其实我们通常所说的跨域是狭义的，是由浏览器同源策略限制的一类请求场景。</li>
 </ol>
-<h3 id="什么是同源策略？"><a href="#什么是同源策略？" class="headerlink" title="什么是同源策略？"></a>什么是同源策略？</h3><p>同源策略/SOP（Same origin policy）是指<strong>协议+域名+端口</strong>三者相同，即便两个不同的域名指向同一个ip地址，也非同源。如果缺少了同源策略，<strong>浏览器很容易受到XSS、CSFR等攻击</strong>。</p>
+<h2 id="什么是同源策略？"><a href="#什么是同源策略？" class="headerlink" title="什么是同源策略？"></a>什么是同源策略？</h2><p>同源策略/SOP（Same origin policy）是指<strong>协议+域名+端口</strong>三者相同，即便两个不同的域名指向同一个ip地址，也非同源。如果缺少了同源策略，<strong>浏览器很容易受到XSS、CSFR等攻击</strong>。</p>
 <p>同源策略限制以下几种行为：</p>
 <ol>
 <li>Cookie、LocalStorage 和 IndexDB 无法读取</li>
 <li>DOM 和 JS 对象无法获得</li>
 <li>AJAX 请求不能发送</li>
 </ol>
-<h3 id="跨域请求方案"><a href="#跨域请求方案" class="headerlink" title="跨域请求方案"></a>跨域请求方案</h3><h2 id="1-JSONP"><a href="#1-JSONP" class="headerlink" title="1. JSONP"></a>1. JSONP</h2><blockquote>
+<h2 id="跨域请求方案"><a href="#跨域请求方案" class="headerlink" title="跨域请求方案"></a>跨域请求方案</h2><h3 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h3><blockquote>
 <p>利用 <code>&lt;script&gt;</code> 标签没有跨域限制。</p>
 </blockquote>
 <p>优点：</p>
@@ -227,7 +227,7 @@ var _hmt = _hmt || [];
 <li>只能用于<code>get</code> 请求</li>
 </ul>
 <figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">jsonp</span>(<span class="hljs-params">url, jsonpCallback, success</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">let</span> script = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'script'</span>)</span><br><span class="line">  script.src = url</span><br><span class="line">  script.async = <span class="hljs-literal">true</span></span><br><span class="line">  script.type = <span class="hljs-string">'text/javascript'</span></span><br><span class="line">  <span class="hljs-built_in">window</span>[jsonpCallback] = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>&#123;</span><br><span class="line">    success &amp;&amp; success(data)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="hljs-built_in">document</span>.body.appendChild(script)</span><br><span class="line">&#125;</span><br><span class="line">jsonp(<span class="hljs-string">'http://xxx'</span>, <span class="hljs-string">'callback'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(value)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h2><blockquote>
+<h3 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h3><blockquote>
 <p>CORS（跨域资源共享）：服务端设置请求头<code>Access-Control-Allow-Origin</code></p>
 </blockquote>
 <p>CORS请求分为两类：</p>
@@ -235,7 +235,7 @@ var _hmt = _hmt || [];
 <li>简单请求</li>
 <li>非简单请求</li>
 </ul>
-<h3 id="简单请求"><a href="#简单请求" class="headerlink" title="简单请求"></a>简单请求</h3><ol>
+<h4 id="简单请求"><a href="#简单请求" class="headerlink" title="简单请求"></a>简单请求</h4><ol>
 <li><p>请求方法（其中一种）： </p>
 <ul>
 <li>GET</li>
@@ -271,7 +271,7 @@ var _hmt = _hmt || [];
 <li><code>Access-Control-Expose-Headers</code></li>
 </ol>
 <p>该字段可选。CORS请求时，XMLHttpRequest对象的 <code>getResponseHeader()</code> 方法只能拿到6个基本字段：<code>Cache-Control</code>、<code>Content-Language</code>、<code>Content-Type</code>、<code>Expires</code>、<code>Last-Modified</code>、<code>Pragma</code>。如果想拿到其他字段，就必须在 <code>Access-Control-Expose-Headers</code> 里面指定。上面的例子指定，<code>getResponseHeader(&#39;FooBar&#39;)</code> 可以返回FooBar字段的值。</p>
-<h3 id="2-2-withCredentials-属性"><a href="#2-2-withCredentials-属性" class="headerlink" title="2.2 withCredentials 属性"></a>2.2 withCredentials 属性</h3><p><em><code>CORS</code> 请求默认不发送 <code>Cookie</code> 和<code>HTTP认证信息</code></em>。如果要把 Cookie 发到服务器，一方面要服务器同意，指 <code>Access-Control-Allow-Credentials</code> 字段 ( <code>Access-Control-Allow-Credentials: true</code>) 。 另一方面，开发者必须在 <code>AJAX</code> 请求中打开 <code>withCredentials</code> 属性。否则，即使服务器同意发送 Cookie ，浏览器也不会发送，或者服务器要求设置Cookie，浏览器也不会处理。<br><figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.withCredentials = <span class="hljs-literal">true</span>;</span><br></pre></td></tr></table></figure></p>
+<h2 id="withCredentials-属性"><a href="#withCredentials-属性" class="headerlink" title="withCredentials 属性"></a>withCredentials 属性</h2><p><em><code>CORS</code> 请求默认不发送 <code>Cookie</code> 和<code>HTTP认证信息</code></em>。如果要把 Cookie 发到服务器，一方面要服务器同意，指 <code>Access-Control-Allow-Credentials</code> 字段 ( <code>Access-Control-Allow-Credentials: true</code>) 。 另一方面，开发者必须在 <code>AJAX</code> 请求中打开 <code>withCredentials</code> 属性。否则，即使服务器同意发送 Cookie ，浏览器也不会发送，或者服务器要求设置Cookie，浏览器也不会处理。<br><figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.withCredentials = <span class="hljs-literal">true</span>;</span><br></pre></td></tr></table></figure></p>
 <p>需要注意的是，如果要发送Cookie，<code>Access-Control-Allow-Origin</code> 就不能设为星号，必须指定明确的、与请求网页一致的域名。同时，Cookie依然遵循同源政策，只有用服务器域名设置的 Cookie 才会上传，其他域名的Cookie 并不会上传，且（跨源）原网页代码中的 document.cookie 也无法读取服务器域名下的 Cookie 。</p>
 <h3 id="非简单请求"><a href="#非简单请求" class="headerlink" title="非简单请求"></a>非简单请求</h3><blockquote>
 <p>非简单请求是那种对服务器有特殊要求的请求，比如请求方法是 <code>PUT</code> 或 <code>DELETE</code> ，或者 <code>Content-Type</code> 字段的类型是 <code>application/json</code> 。(<strong>除简单请求就是非简单请求</strong>)</p>
@@ -281,7 +281,7 @@ var _hmt = _hmt || [];
 <figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> url = <span class="hljs-string">'http://api.alice.com/cors'</span>;</span><br><span class="line"><span class="hljs-keyword">var</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.open(<span class="hljs-string">'PUT'</span>, url, <span class="hljs-literal">true</span>);</span><br><span class="line">xhr.setRequestHeader(<span class="hljs-string">'X-Custom-Header'</span>, <span class="hljs-string">'value'</span>);</span><br><span class="line">xhr.send();</span><br></pre></td></tr></table></figure>
 <p>上面代码中，HTTP 请求的方法是 PUT ，并且发送一个自定义头信息 <code>X-Custom-Header</code> 。</p>
 <p>浏览器发现，这是一个<strong>非简单请求</strong>，就自动发出一个 <code>预检请求</code> ，要求服务器确认可以这样请求。下面是这个”预检”请求的HTTP头信息。</p>
-<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">OPTIONS /cors HTTP/<span class="hljs-number">1.1</span></span><br><span class="line">Origin: http:<span class="hljs-comment">//api.bob.com</span></span><br><span class="line">Access-Control-Request-Method: PUT</span><br><span class="line">Access-Control-Request-Headers: X-Custom-Header</span><br><span class="line">Host: api.alice.com</span><br><span class="line">Accept-Language: en-US</span><br><span class="line">Connection: keep-alive</span><br><span class="line">User-Agent: Mozilla/<span class="hljs-number">5.0</span>...</span><br><span class="line"><span class="hljs-string">``</span><span class="hljs-string">` </span></span><br><span class="line"><span class="hljs-string"></span></span><br><span class="line"><span class="hljs-string">**预检请求用的请求方法是 `</span>OPTIONS<span class="hljs-string">` ，表示这个请求是用来询问的。头信息里面，关键字段是 `</span>Origin<span class="hljs-string">` ，表示请求来自哪个源。**</span></span><br><span class="line"><span class="hljs-string"></span></span><br><span class="line"><span class="hljs-string">除了 `</span>Origin<span class="hljs-string">` 字段，"预检"请求的头信息包括两个特殊字段。</span></span><br><span class="line"><span class="hljs-string"></span></span><br><span class="line"><span class="hljs-string">1. `</span>Access-Control-Request-Method<span class="hljs-string">` 该字段是必须的，用来列出浏览器的CORS请求会用到哪些HTTP方法，上例是PUT。</span></span><br><span class="line"><span class="hljs-string">2. `</span>Access-Control-Request-Headers<span class="hljs-string">` 该字段是一个逗号分隔的字符串，指定浏览器CORS请求会额外发送的头信息字段，上例是X-Custom-Header。</span></span><br><span class="line"><span class="hljs-string"></span></span><br><span class="line"><span class="hljs-string">预检请求的回应</span></span><br><span class="line"><span class="hljs-string">---</span></span><br><span class="line"><span class="hljs-string">服务器收到"预检"请求以后，检查了 `</span>Origin<span class="hljs-string">`、`</span>Access-Control-Request-Method<span class="hljs-string">`和`</span>Access-Control-Request-Headers<span class="hljs-string">` 字段以后，确认允许跨源请求，就可以做出回应。</span></span><br><span class="line"><span class="hljs-string"></span></span><br><span class="line"><span class="hljs-string">`</span><span class="hljs-string">``</span>JS</span><br><span class="line">HTTP/<span class="hljs-number">1.1</span> <span class="hljs-number">200</span> OK</span><br><span class="line"><span class="hljs-built_in">Date</span>: Mon, <span class="hljs-number">01</span> Dec <span class="hljs-number">2008</span> <span class="hljs-number">01</span>:<span class="hljs-number">15</span>:<span class="hljs-number">39</span> GMT</span><br><span class="line">Server: Apache/<span class="hljs-number">2.0</span><span class="hljs-number">.61</span> (Unix)</span><br><span class="line">Access-Control-Allow-Origin: http:<span class="hljs-comment">//api.bob.com</span></span><br><span class="line">Access-Control-Allow-Methods: GET, POST, PUT</span><br><span class="line">Access-Control-Allow-Headers: X-Custom-Header</span><br><span class="line">Content-Type: text/html; charset=utf<span class="hljs-number">-8</span></span><br><span class="line">Content-Encoding: gzip</span><br><span class="line">Content-Length: <span class="hljs-number">0</span></span><br><span class="line">Keep-Alive: timeout=<span class="hljs-number">2</span>, max=<span class="hljs-number">100</span></span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Content-Type: text/plain</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">OPTIONS /cors HTTP/<span class="hljs-number">1.1</span></span><br><span class="line">Origin: http:<span class="hljs-comment">//api.bob.com</span></span><br><span class="line">Access-Control-Request-Method: PUT</span><br><span class="line">Access-Control-Request-Headers: X-Custom-Header</span><br><span class="line">Host: api.alice.com</span><br><span class="line">Accept-Language: en-US</span><br><span class="line">Connection: keep-alive</span><br><span class="line">User-Agent: Mozilla/<span class="hljs-number">5.0</span>...</span><br><span class="line"><span class="hljs-string">``</span><span class="hljs-string">` </span></span><br><span class="line"><span class="hljs-string"></span></span><br><span class="line"><span class="hljs-string">预检请求用的请求方法是 `</span>OPTIONS<span class="hljs-string">` ，表示这个请求是用来询问的。头信息里面，关键字段是 `</span>Origin<span class="hljs-string">` ，表示请求来自哪个源。</span></span><br><span class="line"><span class="hljs-string"></span></span><br><span class="line"><span class="hljs-string">除了 `</span>Origin<span class="hljs-string">` 字段，"预检"请求的头信息包括两个特殊字段。</span></span><br><span class="line"><span class="hljs-string">1. `</span>Access-Control-Request-Method<span class="hljs-string">` 该字段是必须的，用来列出浏览器的CORS请求会用到哪些HTTP方法，上例是PUT。</span></span><br><span class="line"><span class="hljs-string">2. `</span>Access-Control-Request-Headers<span class="hljs-string">` 该字段是一个逗号分隔的字符串，指定浏览器CORS请求会额外发送的头信息字段，上例是X-Custom-Header。</span></span><br><span class="line"><span class="hljs-string"></span></span><br><span class="line"><span class="hljs-string">预检请求的回应</span></span><br><span class="line"><span class="hljs-string">---</span></span><br><span class="line"><span class="hljs-string">服务器收到"预检"请求以后，检查了 `</span>Origin<span class="hljs-string">`、`</span>Access-Control-Request-Method<span class="hljs-string">`和`</span>Access-Control-Request-Headers<span class="hljs-string">` 字段以后，确认允许跨源请求，就可以做出回应。</span></span><br><span class="line"><span class="hljs-string"></span></span><br><span class="line"><span class="hljs-string">`</span><span class="hljs-string">``</span>JS</span><br><span class="line">HTTP/<span class="hljs-number">1.1</span> <span class="hljs-number">200</span> OK</span><br><span class="line"><span class="hljs-built_in">Date</span>: Mon, <span class="hljs-number">01</span> Dec <span class="hljs-number">2008</span> <span class="hljs-number">01</span>:<span class="hljs-number">15</span>:<span class="hljs-number">39</span> GMT</span><br><span class="line">Server: Apache/<span class="hljs-number">2.0</span><span class="hljs-number">.61</span> (Unix)</span><br><span class="line">Access-Control-Allow-Origin: http:<span class="hljs-comment">//api.bob.com</span></span><br><span class="line">Access-Control-Allow-Methods: GET, POST, PUT</span><br><span class="line">Access-Control-Allow-Headers: X-Custom-Header</span><br><span class="line">Content-Type: text/html; charset=utf<span class="hljs-number">-8</span></span><br><span class="line">Content-Encoding: gzip</span><br><span class="line">Content-Length: <span class="hljs-number">0</span></span><br><span class="line">Keep-Alive: timeout=<span class="hljs-number">2</span>, max=<span class="hljs-number">100</span></span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Content-Type: text/plain</span><br></pre></td></tr></table></figure>
 <p>上面的HTTP回应中，关键的是 <code>Access-Control-Allow-Origin</code> 字段，表示<code>http://api.bob.com</code>可以请求数据。该字段也可以设为星号，表示同意任意跨源请求。</p>
 <figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Allow-Origin: *</span><br></pre></td></tr></table></figure>
 <p>如果浏览器否定了”预检”请求，会返回一个正常的HTTP回应，但是没有任何CORS相关的头信息字段。这时，浏览器就会认定，服务器不同意预检请求，因此触发一个错误，被XMLHttpRequest对象的onerror回调函数捕获。控制台会打印出如下的报错信息。</p>
@@ -497,41 +497,41 @@ var _hmt = _hmt || [];
             <h3 class="menu-label">
                 目录
             </h3>
-            <ul class="menu-list"><ul class="menu-list"><li>
+            <ul class="menu-list"><li>
         <a class="is-flex" href="#什么是跨域？">
-        <span class="has-mr-6">1.1</span>
+        <span class="has-mr-6">1</span>
         <span>什么是跨域？</span>
         </a></li><li>
         <a class="is-flex" href="#什么是同源策略？">
-        <span class="has-mr-6">1.2</span>
+        <span class="has-mr-6">2</span>
         <span>什么是同源策略？</span>
         </a></li><li>
         <a class="is-flex" href="#跨域请求方案">
-        <span class="has-mr-6">1.3</span>
+        <span class="has-mr-6">3</span>
         <span>跨域请求方案</span>
-        </a></li></ul><li>
-        <a class="is-flex" href="#1-JSONP">
-        <span class="has-mr-6">2</span>
-        <span>1. JSONP</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#JSONP">
+        <span class="has-mr-6">3.1</span>
+        <span>JSONP</span>
         </a></li><li>
         <a class="is-flex" href="#CORS">
-        <span class="has-mr-6">3</span>
+        <span class="has-mr-6">3.2</span>
         <span>CORS</span>
         </a><ul class="menu-list"><li>
         <a class="is-flex" href="#简单请求">
-        <span class="has-mr-6">3.1</span>
+        <span class="has-mr-6">3.2.1</span>
         <span>简单请求</span>
-        </a></li><li>
-        <a class="is-flex" href="#2-2-withCredentials-属性">
-        <span class="has-mr-6">3.2</span>
-        <span>2.2 withCredentials 属性</span>
-        </a></li><li>
+        </a></li></ul></li></ul></li><li>
+        <a class="is-flex" href="#withCredentials-属性">
+        <span class="has-mr-6">4</span>
+        <span>withCredentials 属性</span>
+        </a><ul class="menu-list"><li>
         <a class="is-flex" href="#非简单请求">
-        <span class="has-mr-6">3.3</span>
+        <span class="has-mr-6">4.1</span>
         <span>非简单请求</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#浏览器的正常请求和回应">
-        <span class="has-mr-6">4</span>
+        <span class="has-mr-6">5</span>
         <span>浏览器的正常请求和回应</span>
         </a></li></ul>
         </div>
