@@ -16,7 +16,7 @@
 <meta property="og:description" content="什么是跨域？跨域是指一个域下的文档或脚本试图去请求另一个域下的资源，这里跨域是广义的。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wangytbest.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-05-08T08:55:29.039Z">
+<meta property="og:updated_time" content="2019-05-08T08:57:23.091Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="跨域">
 <meta name="twitter:description" content="什么是跨域？跨域是指一个域下的文档或脚本试图去请求另一个域下的资源，这里跨域是广义的。">
@@ -271,7 +271,8 @@ var _hmt = _hmt || [];
 <li><code>Access-Control-Expose-Headers</code></li>
 </ol>
 <p>该字段可选。CORS请求时，XMLHttpRequest对象的 <code>getResponseHeader()</code> 方法只能拿到6个基本字段：<code>Cache-Control</code>、<code>Content-Language</code>、<code>Content-Type</code>、<code>Expires</code>、<code>Last-Modified</code>、<code>Pragma</code>。如果想拿到其他字段，就必须在 <code>Access-Control-Expose-Headers</code> 里面指定。上面的例子指定，<code>getResponseHeader(&#39;FooBar&#39;)</code> 可以返回FooBar字段的值。</p>
-<h2 id="withCredentials-属性"><a href="#withCredentials-属性" class="headerlink" title="withCredentials 属性"></a>withCredentials 属性</h2><p><em><code>CORS</code> 请求默认不发送 <code>Cookie</code> 和<code>HTTP认证信息</code></em>。如果要把 Cookie 发到服务器，一方面要服务器同意，指 <code>Access-Control-Allow-Credentials</code> 字段 ( <code>Access-Control-Allow-Credentials: true</code>) 。 另一方面，开发者必须在 <code>AJAX</code> 请求中打开 <code>withCredentials</code> 属性。否则，即使服务器同意发送 Cookie ，浏览器也不会发送，或者服务器要求设置Cookie，浏览器也不会处理。<br><figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.withCredentials = <span class="hljs-literal">true</span>;</span><br></pre></td></tr></table></figure></p>
+<p>withCredentials 属性</p>
+<p><em><code>CORS</code> 请求默认不发送 <code>Cookie</code> 和<code>HTTP认证信息</code></em>。如果要把 Cookie 发到服务器，一方面要服务器同意，指 <code>Access-Control-Allow-Credentials</code> 字段 ( <code>Access-Control-Allow-Credentials: true</code>) 。 另一方面，开发者必须在 <code>AJAX</code> 请求中打开 <code>withCredentials</code> 属性。否则，即使服务器同意发送 Cookie ，浏览器也不会发送，或者服务器要求设置Cookie，浏览器也不会处理。<br><figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.withCredentials = <span class="hljs-literal">true</span>;</span><br></pre></td></tr></table></figure></p>
 <p>需要注意的是，如果要发送Cookie，<code>Access-Control-Allow-Origin</code> 就不能设为星号，必须指定明确的、与请求网页一致的域名。同时，Cookie依然遵循同源政策，只有用服务器域名设置的 Cookie 才会上传，其他域名的Cookie 并不会上传，且（跨源）原网页代码中的 document.cookie 也无法读取服务器域名下的 Cookie 。</p>
 <h3 id="非简单请求"><a href="#非简单请求" class="headerlink" title="非简单请求"></a>非简单请求</h3><blockquote>
 <p>非简单请求是那种对服务器有特殊要求的请求，比如请求方法是 <code>PUT</code> 或 <code>DELETE</code> ，或者 <code>Content-Type</code> 字段的类型是 <code>application/json</code> 。(<strong>除简单请求就是非简单请求</strong>)</p>
@@ -521,17 +522,13 @@ var _hmt = _hmt || [];
         <a class="is-flex" href="#简单请求">
         <span class="has-mr-6">3.2.1</span>
         <span>简单请求</span>
-        </a></li></ul></li></ul></li><li>
-        <a class="is-flex" href="#withCredentials-属性">
-        <span class="has-mr-6">4</span>
-        <span>withCredentials 属性</span>
-        </a><ul class="menu-list"><li>
+        </a></li></ul></li><li>
         <a class="is-flex" href="#非简单请求">
-        <span class="has-mr-6">4.1</span>
+        <span class="has-mr-6">3.3</span>
         <span>非简单请求</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#浏览器的正常请求和回应">
-        <span class="has-mr-6">5</span>
+        <span class="has-mr-6">4</span>
         <span>浏览器的正常请求和回应</span>
         </a></li></ul>
         </div>
