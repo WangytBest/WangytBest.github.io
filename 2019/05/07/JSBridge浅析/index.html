@@ -16,7 +16,7 @@
 <meta property="og:description" content="JSBridge 浅析JSBridge 简单来讲，主要是给 Javascript 提供调用 Native 功能的接口，让 Hybrid 开发的前端人员可以方便的使用 Native 的地理位置、摄像头等原生功能。 实际上， JSBridge 就像是 Native 和 H5 之间的桥梁，构建 Native 和 非Native 间的双向消息通信的通道。  JS 向 Native 发送消息：调用相关接口、">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wangytbest.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-05-07T10:48:40.710Z">
+<meta property="og:updated_time" content="2019-05-08T03:16:42.919Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSBridge浅析">
 <meta name="twitter:description" content="JSBridge 浅析JSBridge 简单来讲，主要是给 Javascript 提供调用 Native 功能的接口，让 Hybrid 开发的前端人员可以方便的使用 Native 的地理位置、摄像头等原生功能。 实际上， JSBridge 就像是 Native 和 H5 之间的桥梁，构建 Native 和 非Native 间的双向消息通信的通道。  JS 向 Native 发送消息：调用相关接口、">
@@ -182,7 +182,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    4 分钟 读完 (大约 649 个字)
+                    4 分钟 读完 (大约 650 个字)
                 </span>
                 
                 
@@ -211,6 +211,7 @@ var _hmt = _hmt || [];
 <li>基于 Web 的 Hybrid 的解决方案：微信浏览器、各大公司的 Hybrid 方案。</li>
 <li>ReactNative等。</li>
 </ul>
+<a id="more"></a>
 <h3 id="JSBridge-原理"><a href="#JSBridge-原理" class="headerlink" title="JSBridge 原理"></a>JSBridge 原理</h3><p>JS 是运行在一个单独的 JS Context 中。Hybrid 方案是基于 WebView 的，JS 执行在 WebView 的 Webkit 引擎中。</p>
 <p>Javascript 调用 Native 的方式主要有两种： 1. 注入API， 2. 拦截 URL SCHEME。</p>
 <h4 id="注入-API"><a href="#注入-API" class="headerlink" title="注入 API"></a>注入 API</h4><p>注入API 的主要原理是通过 WebView 提供的接口，向 Javascript 的 <code>window对象</code> 中注入对象或者方法，让 Javascript 调用时，直接执行相应的 Native 的代码逻辑。</p>
