@@ -167,58 +167,6 @@ var _hmt = _hmt || [];
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-05-30T06:58:34.000Z">2018-05-30</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    3 分钟 读完 (大约 395 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2018/05/30/时间处理/">时间处理</a>
-            
-        </h1>
-        <div class="content">
-            <p>时间处理方法</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2018/05/30/时间处理/#more">阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2018-05-30T06:57:34.000Z">2018-05-30</time>
                 
                 <div class="level-item">
@@ -660,7 +608,7 @@ var _hmt = _hmt || [];
             
         </h1>
         <div class="content">
-            <h2 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h2><h2 id="UC和微信浏览器下的兼容性问题"><a href="#UC和微信浏览器下的兼容性问题" class="headerlink" title="UC和微信浏览器下的兼容性问题"></a>UC和微信浏览器下的兼容性问题</h2><p>所有<code>webkit</code>内核的浏览器（包括移动端）都支持 flex 布局，只不过一些浏览器只支持旧语法，如：<code>display: -webkit-box</code> 。<br>旧语法和标准的 <code>flex</code> 语法有较大区别，需要做好兼容。不过可以来使用 <code>autoprefixer</code> 来自动处理这些兼容性问题，而开发时只需要写标准的语法就好了。</p>
+            <h2 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h2><h2 id="UC和微信浏览器下的兼容性问题"><a href="#UC和微信浏览器下的兼容性问题" class="headerlink" title="UC和微信浏览器下的兼容性问题"></a>UC和微信浏览器下的兼容性问题</h2><p>所有<code>webkit</code>内核的浏览器（包括移动端）都支持 <code>flex</code> 布局，只不过一些浏览器只支持旧语法，如：<code>display: -webkit-box</code> 。<br>旧语法和标准的 <code>flex</code> 语法有较大区别，需要做好兼容。不过可以来使用 <code>autoprefixer</code> 来自动处理这些兼容性问题，而开发时只需要写标准的语法就好了。</p>
 <p>假如没有使用<code>autoprefixer</code>，在UC浏览器和微信内置浏览器中，使用<code>display:flex;</code>时会不起作用，要加上兼容性写法。<br></p>
         </div>
         
@@ -672,6 +620,56 @@ var _hmt = _hmt || [];
                 </div>
             </div>
         </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-03-21T09:19:02.000Z">2018-03-21</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Javascript/阿里字体/">阿里字体</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 分钟 读完 (大约 326 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2018/03/21/微信小程序使用阿里字体图标/">微信小程序使用阿里字体图标</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>为了美化微信小程序，可以使用适当的图标来美化页面，体验更好。<br><a href="http://www.iconfont.cn/" target="_blank" rel="noopener">阿里字体图标库</a>提供了丰富的字体，各种场景下项目中所需要字体几乎都能找到。</p>
+<p>微信小程序中设置元素的背景图片不能使用本地图片，本地资源无法通过WXSS获取，<code>background-img</code>可以使用网络图片或者base64，或者使用<code>image</code>标签，所以不能直接下载阿里字体图标库的图片设置为背景图片，可以将下载的图片转成字体文件使用。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="1-下载字体"><a href="#1-下载字体" class="headerlink" title="1. 下载字体"></a>1. 下载字体</h3><p><img src="https://hexo-blog-1256208212.cos.ap-beijing.myqcloud.com/1521625432192.jpg" alt="下载字体文件"></p>
+<h3 id="2-解压转成base64文件"><a href="#2-解压转成base64文件" class="headerlink" title="2. 解压转成base64文件"></a>2. 解压转成base64文件</h3><p>下载字体文件，解压缩后将<code>.ttf</code>文件转化，<a href="https://transfonter.org/" target="_blank" rel="noopener">transfonter</a><br><img src="https://hexo-blog-1256208212.cos.ap-beijing.myqcloud.com/1521628758409.jpg" alt="转换成base64字体文件"></p>
+<h3 id="3-拷贝字体文件至小程序"><a href="#3-拷贝字体文件至小程序" class="headerlink" title="3. 拷贝字体文件至小程序"></a>3. 拷贝字体文件至小程序</h3><p>将下载好的文件夹中stylesheet.css样式表中的内容拷贝, 粘贴至小程序的<code>wxss</code>文件中,即可引用该iconfont字体图标.</p>
+<h3 id="4-引用字体文件"><a href="#4-引用字体文件" class="headerlink" title="4. 引用字体文件"></a>4. 引用字体文件</h3><p>小程序只能识别<code>wxss</code>为后缀的<code>css</code>文件，不能识别<code>.css</code>文件。<br><code>@import &quot;/assets/iconfont/iconfont.wxss</code></p>
+
+        </div>
+        
         
         
     </div>
@@ -1132,7 +1130,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">13</span>
+                    <span class="level-item tag">12</span>
                 </span>
             </a>
         </li>
@@ -1232,6 +1230,17 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">9</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
                 </span>
             </a>
         </li>
@@ -1571,7 +1580,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">13</span>
+                    <span class="level-item tag">12</span>
                 </span>
             </a>
         </li>
@@ -1671,6 +1680,17 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">9</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
                 </span>
             </a>
         </li>

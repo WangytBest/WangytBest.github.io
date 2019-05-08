@@ -167,56 +167,6 @@ var _hmt = _hmt || [];
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-03-21T09:19:02.000Z">2018-03-21</time>
-                
-                <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Javascript/阿里字体/">阿里字体</a>
-                </div>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    2 分钟 读完 (大约 326 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2018/03/21/微信小程序使用阿里字体图标/">微信小程序使用阿里字体图标</a>
-            
-        </h1>
-        <div class="content">
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>为了美化微信小程序，可以使用适当的图标来美化页面，体验更好。<br><a href="http://www.iconfont.cn/" target="_blank" rel="noopener">阿里字体图标库</a>提供了丰富的字体，各种场景下项目中所需要字体几乎都能找到。</p>
-<p>微信小程序中设置元素的背景图片不能使用本地图片，本地资源无法通过WXSS获取，<code>background-img</code>可以使用网络图片或者base64，或者使用<code>image</code>标签，所以不能直接下载阿里字体图标库的图片设置为背景图片，可以将下载的图片转成字体文件使用。</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="1-下载字体"><a href="#1-下载字体" class="headerlink" title="1. 下载字体"></a>1. 下载字体</h3><p><img src="https://hexo-blog-1256208212.cos.ap-beijing.myqcloud.com/1521625432192.jpg" alt="下载字体文件"></p>
-<h3 id="2-解压转成base64文件"><a href="#2-解压转成base64文件" class="headerlink" title="2. 解压转成base64文件"></a>2. 解压转成base64文件</h3><p>下载字体文件，解压缩后将<code>.ttf</code>文件转化，<a href="https://transfonter.org/" target="_blank" rel="noopener">transfonter</a><br><img src="https://hexo-blog-1256208212.cos.ap-beijing.myqcloud.com/1521628758409.jpg" alt="转换成base64字体文件"></p>
-<h3 id="3-拷贝字体文件至小程序"><a href="#3-拷贝字体文件至小程序" class="headerlink" title="3. 拷贝字体文件至小程序"></a>3. 拷贝字体文件至小程序</h3><p>将下载好的文件夹中stylesheet.css样式表中的内容拷贝, 粘贴至小程序的<code>wxss</code>文件中,即可引用该iconfont字体图标.</p>
-<h3 id="4-引用字体文件"><a href="#4-引用字体文件" class="headerlink" title="4. 引用字体文件"></a>4. 引用字体文件</h3><p>小程序只能识别<code>wxss</code>为后缀的<code>css</code>文件，不能识别<code>.css</code>文件。<br><code>@import &quot;/assets/iconfont/iconfont.wxss</code></p>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2018-03-21T09:17:24.000Z">2018-03-21</time>
                 
                 <div class="level-item">
@@ -710,6 +660,69 @@ var _hmt = _hmt || [];
 
 
 
+    <div class="card">
+    
+    <div class="card-image">
+        <a href="/2017/09/20/css-lazy-load-image/" class="image is-7by1">
+            <img class="thumbnail" src="http://cloud.xuww.wang/banner.png" alt="JS原生图片懒加载">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2017-09-20T06:43:41.000Z">2017-09-20</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    7 分钟 读完 (大约 1078 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2017/09/20/css-lazy-load-image/">JS原生图片懒加载</a>
+            
+        </h1>
+        <div class="content">
+            <h3 id="图片懒加载"><a href="#图片懒加载" class="headerlink" title="图片懒加载"></a>图片懒加载</h3><p>懒加载是前端优化的一种技术，旨在用户进入页面后，当滚动页面将要到达图片位置时才加载图片。<br>加快页面加载速度，极大的提升了用户体验，也避免了用户进入页面之后就发送n多个图片请求，服务器吃不消啊！</p>
+<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><p>先将图片的 <code>src</code> 设置为空或者小的图片，将真实的图片地址存在 <code>img</code> 的自定义属性中，比如 <code>data-src</code> 中，等到页面滚动至图片位置时将真实图片位置复制给 <code>src</code> 属性。</p>
+<ol>
+<li>页面中的 <code>img</code> 元素，如果没有 <code>src</code> 属性，浏览器就不会发出请求去下载图片</li>
+<li>用户滚动页面至图片位置时，<code>img</code> 元素获取到真正的路径后，开始发送请求加载图片</li>
+</ol>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2017/09/20/css-lazy-load-image/#more">阅读更多</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
 
     
 <div class="card card-transparent">
@@ -1158,7 +1171,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">13</span>
+                    <span class="level-item tag">12</span>
                 </span>
             </a>
         </li>
@@ -1258,6 +1271,17 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">9</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
                 </span>
             </a>
         </li>
@@ -1597,7 +1621,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">13</span>
+                    <span class="level-item tag">12</span>
                 </span>
             </a>
         </li>
@@ -1697,6 +1721,17 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">9</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2017/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
                 </span>
             </a>
         </li>
