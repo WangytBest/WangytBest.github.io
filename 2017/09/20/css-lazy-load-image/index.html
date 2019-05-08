@@ -16,7 +16,7 @@
 <meta property="og:description" content="图片懒加载懒加载是前端优化的一种技术，旨在用户进入页面后，当滚动页面将要到达图片位置时才加载图片。加快页面加载速度，极大的提升了用户体验，也避免了用户进入页面之后就发送n多个图片请求，服务器吃不消啊！ 实现原理先将图片的 src 设置为空或者小的图片，将真实的图片地址存在 img 的自定义属性中，比如 data-src 中，等到页面滚动至图片位置时将真实图片位置复制给 src 属性。  页面中的">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://cloud.xuww.wang/banner.png">
-<meta property="og:updated_time" content="2019-05-08T07:58:03.059Z">
+<meta property="og:updated_time" content="2019-05-08T07:59:46.614Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS原生图片懒加载">
 <meta name="twitter:description" content="图片懒加载懒加载是前端优化的一种技术，旨在用户进入页面后，当滚动页面将要到达图片位置时才加载图片。加快页面加载速度，极大的提升了用户体验，也避免了用户进入页面之后就发送n多个图片请求，服务器吃不消啊！ 实现原理先将图片的 src 设置为空或者小的图片，将真实的图片地址存在 img 的自定义属性中，比如 data-src 中，等到页面滚动至图片位置时将真实图片位置复制给 src 属性。  页面中的">
@@ -256,7 +256,20 @@ var _hmt = _hmt || [];
 </blockquote>
 <p>client dismension 值也是<strong>只读</strong>的。</p>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">let</span> clientWidth = <span class="hljs-built_in">document</span>.documentElement.clientWidht;</span><br><span class="line"><span class="hljs-keyword">let</span> clientHeight = <span class="hljs-built_in">document</span>.documentElement.clientHeight;</span><br></pre></td></tr></table></figure>
-<h4 id="滚动大小（"><a href="#滚动大小（" class="headerlink" title="滚动大小（"></a>滚动大小（<figure class="highlight plain hljs"><figcaption><span>dismension```）</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; * `scrollTop` : 被隐藏在内容区域上方的高度。（上方被隐藏了多少）</span><br><span class="line">&gt; * `scrollLeft` : 被隐藏在内容区域左侧的宽度。（左侧被隐藏了多少）</span><br><span class="line">&gt; * `scrollWidth` : 在没有滚动的情况下，元素内容的总宽度。</span><br><span class="line">&gt; * `scrollHeight` : 在没有滚动的情况下，元素内容的总高度。</span><br><span class="line"></span><br><span class="line">* 带有垂直滚动条的页面总高度：`document.documentElement.scrollHeight`</span><br><span class="line">* 带有水平滚动条的页面总宽度：`document.documentElement.scrollWidth`</span><br><span class="line">* 通过scrollLeft和scrollTop既可以确定元素当前滚动的状态，也可以设置元素的滚动位置。</span><br><span class="line"></span><br><span class="line">```javascript</span><br><span class="line">// 确定文档的总高度</span><br><span class="line">//scrollHeight和clientHeight中的最大值</span><br><span class="line">let docHeight = Math.max(documnt.documentElement.scrollHeight, document.documntElement.clientHeight);</span><br><span class="line"></span><br><span class="line">// 确定文档的总宽度</span><br><span class="line">//scrollWidth和clientWidth中的最大值</span><br><span class="line">let docWidth = Max.max(document.documentElement.scrollWidth, document.documentElement.clientWidth);</span><br></pre></td></tr></table></figure></h4>
+<h4 id="滚动大小（scroll-dismension）"><a href="#滚动大小（scroll-dismension）" class="headerlink" title="滚动大小（scroll dismension）"></a>滚动大小（<code>scroll dismension</code>）</h4><blockquote>
+<ul>
+<li><code>scrollTop</code> : 被隐藏在内容区域上方的高度。（上方被隐藏了多少）</li>
+<li><code>scrollLeft</code> : 被隐藏在内容区域左侧的宽度。（左侧被隐藏了多少）</li>
+<li><code>scrollWidth</code> : 在没有滚动的情况下，元素内容的总宽度。</li>
+<li><code>scrollHeight</code> : 在没有滚动的情况下，元素内容的总高度。</li>
+</ul>
+</blockquote>
+<ul>
+<li>带有垂直滚动条的页面总高度：<code>document.documentElement.scrollHeight</code></li>
+<li>带有水平滚动条的页面总宽度：<code>document.documentElement.scrollWidth</code></li>
+<li>通过scrollLeft和scrollTop既可以确定元素当前滚动的状态，也可以设置元素的滚动位置。</li>
+</ul>
+<figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 确定文档的总高度</span></span><br><span class="line"><span class="hljs-comment">//scrollHeight和clientHeight中的最大值</span></span><br><span class="line"><span class="hljs-keyword">let</span> docHeight = <span class="hljs-built_in">Math</span>.max(documnt.documentElement.scrollHeight, <span class="hljs-built_in">document</span>.documntElement.clientHeight);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 确定文档的总宽度</span></span><br><span class="line"><span class="hljs-comment">//scrollWidth和clientWidth中的最大值</span></span><br><span class="line"><span class="hljs-keyword">let</span> docWidth = Max.max(<span class="hljs-built_in">document</span>.documentElement.scrollWidth, <span class="hljs-built_in">document</span>.documentElement.clientWidth);</span><br></pre></td></tr></table></figure>
         </div>
         
         <div class="level is-size-7 is-uppercase">
@@ -470,9 +483,9 @@ var _hmt = _hmt || [];
         <span class="has-mr-6">4.2</span>
         <span>客户区大小（client dismension）</span>
         </a></li><li>
-        <a class="is-flex" href="#滚动大小（">
+        <a class="is-flex" href="#滚动大小（scroll-dismension）">
         <span class="has-mr-6">4.3</span>
-        <span>滚动大小（dismension```）123456789101112131415161718&gt; * `scrollTop` : 被隐藏在内容区域上方的高度。（上方被隐藏了多少）&gt; * `scrollLeft` : 被隐藏在内容区域左侧的宽度。（左侧被隐藏了多少）&gt; * `scrollWidth` : 在没有滚动的情况下，元素内容的总宽度。&gt; * `scrollHeight` : 在没有滚动的情况下，元素内容的总高度。* 带有垂直滚动条的页面总高度：`document.documentElement.scrollHeight`* 带有水平滚动条的页面总宽度：`document.documentElement.scrollWidth`* 通过scrollLeft和scrollTop既可以确定元素当前滚动的状态，也可以设置元素的滚动位置。```javascript// 确定文档的总高度//scrollHeight和clientHeight中的最大值let docHeight = Math.max(documnt.documentElement.scrollHeight, document.documntElement.clientHeight);// 确定文档的总宽度//scrollWidth和clientWidth中的最大值let docWidth = Max.max(document.documentElement.scrollWidth, document.documentElement.clientWidth);</span>
+        <span>滚动大小（scroll dismension）</span>
         </a></li></ul></li></ul>
         </div>
     </div>
