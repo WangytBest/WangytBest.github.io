@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wangytbest.github.io/2019/05/08/ES6%E4%B9%8BPromise/</loc>
+    
+    <lastmod>2019-05-08T10:13:18.246Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wangytbest.github.io/2019/03/02/%E9%9D%A2%E8%AF%95%E4%B9%8BJS/</loc>
+    
+    <lastmod>2019-05-08T09:24:43.849Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://wangytbest.github.io/2019/04/09/%E8%B7%A8%E5%9F%9F/</loc>
     
     <lastmod>2019-05-08T09:11:31.477Z</lastmod>
@@ -47,13 +61,6 @@
     <loc>http://wangytbest.github.io/2019/04/18/JSBridge%E6%B5%85%E6%9E%90/</loc>
     
     <lastmod>2019-05-08T04:04:38.996Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wangytbest.github.io/2019/03/02/%E9%9D%A2%E8%AF%95%E4%B9%8BJS/</loc>
-    
-    <lastmod>2019-04-19T08:18:16.636Z</lastmod>
     
   </url>
   
@@ -338,14 +345,14 @@
   </url>
   
   <url>
-    <loc>http://wangytbest.github.io/tags/index.html</loc>
+    <loc>http://wangytbest.github.io/timeline/index.html</loc>
     
     <lastmod>2018-08-30T06:27:06.277Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://wangytbest.github.io/timeline/index.html</loc>
+    <loc>http://wangytbest.github.io/tags/index.html</loc>
     
     <lastmod>2018-08-30T06:27:06.277Z</lastmod>
     

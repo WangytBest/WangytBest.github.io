@@ -16,7 +16,7 @@
 <meta property="og:description" content="JS 框架 浏览器">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wangytbest.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-04-19T08:18:16.636Z">
+<meta property="og:updated_time" content="2019-05-08T09:24:43.849Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试之JS">
 <meta name="twitter:description" content="JS 框架 浏览器">
@@ -182,7 +182,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    8 分钟 读完 (大约 1223 个字)
+                    6 分钟 读完 (大约 916 个字)
                 </span>
                 
                 
@@ -206,26 +206,7 @@ var _hmt = _hmt || [];
 <li>浏览器<a id="more"></a>
 </li>
 </ul>
-<h2 id="JS基础"><a href="#JS基础" class="headerlink" title="JS基础"></a>JS基础</h2><h3 id="Promise-串行请求，all，race，finally"><a href="#Promise-串行请求，all，race，finally" class="headerlink" title="Promise 串行请求，all，race，finally"></a><font color="#ff8077">Promise 串行请求，all，race，finally</font></h3><blockquote>
-<p>Promise 对象用于表示一个异步操作的最终状态（完成或失败），以及该异步操作的结果值。 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener">Promise - MDN</a></p>
-</blockquote>
-<p><code>promise</code> 内部执行一些异步操作，一旦异步操作执行完毕，要么调用 <code>resolve</code> 函数来将 promise 状态改成 <code>fulfilled</code> ， 要么调用 <code>reject</code> 函数将 promise 状态改成 <code>rejected</code> 。 </p>
-<p><code>Promise</code> 具有三个状态，初始状态为 <code>pending</code> ，异步操作成功状态转换为 <code>fulfilled</code> ， 失败转换为 <code>rejected</code> ，操作不可逆。当其中任何一种情况出现时， <code>Promise</code> 对象的 <code>then</code> 方法绑定的处理方法就会被调用（ <code>then</code> 方法包含两个参数： <code>onfuifilled</code> 和 <code>onrejected</code> 方法。当 <code>Promise</code> 状态为 <code>fulfilled</code> 状态时调用 <code>then</code> 的 <code>onFulfilled</code> 方法，当 <code>Promise</code> 状态为 <code>rejected</code> 时，调用 <code>then</code> 方法的 <code>onrejected</code> 方法.）</p>
-<p><img src="https://mdn.mozillademos.org/files/8633/promises.png" alt="Promise 状态修改"></p>
-<ul>
-<li>Promise.prototype.then(onFulfilled, onRejected)</li>
-<li>Promise.prototype.catch(onRejected)</li>
-<li><p>Promise.prototype.finally(onFinally)</p>
-</li>
-<li><p>Promise.all(iterable)</p>
-</li>
-<li>Promise.race(iterable)</li>
-<li>Promise.reject(reason)</li>
-<li>Promise.resolve(value)</li>
-</ul>
-<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">* Promise.prototype.finally</span></span><br><span class="line"><span class="hljs-comment">*/</span></span><br><span class="line"><span class="hljs-built_in">Promise</span>.prototype.finally = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">onFinally</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">let</span> P = <span class="hljs-keyword">this</span>.constructor;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.then(<span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> &#123;</span><br><span class="line">    P.resolve(onFinally()).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> value);</span><br><span class="line">  &#125;, reason =&gt; &#123;</span><br><span class="line">    P.resolve(onFinally()).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123; <span class="hljs-keyword">throw</span> reason &#125;);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>语法</strong><br><figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve, reject</span>) </span>&#123; ... &#125; <span class="hljs-comment">/* executor * /)</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="柯理化，JS中柯理话的API"><a href="#柯理化，JS中柯理话的API" class="headerlink" title="柯理化，JS中柯理话的API"></a>柯理化，JS中柯理话的API</h3><h3 id="缓存，浏览器缓存原理，阶段"><a href="#缓存，浏览器缓存原理，阶段" class="headerlink" title="缓存，浏览器缓存原理，阶段"></a>缓存，浏览器缓存原理，阶段</h3><h3 id="webpack优化，写过loader和plugin"><a href="#webpack优化，写过loader和plugin" class="headerlink" title="webpack优化，写过loader和plugin"></a>webpack优化，写过loader和plugin</h3><ul>
+<h2 id="JS基础"><a href="#JS基础" class="headerlink" title="JS基础"></a>JS基础</h2><h3 id="Promise-串行请求，all，race，finally"><a href="#Promise-串行请求，all，race，finally" class="headerlink" title="Promise 串行请求，all，race，finally"></a><font color="#ff8077">Promise 串行请求，all，race，finally</font></h3><h3 id="柯理化，JS中柯理话的API"><a href="#柯理化，JS中柯理话的API" class="headerlink" title="柯理化，JS中柯理话的API"></a>柯理化，JS中柯理话的API</h3><h3 id="缓存，浏览器缓存原理，阶段"><a href="#缓存，浏览器缓存原理，阶段" class="headerlink" title="缓存，浏览器缓存原理，阶段"></a>缓存，浏览器缓存原理，阶段</h3><h3 id="webpack优化，写过loader和plugin"><a href="#webpack优化，写过loader和plugin" class="headerlink" title="webpack优化，写过loader和plugin"></a>webpack优化，写过loader和plugin</h3><ul>
 <li>DLLPligin</li>
 </ul>
 <h3 id="网关作用"><a href="#网关作用" class="headerlink" title="网关作用"></a>网关作用</h3><h3 id="JSBridge的原理"><a href="#JSBridge的原理" class="headerlink" title="JSBridge的原理"></a>JSBridge的原理</h3><h3 id="模块化区别-ES6模块化和-CommonJS"><a href="#模块化区别-ES6模块化和-CommonJS" class="headerlink" title="模块化区别 ES6模块化和 CommonJS"></a>模块化区别 ES6模块化和 CommonJS</h3><h3 id="localStroage有效期"><a href="#localStroage有效期" class="headerlink" title="localStroage有效期"></a>localStroage有效期</h3><h3 id="图片懒加载实现，获取节点相对视图位置方法"><a href="#图片懒加载实现，获取节点相对视图位置方法" class="headerlink" title="图片懒加载实现，获取节点相对视图位置方法"></a>图片懒加载实现，获取节点相对视图位置方法</h3><h3 id="无限加载实现"><a href="#无限加载实现" class="headerlink" title="无限加载实现"></a>无限加载实现</h3><h3 id="轮播图实现"><a href="#轮播图实现" class="headerlink" title="轮播图实现"></a>轮播图实现</h3><hr>
@@ -417,7 +398,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        45
+                        46
                     </p>
                 </div>
             </div>
@@ -427,7 +408,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        17
+                        18
                     </p>
                 </div>
             </div>
@@ -437,7 +418,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        25
+                        27
                     </p>
                 </div>
             </div>
@@ -667,9 +648,17 @@ var _hmt = _hmt || [];
                 <span class="level-item">Javascript</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">15</span>
+                <span class="level-item tag">16</span>
             </span>
         </a><ul><li>
+        <a class="level is-marginless" href="/categories/Javascript/ES6/">
+            <span class="level-start">
+                <span class="level-item">ES6</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
         <a class="level is-marginless" href="/categories/Javascript/canvas/">
             <span class="level-start">
                 <span class="level-item">canvas</span>
@@ -777,7 +766,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/HTML/" style="font-size: 12.5px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/JSBridge/" style="font-size: 10px;">JSBridge</a> <a href="/tags/Javascript/" style="font-size: 17.5px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 12.5px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 12.5px;">css</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/webpack/" style="font-size: 15px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 12.5px;">面试</a>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/HTML/" style="font-size: 12.5px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/JSBridge/" style="font-size: 10px;">JSBridge</a> <a href="/tags/Javascript/" style="font-size: 17.5px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 12.5px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 12.5px;">css</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/webpack/" style="font-size: 15px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 12.5px;">面试</a>
     </div>
 </div>
 
@@ -791,6 +780,25 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/05/08/ES6之Promise/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="ES6之Promise">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-08T09:25:09.000Z">2019-05-08</time></div>
+                    <a href="/2019/05/08/ES6之Promise/" class="has-link-black-ter is-size-6">ES6之Promise</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/ES6/">ES6</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -868,25 +876,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/04/11/css中position属性深入探讨/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="css中position属性深入探讨">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-11T02:58:22.000Z">2019-04-11</time></div>
-                    <a href="/2019/04/11/css中position属性深入探讨/" class="has-link-black-ter is-size-6">css中position属性深入探讨</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -905,7 +894,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">五月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -1066,6 +1055,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/ES6/">
+                        <span class="tag">ES6</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/HTML/">
                         <span class="tag">HTML</span>
                         <span class="tag is-grey">2</span>
@@ -1089,13 +1085,20 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Javascript/">
                         <span class="tag">Javascript</span>
-                        <span class="tag is-grey">7</span>
+                        <span class="tag is-grey">8</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/MySQL/">
                         <span class="tag">MySQL</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Promise/">
+                        <span class="tag">Promise</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1244,6 +1247,25 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/05/08/ES6之Promise/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="ES6之Promise">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-08T09:25:09.000Z">2019-05-08</time></div>
+                    <a href="/2019/05/08/ES6之Promise/" class="has-link-black-ter is-size-6">ES6之Promise</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/ES6/">ES6</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/05/08/移动端1像素边框解决方法/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="移动端1像素边框解决方法">
@@ -1318,25 +1340,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/04/11/css中position属性深入探讨/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="css中position属性深入探讨">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-11T02:58:22.000Z">2019-04-11</time></div>
-                    <a href="/2019/04/11/css中position属性深入探讨/" class="has-link-black-ter is-size-6">css中position属性深入探讨</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1355,7 +1358,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">五月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -1516,6 +1519,13 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/ES6/">
+                        <span class="tag">ES6</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/HTML/">
                         <span class="tag">HTML</span>
                         <span class="tag is-grey">2</span>
@@ -1539,13 +1549,20 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Javascript/">
                         <span class="tag">Javascript</span>
-                        <span class="tag is-grey">7</span>
+                        <span class="tag is-grey">8</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/MySQL/">
                         <span class="tag">MySQL</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Promise/">
+                        <span class="tag">Promise</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
