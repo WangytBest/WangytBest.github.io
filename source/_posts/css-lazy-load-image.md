@@ -12,14 +12,15 @@ thumbnail: http://cloud.xuww.wang/banner.png
 加快页面加载速度，极大的提升了用户体验，也避免了用户进入页面之后就发送n多个图片请求，服务器吃不消啊！
 
 ### 实现原理
-先将图片的```src```设置为空或者小的图片，将真实的图片地址存在```img```的自定义属性中，比如```data-src```中，等到页面滚动至图片位置时将真实图片位置复制给src属性。
+先将图片的 `src` 设置为空或者小的图片，将真实的图片地址存在 `img` 的自定义属性中，比如 `data-src` 中，等到页面滚动至图片位置时将真实图片位置复制给 `src` 属性。
 
-1. 页面中的img元素，如果没有src属性，浏览器就不会发出请求去下载图片
-2. 用户滚动页面至图片位置时，img元素获取到真正的路径后，开始发送请求加载图片
+1. 页面中的 `img` 元素，如果没有 `src` 属性，浏览器就不会发出请求去下载图片
+2. 用户滚动页面至图片位置时，`img` 元素获取到真正的路径后，开始发送请求加载图片
+
 <!-- more -->
 ### JS中位置相关
-> * ```screenLeft/screenX```: 窗口相对于屏幕左边的位置 
-> * ```screenTop/screenY```: 窗口相对于屏幕上边的位置
+> * `screenLeft/screenX`: 窗口相对于屏幕左边的位置 
+> * `screenTop/screenY`: 窗口相对于屏幕上边的位置
 
 **表示的是从屏幕左边和上边到window对象表示的可见区域的距离**。
 
@@ -29,11 +30,11 @@ let leftPos = (typeof window.screenLeft == 'Number') ? window.screenLeft : windo
 let TopPos = (typeof window.screenTop == 'Number') ? window.screenTop : window.screenY;
 ```
 
-若window对象是最外层对象，而且浏览器窗口贴紧屏幕上方，则 ```screenTop/screenY``` 为 0
+若window对象是最外层对象，而且浏览器窗口贴紧屏幕上方，则 `screenTop/screenY` 为 0
 
-> * ```clientWidth/clientHeight``` : 页面视口大小信息（ALL，注意获取方式）
-> * ```innerWidth/innerHeight``` : 获取页面视口大小（页面尺寸）,页面视图容器大小
-> * ```outerWidth/outerHeight``` : 获取浏览器窗口本身的大小（IE9+、Safari、FF）
+> * `clientWidth/clientHeight` : 页面视口大小信息（ALL，注意获取方式）
+> * `innerWidth/innerHeight` : 获取页面视口大小（页面尺寸）,页面视图容器大小
+> * `outerWidth/outerHeight` : 获取浏览器窗口本身的大小（IE9+、Safari、FF）
 
 ```javascript
 let pageWidth = window.innerWidth;
@@ -52,7 +53,7 @@ if( typeof pageWidth != 'Number'){
 }
 ```
 
-### 懒加载实现
+懒加载实现
 
 ```javascript
 var imgCurrent = 4;//初始化页面加载图片个数
@@ -76,28 +77,38 @@ window.onscroll = () => {
 };
 ```
 
+### 优化：
+
+1. 节流
+2. `node.getBoundingClientRect()`;
+
+`DOMRect` 对象包含了一组用于描述边框的只读属性—— `left`、 `top` 、 `right` 和 `bottom` ，单位为像素。除了 width 和 height 外的属性都是**相对于视口的左上角位置**而言的。
+
+![getBoundingClientRect()](https://mdn.mozillademos.org/files/15087/rect.png)
+
+
 <!-- <script async src="//jsfiddle.net/wangyutao/wd70mk9q/16/embed/"></script> -->
 
 ### 补充
 
 ![位置](http://cloud.xuww.wang/js-position.jpg)
 
-#### 偏移量(```offset```)
-> * ```offsetWidht``` : 元素在水平方向上占用的空间大小。包括元素的宽度、水平滚动条的宽度、左右边框的宽度。
-> * ```offsetHeight``` : 元素在垂直方向上占用的空间大小。包括元素的高度、垂直滚动条的高度、上下边框的高度。
-> * ```offsetLeft``` : 元素的左边框至包含元素的左内边距的距离。（offsetParent） 
-> * ```offsetTop``` : 元素的上边框至包含元素的上内边距的距离。（offsetParent）
+#### 偏移量(`offset`)
+> * `offsetWidht` : 元素在水平方向上占用的空间大小。包括元素的宽度、水平滚动条的宽度、左右边框的宽度。
+> * `offsetHeight` : 元素在垂直方向上占用的空间大小。包括元素的高度、垂直滚动条的高度、上下边框的高度。
+> * `offsetLeft` : 元素的左边框至包含元素的左内边距的距离。（offsetParent） 
+> * `offsetTop` : 元素的上边框至包含元素的上内边距的距离。（offsetParent）
 
-```offsetParent```为相对于元素定位的父级元素
-```offsetTop``` 和 ```offsetLeft``` 与其包含元素```offsetParent```有关。```offsetParent```的值不一定与```parentNode```相同。
+`offsetParent`为相对于元素定位的父级元素
+`offsetTop` 和 `offsetLeft` 与其包含元素`offsetParent`有关。`offsetParent`的值不一定与`parentNode`相同。
 这些偏移量属性均为**只读**。
 ![偏移量 offset](http://cloud.xuww.wang/offset.jpg)
 
 
-#### 客户区大小（```client dismension```）
+#### 视口大小（`client dismension`）
 
-> * clientWidth : 元素内容区宽度加上左右内边距。```content + padding-left + padding-right```
-> * clientHeight : 元素内容区高度加上上下内边距。```content + padding-top + padding-bottom```
+> * clientWidth : 元素内容区宽度加上左右内边距。`content + padding-left + padding-right`
+> * clientHeight : 元素内容区高度加上上下内边距。`content + padding-top + padding-bottom`
 
 client dismension 值也是**只读**的。
 
@@ -106,15 +117,15 @@ let clientWidth = document.documentElement.clientWidht;
 let clientHeight = document.documentElement.clientHeight;
 ```
 
-#### 滚动大小（```scroll dismension```）
+#### 滚动大小（`scroll dismension`）
 
-> * ```scrollTop``` : 被隐藏在内容区域上方的高度。（上方被隐藏了多少）
-> * ```scrollLeft``` : 被隐藏在内容区域左侧的宽度。（左侧被隐藏了多少）
-> * ```scrollWidth``` : 在没有滚动的情况下，元素内容的总宽度。
-> * ```scrollHeight``` : 在没有滚动的情况下，元素内容的总高度。
+> * `scrollTop` : 被隐藏在内容区域上方的高度。（上方被隐藏了多少）
+> * `scrollLeft` : 被隐藏在内容区域左侧的宽度。（左侧被隐藏了多少）
+> * `scrollWidth` : 在没有滚动的情况下，元素内容的总宽度。
+> * `scrollHeight` : 在没有滚动的情况下，元素内容的总高度。
 
-* 带有垂直滚动条的页面总高度：```document.documentElement.scrollHeight```
-* 带有水平滚动条的页面总宽度：```document.documentElement.scrollWidth```
+* 带有垂直滚动条的页面总高度：`document.documentElement.scrollHeight`
+* 带有水平滚动条的页面总宽度：`document.documentElement.scrollWidth`
 * 通过scrollLeft和scrollTop既可以确定元素当前滚动的状态，也可以设置元素的滚动位置。
 
 ```javascript

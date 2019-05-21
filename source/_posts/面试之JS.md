@@ -14,7 +14,7 @@ thumbnail:
 
 ## JS基础
 
-### Promise 串行请求，all，race，finally
+### <font color=#ff8077>Promise 串行请求，all，race，finally</font>
 
 ### 柯理化，JS中柯理话的API
 
@@ -42,9 +42,7 @@ thumbnail:
 
 ## 框架
 
-### 
-
-<font color=#ff8077>在架构前端项目时，关于技术选型，应该怎么从vue、react、Angular选择</font>
+### <font color=#ff8077>在架构前端项目时，关于技术选型，应该怎么从vue、react、Angular选择</font>
 
 > 技术选型考虑因素
 > * 框架使用场景，解决问题，生态系统，跨平台性
