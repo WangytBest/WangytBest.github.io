@@ -16,7 +16,7 @@
 <meta property="og:description" content="Promise 对象Promise 对象用于表示一个异步操作的最终状态（完成或失败），以及该异步操作的结果值。 Promise - MDN">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wangytbest.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-05-08T10:13:18.246Z">
+<meta property="og:updated_time" content="2019-05-08T10:22:02.986Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6之Promise">
 <meta name="twitter:description" content="Promise 对象Promise 对象用于表示一个异步操作的最终状态（完成或失败），以及该异步操作的结果值。 Promise - MDN">
@@ -182,7 +182,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    6 分钟 读完 (大约 861 个字)
+                    6 分钟 读完 (大约 873 个字)
                 </span>
                 
                 
@@ -219,7 +219,7 @@ var _hmt = _hmt || [];
 </ul>
 <h3 id="Promise-all-iterable"><a href="#Promise-all-iterable" class="headerlink" title="Promise.all(iterable)"></a>Promise.all(iterable)</h3><p><code>Promise.all</code> 方法用于将多个 Promise 实例包装成一个新的 Promise 实例。</p>
 <figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> p = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>.all([p1, p2, p3, ...]);</span><br></pre></td></tr></table></figure>
-<p><code>p</code> 的状态有 <code>p1 p2 p3 ...</code> 决定，当所有的状态都变成 <code>fulfilled</code> ， <code>p</code> 的状态才会变成 <code>fulfilled</code> 状态，返回值是 <code>p1 p2 p3 ...</code> 的返回值组成的数组，传递给 <code>p</code> 的回调函数 <code>then</code> 。只要 <code>p1 p2 p3 ...</code> 中有一个被 <code>rejecred</code> ， <code>p</code> 的状态就会变成 <code>rejected</code> ，此时第一个被 <code>rejected</code> 的实例的返回值会传递给 <code>p</code> 的回调 <code>catch</code> 。(<strong>所有都成功则返回成功的数组，只要有一个失败则返回失败</strong>)</p>
+<p><code>p</code> 的状态有 <code>p1 p2 p3 ...</code> 决定，当所有的状态都变成 <code>fulfilled</code> ， <code>p</code> 的状态才会变成 <code>fulfilled</code> 状态，返回值是 <code>p1 p2 p3 ...</code> 的返回值组成的数组，传递给 <code>p</code> 的回调函数 <code>then</code> 。只要 <code>p1 p2 p3 ...</code> 中有一个被 <code>rejected</code> ， <code>p</code> 的状态就会变成 <code>rejected</code> ，此时第一个被 <code>rejected</code> 的实例的返回值会传递给 <code>p</code> 的回调 <code>catch</code> 。(<strong>所有都成功则返回成功的数组，只要有一个失败则返回失败</strong>)</p>
 <blockquote>
 <p>如果失败的实例定义了自己的 <code>catch</code> 方法，那么它一旦被 <code>rejected</code> ，并不会触发 <code>Promise.all</code> 的 <code>catch</code> 方法</p>
 </blockquote>
@@ -232,6 +232,8 @@ var _hmt = _hmt || [];
 <p>只要 <code>p1 p2 p3 ...</code> 中有一个实例率先改变状态，则 p 的状态就跟着改变。那个率先改变的 Promise 实例的返回值，就传递给p的回调函数。</p>
 <figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 面试题：给 ajax 请求设置 timeout</span></span><br><span class="line"><span class="hljs-keyword">const</span> p = <span class="hljs-built_in">Promise</span>.race([</span><br><span class="line">  fetch(<span class="hljs-string">'/resource-that-may-take-a-while'</span>),</span><br><span class="line">  <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> reject(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'request timeout'</span>)), <span class="hljs-number">5000</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line">p</span><br><span class="line">.then(<span class="hljs-built_in">console</span>.log)</span><br><span class="line">.catch(<span class="hljs-built_in">console</span>.error);</span><br></pre></td></tr></table></figure>
 <h3 id="Promise-finally-onFinally"><a href="#Promise-finally-onFinally" class="headerlink" title="Promise.finally(onFinally)"></a>Promise.finally(onFinally)</h3><figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">/**</span></span><br><span class="line"><span class="hljs-comment">* Promise.prototype.finally</span></span><br><span class="line"><span class="hljs-comment">*/</span></span><br><span class="line"><span class="hljs-built_in">Promise</span>.prototype.finally = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">onFinally</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">let</span> P = <span class="hljs-keyword">this</span>.constructor;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.then(<span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> &#123;</span><br><span class="line">    P.resolve(onFinally()).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> value);</span><br><span class="line">  &#125;, reason =&gt; &#123;</span><br><span class="line">    P.resolve(onFinally()).then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123; <span class="hljs-keyword">throw</span> reason &#125;);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="http://es6.ruanyifeng.com/#docs/promise#Promise-try" target="_blank" rel="noopener">阮一峰 ES6</a></p>
+
         </div>
         
         <div class="level is-size-7 is-uppercase">
@@ -283,6 +285,13 @@ var _hmt = _hmt || [];
 
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/05/10/CSS-Modules了解一下/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">CSS Modules了解一下</span>
+            </a>
+        </div>
         
         
         <div class="level-end">
@@ -362,7 +371,7 @@ var _hmt = _hmt || [];
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        46
+                        48
                     </p>
                 </div>
             </div>
@@ -372,7 +381,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        18
+                        19
                     </p>
                 </div>
             </div>
@@ -544,7 +553,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">util</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">8</span>
+                <span class="level-item tag">7</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Javascript/阿里字体/">
@@ -577,6 +586,14 @@ var _hmt = _hmt || [];
             </span>
             <span class="level-end">
                 <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/css/">
+            <span class="level-start">
+                <span class="level-item">css</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/webpack/">
@@ -638,7 +655,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/HTML/" style="font-size: 12.5px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/JSBridge/" style="font-size: 10px;">JSBridge</a> <a href="/tags/Javascript/" style="font-size: 17.5px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 12.5px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 12.5px;">css</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/util/" style="font-size: 10px;">util</a> <a href="/tags/webpack/" style="font-size: 15px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 12.5px;">面试</a>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/HTML/" style="font-size: 12px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/JSBridge/" style="font-size: 10px;">JSBridge</a> <a href="/tags/Javascript/" style="font-size: 18px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 12px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 14px;">css</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/webpack/" style="font-size: 16px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/层叠上下文/" style="font-size: 10px;">层叠上下文</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 12px;">面试</a>
     </div>
 </div>
 
@@ -652,6 +669,44 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/05/21/理解css中的层叠上下文和层叠顺序/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="理解css中的层叠上下文和层叠顺序">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-21T03:19:30.000Z">2019-05-21</time></div>
+                    <a href="/2019/05/21/理解css中的层叠上下文和层叠顺序/" class="has-link-black-ter is-size-6">理解css中的层叠上下文和层叠顺序</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/css/">css</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/05/10/CSS-Modules了解一下/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="CSS Modules了解一下">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-10T09:16:00.000Z">2019-05-10</time></div>
+                    <a href="/2019/05/10/CSS-Modules了解一下/" class="has-link-black-ter is-size-6">CSS Modules了解一下</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -710,44 +765,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/04/17/一些常用收集/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="一些常用收集">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-17T03:19:45.000Z">2019-04-17</time></div>
-                    <a href="/2019/04/17/一些常用收集/" class="has-link-black-ter is-size-6">一些常用收集</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/04/12/ES6模块和CommonJS模块的区别/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="ES6模块和CommonJS模块的区别">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-12T10:19:37.000Z">2019-04-12</time></div>
-                    <a href="/2019/04/12/ES6模块和CommonJS模块的区别/" class="has-link-black-ter is-size-6">ES6模块和CommonJS模块的区别</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -766,7 +783,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">五月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -1020,7 +1037,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/css/">
                         <span class="tag">css</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -1053,13 +1070,6 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/util/">
-                        <span class="tag">util</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/webpack/">
                         <span class="tag">webpack</span>
                         <span class="tag is-grey">4</span>
@@ -1069,6 +1079,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/图片/">
                         <span class="tag">图片</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/层叠上下文/">
+                        <span class="tag">层叠上下文</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1119,6 +1136,44 @@ var _hmt = _hmt || [];
         
         <article class="media">
             
+            <a href="/2019/05/21/理解css中的层叠上下文和层叠顺序/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="理解css中的层叠上下文和层叠顺序">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-21T03:19:30.000Z">2019-05-21</time></div>
+                    <a href="/2019/05/21/理解css中的层叠上下文和层叠顺序/" class="has-link-black-ter is-size-6">理解css中的层叠上下文和层叠顺序</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/css/">css</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/05/10/CSS-Modules了解一下/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="CSS Modules了解一下">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-10T09:16:00.000Z">2019-05-10</time></div>
+                    <a href="/2019/05/10/CSS-Modules了解一下/" class="has-link-black-ter is-size-6">CSS Modules了解一下</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/05/08/ES6之Promise/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="ES6之Promise">
@@ -1174,44 +1229,6 @@ var _hmt = _hmt || [];
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/04/17/一些常用收集/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="一些常用收集">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-17T03:19:45.000Z">2019-04-17</time></div>
-                    <a href="/2019/04/17/一些常用收集/" class="has-link-black-ter is-size-6">一些常用收集</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/04/12/ES6模块和CommonJS模块的区别/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="ES6模块和CommonJS模块的区别">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-12T10:19:37.000Z">2019-04-12</time></div>
-                    <a href="/2019/04/12/ES6模块和CommonJS模块的区别/" class="has-link-black-ter is-size-6">ES6模块和CommonJS模块的区别</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
 
@@ -1230,7 +1247,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">五月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -1484,7 +1501,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/css/">
                         <span class="tag">css</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -1517,13 +1534,6 @@ var _hmt = _hmt || [];
                 </div>
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/util/">
-                        <span class="tag">util</span>
-                        <span class="tag is-grey">1</span>
-                    </a>
-                </div>
-                
-                <div class="control">
                     <a class="tags has-addons" href="/tags/webpack/">
                         <span class="tag">webpack</span>
                         <span class="tag is-grey">4</span>
@@ -1533,6 +1543,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/图片/">
                         <span class="tag">图片</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/层叠上下文/">
+                        <span class="tag">层叠上下文</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
