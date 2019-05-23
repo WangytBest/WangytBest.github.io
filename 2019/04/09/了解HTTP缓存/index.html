@@ -2,23 +2,24 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>cache-control缓存 - 王小贱</title>
+<title>了解HTTP缓存 - 王小贱</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="Cache-Control指定了请求和响应遵循的缓存机制。好的缓存机制可以减少对网络带宽的占用，可以提高访问速度，提高用户的体验，还可以减轻服务器的负担。">
+    <meta name="description" content="在前端开发中，缓存有利于加快网页的加载速度，也是一种提高前端网站性能的常用方法。同时缓存可以被反复利用，减少流量和带宽的开销。 重用已获取的资源能够有效的提升网站与应用的性能。Web 缓存能够减少延迟与网络阻塞，进而减少显示某个资源所用的时间。借助 HTTP 缓存，Web 站点变得更具有响应性。(MDN HTTP缓存)">
+<meta name="keywords" content="Javascript,cache,缓存">
 <meta property="og:type" content="article">
-<meta property="og:title" content="cache-control缓存">
-<meta property="og:url" content="http://wangytbest.github.io/2019/04/09/cache-control缓存/index.html">
+<meta property="og:title" content="了解HTTP缓存">
+<meta property="og:url" content="http://wangytbest.github.io/2019/04/09/了解HTTP缓存/index.html">
 <meta property="og:site_name" content="王小贱">
-<meta property="og:description" content="Cache-Control指定了请求和响应遵循的缓存机制。好的缓存机制可以减少对网络带宽的占用，可以提高访问速度，提高用户的体验，还可以减轻服务器的负担。">
+<meta property="og:description" content="在前端开发中，缓存有利于加快网页的加载速度，也是一种提高前端网站性能的常用方法。同时缓存可以被反复利用，减少流量和带宽的开销。 重用已获取的资源能够有效的提升网站与应用的性能。Web 缓存能够减少延迟与网络阻塞，进而减少显示某个资源所用的时间。借助 HTTP 缓存，Web 站点变得更具有响应性。(MDN HTTP缓存)">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wangytbest.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-04-09T07:54:19.603Z">
+<meta property="og:updated_time" content="2019-05-23T08:12:17.813Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cache-control缓存">
-<meta name="twitter:description" content="Cache-Control指定了请求和响应遵循的缓存机制。好的缓存机制可以减少对网络带宽的占用，可以提高访问速度，提高用户的体验，还可以减轻服务器的负担。">
+<meta name="twitter:title" content="了解HTTP缓存">
+<meta name="twitter:description" content="在前端开发中，缓存有利于加快网页的加载速度，也是一种提高前端网站性能的常用方法。同时缓存可以被反复利用，减少流量和带宽的开销。 重用已获取的资源能够有效的提升网站与应用的性能。Web 缓存能够减少延迟与网络阻塞，进而减少显示某个资源所用的时间。借助 HTTP 缓存，Web 站点变得更具有响应性。(MDN HTTP缓存)">
 <meta name="twitter:image" content="http://wangytbest.github.io/images/og_image.png">
 
 
@@ -181,7 +182,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    4 分钟 读完 (大约 634 个字)
+                    14 分钟 读完 (大约 2036 个字)
                 </span>
                 
                 
@@ -195,35 +196,113 @@ var _hmt = _hmt || [];
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                cache-control缓存
+                了解HTTP缓存
             
         </h1>
         <div class="content">
-            <p><code>Cache-Control</code>指定了请求和响应遵循的缓存机制。好的缓存机制可以减少对网络带宽的占用，可以提高访问速度，提高用户的体验，还可以减轻服务器的负担。</p>
+            <p>在前端开发中，缓存有利于加快网页的加载速度，也是一种提高前端网站性能的常用方法。同时缓存可以被反复利用，减少流量和带宽的开销。</p>
+<p>重用已获取的资源能够有效的提升网站与应用的性能。Web 缓存能够减少延迟与网络阻塞，进而减少显示某个资源所用的时间。借助 HTTP 缓存，Web 站点变得更具有响应性。(<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Caching_FAQ" target="_blank" rel="noopener">MDN HTTP缓存</a>)</p>
 <a id="more"></a>
-<h3 id="Cache-Control值类型"><a href="#Cache-Control值类型" class="headerlink" title="Cache-Control值类型"></a>Cache-Control值类型</h3><h4 id="1-请求Request："><a href="#1-请求Request：" class="headerlink" title="(1) 请求Request："></a>(1) 请求Request：</h4><ul>
-<li><code>no-cache</code> 不要读取缓存中的文件，要求向WEB服务器重新请求</li>
-<li><code>no-store</code> 请求和响应都禁止被缓存</li>
-<li><code>max-age</code> 表示当访问此网页后的<code>max-age</code>秒内再次访问不会去服务器请求，其功能与<code>Expires</code>类似，只是<code>Expires</code>是根据某个特定日期值做比较。一但缓存者自身的时间不准确.则结果可能就是错误的，而<code>max-age</code>显然无此问题。<blockquote>
-<p>Max-age的优先级也是高于Expires的。</p>
-</blockquote>
-</li>
-<li><code>max-stale</code> 允许读取过期时间必须小于<code>max-stale</code>值的缓存对象。</li>
-<li><code>min-fresh</code> 接受其<code>max-age</code>生命期大于其当前时间跟<code>min-fresh</code>值之和的缓存对象<code>only-if-cached</code>告知缓存者,我希望内容来自缓存，我并不关心被缓存响应,是否是新鲜的.</li>
-<li><code>no-transform</code> 告知代理,不要更改媒体类型,比如jpg,被你改成png.</li>
+<p>当 web 缓存发现请求的资源已经被存储，它会拦截请求，返回该资源的拷贝，而不会去源服务器重新下载。这样带来的好处有：缓解服务器端压力，提升性能(获取资源的耗时更短了)。对于网站来说，缓存是达到高性能的重要组成部分。缓存需要合理配置，因为并不是所有资源都是永久不变的：重要的是对一个资源的缓存应截止到其下一次发生改变（即不能缓存过期的资源）。</p>
+<p>缓存的种类：</p>
+<ul>
+<li>CDN缓存</li>
+<li>数据库缓存（H5新增加的localstorage和数据库缓存，应用层缓存）</li>
+<li>代理服务器缓存</li>
+<li>浏览器缓存（主要是指http缓存，即协议层）</li>
 </ul>
-<h4 id="2-响应Response："><a href="#2-响应Response：" class="headerlink" title="(2) 响应Response："></a>(2) 响应Response：</h4><ul>
-<li><code>public</code> 数据内容皆被储存起来，就连有密码保护的网页也储存，安全性很低</li>
-<li><code>private</code> 数据内容只能被储存到私有的cache，仅对某个用户有效，不能共享</li>
-<li><code>no-cache</code> 可以缓存，但是只有在跟WEB服务器验证了其有效后，才能返回给客户端</li>
-<li><code>no-store</code> 请求和响应都禁止被缓存</li>
-<li><code>max-age</code> 本响应包含的对象的过期时间</li>
-<li><code>Must-revalidate</code> 如果缓存过期了，会再次和原来的服务器确定是否为最新数据，而不是和中间的proxy</li>
-<li><code>max-stale</code> 允许读取过期时间必须小于max-stale 值的缓存对象。</li>
-<li><code>proxy-revalidate</code>与Must-revalidate类似，区别在于：proxy-revalidate要排除掉用户代理的缓存的。即其规则并不应用于用户代理的本地缓存上。<br>-maxage 与max-age的唯一区别是,s-maxage仅仅应用于共享缓存.而不应用于用户代理的本地缓存等针对单用户的缓存. 另外,s-maxage的优先级要高于max-age.</li>
-<li><code>no-transform</code> 告知代理,不要更改媒体类型,比如jpg,被你改成png.</li>
+<p>浏览器缓存可以分为 <code>强缓存</code> 和 <code>协商缓存</code> 。</p>
+<h2 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h2><p>强缓存：只有当缓存资源失效时，才会去服务器获取最新的资源。在 <code>HTTP header</code> 中，可以是设置强缓存的两个字段： <code>Expires</code> 和 <code>Cache-Control</code>。</p>
+<p>强缓存表示在缓存期间不需要在请求， <code>status code</code> 直接返回 <code>200</code>。</p>
+<p>强缓存过程：</p>
+<ol>
+<li>浏览器第一次跟服务器请求一个资源，服务器在返回这个资源的同时，在 <code>response</code> 的 <code>header</code> 会加上 <code>Expires/cach-control</code> ；</li>
+<li>浏览器再请求这个资源时，先从缓存中寻找，找到这个资源后，比较 <code>expires</code> 或 <code>cache-control的max-age</code> 字段值, 如果在有效期内，则缓存命中，读取缓存内容（<code>200 from cache</code>），否则重新向服务器发送请求；</li>
+<li><code>Header</code> 在重新加载的时候会被更新。</li>
+</ol>
+<h3 id="Pragam"><a href="#Pragam" class="headerlink" title="Pragam"></a>Pragam</h3><p><code>HTTP/1.0</code> ,值为 <code>no-cache</code> 时强制禁用缓存。</p>
+<h3 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h3><p>Expires 表示缓存的 <code>过期时间</code>，<code>HTTP/1</code>，是绝对时间（具体某一个时间点）。<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Expires: Thu, 09 Nov 2019 08:45:11 GMT</span><br></pre></td></tr></table></figure></p>
+<p>响应报文中 Expires 定义的缓存时间是相对服务器上的时间而言的，其定义的是资源 <code>失效时刻</code> 。<strong>也就是说 <code>Expires</code> 的定义时间是根据服务器的时间定义的，但是客户端比较的时候是用本地时间比较</strong>。如果客户端上的时间和服务器上的时间不一致，缓存没有意义。</p>
+<h3 id="Cache-control"><a href="#Cache-control" class="headerlink" title="Cache-control"></a>Cache-control</h3><p><code>Cache-Control</code> 指定了资源的 <code>最大有效时间</code>，<code>HTTP/1.1</code> 。在该时间内，客户端不需要向服务器发送请求。</p>
+<p><code>HTTP/1.1</code> 定义的 <code>Cache-Control</code> 头用来区分对缓存机制的支持情况， 请求头和响应头都支持这个属性。通过它提供的不同的值来定义缓存策略。</p>
+<p>Cache-Control值类型</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th style="text-align:center">含义</th>
+<th style="text-align:left">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>no-cache</td>
+<td style="text-align:center">强制确认缓存</td>
+<td style="text-align:left">每次有请求发出时，缓存会将此请求发到服务器，服务器端会验证请求中所描述的缓存是否过期，若未过期（注：实际就是返回 <code>304</code>），则缓存才使用本地缓存副本。</td>
+</tr>
+<tr>
+<td>no-store</td>
+<td style="text-align:center">禁止进行缓存</td>
+<td style="text-align:left">缓存中不得存储任何关于客户端请求和服务端响应的内容。每次由客户端发起的请求都会下载完整的响应内容。</td>
+</tr>
+<tr>
+<td>max-age</td>
+<td style="text-align:center">缓存过期时间</td>
+<td style="text-align:left"><code>max-age=&lt;seconds&gt;</code>，表示资源能够被缓存的最大时间。相对 <code>Expires</code> 而言，<code>max-age</code> 是距离请求发起的时间的秒数。针对应用中那些不会改变的文件，通常可以手动设置一定的时长以保证缓存有效，例如图片、css、js等静态资源。</td>
+</tr>
+<tr>
+<td>public</td>
+<td style="text-align:center">公共缓存</td>
+<td style="text-align:left">表示该响应可以被任何中间人（比如中间代理、CDN等）缓存。指定 public ，则一些通常不被中间人缓存的页面（如带有 HTTP 验证信息账号密码等 的页面或者某种特定状态的页面）也会被其缓存</td>
+</tr>
+<tr>
+<td>private（默认）</td>
+<td style="text-align:center">私有缓存</td>
+<td style="text-align:left">中间人不能缓存，该响应只能应用于浏览器私有缓存中。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h2><ul>
+<li><code>Last-Modified / If-Modified-Since</code> 在约定有效期的基础上，增加文件服务器上的最后修改时间进行再次验证</li>
+<li><code>Etag / If-None-Match</code> 在约定有效期的基础上，增加<code>文件版本号</code>的验证</li>
+</ul>
+<h3 id="Last-Modified-If-Modified-Since"><a href="#Last-Modified-If-Modified-Since" class="headerlink" title="Last-Modified / If-Modified-Since"></a>Last-Modified / If-Modified-Since</h3><p>判断过程：</p>
+<ol>
+<li>浏览器第一次向服务器请求一个资源，服务器在返回这个资源的同时，在 <code>respone</code> 的 header 加上 <code>Last-Modified</code> 字段，表示该资源在服务器上的最后修改时间；</li>
+<li>浏览器再次向服务器请求这个资源时，在 <code>request</code> 的 header 上加上 <code>If-Modified-Since</code> 字段，这个值就是上一次请求时返回的 <code>Last-Modified</code> 的值;</li>
+<li>服务器收到资源请求时，比较 <code>If-Modified-Since</code> 和 <code>Last-Modified</code> 字段值，若相同，则说明文件没有修改，返回304 Not Modified, 浏览器从缓存中加载资源；若不相同，说明文件被更新，浏览器直接从服务器加载资源, 返回200；</li>
+<li>重新加载资源时更新 <code>Last-Modified</code> Header</li>
+</ol>
+<figure class="highlight http hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attribute">Last-Modified</span>: Tue, 12 Jan 2016 03:08:53 GMT </span><br><span class="line"><span class="hljs-attribute">If-Modified-Since</span>: Tue, 12 Jan 2016 03:08:53 GMT</span><br></pre></td></tr></table></figure>
+<p>缺点：</p>
+<ul>
+<li><code>Last-Modified</code> 标注的最后修改只能精确到秒级，如果某些文件在1秒钟以内，被修改多次的话，它将不能准确标注文件的修改时间</li>
+<li>如果某些文件会被定期生成，但有时内容并没有任何变化（仅仅改变了时间），但 <code>Last-Modified</code> 却改变了，导致文件没法使用缓存</li>
+<li>有可能存在服务器没有准确获取文件修改时间，或者与代理服务器时间不一致等情形</li>
+</ul>
+<h3 id="Etag-If-None-Match"><a href="#Etag-If-None-Match" class="headerlink" title="Etag / If-None-Match"></a>Etag / If-None-Match</h3><p><code>ETag</code> 解决了 <code>Last-Modifiend</code> 的缺陷，<code>ETag</code> 不仅仅跟最后修改时间决定, 它是根据当前请求的资源生成的一个唯一标识符（默认是由文件的索引节（INode），大小（Size）和最后修改时间（MTime）进行 Hash 后得到的)</p>
+<p>判断过程：</p>
+<ol>
+<li>浏览器第一次向服务器请求一个资源，服务器在返回这个资源的同时，在 <code>respone</code> 的 header 加上 <code>ETag</code> 字段；</li>
+<li>浏览器再次跟服务器请求这个资源时，在 <code>request</code> 的 header 上加上 <code>If-None-Match</code> ，这个值就是上一次请求时返回的 <code>ETag</code> 的值；</li>
+<li>服务器再次收到资源请求时，再根据资源生成一个新的 <code>ETag</code> ，与浏览器传过来 <code>If-None-Match</code> 比较，如果这两个值相同就说明资源没有变化，则返回 <code>304 Not Modified</code> ，浏览器从缓存中加载资源，否则返回 <code>200</code> 并返回新的资源内容。</li>
+</ol>
+<p>与 <code>Last-Modified</code> 不一样的是，当服务器返回 <code>304 Not Modified</code> 的响应时，由于 <code>ETag</code> 重新生成过，response header 中还会把这个 <code>ETag</code> 返回，即使这个 <code>ETag</code> 跟之前的没有变化。</p>
+<p><a href="http://juanha.coding.me/2017/03/05/http-cache/" target="_blank" rel="noopener">http缓存机制浅析</a><br><a href="https://imweb.io/topic/5795dcb6fb312541492eda8c" target="_blank" rel="noopener">HTTP缓存控制小结</a></p>
+<h2 id="缓存优先级"><a href="#缓存优先级" class="headerlink" title="缓存优先级"></a>缓存优先级</h2><ul>
+<li>强缓存 &gt; 协商缓存</li>
+<li>Pragam &gt; Cache-Control &gt; Expires &gt; Etag &gt; Last-Modified</li>
 </ul>
 
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Javascript/">Javascript</a>, <a class="has-link-grey -link" href="/tags/cache/">cache</a>, <a class="has-link-grey -link" href="/tags/缓存/">缓存</a>
+                </div>
+            </div>
         </div>
         
         
@@ -296,7 +375,7 @@ var _hmt = _hmt || [];
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 	var gitment = new Gitment({
-		id: '2019/04/09/cache-control缓存/',
+		id: '2019/04/09/了解HTTP缓存/',
 		owner: 'WangytBest',
 		repo: 'wangytbest.github.io',
 		oauth: {
@@ -372,7 +451,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        27
+                        29
                     </p>
                 </div>
             </div>
@@ -404,18 +483,38 @@ var _hmt = _hmt || [];
                 目录
             </h3>
             <ul class="menu-list"><li>
-        <a class="is-flex" href="#Cache-Control值类型">
+        <a class="is-flex" href="#强缓存">
         <span class="has-mr-6">1</span>
-        <span>Cache-Control值类型</span>
+        <span>强缓存</span>
         </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#1-请求Request：">
+        <a class="is-flex" href="#Pragam">
         <span class="has-mr-6">1.1</span>
-        <span>(1) 请求Request：</span>
+        <span>Pragam</span>
         </a></li><li>
-        <a class="is-flex" href="#2-响应Response：">
+        <a class="is-flex" href="#Expires">
         <span class="has-mr-6">1.2</span>
-        <span>(2) 响应Response：</span>
-        </a></li></ul></li></ul>
+        <span>Expires</span>
+        </a></li><li>
+        <a class="is-flex" href="#Cache-control">
+        <span class="has-mr-6">1.3</span>
+        <span>Cache-control</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#协商缓存">
+        <span class="has-mr-6">2</span>
+        <span>协商缓存</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Last-Modified-If-Modified-Since">
+        <span class="has-mr-6">2.1</span>
+        <span>Last-Modified / If-Modified-Since</span>
+        </a></li><li>
+        <a class="is-flex" href="#Etag-If-None-Match">
+        <span class="has-mr-6">2.2</span>
+        <span>Etag / If-None-Match</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#缓存优先级">
+        <span class="has-mr-6">3</span>
+        <span>缓存优先级</span>
+        </a></li></ul>
         </div>
     </div>
 </div>
@@ -632,7 +731,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/HTML/" style="font-size: 12px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/JSBridge/" style="font-size: 10px;">JSBridge</a> <a href="/tags/Javascript/" style="font-size: 18px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 12px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 14px;">css</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/webpack/" style="font-size: 16px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/层叠上下文/" style="font-size: 10px;">层叠上下文</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 12px;">面试</a>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/HTML/" style="font-size: 12px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/JSBridge/" style="font-size: 10px;">JSBridge</a> <a href="/tags/Javascript/" style="font-size: 18px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 12px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 14px;">css</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/webpack/" style="font-size: 16px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/层叠上下文/" style="font-size: 10px;">层叠上下文</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 12px;">面试</a>
     </div>
 </div>
 
@@ -951,7 +1050,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Javascript/">
                         <span class="tag">Javascript</span>
-                        <span class="tag is-grey">8</span>
+                        <span class="tag is-grey">9</span>
                     </a>
                 </div>
                 
@@ -1000,6 +1099,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/button/">
                         <span class="tag">button</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/cache/">
+                        <span class="tag">cache</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1070,6 +1176,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/懒加载，-原生JS/">
                         <span class="tag">懒加载， 原生JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/缓存/">
+                        <span class="tag">缓存</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1415,7 +1528,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Javascript/">
                         <span class="tag">Javascript</span>
-                        <span class="tag is-grey">8</span>
+                        <span class="tag is-grey">9</span>
                     </a>
                 </div>
                 
@@ -1464,6 +1577,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/button/">
                         <span class="tag">button</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/cache/">
+                        <span class="tag">cache</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1534,6 +1654,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/懒加载，-原生JS/">
                         <span class="tag">懒加载， 原生JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/缓存/">
+                        <span class="tag">缓存</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>

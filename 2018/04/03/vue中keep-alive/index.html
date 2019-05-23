@@ -16,7 +16,7 @@
 <meta property="og:description" content="keep-alive使用&amp;lt;keep-alive&amp;gt;包裹动态的组件，会缓存不活动的组件实例，而不是销毁他们。&amp;lt;keep-alive&amp;gt;是一个抽象的组件，他自身不会渲染一个DOM元素，也不会出现在父组件链中。当组件在&amp;lt;keep-alive&amp;gt;组件内被切换，它的actived和deactived这两个生命周期钩子函数将会被对应执行。  Vue2.2.0及以上版本，activ">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wangytbest.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-04-09T06:59:26.625Z">
+<meta property="og:updated_time" content="2019-05-23T06:16:19.884Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue中keep-alive">
 <meta name="twitter:description" content="keep-alive使用&amp;lt;keep-alive&amp;gt;包裹动态的组件，会缓存不活动的组件实例，而不是销毁他们。&amp;lt;keep-alive&amp;gt;是一个抽象的组件，他自身不会渲染一个DOM元素，也不会出现在父组件链中。当组件在&amp;lt;keep-alive&amp;gt;组件内被切换，它的actived和deactived这两个生命周期钩子函数将会被对应执行。  Vue2.2.0及以上版本，activ">
@@ -216,8 +216,13 @@ var _hmt = _hmt || [];
 </ul>
 <h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>项目开发中，使用<code>Vue2.0</code> 搭配路由切换<code>vue-router</code>，所有路径匹配到的视图组件都会被缓存。<br>如何使某些组件不缓存？</p>
 <figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">keep-alive</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">router-view</span>&gt;</span></span><br><span class="line">        <span class="hljs-comment">&lt;!-- 所有路径匹配到的视图组件都会被缓存！ --&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">router-view</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">keep-alive</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>#1. 使用<code>include</code>和<code>exclude</code><br><figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">keep-alive</span> <span class="hljs-attr">include</span>=<span class="hljs-string">'a,b,c'</span> <span class="hljs-attr">exclude</span>=<span class="hljs-string">'d,e,f'</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">router-view</span>&gt;</span></span><br><span class="line">        <span class="hljs-comment">&lt;!-- 所有路径匹配到的视图组件都会被缓存！ --&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">router-view</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">keep-alive</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>#2. 使用router.meta属性<br>设置路由，通过meta属性判断组件是否需要缓存</p>
+<ol>
+<li><p>使用<code>include</code>和<code>exclude</code></p>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">keep-alive</span> <span class="hljs-attr">include</span>=<span class="hljs-string">'a,b,c'</span> <span class="hljs-attr">exclude</span>=<span class="hljs-string">'d,e,f'</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">router-view</span>&gt;</span></span><br><span class="line">        <span class="hljs-comment">&lt;!-- 所有路径匹配到的视图组件都会被缓存！ --&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">router-view</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">keep-alive</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用router.meta属性<br>设置路由，通过meta属性判断组件是否需要缓存</p>
+</li>
+</ol>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// routes 配置</span></span><br><span class="line"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> [</span><br><span class="line">  &#123;</span><br><span class="line">    path: <span class="hljs-string">'/'</span>,</span><br><span class="line">    name: <span class="hljs-string">'home'</span>,</span><br><span class="line">    component: Home,</span><br><span class="line">    meta: &#123;</span><br><span class="line">      keepAlive: <span class="hljs-literal">true</span> <span class="hljs-comment">// 需要被缓存</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    path: <span class="hljs-string">'/:id'</span>,</span><br><span class="line">    name: <span class="hljs-string">'edit'</span>,</span><br><span class="line">    component: Edit,</span><br><span class="line">    meta: &#123;</span><br><span class="line">      keepAlive: <span class="hljs-literal">false</span> <span class="hljs-comment">// 不需要被缓存</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">keep-alive</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">router-view</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"$route.meta.keepAlive"</span>&gt;</span></span><br><span class="line">        <span class="hljs-comment">&lt;!-- 这里是会被缓存的视图组件，比如 Home！ --&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">router-view</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">keep-alive</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">router-view</span> <span class="hljs-attr">v-if</span>=<span class="hljs-string">"!$route.meta.keepAlive"</span>&gt;</span></span><br><span class="line">    <span class="hljs-comment">&lt;!-- 这里是不被缓存的视图组件，比如 Edit！ --&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">router-view</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>部分转载<a href="https://blog.csdn.net/zgrkaka/article/details/73480947?locationNum=1&amp;fps=1" target="_blank" rel="noopener">vue-router 之 keep-alive</a></p>
@@ -379,7 +384,7 @@ var _hmt = _hmt || [];
                         标签
                     </p>
                     <p class="title has-text-weight-normal">
-                        27
+                        29
                     </p>
                 </div>
             </div>
@@ -643,7 +648,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/HTML/" style="font-size: 12px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/JSBridge/" style="font-size: 10px;">JSBridge</a> <a href="/tags/Javascript/" style="font-size: 18px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 12px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 14px;">css</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/webpack/" style="font-size: 16px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/层叠上下文/" style="font-size: 10px;">层叠上下文</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 12px;">面试</a>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/HTML/" style="font-size: 12px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/JSBridge/" style="font-size: 10px;">JSBridge</a> <a href="/tags/Javascript/" style="font-size: 18px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 12px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 14px;">css</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/webpack/" style="font-size: 16px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/层叠上下文/" style="font-size: 10px;">层叠上下文</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 12px;">面试</a>
     </div>
 </div>
 
@@ -962,7 +967,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Javascript/">
                         <span class="tag">Javascript</span>
-                        <span class="tag is-grey">8</span>
+                        <span class="tag is-grey">9</span>
                     </a>
                 </div>
                 
@@ -1011,6 +1016,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/button/">
                         <span class="tag">button</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/cache/">
+                        <span class="tag">cache</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1081,6 +1093,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/懒加载，-原生JS/">
                         <span class="tag">懒加载， 原生JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/缓存/">
+                        <span class="tag">缓存</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1426,7 +1445,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Javascript/">
                         <span class="tag">Javascript</span>
-                        <span class="tag is-grey">8</span>
+                        <span class="tag is-grey">9</span>
                     </a>
                 </div>
                 
@@ -1475,6 +1494,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/button/">
                         <span class="tag">button</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/cache/">
+                        <span class="tag">cache</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1545,6 +1571,13 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/懒加载，-原生JS/">
                         <span class="tag">懒加载， 原生JS</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/缓存/">
+                        <span class="tag">缓存</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
