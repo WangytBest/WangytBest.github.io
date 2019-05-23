@@ -11,12 +11,12 @@
 <meta name="keywords" content="Javascript,cache,缓存">
 <meta property="og:type" content="article">
 <meta property="og:title" content="了解HTTP缓存">
-<meta property="og:url" content="http://wangytbest.github.io/2019/04/09/了解HTTP缓存/index.html">
+<meta property="og:url" content="http://wangytbest.github.io/2018/04/09/了解HTTP缓存/index.html">
 <meta property="og:site_name" content="王小贱">
 <meta property="og:description" content="在前端开发中，缓存有利于加快网页的加载速度，也是一种提高前端网站性能的常用方法。同时缓存可以被反复利用，减少流量和带宽的开销。 重用已获取的资源能够有效的提升网站与应用的性能。Web 缓存能够减少延迟与网络阻塞，进而减少显示某个资源所用的时间。借助 HTTP 缓存，Web 站点变得更具有响应性。(MDN HTTP缓存)">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wangytbest.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-05-23T08:12:17.813Z">
+<meta property="og:updated_time" content="2019-05-23T09:28:57.762Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="了解HTTP缓存">
 <meta name="twitter:description" content="在前端开发中，缓存有利于加快网页的加载速度，也是一种提高前端网站性能的常用方法。同时缓存可以被反复利用，减少流量和带宽的开销。 重用已获取的资源能够有效的提升网站与应用的性能。Web 缓存能够减少延迟与网络阻塞，进而减少显示某个资源所用的时间。借助 HTTP 缓存，Web 站点变得更具有响应性。(MDN HTTP缓存)">
@@ -172,7 +172,7 @@ var _hmt = _hmt || [];
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-04-09T07:53:46.000Z">2019-04-09</time>
+                <time class="level-item has-text-grey" datetime="2018-04-09T07:53:46.000Z">2018-04-09</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a>
@@ -182,7 +182,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    14 分钟 读完 (大约 2036 个字)
+                    19 分钟 读完 (大约 2802 个字)
                 </span>
                 
                 
@@ -211,7 +211,11 @@ var _hmt = _hmt || [];
 <li>代理服务器缓存</li>
 <li>浏览器缓存（主要是指http缓存，即协议层）</li>
 </ul>
-<p>浏览器缓存可以分为 <code>强缓存</code> 和 <code>协商缓存</code> 。</p>
+<p>浏览器缓存可以分为 <code>强缓存</code> 和 <code>协商缓存</code>，可以在 <code>HTTP协议头</code> 和 <code>HTML页面的 meta 标签</code> 中定义 。缓存分别从 <code>新鲜度</code> 和 <code>校验值</code> 两个维度来规定浏览器是否可以直接使用缓存中的副本，还是直接去服务器获取最新版本。</p>
+<ul>
+<li>新鲜度（过期机制）： 也就是缓存副本的有效期（过期时间或者有效时间）。</li>
+<li>校验值（验证机制）： 资源第一次请求后服务器返回会在控制头信息带上这个资源的实体标签（ Etag / Last-Modified ），这个信息可以用来作为浏览器再次请求过程的校验标识。如果服务器校验不匹配，说明资源已经被修改或者过期，服务器将新的资源重新返回给客户端。</li>
+</ul>
 <h2 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h2><p>强缓存：只有当缓存资源失效时，才会去服务器获取最新的资源。在 <code>HTTP header</code> 中，可以是设置强缓存的两个字段： <code>Expires</code> 和 <code>Cache-Control</code>。</p>
 <p>强缓存表示在缓存期间不需要在请求， <code>status code</code> 直接返回 <code>200</code>。</p>
 <p>强缓存过程：</p>
@@ -221,47 +225,20 @@ var _hmt = _hmt || [];
 <li><code>Header</code> 在重新加载的时候会被更新。</li>
 </ol>
 <h3 id="Pragam"><a href="#Pragam" class="headerlink" title="Pragam"></a>Pragam</h3><p><code>HTTP/1.0</code> ,值为 <code>no-cache</code> 时强制禁用缓存。</p>
-<h3 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h3><p>Expires 表示缓存的 <code>过期时间</code>，<code>HTTP/1</code>，是绝对时间（具体某一个时间点）。<br><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Expires: Thu, 09 Nov 2019 08:45:11 GMT</span><br></pre></td></tr></table></figure></p>
+<h3 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h3><p>Expires 表示缓存的 <code>过期时间</code>，<code>HTTP/1.0</code>，是绝对时间（具体某一个时间点）。<br><figure class="highlight http hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attribute">Expires</span>: Thu, 09 Nov 2018 08:45:11 GMT</span><br></pre></td></tr></table></figure></p>
 <p>响应报文中 Expires 定义的缓存时间是相对服务器上的时间而言的，其定义的是资源 <code>失效时刻</code> 。<strong>也就是说 <code>Expires</code> 的定义时间是根据服务器的时间定义的，但是客户端比较的时候是用本地时间比较</strong>。如果客户端上的时间和服务器上的时间不一致，缓存没有意义。</p>
-<h3 id="Cache-control"><a href="#Cache-control" class="headerlink" title="Cache-control"></a>Cache-control</h3><p><code>Cache-Control</code> 指定了资源的 <code>最大有效时间</code>，<code>HTTP/1.1</code> 。在该时间内，客户端不需要向服务器发送请求。</p>
+<h3 id="Cache-control"><a href="#Cache-control" class="headerlink" title="Cache-control"></a>Cache-control</h3><p><code>Cache-Control</code> 指定了资源的 <code>最大有效时间</code> 或者缓存策略，<code>HTTP/1.1</code> 。在该时间内，客户端不需要向服务器发送请求。</p>
 <p><code>HTTP/1.1</code> 定义的 <code>Cache-Control</code> 头用来区分对缓存机制的支持情况， 请求头和响应头都支持这个属性。通过它提供的不同的值来定义缓存策略。</p>
 <p>Cache-Control值类型</p>
-<table>
-<thead>
-<tr>
-<th>值</th>
-<th style="text-align:center">含义</th>
-<th style="text-align:left">备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>no-cache</td>
-<td style="text-align:center">强制确认缓存</td>
-<td style="text-align:left">每次有请求发出时，缓存会将此请求发到服务器，服务器端会验证请求中所描述的缓存是否过期，若未过期（注：实际就是返回 <code>304</code>），则缓存才使用本地缓存副本。</td>
-</tr>
-<tr>
-<td>no-store</td>
-<td style="text-align:center">禁止进行缓存</td>
-<td style="text-align:left">缓存中不得存储任何关于客户端请求和服务端响应的内容。每次由客户端发起的请求都会下载完整的响应内容。</td>
-</tr>
-<tr>
-<td>max-age</td>
-<td style="text-align:center">缓存过期时间</td>
-<td style="text-align:left"><code>max-age=&lt;seconds&gt;</code>，表示资源能够被缓存的最大时间。相对 <code>Expires</code> 而言，<code>max-age</code> 是距离请求发起的时间的秒数。针对应用中那些不会改变的文件，通常可以手动设置一定的时长以保证缓存有效，例如图片、css、js等静态资源。</td>
-</tr>
-<tr>
-<td>public</td>
-<td style="text-align:center">公共缓存</td>
-<td style="text-align:left">表示该响应可以被任何中间人（比如中间代理、CDN等）缓存。指定 public ，则一些通常不被中间人缓存的页面（如带有 HTTP 验证信息账号密码等 的页面或者某种特定状态的页面）也会被其缓存</td>
-</tr>
-<tr>
-<td>private（默认）</td>
-<td style="text-align:center">私有缓存</td>
-<td style="text-align:left">中间人不能缓存，该响应只能应用于浏览器私有缓存中。</td>
-</tr>
-</tbody>
-</table>
+<!-- |   值    |   含义  | 备注 |
+| -----  | :-----: | :----|
+| no-cache | 强制确认缓存 | 每次有请求发出时，缓存会将此请求发到服务器，服务器端会验证请求中所描述的缓存是否过期，若未过期（注：实际就是返回 `304`），则缓存才使用本地缓存副本。|
+| no-store | 禁止进行缓存 | 缓存中不得存储任何关于客户端请求和服务端响应的内容。每次由客户端发起的请求都会下载完整的响应内容。|
+| max-age | 缓存过期时间 | `max-age=<seconds>`，表示资源能够被缓存的最大时间。相对 `Expires` 而言，`max-age` 是距离请求发起的时间的秒数。针对应用中那些不会改变的文件，通常可以手动设置一定的时长以保证缓存有效，例如图片、css、js等静态资源。
+| public | 公共缓存 | 表示该响应可以被任何中间人（比如中间代理、CDN等）缓存。指定 public ，则一些通常不被中间人缓存的页面（如带有 HTTP 验证信息账号密码等 的页面或者某种特定状态的页面）也会被其缓存 |
+| private（默认） | 私有缓存 | 中间人不能缓存，该响应只能应用于浏览器私有缓存中。| -->
+<table><br>  <colgroup><br>    <col width="150px"><br>    <col width="150px"><br>    <col width><br>  </colgroup><br>  <thead><br>    <tr><br>      <th>值</th><br>      <th>含义</th><br>      <th>备注</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <td>no-cache</td><br>      <td>强制确认缓存</td><br>      <td>每次有请求发出时，缓存会将此请求发到服务器，服务器端会验证请求中所描述的缓存是否过期，若未过期（注：实际就是返回 <code>304</code>），则缓存才使用本地缓存副本。</td><br>    </tr><br>    <tr><br>      <td>no-store</td><br>      <td>禁止进行缓存</td><br>      <td>缓存中不得存储任何关于客户端请求和服务端响应的内容。每次由客户端发起的请求都会下载完整的响应内容。</td><br>    </tr><br>    <tr><br>      <td>max-age</td><br>      <td>缓存过期时间</td><br>      <td><code>max-age=&lt;seconds&gt;</code>，表示资源能够被缓存的最大时间。相对 <code>Expires</code> 而言，<code>max-age</code> 是距离请求发起的时间的秒数。针对应用中那些不会改变的文件，通常可以手动设置一定的时长以保证缓存有效，例如图片、css、js 等静态资源。</td><br>    </tr><br>    <tr><br>      <td>public</td><br>      <td>公共缓存</td><br>      <td>表示该响应可以被任何中间人（比如中间代理、CDN 等）缓存。指定 public ，则一些通常不被中间人缓存的页面（如带有 HTTP 验证信息账号密码等 的页面或者某种特定状态的页面）也会被其缓存</td><br>    </tr><br>    <tr><br>      <td>private（默认）</td><br>      <td>私有缓存</td><br>      <td>中间人不能缓存，该响应只能应用于浏览器私有缓存中。</td><br>    </tr><br>  </tbody><br></table>
+
 <h2 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h2><ul>
 <li><code>Last-Modified / If-Modified-Since</code> 在约定有效期的基础上，增加文件服务器上的最后修改时间进行再次验证</li>
 <li><code>Etag / If-None-Match</code> 在约定有效期的基础上，增加<code>文件版本号</code>的验证</li>
@@ -288,6 +265,12 @@ var _hmt = _hmt || [];
 <li>服务器再次收到资源请求时，再根据资源生成一个新的 <code>ETag</code> ，与浏览器传过来 <code>If-None-Match</code> 比较，如果这两个值相同就说明资源没有变化，则返回 <code>304 Not Modified</code> ，浏览器从缓存中加载资源，否则返回 <code>200</code> 并返回新的资源内容。</li>
 </ol>
 <p>与 <code>Last-Modified</code> 不一样的是，当服务器返回 <code>304 Not Modified</code> 的响应时，由于 <code>ETag</code> 重新生成过，response header 中还会把这个 <code>ETag</code> 返回，即使这个 <code>ETag</code> 跟之前的没有变化。</p>
+<p><code>Etag</code> 主要为了解决 <code>Last-Modified</code> 无法解决的一些问题：</p>
+<ol>
+<li>一些文件也许会周期性的更改，但是他的内容并不改变(仅仅改变的修改时间)，这个时候我们并不希望客户端认为这个文件被修改了，而重新GET；</li>
+<li>某些文件修改非常频繁，比如在秒以下的时间内进行修改，(比方说1s内修改了N次)，If-Modified-Since能检查到的粒度是s级的，这种修改无法判断(或者说UNIX记录MTIME只能精确到秒)；</li>
+<li>某些服务器不能精确的得到文件的最后修改时间。</li>
+</ol>
 <p><a href="http://juanha.coding.me/2017/03/05/http-cache/" target="_blank" rel="noopener">http缓存机制浅析</a><br><a href="https://imweb.io/topic/5795dcb6fb312541492eda8c" target="_blank" rel="noopener">HTTP缓存控制小结</a></p>
 <h2 id="缓存优先级"><a href="#缓存优先级" class="headerlink" title="缓存优先级"></a>缓存优先级</h2><ul>
 <li>强缓存 &gt; 协商缓存</li>
@@ -347,16 +330,16 @@ var _hmt = _hmt || [];
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/04/09/externals外部扩展理解/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2018/04/12/JS类型判断/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">externals外部扩展理解</span>
+                <span class="level-item">JS类型判断</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/04/09/圣杯布局（双飞翼布局）/">
-                <span class="level-item">圣杯布局（双飞翼布局）</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2018/04/03/sass基础入门/">
+                <span class="level-item">sass基础入门</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -375,7 +358,7 @@ var _hmt = _hmt || [];
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 	var gitment = new Gitment({
-		id: '2019/04/09/了解HTTP缓存/',
+		id: '2018/04/09/了解HTTP缓存/',
 		owner: 'WangytBest',
 		repo: 'wangytbest.github.io',
 		oauth: {
@@ -870,7 +853,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">12</span>
+                    <span class="level-item tag">11</span>
                 </span>
             </a>
         </li>
@@ -925,7 +908,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">四月 2018</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">6</span>
+                    <span class="level-item tag">7</span>
                 </span>
             </a>
         </li>
@@ -1348,7 +1331,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">四月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">12</span>
+                    <span class="level-item tag">11</span>
                 </span>
             </a>
         </li>
@@ -1403,7 +1386,7 @@ var _hmt = _hmt || [];
                     <span class="level-item">四月 2018</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">6</span>
+                    <span class="level-item tag">7</span>
                 </span>
             </a>
         </li>
