@@ -2,6 +2,125 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wangytbest.github.io/2019/04/09/BFC%E5%9D%97%E7%BA%A7%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%B8%8A%E4%B8%8B%E6%96%87/</loc>
+    
+    <lastmod>2019-05-23T09:37:39.481Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wangytbest.github.io/2018/04/18/canvas%E7%B2%BE%E7%81%B5/</loc>
+    
+    <lastmod>2019-05-23T09:37:36.948Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wangytbest.github.io/2018/05/30/cookie%E6%93%8D%E4%BD%9C/</loc>
+    
+    <lastmod>2019-05-23T09:37:32.082Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wangytbest.github.io/2017/09/20/css-lazy-load-image/</loc>
+    
+    <lastmod>2019-05-23T09:37:20.672Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wangytbest.github.io/2019/05/08/ES6%E4%B9%8BPromise/</loc>
+    
+    <lastmod>2019-05-23T09:37:04.836Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wangytbest.github.io/2017/09/26/javascript-ajax/</loc>
+    
+    <lastmod>2019-05-23T09:36:46.686Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wangytbest.github.io/2018/02/02/js-contro-gif-md/</loc>
+    
+    <lastmod>2019-05-23T09:36:40.786Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wangytbest.github.io/2018/05/30/localstroge%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98/</loc>
+    
+    <lastmod>2019-05-23T09:36:25.096Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wangytbest.github.io/2018/05/30/URL%E6%93%8D%E4%BD%9C%E5%A4%84%E7%90%86/</loc>
+    
+    <lastmod>2019-05-23T09:35:54.041Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wangytbest.github.io/2019/04/17/%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E6%94%B6%E9%9B%86/</loc>
+    
+    <lastmod>2019-05-23T09:35:31.645Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wangytbest.github.io/2018/05/30/%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/</loc>
+    
+    <lastmod>2019-05-23T09:34:53.164Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wangytbest.github.io/2018/03/21/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87/</loc>
+    
+    <lastmod>2019-05-23T09:34:40.452Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wangytbest.github.io/2019/05/21/%E7%90%86%E8%A7%A3css%E4%B8%AD%E7%9A%84%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87%E5%92%8C%E5%B1%82%E5%8F%A0%E9%A1%BA%E5%BA%8F/</loc>
+    
+    <lastmod>2019-05-23T09:34:16.631Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wangytbest.github.io/2017/04/09/%E5%A4%B4%E6%9D%A1%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/</loc>
+    
+    <lastmod>2019-05-23T09:33:32.921Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wangytbest.github.io/2019/02/18/%E9%9D%A2%E8%AF%95%E4%B9%8BCSS/</loc>
+    
+    <lastmod>2019-05-23T09:33:22.008Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wangytbest.github.io/2019/03/15/%E9%9D%A2%E8%AF%95%E4%B9%8BHTML/</loc>
+    
+    <lastmod>2019-05-23T09:33:16.433Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wangytbest.github.io/2019/03/02/%E9%9D%A2%E8%AF%95%E4%B9%8BJS/</loc>
+    
+    <lastmod>2019-05-23T09:33:09.479Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://wangytbest.github.io/2018/04/09/%E4%BA%86%E8%A7%A3HTTP%E7%BC%93%E5%AD%98/</loc>
     
     <lastmod>2019-05-23T09:32:08.960Z</lastmod>
@@ -23,30 +142,9 @@
   </url>
   
   <url>
-    <loc>http://wangytbest.github.io/2019/05/21/%E7%90%86%E8%A7%A3css%E4%B8%AD%E7%9A%84%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87%E5%92%8C%E5%B1%82%E5%8F%A0%E9%A1%BA%E5%BA%8F/</loc>
-    
-    <lastmod>2019-05-21T06:27:42.404Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://wangytbest.github.io/2019/05/10/CSS-Modules%E4%BA%86%E8%A7%A3%E4%B8%80%E4%B8%8B/</loc>
     
     <lastmod>2019-05-10T09:16:00.748Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wangytbest.github.io/2019/05/08/ES6%E4%B9%8BPromise/</loc>
-    
-    <lastmod>2019-05-08T10:22:02.986Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wangytbest.github.io/2019/03/02/%E9%9D%A2%E8%AF%95%E4%B9%8BJS/</loc>
-    
-    <lastmod>2019-05-08T09:24:43.849Z</lastmod>
     
   </url>
   
@@ -61,20 +159,6 @@
     <loc>http://wangytbest.github.io/2019/04/09/Vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/</loc>
     
     <lastmod>2019-05-08T08:22:55.572Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wangytbest.github.io/2017/09/20/css-lazy-load-image/</loc>
-    
-    <lastmod>2019-05-08T08:09:14.546Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wangytbest.github.io/2017/04/09/%E5%A4%B4%E6%9D%A1%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/</loc>
-    
-    <lastmod>2019-05-08T07:48:23.296Z</lastmod>
     
   </url>
   
@@ -96,27 +180,6 @@
     <loc>http://wangytbest.github.io/2019/04/18/JSBridge%E6%B5%85%E6%9E%90/</loc>
     
     <lastmod>2019-05-08T04:04:38.996Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wangytbest.github.io/2019/02/18/%E9%9D%A2%E8%AF%95%E4%B9%8BCSS/</loc>
-    
-    <lastmod>2019-04-19T07:28:26.268Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wangytbest.github.io/2019/03/15/%E9%9D%A2%E8%AF%95%E4%B9%8BHTML/</loc>
-    
-    <lastmod>2019-04-19T07:28:24.068Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wangytbest.github.io/2019/04/17/%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E6%94%B6%E9%9B%86/</loc>
-    
-    <lastmod>2019-04-17T09:23:36.054Z</lastmod>
     
   </url>
   
@@ -149,13 +212,6 @@
   </url>
   
   <url>
-    <loc>http://wangytbest.github.io/2019/04/09/BFC%E5%9D%97%E7%BA%A7%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%B8%8A%E4%B8%8B%E6%96%87/</loc>
-    
-    <lastmod>2019-04-11T10:53:43.640Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://wangytbest.github.io/2019/04/11/css%E4%B8%ADposition%E5%B1%9E%E6%80%A7%E6%B7%B1%E5%85%A5%E6%8E%A2%E8%AE%A8/</loc>
     
     <lastmod>2019-04-11T09:01:22.656Z</lastmod>
@@ -173,13 +229,6 @@
     <loc>http://wangytbest.github.io/2019/04/09/%E5%9C%A3%E6%9D%AF%E5%B8%83%E5%B1%80%EF%BC%88%E5%8F%8C%E9%A3%9E%E7%BF%BC%E5%B8%83%E5%B1%80%EF%BC%89/</loc>
     
     <lastmod>2019-04-09T10:07:25.638Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wangytbest.github.io/2017/09/26/javascript-ajax/</loc>
-    
-    <lastmod>2019-04-09T10:02:20.255Z</lastmod>
     
   </url>
   
@@ -240,20 +289,6 @@
   </url>
   
   <url>
-    <loc>http://wangytbest.github.io/2018/05/30/cookie%E6%93%8D%E4%BD%9C/</loc>
-    
-    <lastmod>2019-04-09T07:10:41.051Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wangytbest.github.io/2018/04/18/canvas%E7%B2%BE%E7%81%B5/</loc>
-    
-    <lastmod>2019-04-09T07:08:58.895Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://wangytbest.github.io/2017/09/25/css-button-click/</loc>
     
     <lastmod>2019-04-09T07:08:20.521Z</lastmod>
@@ -289,20 +324,6 @@
   </url>
   
   <url>
-    <loc>http://wangytbest.github.io/2018/02/02/js-contro-gif-md/</loc>
-    
-    <lastmod>2019-04-09T07:03:14.797Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wangytbest.github.io/2018/05/30/localstroge%E6%9C%AC%E5%9C%B0%E7%BC%93%E5%AD%98/</loc>
-    
-    <lastmod>2019-04-09T07:02:46.230Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://wangytbest.github.io/2018/05/29/MySQL%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</loc>
     
     <lastmod>2019-04-09T07:01:42.650Z</lastmod>
@@ -313,27 +334,6 @@
     <loc>http://wangytbest.github.io/2017/09/14/Uncaught-TypeError-angular-module-provider-info-is-not-a-function/</loc>
     
     <lastmod>2019-04-09T07:00:13.981Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wangytbest.github.io/2018/05/30/URL%E6%93%8D%E4%BD%9C%E5%A4%84%E7%90%86/</loc>
-    
-    <lastmod>2019-04-09T06:59:54.514Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wangytbest.github.io/2018/03/21/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BD%BF%E7%94%A8%E9%98%BF%E9%87%8C%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87/</loc>
-    
-    <lastmod>2019-04-09T06:58:19.759Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wangytbest.github.io/2018/05/30/%E6%97%B6%E9%97%B4%E5%A4%84%E7%90%86/</loc>
-    
-    <lastmod>2019-04-09T06:57:25.715Z</lastmod>
     
   </url>
   
@@ -359,13 +359,6 @@
   </url>
   
   <url>
-    <loc>http://wangytbest.github.io/timeline/index.html</loc>
-    
-    <lastmod>2018-08-30T06:27:06.277Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://wangytbest.github.io/tags/index.html</loc>
     
     <lastmod>2018-08-30T06:27:06.277Z</lastmod>
@@ -373,14 +366,21 @@
   </url>
   
   <url>
-    <loc>http://wangytbest.github.io/music/index.html</loc>
+    <loc>http://wangytbest.github.io/timeline/index.html</loc>
+    
+    <lastmod>2018-08-30T06:27:06.277Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wangytbest.github.io/matrix/index.html</loc>
     
     <lastmod>2018-08-30T06:27:06.276Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://wangytbest.github.io/matrix/index.html</loc>
+    <loc>http://wangytbest.github.io/music/index.html</loc>
     
     <lastmod>2018-08-30T06:27:06.276Z</lastmod>
     

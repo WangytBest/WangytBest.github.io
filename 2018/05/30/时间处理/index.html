@@ -8,6 +8,7 @@
 
 
     <meta name="description" content="时间处理方法">
+<meta name="keywords" content="Javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="时间处理">
 <meta property="og:url" content="http://wangytbest.github.io/2018/05/30/时间处理/index.html">
@@ -15,7 +16,7 @@
 <meta property="og:description" content="时间处理方法">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wangytbest.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-04-09T06:57:25.715Z">
+<meta property="og:updated_time" content="2019-05-23T09:34:53.164Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="时间处理">
 <meta name="twitter:description" content="时间处理方法">
@@ -170,7 +171,7 @@ var _hmt = _hmt || [];
                 <time class="level-item has-text-grey" datetime="2018-05-30T06:58:34.000Z">2018-05-30</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Javascript/util/">util</a>
+                <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a>
                 </div>
                 
                 
@@ -198,6 +199,15 @@ var _hmt = _hmt || [];
             <p>时间处理方法</p>
  <a id="more"></a>
 <figure class="highlight javascript hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="hljs-string">"date"</span>,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">require,exports,module</span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">var</span> _cacheThisModule_;</span><br><span class="line">    exports.format = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">date,formatStr</span>)</span>&#123;</span><br><span class="line">		<span class="hljs-comment">//格式化时间</span></span><br><span class="line">		<span class="hljs-keyword">var</span>	arrWeek=[<span class="hljs-string">'日'</span>,<span class="hljs-string">'一'</span>,<span class="hljs-string">'二'</span>,<span class="hljs-string">'三'</span>,<span class="hljs-string">'四'</span>,<span class="hljs-string">'五'</span>,<span class="hljs-string">'六'</span>],</span><br><span class="line">		str=formatStr</span><br><span class="line">			.replace(<span class="hljs-regexp">/yyyy|YYYY/</span>,date.getFullYear())</span><br><span class="line">			.replace(<span class="hljs-regexp">/yy|YY/</span>,$addZero(date.getFullYear() % <span class="hljs-number">100</span>,<span class="hljs-number">2</span>)	)</span><br><span class="line">			.replace(<span class="hljs-regexp">/mm|MM/</span>,$addZero(date.getMonth()+<span class="hljs-number">1</span>,<span class="hljs-number">2</span>))</span><br><span class="line">			.replace(<span class="hljs-regexp">/m|M/g</span>,date.getMonth()+<span class="hljs-number">1</span>)</span><br><span class="line">			.replace(<span class="hljs-regexp">/dd|DD/</span>,$addZero(date.getDate(),<span class="hljs-number">2</span>)	)</span><br><span class="line">			.replace(<span class="hljs-regexp">/d|D/g</span>,date.getDate())</span><br><span class="line">			.replace(<span class="hljs-regexp">/hh|HH/</span>,$addZero(date.getHours(),<span class="hljs-number">2</span>))</span><br><span class="line">			.replace(<span class="hljs-regexp">/h|H/g</span>,date.getHours())</span><br><span class="line">			.replace(<span class="hljs-regexp">/ii|II/</span>,$addZero(date.getMinutes(),<span class="hljs-number">2</span>))</span><br><span class="line">			.replace(<span class="hljs-regexp">/i|I/g</span>,date.getMinutes())</span><br><span class="line">			.replace(<span class="hljs-regexp">/ss|SS/</span>,$addZero(date.getSeconds(),<span class="hljs-number">2</span>))</span><br><span class="line">			.replace(<span class="hljs-regexp">/s|S/g</span>,date.getSeconds())</span><br><span class="line">			.replace(<span class="hljs-regexp">/w/g</span>,date.getDay())</span><br><span class="line">			.replace(<span class="hljs-regexp">/W/g</span>,arrWeek[date.getDay()]); </span><br><span class="line">		<span class="hljs-keyword">return</span> str;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	exports.getTimeDistance = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">ts</span>)</span>&#123;</span><br><span class="line">		<span class="hljs-comment">//根据时间差计算剩余的时间，返回[天，小时，分，秒]</span></span><br><span class="line">		<span class="hljs-keyword">var</span> timeLeft=[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>];<span class="hljs-comment">//结构：天、小时、分、秒</span></span><br><span class="line">		timeLeft[<span class="hljs-number">0</span>]=(ts&gt;<span class="hljs-number">86400</span>)?<span class="hljs-built_in">parseInt</span>(ts/<span class="hljs-number">86400</span>):<span class="hljs-number">0</span>;</span><br><span class="line">		ts=ts - timeLeft[<span class="hljs-number">0</span>] * <span class="hljs-number">86400</span>;</span><br><span class="line">		timeLeft[<span class="hljs-number">1</span>]=(ts&gt;<span class="hljs-number">3600</span>)?<span class="hljs-built_in">parseInt</span>(ts/<span class="hljs-number">3600</span>):<span class="hljs-number">0</span>;</span><br><span class="line">		ts=ts - timeLeft[<span class="hljs-number">1</span>] * <span class="hljs-number">3600</span>;</span><br><span class="line">		timeLeft[<span class="hljs-number">2</span>]=(ts&gt;<span class="hljs-number">60</span>)?<span class="hljs-built_in">parseInt</span>(ts/<span class="hljs-number">60</span>):<span class="hljs-number">0</span>;</span><br><span class="line">		timeLeft[<span class="hljs-number">3</span>]=ts - timeLeft[<span class="hljs-number">2</span>] * <span class="hljs-number">60</span>;</span><br><span class="line">		<span class="hljs-keyword">return</span> timeLeft;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	exports.getTimeInterval = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">st,et</span>)</span>&#123;</span><br><span class="line">		<span class="hljs-comment">//返回两个时间之间的间隔的描述字符串</span></span><br><span class="line">		<span class="hljs-keyword">var</span> dateLeft = <span class="hljs-number">0</span>;</span><br><span class="line">		<span class="hljs-keyword">var</span> hourLeft = <span class="hljs-number">0</span>;</span><br><span class="line">		<span class="hljs-keyword">var</span> minuteLeft = <span class="hljs-number">0</span>;</span><br><span class="line">		<span class="hljs-keyword">var</span> secondLeft = <span class="hljs-number">0</span>;</span><br><span class="line">		<span class="hljs-keyword">var</span> timeLeft=[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>];<span class="hljs-comment">//结构：天、小时、分、秒</span></span><br><span class="line">		<span class="hljs-keyword">var</span> timeStr=<span class="hljs-string">""</span>;</span><br><span class="line">		<span class="hljs-keyword">var</span> ts=(et&gt;st)?<span class="hljs-built_in">parseInt</span>((et-st)/<span class="hljs-number">1000</span>):<span class="hljs-number">0</span>;</span><br><span class="line">		timeLeft[<span class="hljs-number">0</span>]=(ts&gt;<span class="hljs-number">86400</span>)?<span class="hljs-built_in">parseInt</span>(ts/<span class="hljs-number">86400</span>):<span class="hljs-number">0</span>;</span><br><span class="line">		ts=ts - timeLeft[<span class="hljs-number">0</span>] * <span class="hljs-number">86400</span>;</span><br><span class="line">		timeLeft[<span class="hljs-number">1</span>]=(ts&gt;<span class="hljs-number">3600</span>)?<span class="hljs-built_in">parseInt</span>(ts/<span class="hljs-number">3600</span>):<span class="hljs-number">0</span>;</span><br><span class="line">		ts=ts - timeLeft[<span class="hljs-number">1</span>] * <span class="hljs-number">3600</span>;</span><br><span class="line">		timeLeft[<span class="hljs-number">2</span>]=(ts&gt;<span class="hljs-number">60</span>)?<span class="hljs-built_in">parseInt</span>(ts/<span class="hljs-number">60</span>):<span class="hljs-number">0</span>;</span><br><span class="line">		timeLeft[<span class="hljs-number">3</span>]=ts - timeLeft[<span class="hljs-number">2</span>] * <span class="hljs-number">60</span>;</span><br><span class="line">		timeStr=(timeLeft[<span class="hljs-number">0</span>]&gt;<span class="hljs-number">0</span>)?timeLeft[<span class="hljs-number">0</span>]+<span class="hljs-string">"天"</span>:<span class="hljs-string">""</span>;</span><br><span class="line">		timeStr+=(timeLeft[<span class="hljs-number">0</span>]&lt;=<span class="hljs-number">0</span> &amp;&amp; timeLeft[<span class="hljs-number">1</span>]&lt;=<span class="hljs-number">0</span>)?<span class="hljs-string">""</span>:(timeLeft[<span class="hljs-number">1</span>]+<span class="hljs-string">"小时"</span>);</span><br><span class="line">		timeStr+=(timeLeft[<span class="hljs-number">0</span>]&lt;=<span class="hljs-number">0</span> &amp;&amp; timeLeft[<span class="hljs-number">1</span>]&lt;=<span class="hljs-number">0</span> &amp;&amp; timeLeft[<span class="hljs-number">2</span>]&lt;=<span class="hljs-number">0</span>)?<span class="hljs-string">""</span>:(timeLeft[<span class="hljs-number">2</span>]+<span class="hljs-string">"分钟"</span>);</span><br><span class="line">		timeStr+=(timeLeft[<span class="hljs-number">0</span>]&lt;=<span class="hljs-number">0</span> &amp;&amp; timeLeft[<span class="hljs-number">1</span>]&lt;=<span class="hljs-number">0</span> &amp;&amp; timeLeft[<span class="hljs-number">2</span>]&lt;=<span class="hljs-number">0</span> &amp;&amp; timeLeft[<span class="hljs-number">3</span>]&lt;=<span class="hljs-number">0</span>)?<span class="hljs-string">""</span>:timeLeft[<span class="hljs-number">3</span>]+<span class="hljs-string">"秒"</span>;</span><br><span class="line">		<span class="hljs-keyword">return</span> timeStr;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">$addZero</span>(<span class="hljs-params">v,size</span>)</span>&#123;</span><br><span class="line">		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>,len=size-(v+<span class="hljs-string">""</span>).length;i&lt;len;i++)&#123;</span><br><span class="line">			v=<span class="hljs-string">"0"</span>+v;</span><br><span class="line">		&#125;;</span><br><span class="line">		<span class="hljs-keyword">return</span> v+<span class="hljs-string">""</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	exports.getServerTime = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">url</span>) </span>&#123;</span><br><span class="line">		<span class="hljs-keyword">var</span> sysTime = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'SYSTIME'</span>);</span><br><span class="line">		<span class="hljs-keyword">if</span>(sysTime)&#123;</span><br><span class="line">			<span class="hljs-keyword">var</span> ts = sysTime.value.substring(<span class="hljs-number">0</span>, <span class="hljs-number">19</span>).split(<span class="hljs-string">'-'</span>),</span><br><span class="line">				dObj = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(ts[<span class="hljs-number">0</span>], <span class="hljs-built_in">parseInt</span>(ts[<span class="hljs-number">1</span>], <span class="hljs-number">10</span>) - <span class="hljs-number">1</span>, ts[<span class="hljs-number">2</span>], ts[<span class="hljs-number">3</span>], ts[<span class="hljs-number">4</span>], ts[<span class="hljs-number">5</span>]);</span><br><span class="line">			<span class="hljs-keyword">return</span> dObj;</span><br><span class="line">		&#125;</span><br><span class="line">	    <span class="hljs-keyword">var</span> xhr = $xhrMaker(),</span><br><span class="line">	    url = url || <span class="hljs-string">"http://"</span> + <span class="hljs-built_in">window</span>.location.hostname+<span class="hljs-string">"/favicon.ico"</span>;</span><br><span class="line">		<span class="hljs-keyword">try</span>&#123;</span><br><span class="line">			xhr.open(<span class="hljs-string">"HEAD"</span>, url, <span class="hljs-literal">false</span>);</span><br><span class="line">			xhr.send();</span><br><span class="line">		&#125;<span class="hljs-keyword">catch</span>(e)&#123;</span><br><span class="line">			<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();</span><br><span class="line">		&#125;</span><br><span class="line">	    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(xhr.getResponseHeader(<span class="hljs-string">"Date"</span>));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">$xhrMaker</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">		<span class="hljs-keyword">var</span> xhr;</span><br><span class="line">		<span class="hljs-keyword">try</span>&#123;<span class="hljs-comment">// Firefox, Opera 8.0+, Safari</span></span><br><span class="line">			xhr=<span class="hljs-keyword">new</span> XMLHttpRequest();</span><br><span class="line">		&#125;<span class="hljs-keyword">catch</span>(e)&#123;<span class="hljs-comment">//Internet Explorer</span></span><br><span class="line">			<span class="hljs-keyword">try</span>&#123;</span><br><span class="line">				xhr=<span class="hljs-keyword">new</span> ActiveXObject(<span class="hljs-string">"Msxml2.XMLHTTP"</span>);</span><br><span class="line">			&#125;<span class="hljs-keyword">catch</span>(e)&#123;</span><br><span class="line">				<span class="hljs-keyword">try</span> &#123;</span><br><span class="line">					xhr=<span class="hljs-keyword">new</span> ActiveXObject(<span class="hljs-string">"Microsoft.XMLHTTP"</span>);</span><br><span class="line">				&#125;<span class="hljs-keyword">catch</span> (e)&#123;</span><br><span class="line">					xhr=<span class="hljs-literal">null</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">		<span class="hljs-keyword">return</span> xhr;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Javascript/">Javascript</a>
+                </div>
+            </div>
         </div>
         
         
@@ -336,7 +346,7 @@ var _hmt = _hmt || [];
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        19
+                        10
                     </p>
                 </div>
             </div>
@@ -433,7 +443,7 @@ var _hmt = _hmt || [];
                 <span class="level-item">CSS</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">13</span>
+                <span class="level-item tag">15</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Git/">
@@ -459,39 +469,7 @@ var _hmt = _hmt || [];
             <span class="level-end">
                 <span class="level-item tag">16</span>
             </span>
-        </a><ul><li>
-        <a class="level is-marginless" href="/categories/Javascript/ES6/">
-            <span class="level-start">
-                <span class="level-item">ES6</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/Javascript/canvas/">
-            <span class="level-start">
-                <span class="level-item">canvas</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/Javascript/util/">
-            <span class="level-start">
-                <span class="level-item">util</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">7</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/Javascript/阿里字体/">
-            <span class="level-start">
-                <span class="level-item">阿里字体</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/MySQL/">
             <span class="level-start">
                 <span class="level-item">MySQL</span>
@@ -516,14 +494,6 @@ var _hmt = _hmt || [];
                 <span class="level-item tag">2</span>
             </span>
         </a></li><li>
-        <a class="level is-marginless" href="/categories/css/">
-            <span class="level-start">
-                <span class="level-item">css</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
         <a class="level is-marginless" href="/categories/webpack/">
             <span class="level-start">
                 <span class="level-item">webpack</span>
@@ -539,39 +509,7 @@ var _hmt = _hmt || [];
             <span class="level-end">
                 <span class="level-item tag">4</span>
             </span>
-        </a><ul><li>
-        <a class="level is-marginless" href="/categories/面试/CSS/">
-            <span class="level-start">
-                <span class="level-item">CSS</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/面试/HTML/">
-            <span class="level-start">
-                <span class="level-item">HTML</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/面试/JS/">
-            <span class="level-start">
-                <span class="level-item">JS</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li><li>
-        <a class="level is-marginless" href="/categories/面试/头条/">
-            <span class="level-start">
-                <span class="level-item">头条</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li></ul></li>
+        </a></li>
             </ul>
         </div>
     </div>
@@ -583,7 +521,7 @@ var _hmt = _hmt || [];
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/HTML/" style="font-size: 12px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/JSBridge/" style="font-size: 10px;">JSBridge</a> <a href="/tags/Javascript/" style="font-size: 18px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 12px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 14px;">css</a> <a href="/tags/git/" style="font-size: 12px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/webpack/" style="font-size: 16px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/层叠上下文/" style="font-size: 10px;">层叠上下文</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 12px;">面试</a>
+        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/ES6/" style="font-size: 10px;">ES6</a> <a href="/tags/HTML/" style="font-size: 12.5px;">HTML</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/JSBridge/" style="font-size: 10px;">JSBridge</a> <a href="/tags/Javascript/" style="font-size: 17.5px;">Javascript</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Promise/" style="font-size: 10px;">Promise</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Vue/" style="font-size: 12.5px;">Vue</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/cache/" style="font-size: 10px;">cache</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/css/" style="font-size: 12.5px;">css</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/ngSanitize/" style="font-size: 10px;">ngSanitize</a> <a href="/tags/webpack/" style="font-size: 15px;">webpack</a> <a href="/tags/图片/" style="font-size: 10px;">图片</a> <a href="/tags/层叠上下文/" style="font-size: 10px;">层叠上下文</a> <a href="/tags/懒加载，-原生JS/" style="font-size: 10px;">懒加载， 原生JS</a> <a href="/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/tags/阿里字体/" style="font-size: 10px;">阿里字体</a> <a href="/tags/面试/" style="font-size: 12.5px;">面试</a>
     </div>
 </div>
 
@@ -611,7 +549,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-21T03:19:30.000Z">2019-05-21</time></div>
                     <a href="/2019/05/21/理解css中的层叠上下文和层叠顺序/" class="has-link-black-ter is-size-6">理解css中的层叠上下文和层叠顺序</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/css/">css</a>
+                        <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
                     </p>
                 </div>
             </div>
@@ -649,7 +587,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-08T09:25:09.000Z">2019-05-08</time></div>
                     <a href="/2019/05/08/ES6之Promise/" class="has-link-black-ter is-size-6">ES6之Promise</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/ES6/">ES6</a>
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a>
                     </p>
                 </div>
             </div>
@@ -860,7 +798,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/CSS/">
                         <span class="tag">CSS</span>
-                        <span class="tag is-grey">12</span>
+                        <span class="tag is-grey">14</span>
                     </a>
                 </div>
                 
@@ -972,7 +910,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/css/">
                         <span class="tag">css</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -1089,7 +1027,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-21T03:19:30.000Z">2019-05-21</time></div>
                     <a href="/2019/05/21/理解css中的层叠上下文和层叠顺序/" class="has-link-black-ter is-size-6">理解css中的层叠上下文和层叠顺序</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/css/">css</a>
+                        <a class="has-link-grey -link" href="/categories/CSS/">CSS</a>
                     </p>
                 </div>
             </div>
@@ -1127,7 +1065,7 @@ var _hmt = _hmt || [];
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-05-08T09:25:09.000Z">2019-05-08</time></div>
                     <a href="/2019/05/08/ES6之Promise/" class="has-link-black-ter is-size-6">ES6之Promise</a>
                     <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a> / <a class="has-link-grey -link" href="/categories/Javascript/ES6/">ES6</a>
+                        <a class="has-link-grey -link" href="/categories/Javascript/">Javascript</a>
                     </p>
                 </div>
             </div>
@@ -1338,7 +1276,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/CSS/">
                         <span class="tag">CSS</span>
-                        <span class="tag is-grey">12</span>
+                        <span class="tag is-grey">14</span>
                     </a>
                 </div>
                 
@@ -1450,7 +1388,7 @@ var _hmt = _hmt || [];
                 <div class="control">
                     <a class="tags has-addons" href="/tags/css/">
                         <span class="tag">css</span>
-                        <span class="tag is-grey">3</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
