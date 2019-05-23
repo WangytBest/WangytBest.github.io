@@ -16,7 +16,7 @@
 <meta property="og:description" content="在前端开发中，缓存有利于加快网页的加载速度，也是一种提高前端网站性能的常用方法。同时缓存可以被反复利用，减少流量和带宽的开销。 重用已获取的资源能够有效的提升网站与应用的性能。Web 缓存能够减少延迟与网络阻塞，进而减少显示某个资源所用的时间。借助 HTTP 缓存，Web 站点变得更具有响应性。(MDN HTTP缓存)">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://wangytbest.github.io/images/og_image.png">
-<meta property="og:updated_time" content="2019-05-23T09:28:57.762Z">
+<meta property="og:updated_time" content="2019-05-23T09:32:08.960Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="了解HTTP缓存">
 <meta name="twitter:description" content="在前端开发中，缓存有利于加快网页的加载速度，也是一种提高前端网站性能的常用方法。同时缓存可以被反复利用，减少流量和带宽的开销。 重用已获取的资源能够有效的提升网站与应用的性能。Web 缓存能够减少延迟与网络阻塞，进而减少显示某个资源所用的时间。借助 HTTP 缓存，Web 站点变得更具有响应性。(MDN HTTP缓存)">
@@ -182,7 +182,7 @@ var _hmt = _hmt || [];
                 <span class="level-item has-text-grey">
                     
                     
-                    19 分钟 读完 (大约 2802 个字)
+                    16 分钟 读完 (大约 2443 个字)
                 </span>
                 
                 
@@ -230,13 +230,6 @@ var _hmt = _hmt || [];
 <h3 id="Cache-control"><a href="#Cache-control" class="headerlink" title="Cache-control"></a>Cache-control</h3><p><code>Cache-Control</code> 指定了资源的 <code>最大有效时间</code> 或者缓存策略，<code>HTTP/1.1</code> 。在该时间内，客户端不需要向服务器发送请求。</p>
 <p><code>HTTP/1.1</code> 定义的 <code>Cache-Control</code> 头用来区分对缓存机制的支持情况， 请求头和响应头都支持这个属性。通过它提供的不同的值来定义缓存策略。</p>
 <p>Cache-Control值类型</p>
-<!-- |   值    |   含义  | 备注 |
-| -----  | :-----: | :----|
-| no-cache | 强制确认缓存 | 每次有请求发出时，缓存会将此请求发到服务器，服务器端会验证请求中所描述的缓存是否过期，若未过期（注：实际就是返回 `304`），则缓存才使用本地缓存副本。|
-| no-store | 禁止进行缓存 | 缓存中不得存储任何关于客户端请求和服务端响应的内容。每次由客户端发起的请求都会下载完整的响应内容。|
-| max-age | 缓存过期时间 | `max-age=<seconds>`，表示资源能够被缓存的最大时间。相对 `Expires` 而言，`max-age` 是距离请求发起的时间的秒数。针对应用中那些不会改变的文件，通常可以手动设置一定的时长以保证缓存有效，例如图片、css、js等静态资源。
-| public | 公共缓存 | 表示该响应可以被任何中间人（比如中间代理、CDN等）缓存。指定 public ，则一些通常不被中间人缓存的页面（如带有 HTTP 验证信息账号密码等 的页面或者某种特定状态的页面）也会被其缓存 |
-| private（默认） | 私有缓存 | 中间人不能缓存，该响应只能应用于浏览器私有缓存中。| -->
 <table><br>  <colgroup><br>    <col width="150px"><br>    <col width="150px"><br>    <col width><br>  </colgroup><br>  <thead><br>    <tr><br>      <th>值</th><br>      <th>含义</th><br>      <th>备注</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <td>no-cache</td><br>      <td>强制确认缓存</td><br>      <td>每次有请求发出时，缓存会将此请求发到服务器，服务器端会验证请求中所描述的缓存是否过期，若未过期（注：实际就是返回 <code>304</code>），则缓存才使用本地缓存副本。</td><br>    </tr><br>    <tr><br>      <td>no-store</td><br>      <td>禁止进行缓存</td><br>      <td>缓存中不得存储任何关于客户端请求和服务端响应的内容。每次由客户端发起的请求都会下载完整的响应内容。</td><br>    </tr><br>    <tr><br>      <td>max-age</td><br>      <td>缓存过期时间</td><br>      <td><code>max-age=&lt;seconds&gt;</code>，表示资源能够被缓存的最大时间。相对 <code>Expires</code> 而言，<code>max-age</code> 是距离请求发起的时间的秒数。针对应用中那些不会改变的文件，通常可以手动设置一定的时长以保证缓存有效，例如图片、css、js 等静态资源。</td><br>    </tr><br>    <tr><br>      <td>public</td><br>      <td>公共缓存</td><br>      <td>表示该响应可以被任何中间人（比如中间代理、CDN 等）缓存。指定 public ，则一些通常不被中间人缓存的页面（如带有 HTTP 验证信息账号密码等 的页面或者某种特定状态的页面）也会被其缓存</td><br>    </tr><br>    <tr><br>      <td>private（默认）</td><br>      <td>私有缓存</td><br>      <td>中间人不能缓存，该响应只能应用于浏览器私有缓存中。</td><br>    </tr><br>  </tbody><br></table>
 
 <h2 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h2><ul>
