@@ -3,7 +3,7 @@
 title: 前端面试集（HTML+CSS）
 date: 2019-03-15 16:46:10
 tags: [HTML, CSS, 面试]
-categories: [面试, HTML]
+categories: [面试]
 comments: true
 thumbnail: http://cloud.xuww.wang/resume.gif
 ---

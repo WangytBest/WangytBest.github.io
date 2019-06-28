@@ -2,7 +2,7 @@
 title: ES6之Promise
 toc: true
 tags: [Javascript, ES6, Promise]
-categories: [Javascript, ES6]
+categories: [Javascript]
 keywords: [Javascript, ES6, Promise]
 date: 2019-05-08 17:25:09
 thumbnail:

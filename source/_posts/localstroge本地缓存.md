@@ -1,7 +1,7 @@
 ---
 title: localstroge本地缓存
 date: 2018-05-30 15:01:25
-categories: [Javascript, util]
+categories: [Javascript]
 
 tags:
 ---

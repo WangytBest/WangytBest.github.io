@@ -2,7 +2,7 @@
 title: 面试之JS
 toc: true
 tags: []
-categories: [面试, JS]
+categories: [面试]
 keywords: [面试之JS]
 date: 2019-03-02 17:51:47
 thumbnail:

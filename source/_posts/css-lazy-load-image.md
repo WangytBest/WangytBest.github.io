@@ -2,7 +2,7 @@
 title: JS原生图片懒加载
 date: 2017-09-20 14:43:41
 tags: [Javascript, 图片, 懒加载， 原生JS]
-categories: [Javascript, util]
+categories: [Javascript]
 toc: true
 thumbnail: http://cloud.xuww.wang/banner.png
 ---

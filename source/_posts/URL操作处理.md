@@ -2,7 +2,7 @@
 title: URL操作处理
 date: 2018-05-30 15:02:33
 tags:
-categories: [Javascript, util]
+categories: [Javascript]
 ---
 
 URL

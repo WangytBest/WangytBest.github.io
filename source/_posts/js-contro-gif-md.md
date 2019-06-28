@@ -1,7 +1,7 @@
 ---
 title: JS控制GIF动画
 date: 2018-02-02 10:14:25
-categories: [Javascript, util]
+categories: [Javascript]
 tags:
 ---
 

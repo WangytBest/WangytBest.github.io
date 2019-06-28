@@ -3,7 +3,7 @@ title: AJAX异步请求
 date: 2017-09-26 16:33:26
 tags: [javascript, ajax]
 toc: true
-categories: [Javascript, util]
+categories: [Javascript]
 ---
 
 AJAX： Asyncchronous Javascript + XMLL

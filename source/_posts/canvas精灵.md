@@ -2,7 +2,7 @@
 title: canvas精灵
 date: 2018-04-18 17:40:26
 tags: [JS]
-categories: [Javascript, canvas]
+categories: [Javascript]
 ---
 
 <!-- more -->

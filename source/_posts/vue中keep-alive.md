@@ -77,7 +77,7 @@ tags: Vue
 </keep-alive>
 ```
 
-#1. 使用`include`和`exclude`
+1. 使用`include`和`exclude`
 ```html
 <keep-alive include='a,b,c' exclude='d,e,f'>
     <router-view>
@@ -86,7 +86,7 @@ tags: Vue
 </keep-alive>
 ```
 
-#2. 使用router.meta属性
+2. 使用router.meta属性
 设置路由，通过meta属性判断组件是否需要缓存
 
 ```javascript

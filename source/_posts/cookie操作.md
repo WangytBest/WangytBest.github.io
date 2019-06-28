@@ -1,7 +1,7 @@
 ---
 title: cookie操作
 date: 2018-05-30 14:57:34
-categories: [Javascript, util]
+categories: [Javascript]
 tags:
 ---
 
